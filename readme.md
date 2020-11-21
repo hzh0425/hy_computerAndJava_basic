@@ -6,7 +6,7 @@
 
 ### 文档
 
-http://zisuu.gitee.io/hy_computer_-and_-java_basic-knowledge
+http://zisuu.gitee.io/hy_computerandjava_basic
 
 ### 计划总结路线:
 
