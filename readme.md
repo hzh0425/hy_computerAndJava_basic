@@ -12,7 +12,8 @@ http://zisuu.gitee.io/hy_computerandjava_basic
 
 - 操作系统
 - 计算机网络
-- jvm(java 虚拟机)
+- 数据结构
+- jvm
 - 设计模式
 - 多线程,高并发
 - redis,mysql ,mongo 底层原理
