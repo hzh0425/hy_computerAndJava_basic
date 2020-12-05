@@ -1,0 +1,784 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.jvm内存结构 · 计算机 ,java , 大数据 基础知识体系</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hzh">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2.HotSpot虚拟机对象探秘.html" />
+    
+    
+    <link rel="prev" href="../数据结构/9.模板.html" />
+    
+
+    
+    
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">操作系统</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../操作系统/1.基本概述.html">
+            
+                <a href="../操作系统/1.基本概述.html">
+            
+                    
+                    1.操作系统基本概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../操作系统/2.进程管理之进程与线程.html">
+            
+                <a href="../操作系统/2.进程管理之进程与线程.html">
+            
+                    
+                    2.进程管理之进程与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../操作系统/3.进程管理之处理机调度.html">
+            
+                <a href="../操作系统/3.进程管理之处理机调度.html">
+            
+                    
+                    3.进程管理之处理机调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../操作系统/4.进程管理之进程同步.html">
+            
+                <a href="../操作系统/4.进程管理之进程同步.html">
+            
+                    
+                    4.进程管理之进程同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../操作系统/5.内存管理之基本概念.html">
+            
+                <a href="../操作系统/5.内存管理之基本概念.html">
+            
+                    
+                    5.内存管理之基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../操作系统/6.内存管理之虚拟内存.html">
+            
+                <a href="../操作系统/6.内存管理之虚拟内存.html">
+            
+                    
+                    6.内存管理之虚拟内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../操作系统/7.IO设备管理之基本概念.html">
+            
+                <a href="../操作系统/7.IO设备管理之基本概念.html">
+            
+                    
+                    7.IO设备管理之基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../操作系统/8.面试题总结一.html">
+            
+                <a href="../操作系统/8.面试题总结一.html">
+            
+                    
+                    8.面试题总结一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">计算机网络篇</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../计算机网络/1.计算机网络入门基础概念.html">
+            
+                <a href="../计算机网络/1.计算机网络入门基础概念.html">
+            
+                    
+                    1.计算机网络入门文章(必读)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../计算机网络/2.计算机网络通信基础.html">
+            
+                <a href="../计算机网络/2.计算机网络通信基础.html">
+            
+                    
+                    2.计算机网络通信入门文章(必读)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../计算机网络/3.数据链路层.html">
+            
+                <a href="../计算机网络/3.数据链路层.html">
+            
+                    
+                    3.数据链路层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../计算机网络/4.网络层1.html">
+            
+                <a href="../计算机网络/4.网络层1.html">
+            
+                    
+                    4.网络层(一)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../计算机网络/5.网络层2.html">
+            
+                <a href="../计算机网络/5.网络层2.html">
+            
+                    
+                    5.网络层(二)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../计算机网络/6.传输层.html">
+            
+                <a href="../计算机网络/6.传输层.html">
+            
+                    
+                    6.传输层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../计算机网络/7.应用层.html">
+            
+                <a href="../计算机网络/7.应用层.html">
+            
+                    
+                    7.应用层(⭐)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../计算机网络/10.HTTP相关协议.html">
+            
+                <a href="../计算机网络/10.HTTP相关协议.html">
+            
+                    
+                    8.HTTP相关及发展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" >
+            
+                <span>
+            
+                    
+                    9.websocket
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../计算机网络/9.面试题二.html">
+            
+                <a href="../计算机网络/9.面试题二.html">
+            
+                    
+                    面试题总结一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据结构篇</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../数据结构/1.图论.html">
+            
+                <a href="../数据结构/1.图论.html">
+            
+                    
+                    1.图论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../数据结构/2.图论例题.html">
+            
+                <a href="../数据结构/2.图论例题.html">
+            
+                    
+                    2.图论例题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../数据结构/3.散列表.html">
+            
+                <a href="../数据结构/3.散列表.html">
+            
+                    
+                    3.散列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../数据结构/4.排序算法.html">
+            
+                <a href="../数据结构/4.排序算法.html">
+            
+                    
+                    4.排序算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../数据结构/5.排序列题.html">
+            
+                <a href="../数据结构/5.排序列题.html">
+            
+                    
+                    5.排序算法例题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../数据结构/6.树论.html">
+            
+                <a href="../数据结构/6.树论.html">
+            
+                    
+                    6.树论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../数据结构/9.模板.html">
+            
+                <a href="../数据结构/9.模板.html">
+            
+                    
+                    算法模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">JVM篇</li>
+        
+        
+    
+        <li class="chapter active" data-level="4.1" data-path="1.jvm内存结构.html">
+            
+                <a href="1.jvm内存结构.html">
+            
+                    
+                    1.jvm内存结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="2.HotSpot虚拟机对象探秘.html">
+            
+                <a href="2.HotSpot虚拟机对象探秘.html">
+            
+                    
+                    2.HotSpot虚拟机对象探秘.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="3.对象存亡与垃圾收集算法.html">
+            
+                <a href="3.对象存亡与垃圾收集算法.html">
+            
+                    
+                    3.对象存亡与垃圾收集算法.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">多线程篇</li>
+        
+        
+    
+
+    
+        
+        <li class="header">设计模式篇</li>
+        
+        
+    
+
+    
+        
+        <li class="header">mysql篇</li>
+        
+        
+    
+
+    
+        
+        <li class="header">redis篇</li>
+        
+        
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.jvm内存结构</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#jvm-&#x5185;&#x5B58;&#x7ED3;&#x6784;"><b></b>JVM &#x5185;&#x5B58;&#x7ED3;&#x6784;</a></li><ul><li><span class="title-icon "></span><a href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#xFF08;pc-&#x5BC4;&#x5B58;&#x5668;&#xFF09;"><b></b>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#xFF08;PC &#x5BC4;&#x5B58;&#x5668;&#xFF09;</a></li><ul><li><span class="title-icon "></span><a href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x5B9A;&#x4E49;"><b></b>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x5B9A;&#x4E49;</a></li><li><span class="title-icon "></span><a href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x4F5C;&#x7528;"><b></b>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x4F5C;&#x7528;</a></li><li><span class="title-icon "></span><a href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x7279;&#x70B9;"><b></b>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x7279;&#x70B9;</a></li></ul><li><span class="title-icon "></span><a href="#java-&#x865A;&#x62DF;&#x673A;&#x6808;&#xFF08;java-&#x6808;&#xFF09;"><b></b>Java &#x865A;&#x62DF;&#x673A;&#x6808;&#xFF08;Java &#x6808;&#xFF09;</a></li><ul><li><span class="title-icon "></span><a href="#java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x5B9A;&#x4E49;"><b></b>Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x5B9A;&#x4E49;</a></li><li><span class="title-icon "></span><a href="#&#x538B;&#x6808;&#x51FA;&#x6808;&#x8FC7;&#x7A0B;"><b></b>&#x538B;&#x6808;&#x51FA;&#x6808;&#x8FC7;&#x7A0B;</a></li><li><span class="title-icon "></span><a href="#java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x7279;&#x70B9;"><b></b>Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x7279;&#x70B9;</a></li></ul><li><span class="title-icon "></span><a href="#&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#xFF08;c-&#x6808;&#xFF09;"><b></b>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#xFF08;C &#x6808;&#xFF09;</a></li><ul><li><span class="title-icon "></span><a href="#&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x7684;&#x5B9A;&#x4E49;"><b></b>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x7684;&#x5B9A;&#x4E49;</a></li><li><span class="title-icon "></span><a href="#&#x6808;&#x5E27;&#x53D8;&#x5316;&#x8FC7;&#x7A0B;"><b></b>&#x6808;&#x5E27;&#x53D8;&#x5316;&#x8FC7;&#x7A0B;</a></li></ul><li><span class="title-icon "></span><a href="#&#x5806;"><b></b>&#x5806;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5806;&#x7684;&#x5B9A;&#x4E49;"><b></b>&#x5806;&#x7684;&#x5B9A;&#x4E49;</a></li><li><span class="title-icon "></span><a href="#&#x5806;&#x7684;&#x7279;&#x70B9;"><b></b>&#x5806;&#x7684;&#x7279;&#x70B9;</a></li></ul><li><span class="title-icon "></span><a href="#&#x65B9;&#x6CD5;&#x533A;"><b></b>&#x65B9;&#x6CD5;&#x533A;</a></li><ul><li><span class="title-icon "></span><a href="#&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x5B9A;&#x4E49;"><b></b>&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x5B9A;&#x4E49;</a></li><li><span class="title-icon "></span><a href="#&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x7279;&#x70B9;"><b></b>&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x7279;&#x70B9;</a></li><li><span class="title-icon "></span><a href="#&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;"><b></b>&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;</a></li></ul><li><span class="title-icon "></span><a href="#&#x76F4;&#x63A5;&#x5185;&#x5B58;&#xFF08;&#x5806;&#x5916;&#x5185;&#x5B58;&#xFF09;"><b></b>&#x76F4;&#x63A5;&#x5185;&#x5B58;&#xFF08;&#x5806;&#x5916;&#x5185;&#x5B58;&#xFF09;</a></li><ul><li><span class="title-icon "></span><a href="#&#x64CD;&#x4F5C;&#x76F4;&#x63A5;&#x5185;&#x5B58;"><b></b>&#x64CD;&#x4F5C;&#x76F4;&#x63A5;&#x5185;&#x5B58;</a></li><li><span class="title-icon "></span><a href="#&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x4E0E;&#x5806;&#x5185;&#x5B58;&#x6BD4;&#x8F83;"><b></b>&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x4E0E;&#x5806;&#x5185;&#x5B58;&#x6BD4;&#x8F83;</a></li></ul></ul></ul></div><a href="#jvm-&#x5185;&#x5B58;&#x7ED3;&#x6784;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="jvm-&#x5185;&#x5B58;&#x7ED3;&#x6784;"><a name="jvm-&#x5185;&#x5B58;&#x7ED3;&#x6784;" class="anchor-navigation-ex-anchor" href="#jvm-&#x5185;&#x5B58;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="jvm-&#x5185;&#x5B58;&#x7ED3;&#x6784;" class="plugin-anchor" href="#jvm-&#x5185;&#x5B58;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>JVM &#x5185;&#x5B58;&#x7ED3;&#x6784;</h1>
+<p>Java &#x865A;&#x62DF;&#x673A;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x5206;&#x4E3A; 5 &#x4E2A;&#x90E8;&#x5206;&#xFF1A;</p>
+<ul>
+<li>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;</li>
+<li>Java &#x865A;&#x62DF;&#x673A;&#x6808;</li>
+<li>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;</li>
+<li>&#x5806;</li>
+<li>&#x65B9;&#x6CD5;&#x533A;</li>
+</ul>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201202003209.jpg" alt="jvm-memory-structure"></p>
+<p>JDK 1.8 &#x540C; JDK 1.7 &#x6BD4;&#xFF0C;&#x6700;&#x5927;&#x7684;&#x5DEE;&#x522B;&#x5C31;&#x662F;&#xFF1A;&#x5143;&#x6570;&#x636E;&#x533A;&#x53D6;&#x4EE3;&#x4E86;&#x6C38;&#x4E45;&#x4EE3;&#x3002;&#x5143;&#x7A7A;&#x95F4;&#x7684;&#x672C;&#x8D28;&#x548C;&#x6C38;&#x4E45;&#x4EE3;&#x7C7B;&#x4F3C;&#xFF0C;&#x90FD;&#x662F;&#x5BF9; JVM &#x89C4;&#x8303;&#x4E2D;&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x4E0D;&#x8FC7;&#x5143;&#x7A7A;&#x95F4;&#x4E0E;&#x6C38;&#x4E45;&#x4EE3;&#x4E4B;&#x95F4;&#x6700;&#x5927;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#xFF1A;&#x5143;&#x6570;&#x636E;&#x7A7A;&#x95F4;&#x5E76;&#x4E0D;&#x5728;&#x865A;&#x62DF;&#x673A;&#x4E2D;&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528;&#x672C;&#x5730;&#x5185;&#x5B58;&#x3002;</p>
+<h2 id="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#xFF08;pc-&#x5BC4;&#x5B58;&#x5668;&#xFF09;"><a name="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#xFF08;pc-&#x5BC4;&#x5B58;&#x5668;&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#xFF08;pc-&#x5BC4;&#x5B58;&#x5668;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#xFF08;pc-&#x5BC4;&#x5B58;&#x5668;&#xFF09;" class="plugin-anchor" href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#xFF08;pc-&#x5BC4;&#x5B58;&#x5668;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#xFF08;PC &#x5BC4;&#x5B58;&#x5668;&#xFF09;</h2>
+<h3 id="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x5B9A;&#x4E49;"><a name="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x5B9A;&#x4E49;" class="plugin-anchor" href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x5B9A;&#x4E49;</h3>
+<p>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x662F;&#x4E00;&#x5757;&#x8F83;&#x5C0F;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF0C;&#x662F;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x90A3;&#x6761;&#x5B57;&#x8282;&#x7801;&#x6307;&#x4EE4;&#x7684;&#x5730;&#x5740;&#x3002;&#x82E5;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x4E48;&#x6B64;&#x65F6;&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x4E3A;<code>Undefined</code>&#x3002;</p>
+<h3 id="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x4F5C;&#x7528;"><a name="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x4F5C;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x4F5C;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x4F5C;&#x7528;" class="plugin-anchor" href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x4F5C;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x4F5C;&#x7528;</h3>
+<ul>
+<li>&#x5B57;&#x8282;&#x7801;&#x89E3;&#x91CA;&#x5668;&#x901A;&#x8FC7;&#x6539;&#x53D8;&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x6765;&#x4F9D;&#x6B21;&#x8BFB;&#x53D6;&#x6307;&#x4EE4;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x7684;&#x6D41;&#x7A0B;&#x63A7;&#x5236;&#x3002;</li>
+<li>&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x8BB0;&#x5F55;&#x7684;&#x662F;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4ECE;&#x800C;&#x5F53;&#x7EBF;&#x7A0B;&#x5207;&#x6362;&#x56DE;&#x6765;&#x65F6;&#xFF0C;&#x5C31;&#x77E5;&#x9053;&#x4E0A;&#x6B21;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5230;&#x54EA;&#x4E86;&#x3002;</li>
+</ul>
+<h3 id="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x7279;&#x70B9;"><a name="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x7279;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x7279;&#x70B9;" class="plugin-anchor" href="#&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x7279;&#x70B9;</h3>
+<ul>
+<li>&#x662F;&#x4E00;&#x5757;&#x8F83;&#x5C0F;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x3002;</li>
+<li>&#x7EBF;&#x7A0B;&#x79C1;&#x6709;&#xFF0C;&#x6BCF;&#x6761;&#x7EBF;&#x7A0B;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x3002;</li>
+<li>&#x751F;&#x547D;&#x5468;&#x671F;&#xFF1A;&#x968F;&#x7740;&#x7EBF;&#x7A0B;&#x7684;&#x521B;&#x5EFA;&#x800C;&#x521B;&#x5EFA;&#xFF0C;&#x968F;&#x7740;&#x7EBF;&#x7A0B;&#x7684;&#x7ED3;&#x675F;&#x800C;&#x9500;&#x6BC1;&#x3002;</li>
+<li>&#x662F;&#x552F;&#x4E00;&#x4E00;&#x4E2A;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;<code>OutOfMemoryError</code>&#x7684;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x3002;</li>
+</ul>
+<h2 id="java-&#x865A;&#x62DF;&#x673A;&#x6808;&#xFF08;java-&#x6808;&#xFF09;"><a name="java-&#x865A;&#x62DF;&#x673A;&#x6808;&#xFF08;java-&#x6808;&#xFF09;" class="anchor-navigation-ex-anchor" href="#java-&#x865A;&#x62DF;&#x673A;&#x6808;&#xFF08;java-&#x6808;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="java-&#x865A;&#x62DF;&#x673A;&#x6808;&#xFF08;java-&#x6808;&#xFF09;" class="plugin-anchor" href="#java-&#x865A;&#x62DF;&#x673A;&#x6808;&#xFF08;java-&#x6808;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>Java &#x865A;&#x62DF;&#x673A;&#x6808;&#xFF08;Java &#x6808;&#xFF09;</h2>
+<h3 id="java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x5B9A;&#x4E49;"><a name="java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x5B9A;&#x4E49;" class="plugin-anchor" href="#java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x5B9A;&#x4E49;</h3>
+<p>Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x662F;&#x63CF;&#x8FF0; Java &#x65B9;&#x6CD5;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x7684;&#x5185;&#x5B58;&#x6A21;&#x578B;&#x3002;</p>
+<p>Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x4F1A;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;&#x5373;&#x5C06;&#x8FD0;&#x884C;&#x7684; Java &#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x5757;&#x53EB;&#x505A;&#x201C;&#x6808;&#x5E27;&#x201D;&#x7684;&#x533A;&#x57DF;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x653E;&#x8BE5;&#x65B9;&#x6CD5;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#xFF0C;&#x5982;&#xFF1A;</p>
+<ul>
+<li>&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;</li>
+<li>&#x64CD;&#x4F5C;&#x6570;&#x6808;</li>
+<li>&#x52A8;&#x6001;&#x94FE;&#x63A5;</li>
+<li>&#x65B9;&#x6CD5;&#x51FA;&#x53E3;&#x4FE1;&#x606F;</li>
+<li>......</li>
+</ul>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201202003209.jpg" alt="jvm-stack"></p>
+<h3 id="&#x538B;&#x6808;&#x51FA;&#x6808;&#x8FC7;&#x7A0B;"><a name="&#x538B;&#x6808;&#x51FA;&#x6808;&#x8FC7;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#&#x538B;&#x6808;&#x51FA;&#x6808;&#x8FC7;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x538B;&#x6808;&#x51FA;&#x6808;&#x8FC7;&#x7A0B;" class="plugin-anchor" href="#&#x538B;&#x6808;&#x51FA;&#x6808;&#x8FC7;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x538B;&#x6808;&#x51FA;&#x6808;&#x8FC7;&#x7A0B;</h3>
+<p>&#x5F53;&#x65B9;&#x6CD5;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x5C31;&#x5C06;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x5B58;&#x5165;&#x6808;&#x5E27;&#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#x4E2D;&#x3002;</p>
+<p>Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x6808;&#x9876;&#x7684;&#x6808;&#x5E27;&#x662F;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x6D3B;&#x52A8;&#x6808;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;PC &#x5BC4;&#x5B58;&#x5668;&#x4E5F;&#x4F1A;&#x6307;&#x5411;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x3002;&#x53EA;&#x6709;&#x8FD9;&#x4E2A;&#x6D3B;&#x52A8;&#x7684;&#x6808;&#x5E27;&#x7684;&#x672C;&#x5730;&#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x88AB;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4F7F;&#x7528;&#xFF0C;&#x5F53;&#x5728;&#x8FD9;&#x4E2A;&#x6808;&#x5E27;&#x4E2D;&#x8C03;&#x7528;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0E;&#x4E4B;&#x5BF9;&#x5E94;&#x7684;&#x6808;&#x5E27;&#x53C8;&#x4F1A;&#x88AB;&#x521B;&#x5EFA;&#xFF0C;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x6808;&#x5E27;&#x538B;&#x5165;&#x6808;&#x9876;&#xFF0C;&#x53D8;&#x4E3A;&#x5F53;&#x524D;&#x7684;&#x6D3B;&#x52A8;&#x6808;&#x5E27;&#x3002;</p>
+<p>&#x65B9;&#x6CD5;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x5F53;&#x524D;&#x6808;&#x5E27;&#x88AB;&#x79FB;&#x51FA;&#xFF0C;&#x6808;&#x5E27;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x53D8;&#x6210;&#x65B0;&#x7684;&#x6D3B;&#x52A8;&#x6808;&#x5E27;&#x4E2D;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x7684;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x6570;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x65B0;&#x7684;&#x6D3B;&#x52A8;&#x6808;&#x5E27;&#x4E2D;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x6CA1;&#x6709;&#x53D8;&#x5316;&#x3002;</p>
+<blockquote>
+<p>&#x7531;&#x4E8E; Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x662F;&#x4E0E;&#x7EBF;&#x7A0B;&#x5BF9;&#x5E94;&#x7684;&#xFF0C;&#x6570;&#x636E;&#x4E0D;&#x662F;&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x7528;&#x5173;&#x5FC3;&#x6570;&#x636E;&#x4E00;&#x81F4;&#x6027;&#x95EE;&#x9898;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x5B58;&#x5728;&#x540C;&#x6B65;&#x9501;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+</blockquote>
+<h3 id="java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x7279;&#x70B9;"><a name="java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x7279;&#x70B9;" class="anchor-navigation-ex-anchor" href="#java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x7279;&#x70B9;" class="plugin-anchor" href="#java-&#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x7279;&#x70B9;</h3>
+<ul>
+<li>&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#x968F;&#x7740;&#x6808;&#x5E27;&#x7684;&#x521B;&#x5EFA;&#x800C;&#x521B;&#x5EFA;&#xFF0C;&#x5B83;&#x7684;&#x5927;&#x5C0F;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x786E;&#x5B9A;&#xFF0C;&#x521B;&#x5EFA;&#x65F6;&#x53EA;&#x9700;&#x5206;&#x914D;&#x4E8B;&#x5148;&#x89C4;&#x5B9A;&#x7684;&#x5927;&#x5C0F;&#x5373;&#x53EF;&#x3002;&#x5728;&#x65B9;&#x6CD5;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#x7684;&#x5927;&#x5C0F;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x3002;</li>
+<li>Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x4F1A;&#x51FA;&#x73B0;&#x4E24;&#x79CD;&#x5F02;&#x5E38;&#xFF1A;StackOverFlowError &#x548C; OutOfMemoryError&#x3002;<ul>
+<li>StackOverFlowError &#x82E5; Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x5927;&#x5C0F;&#x4E0D;&#x5141;&#x8BB8;&#x52A8;&#x6001;&#x6269;&#x5C55;&#xFF0C;&#x90A3;&#x4E48;&#x5F53;&#x7EBF;&#x7A0B;&#x8BF7;&#x6C42;&#x6808;&#x7684;&#x6DF1;&#x5EA6;&#x8D85;&#x8FC7;&#x5F53;&#x524D; Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x7684;&#x6700;&#x5927;&#x6DF1;&#x5EA6;&#x65F6;&#xFF0C;&#x629B;&#x51FA; StackOverFlowError &#x5F02;&#x5E38;&#x3002;</li>
+<li>OutOfMemoryError &#x82E5;&#x5141;&#x8BB8;&#x52A8;&#x6001;&#x6269;&#x5C55;&#xFF0C;&#x90A3;&#x4E48;&#x5F53;&#x7EBF;&#x7A0B;&#x8BF7;&#x6C42;&#x6808;&#x65F6;&#x5185;&#x5B58;&#x7528;&#x5B8C;&#x4E86;&#xFF0C;&#x65E0;&#x6CD5;&#x518D;&#x52A8;&#x6001;&#x6269;&#x5C55;&#x65F6;&#xFF0C;&#x629B;&#x51FA; OutOfMemoryError &#x5F02;&#x5E38;&#x3002;</li>
+</ul>
+</li>
+<li>Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x4E5F;&#x662F;&#x7EBF;&#x7A0B;&#x79C1;&#x6709;&#xFF0C;&#x968F;&#x7740;&#x7EBF;&#x7A0B;&#x521B;&#x5EFA;&#x800C;&#x521B;&#x5EFA;&#xFF0C;&#x968F;&#x7740;&#x7EBF;&#x7A0B;&#x7684;&#x7ED3;&#x675F;&#x800C;&#x9500;&#x6BC1;&#x3002;</li>
+</ul>
+<blockquote>
+<p>&#x51FA;&#x73B0; StackOverFlowError &#x65F6;&#xFF0C;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x53EF;&#x80FD;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x3002;</p>
+</blockquote>
+<h2 id="&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#xFF08;c-&#x6808;&#xFF09;"><a name="&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#xFF08;c-&#x6808;&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#xFF08;c-&#x6808;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#xFF08;c-&#x6808;&#xFF09;" class="plugin-anchor" href="#&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#xFF08;c-&#x6808;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#xFF08;C &#x6808;&#xFF09;</h2>
+<h3 id="&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x7684;&#x5B9A;&#x4E49;"><a name="&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x7684;&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x7684;&#x5B9A;&#x4E49;" class="plugin-anchor" href="#&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x7684;&#x5B9A;&#x4E49;</h3>
+<p>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x662F;&#x4E3A; JVM &#x8FD0;&#x884C; Native &#x65B9;&#x6CD5;&#x51C6;&#x5907;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x7531;&#x4E8E;&#x5F88;&#x591A; Native &#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x7528; C &#x8BED;&#x8A00;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x901A;&#x5E38;&#x53C8;&#x53EB; C &#x6808;&#x3002;&#x5B83;&#x4E0E; Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#x7C7B;&#x4F3C;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x662F;&#x63CF;&#x8FF0;&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x7684;&#x5185;&#x5B58;&#x6A21;&#x578B;&#x3002;</p>
+<h3 id="&#x6808;&#x5E27;&#x53D8;&#x5316;&#x8FC7;&#x7A0B;"><a name="&#x6808;&#x5E27;&#x53D8;&#x5316;&#x8FC7;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#&#x6808;&#x5E27;&#x53D8;&#x5316;&#x8FC7;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x6808;&#x5E27;&#x53D8;&#x5316;&#x8FC7;&#x7A0B;" class="plugin-anchor" href="#&#x6808;&#x5E27;&#x53D8;&#x5316;&#x8FC7;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6808;&#x5E27;&#x53D8;&#x5316;&#x8FC7;&#x7A0B;</h3>
+<p>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x88AB;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x5728;&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x4E5F;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x5757;&#x6808;&#x5E27;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x653E;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#x3001;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x3001;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x3001;&#x65B9;&#x6CD5;&#x51FA;&#x53E3;&#x4FE1;&#x606F;&#x7B49;&#x3002;</p>
+<p>&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x76F8;&#x5E94;&#x7684;&#x6808;&#x5E27;&#x4E5F;&#x4F1A;&#x51FA;&#x6808;&#xFF0C;&#x5E76;&#x91CA;&#x653E;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x3002;&#x4E5F;&#x4F1A;&#x629B;&#x51FA; StackOverFlowError &#x548C; OutOfMemoryError &#x5F02;&#x5E38;&#x3002;</p>
+<blockquote>
+<p>&#x5982;&#x679C; Java &#x865A;&#x62DF;&#x673A;&#x672C;&#x8EAB;&#x4E0D;&#x652F;&#x6301; Native &#x65B9;&#x6CD5;&#xFF0C;&#x6216;&#x662F;&#x672C;&#x8EAB;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x4F20;&#x7EDF;&#x6808;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x4E0D;&#x63D0;&#x4F9B;&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x3002;&#x5982;&#x679C;&#x652F;&#x6301;&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x6808;&#x4E00;&#x822C;&#x4F1A;&#x5728;&#x7EBF;&#x7A0B;&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#x6309;&#x7EBF;&#x7A0B;&#x5206;&#x914D;&#x3002;</p>
+</blockquote>
+<h2 id="&#x5806;"><a name="&#x5806;" class="anchor-navigation-ex-anchor" href="#&#x5806;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5806;" class="plugin-anchor" href="#&#x5806;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5806;</h2>
+<h3 id="&#x5806;&#x7684;&#x5B9A;&#x4E49;"><a name="&#x5806;&#x7684;&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#&#x5806;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5806;&#x7684;&#x5B9A;&#x4E49;" class="plugin-anchor" href="#&#x5806;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5806;&#x7684;&#x5B9A;&#x4E49;</h3>
+<p>&#x5806;&#x662F;&#x7528;&#x6765;&#x5B58;&#x653E;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF0C;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x5B58;&#x50A8;&#x5728;&#x5806;&#x4E2D;&#x3002;</p>
+<h3 id="&#x5806;&#x7684;&#x7279;&#x70B9;"><a name="&#x5806;&#x7684;&#x7279;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x5806;&#x7684;&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5806;&#x7684;&#x7279;&#x70B9;" class="plugin-anchor" href="#&#x5806;&#x7684;&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5806;&#x7684;&#x7279;&#x70B9;</h3>
+<ul>
+<li>&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#xFF0C;&#x6574;&#x4E2A; Java &#x865A;&#x62DF;&#x673A;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5806;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x7EBF;&#x7A0B;&#x90FD;&#x8BBF;&#x95EE;&#x540C;&#x4E00;&#x4E2A;&#x5806;&#x3002;&#x800C;&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x3001;Java &#x865A;&#x62DF;&#x673A;&#x6808;&#x3001;&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x3002;</li>
+<li>&#x5728;&#x865A;&#x62DF;&#x673A;&#x542F;&#x52A8;&#x65F6;&#x521B;&#x5EFA;&#x3002;</li>
+<li>&#x662F;&#x5783;&#x573E;&#x56DE;&#x6536;&#x7684;&#x4E3B;&#x8981;&#x573A;&#x6240;&#x3002;</li>
+<li>&#x8FDB;&#x4E00;&#x6B65;&#x53EF;&#x5206;&#x4E3A;&#xFF1A;&#x65B0;&#x751F;&#x4EE3;(Eden &#x533A; From Survior To Survivor)&#x3001;&#x8001;&#x5E74;&#x4EE3;&#x3002;</li>
+</ul>
+<p>&#x4E0D;&#x540C;&#x7684;&#x533A;&#x57DF;&#x5B58;&#x653E;&#x4E0D;&#x540C;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x533A;&#x57DF;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;&#xFF0C;&#x66F4;&#x5177;&#x6709;&#x9488;&#x5BF9;&#x6027;&#x3002;</p>
+<p>&#x5806;&#x7684;&#x5927;&#x5C0F;&#x65E2;&#x53EF;&#x4EE5;&#x56FA;&#x5B9A;&#x4E5F;&#x53EF;&#x4EE5;&#x6269;&#x5C55;&#xFF0C;&#x4F46;&#x5BF9;&#x4E8E;&#x4E3B;&#x6D41;&#x7684;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x5806;&#x7684;&#x5927;&#x5C0F;&#x662F;&#x53EF;&#x6269;&#x5C55;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x7EBF;&#x7A0B;&#x8BF7;&#x6C42;&#x5206;&#x914D;&#x5185;&#x5B58;&#xFF0C;&#x4F46;&#x5806;&#x5DF2;&#x6EE1;&#xFF0C;&#x4E14;&#x5185;&#x5B58;&#x5DF2;&#x65E0;&#x6CD5;&#x518D;&#x6269;&#x5C55;&#x65F6;&#xFF0C;&#x5C31;&#x629B;&#x51FA; OutOfMemoryError &#x5F02;&#x5E38;&#x3002;</p>
+<blockquote>
+<p>Java &#x5806;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x5185;&#x5B58;&#x4E0D;&#x9700;&#x8981;&#x4FDD;&#x8BC1;&#x662F;&#x8FDE;&#x7EED;&#x7684;&#x3002;&#x800C;&#x7531;&#x4E8E;&#x5806;&#x662F;&#x88AB;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5BF9;&#x5B83;&#x7684;&#x8BBF;&#x95EE;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x540C;&#x6B65;&#x95EE;&#x9898;&#xFF0C;&#x65B9;&#x6CD5;&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x5C5E;&#x6027;&#x90FD;&#x9700;&#x8981;&#x4FDD;&#x8BC1;&#x4E00;&#x81F4;&#x6027;&#x3002;</p>
+</blockquote>
+<h2 id="&#x65B9;&#x6CD5;&#x533A;"><a name="&#x65B9;&#x6CD5;&#x533A;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;&#x533A;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x65B9;&#x6CD5;&#x533A;" class="plugin-anchor" href="#&#x65B9;&#x6CD5;&#x533A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65B9;&#x6CD5;&#x533A;</h2>
+<h3 id="&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x5B9A;&#x4E49;"><a name="&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x5B9A;&#x4E49;" class="plugin-anchor" href="#&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x5B9A;&#x4E49;</h3>
+<p>Java &#x865A;&#x62DF;&#x673A;&#x89C4;&#x8303;&#x4E2D;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#x533A;&#x662F;&#x5806;&#x7684;&#x4E00;&#x4E2A;&#x903B;&#x8F91;&#x90E8;&#x5206;&#x3002;&#x65B9;&#x6CD5;&#x533A;&#x5B58;&#x653E;&#x4EE5;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;</p>
+<ul>
+<li>&#x5DF2;&#x7ECF;&#x88AB;&#x865A;&#x62DF;&#x673A;&#x52A0;&#x8F7D;&#x7684;&#x7C7B;&#x4FE1;&#x606F;</li>
+<li>&#x5E38;&#x91CF;</li>
+<li>&#x9759;&#x6001;&#x53D8;&#x91CF;</li>
+<li>&#x5373;&#x65F6;&#x7F16;&#x8BD1;&#x5668;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x4EE3;&#x7801;</li>
+</ul>
+<h3 id="&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x7279;&#x70B9;"><a name="&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x7279;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x7279;&#x70B9;" class="plugin-anchor" href="#&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x7279;&#x70B9;</h3>
+<ul>
+<li>&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#x3002; &#x65B9;&#x6CD5;&#x533A;&#x662F;&#x5806;&#x7684;&#x4E00;&#x4E2A;&#x903B;&#x8F91;&#x90E8;&#x5206;&#xFF0C;&#x56E0;&#x6B64;&#x548C;&#x5806;&#x4E00;&#x6837;&#xFF0C;&#x90FD;&#x662F;&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#x7684;&#x3002;&#x6574;&#x4E2A;&#x865A;&#x62DF;&#x673A;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x533A;&#x3002;</li>
+<li>&#x6C38;&#x4E45;&#x4EE3;&#x3002; &#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x7684;&#x4FE1;&#x606F;&#x4E00;&#x822C;&#x9700;&#x8981;&#x957F;&#x671F;&#x5B58;&#x5728;&#xFF0C;&#x800C;&#x4E14;&#x5B83;&#x53C8;&#x662F;&#x5806;&#x7684;&#x903B;&#x8F91;&#x5206;&#x533A;&#xFF0C;&#x56E0;&#x6B64;&#x7528;&#x5806;&#x7684;&#x5212;&#x5206;&#x65B9;&#x6CD5;&#xFF0C;&#x628A;&#x65B9;&#x6CD5;&#x533A;&#x79F0;&#x4E3A;&#x201C;&#x6C38;&#x4E45;&#x4EE3;&#x201D;&#x3002;</li>
+<li>&#x5185;&#x5B58;&#x56DE;&#x6536;&#x6548;&#x7387;&#x4F4E;&#x3002; &#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x7684;&#x4FE1;&#x606F;&#x4E00;&#x822C;&#x9700;&#x8981;&#x957F;&#x671F;&#x5B58;&#x5728;&#xFF0C;&#x56DE;&#x6536;&#x4E00;&#x904D;&#x4E4B;&#x540E;&#x53EF;&#x80FD;&#x53EA;&#x6709;&#x5C11;&#x91CF;&#x4FE1;&#x606F;&#x65E0;&#x6548;&#x3002;&#x4E3B;&#x8981;&#x56DE;&#x6536;&#x76EE;&#x6807;&#x662F;&#xFF1A;&#x5BF9;&#x5E38;&#x91CF;&#x6C60;&#x7684;&#x56DE;&#x6536;&#xFF1B;&#x5BF9;&#x7C7B;&#x578B;&#x7684;&#x5378;&#x8F7D;&#x3002;</li>
+<li>Java &#x865A;&#x62DF;&#x673A;&#x89C4;&#x8303;&#x5BF9;&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x8981;&#x6C42;&#x6BD4;&#x8F83;&#x5BBD;&#x677E;&#x3002; &#x548C;&#x5806;&#x4E00;&#x6837;&#xFF0C;&#x5141;&#x8BB8;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#xFF0C;&#x4E5F;&#x5141;&#x8BB8;&#x52A8;&#x6001;&#x6269;&#x5C55;&#xFF0C;&#x8FD8;&#x5141;&#x8BB8;&#x4E0D;&#x5B9E;&#x73B0;&#x5783;&#x573E;&#x56DE;&#x6536;&#x3002;</li>
+</ul>
+<h3 id="&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;"><a name="&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;" class="anchor-navigation-ex-anchor" href="#&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;" class="plugin-anchor" href="#&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;</h3>
+<p>&#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x5B58;&#x653E;&#xFF1A;&#x7C7B;&#x4FE1;&#x606F;&#x3001;&#x5E38;&#x91CF;&#x3001;&#x9759;&#x6001;&#x53D8;&#x91CF;&#x3001;&#x5373;&#x65F6;&#x7F16;&#x8BD1;&#x5668;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x5E38;&#x91CF;&#x5C31;&#x5B58;&#x653E;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x3002;</p>
+<p>&#x5F53;&#x7C7B;&#x88AB; Java &#x865A;&#x62DF;&#x673A;&#x52A0;&#x8F7D;&#x540E;&#xFF0C; .class &#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5E38;&#x91CF;&#x5C31;&#x5B58;&#x653E;&#x5728;&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x3002;&#x800C;&#x4E14;&#x5728;&#x8FD0;&#x884C;&#x671F;&#x95F4;&#xFF0C;&#x53EF;&#x4EE5;&#x5411;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x5E38;&#x91CF;&#x3002;&#x5982; String &#x7C7B;&#x7684; intern() &#x65B9;&#x6CD5;&#x5C31;&#x80FD;&#x5728;&#x8FD0;&#x884C;&#x671F;&#x95F4;&#x5411;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x6DFB;&#x52A0;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x3002;</p>
+<h2 id="&#x76F4;&#x63A5;&#x5185;&#x5B58;&#xFF08;&#x5806;&#x5916;&#x5185;&#x5B58;&#xFF09;"><a name="&#x76F4;&#x63A5;&#x5185;&#x5B58;&#xFF08;&#x5806;&#x5916;&#x5185;&#x5B58;&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x76F4;&#x63A5;&#x5185;&#x5B58;&#xFF08;&#x5806;&#x5916;&#x5185;&#x5B58;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x76F4;&#x63A5;&#x5185;&#x5B58;&#xFF08;&#x5806;&#x5916;&#x5185;&#x5B58;&#xFF09;" class="plugin-anchor" href="#&#x76F4;&#x63A5;&#x5185;&#x5B58;&#xFF08;&#x5806;&#x5916;&#x5185;&#x5B58;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x76F4;&#x63A5;&#x5185;&#x5B58;&#xFF08;&#x5806;&#x5916;&#x5185;&#x5B58;&#xFF09;</h2>
+<p>&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x662F;&#x9664; Java &#x865A;&#x62DF;&#x673A;&#x4E4B;&#x5916;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x4F46;&#x4E5F;&#x53EF;&#x80FD;&#x88AB; Java &#x4F7F;&#x7528;&#x3002;</p>
+<h3 id="&#x64CD;&#x4F5C;&#x76F4;&#x63A5;&#x5185;&#x5B58;"><a name="&#x64CD;&#x4F5C;&#x76F4;&#x63A5;&#x5185;&#x5B58;" class="anchor-navigation-ex-anchor" href="#&#x64CD;&#x4F5C;&#x76F4;&#x63A5;&#x5185;&#x5B58;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x64CD;&#x4F5C;&#x76F4;&#x63A5;&#x5185;&#x5B58;" class="plugin-anchor" href="#&#x64CD;&#x4F5C;&#x76F4;&#x63A5;&#x5185;&#x5B58;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x64CD;&#x4F5C;&#x76F4;&#x63A5;&#x5185;&#x5B58;</h3>
+<p>&#x5728; NIO &#x4E2D;&#x5F15;&#x5165;&#x4E86;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x901A;&#x9053;&#x548C;&#x7F13;&#x51B2;&#x7684; IO &#x65B9;&#x5F0F;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x76F4;&#x63A5;&#x5206;&#x914D; Java &#x865A;&#x62DF;&#x673A;&#x4E4B;&#x5916;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5B58;&#x50A8;&#x5728;&#x5806;&#x4E2D;&#x7684;<code>DirectByteBuffer</code>&#x5BF9;&#x8C61;&#x76F4;&#x63A5;&#x64CD;&#x4F5C;&#x8BE5;&#x5185;&#x5B58;&#xFF0C;&#x800C;&#x65E0;&#x987B;&#x5148;&#x5C06;&#x5916;&#x90E8;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x590D;&#x5236;&#x5230;&#x5806;&#x4E2D;&#x518D;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x4E86;&#x6570;&#x636E;&#x64CD;&#x4F5C;&#x7684;&#x6548;&#x7387;&#x3002;</p>
+<p>&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x7684;&#x5927;&#x5C0F;&#x4E0D;&#x53D7; Java &#x865A;&#x62DF;&#x673A;&#x63A7;&#x5236;&#xFF0C;&#x4F46;&#x65E2;&#x7136;&#x662F;&#x5185;&#x5B58;&#xFF0C;&#x5F53;&#x5185;&#x5B58;&#x4E0D;&#x8DB3;&#x65F6;&#x5C31;&#x4F1A;&#x629B;&#x51FA; OutOfMemoryError &#x5F02;&#x5E38;&#x3002;</p>
+<h3 id="&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x4E0E;&#x5806;&#x5185;&#x5B58;&#x6BD4;&#x8F83;"><a name="&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x4E0E;&#x5806;&#x5185;&#x5B58;&#x6BD4;&#x8F83;" class="anchor-navigation-ex-anchor" href="#&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x4E0E;&#x5806;&#x5185;&#x5B58;&#x6BD4;&#x8F83;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x4E0E;&#x5806;&#x5185;&#x5B58;&#x6BD4;&#x8F83;" class="plugin-anchor" href="#&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x4E0E;&#x5806;&#x5185;&#x5B58;&#x6BD4;&#x8F83;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x4E0E;&#x5806;&#x5185;&#x5B58;&#x6BD4;&#x8F83;</h3>
+<ul>
+<li>&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x7533;&#x8BF7;&#x7A7A;&#x95F4;&#x8017;&#x8D39;&#x66F4;&#x9AD8;&#x7684;&#x6027;&#x80FD;</li>
+<li>&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x8BFB;&#x53D6; IO &#x7684;&#x6027;&#x80FD;&#x8981;&#x4F18;&#x4E8E;&#x666E;&#x901A;&#x7684;&#x5806;&#x5185;&#x5B58;&#x3002;</li>
+<li>&#x76F4;&#x63A5;&#x5185;&#x5B58;&#x4F5C;&#x7528;&#x94FE;&#xFF1A; &#x672C;&#x5730; IO -&gt; &#x76F4;&#x63A5;&#x5185;&#x5B58; -&gt; &#x672C;&#x5730; IO</li>
+<li>&#x5806;&#x5185;&#x5B58;&#x4F5C;&#x7528;&#x94FE;&#xFF1A;&#x672C;&#x5730; IO -&gt; &#x76F4;&#x63A5;&#x5185;&#x5B58; -&gt; &#x975E;&#x76F4;&#x63A5;&#x5185;&#x5B58; -&gt; &#x76F4;&#x63A5;&#x5185;&#x5B58; -&gt; &#x672C;&#x5730; IO</li>
+</ul>
+<blockquote>
+<p>&#x670D;&#x52A1;&#x5668;&#x7BA1;&#x7406;&#x5458;&#x5728;&#x914D;&#x7F6E;&#x865A;&#x62DF;&#x673A;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x4F1A;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x5185;&#x5B58;&#x8BBE;&#x7F6E;<code>-Xmx</code>&#x7B49;&#x53C2;&#x6570;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x7ECF;&#x5E38;&#x5FFD;&#x7565;&#x76F4;&#x63A5;&#x5185;&#x5B58;&#xFF0C;&#x4F7F;&#x5F97;&#x5404;&#x4E2A;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x603B;&#x548C;&#x5927;&#x4E8E;&#x7269;&#x7406;&#x5185;&#x5B58;&#x9650;&#x5236;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x52A8;&#x6001;&#x6269;&#x5C55;&#x65F6;&#x51FA;&#x73B0;<code>OutOfMemoryError</code>&#x5F02;&#x5E38;&#x3002;</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../数据结构/9.模板.html" class="navigation navigation-prev " aria-label="Previous page: 算法模板">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2.HotSpot虚拟机对象探秘.html" class="navigation navigation-next " aria-label="Next page: 2.HotSpot虚拟机对象探秘.md">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.jvm内存结构","level":"4.1","depth":1,"next":{"title":"2.HotSpot虚拟机对象探秘.md","level":"4.2","depth":1,"path":"jvm/2.HotSpot虚拟机对象探秘.md","ref":"jvm/2.HotSpot虚拟机对象探秘.md","articles":[]},"previous":{"title":"算法模板","level":"3.7","depth":1,"path":"数据结构/9.模板.md","ref":"数据结构/9.模板.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"jvm/1.jvm内存结构.md","mtime":"2020-12-04T16:36:16.187Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-05T13:18:03.642Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,999 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.散列表 · 计算机 ,java , 大数据 基础知识体系</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hzh">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="4.排序算法.html" />
+    
+    
+    <link rel="prev" href="2.图论例题.html" />
+    
+
+    
+    
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">操作系统</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../操作系统/1.基本概述.html">
+            
+                <a href="../操作系统/1.基本概述.html">
+            
+                    
+                    1.操作系统基本概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../操作系统/2.进程管理之进程与线程.html">
+            
+                <a href="../操作系统/2.进程管理之进程与线程.html">
+            
+                    
+                    2.进程管理之进程与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../操作系统/3.进程管理之处理机调度.html">
+            
+                <a href="../操作系统/3.进程管理之处理机调度.html">
+            
+                    
+                    3.进程管理之处理机调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../操作系统/4.进程管理之进程同步.html">
+            
+                <a href="../操作系统/4.进程管理之进程同步.html">
+            
+                    
+                    4.进程管理之进程同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../操作系统/5.内存管理之基本概念.html">
+            
+                <a href="../操作系统/5.内存管理之基本概念.html">
+            
+                    
+                    5.内存管理之基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../操作系统/6.内存管理之虚拟内存.html">
+            
+                <a href="../操作系统/6.内存管理之虚拟内存.html">
+            
+                    
+                    6.内存管理之虚拟内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../操作系统/7.IO设备管理之基本概念.html">
+            
+                <a href="../操作系统/7.IO设备管理之基本概念.html">
+            
+                    
+                    7.IO设备管理之基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../操作系统/8.面试题总结一.html">
+            
+                <a href="../操作系统/8.面试题总结一.html">
+            
+                    
+                    8.面试题总结一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">计算机网络篇</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../计算机网络/1.计算机网络入门基础概念.html">
+            
+                <a href="../计算机网络/1.计算机网络入门基础概念.html">
+            
+                    
+                    1.计算机网络入门文章(必读)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../计算机网络/2.计算机网络通信基础.html">
+            
+                <a href="../计算机网络/2.计算机网络通信基础.html">
+            
+                    
+                    2.计算机网络通信入门文章(必读)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../计算机网络/3.数据链路层.html">
+            
+                <a href="../计算机网络/3.数据链路层.html">
+            
+                    
+                    3.数据链路层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../计算机网络/4.网络层1.html">
+            
+                <a href="../计算机网络/4.网络层1.html">
+            
+                    
+                    4.网络层(一)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../计算机网络/5.网络层2.html">
+            
+                <a href="../计算机网络/5.网络层2.html">
+            
+                    
+                    5.网络层(二)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../计算机网络/6.传输层.html">
+            
+                <a href="../计算机网络/6.传输层.html">
+            
+                    
+                    6.传输层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../计算机网络/7.应用层.html">
+            
+                <a href="../计算机网络/7.应用层.html">
+            
+                    
+                    7.应用层(⭐)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../计算机网络/10.HTTP相关协议.html">
+            
+                <a href="../计算机网络/10.HTTP相关协议.html">
+            
+                    
+                    8.HTTP相关及发展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" >
+            
+                <span>
+            
+                    
+                    9.websocket
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../计算机网络/9.面试题二.html">
+            
+                <a href="../计算机网络/9.面试题二.html">
+            
+                    
+                    面试题总结一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据结构篇</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="1.图论.html">
+            
+                <a href="1.图论.html">
+            
+                    
+                    1.图论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="2.图论例题.html">
+            
+                <a href="2.图论例题.html">
+            
+                    
+                    2.图论例题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.3" data-path="3.散列表.html">
+            
+                <a href="3.散列表.html">
+            
+                    
+                    3.散列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="4.排序算法.html">
+            
+                <a href="4.排序算法.html">
+            
+                    
+                    4.排序算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="5.排序列题.html">
+            
+                <a href="5.排序列题.html">
+            
+                    
+                    5.排序算法例题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="6.树论.html">
+            
+                <a href="6.树论.html">
+            
+                    
+                    6.树论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="9.模板.html">
+            
+                <a href="9.模板.html">
+            
+                    
+                    算法模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">JVM篇</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../jvm/1.jvm内存结构.html">
+            
+                <a href="../jvm/1.jvm内存结构.html">
+            
+                    
+                    1.jvm内存结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../jvm/2.HotSpot虚拟机对象探秘.html">
+            
+                <a href="../jvm/2.HotSpot虚拟机对象探秘.html">
+            
+                    
+                    2.HotSpot虚拟机对象探秘.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../jvm/3.对象存亡与垃圾收集算法.html">
+            
+                <a href="../jvm/3.对象存亡与垃圾收集算法.html">
+            
+                    
+                    3.对象存亡与垃圾收集算法.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">多线程篇</li>
+        
+        
+    
+
+    
+        
+        <li class="header">设计模式篇</li>
+        
+        
+    
+
+    
+        
+        <li class="header">mysql篇</li>
+        
+        
+    
+
+    
+        
+        <li class="header">redis篇</li>
+        
+        
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.散列表</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x6563;&#x5217;&#x67E5;&#x627E;"><b></b>&#x6563;&#x5217;&#x67E5;&#x627E;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x57FA;&#x672C;&#x601D;&#x60F3;"><b></b>1. &#x57FA;&#x672C;&#x601D;&#x60F3;</a></li><li><span class="title-icon "></span><a href="#2-&#x57FA;&#x672C;&#x5DE5;&#x4F5C;"><b></b>2. &#x57FA;&#x672C;&#x5DE5;&#x4F5C;</a></li><li><span class="title-icon "></span><a href="#3-&#x6563;&#x5217;&#x51FD;&#x6570;&#x7684;&#x6784;&#x9020;"><b></b>3. &#x6563;&#x5217;&#x51FD;&#x6570;&#x7684;&#x6784;&#x9020;</a></li><li><span class="title-icon "></span><a href="#4-&#x51B2;&#x7A81;&#x5904;&#x7406;&#x65B9;&#x6CD5;"><b></b>4. &#x51B2;&#x7A81;&#x5904;&#x7406;&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#5-&#x62BD;&#x8C61;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;"><b></b>5. &#x62BD;&#x8C61;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="&#x6563;&#x5217;&#x67E5;&#x627E;"><a name="&#x6563;&#x5217;&#x67E5;&#x627E;" class="anchor-navigation-ex-anchor" href="#&#x6563;&#x5217;&#x67E5;&#x627E;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x6563;&#x5217;&#x67E5;&#x627E;" class="plugin-anchor" href="#&#x6563;&#x5217;&#x67E5;&#x627E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6563;&#x5217;&#x67E5;&#x627E;</h2>
+<h3 id="1-&#x57FA;&#x672C;&#x601D;&#x60F3;"><a name="1-&#x57FA;&#x672C;&#x601D;&#x60F3;" class="anchor-navigation-ex-anchor" href="#1-&#x57FA;&#x672C;&#x601D;&#x60F3;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x57FA;&#x672C;&#x601D;&#x60F3;" class="plugin-anchor" href="#1-&#x57FA;&#x672C;&#x601D;&#x60F3;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x57FA;&#x672C;&#x601D;&#x60F3;</h3>
+<ol>
+<li>&#x4EE5;&#x5173;&#x952E;&#x5B57; key &#x4E3A;&#x81EA;&#x53D8;&#x91CF;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x786E;&#x5B9A;&#x7684;&#x51FD;&#x6570; h&#xFF08;<strong>&#x6563;&#x5217;&#x51FD;&#x6570;</strong>&#xFF09;&#xFF0C;&#x8BA1;&#x7B97;&#x51FA;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;&#x503C; h(key)&#xFF0C;&#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x7684;&#x5B58;&#x50A8;&#x5730;&#x5740;</li>
+<li>&#x53EF;&#x80FD;&#x4E0D;&#x540C;&#x7684;&#x5173;&#x952E;&#x5B57;&#x4F1A;&#x6620;&#x5C04;&#x5230;&#x540C;&#x4E00;&#x4E2A;&#x6563;&#x5217;&#x5730;&#x5740;&#x4E0A;&#xFF0C;&#x5373; h(keyi _i) = h(keyj _j)&#xFF08;&#x5F53; keyi _i<em>i</em> &#x2260; keyj _j<em>j</em>&#xFF09;&#xFF0C;&#x79F0;&#x4E3A;&#x201C;<strong>&#x51B2;&#x7A81;</strong>&#x201D;&#x2014;&#x2014;&#x9700;&#x8981;&#x67D0;&#x79CD;&#x51B2;&#x7A81;&#x89E3;&#x51B3;&#x7B56;&#x7565;</li>
+</ol>
+<h3 id="2-&#x57FA;&#x672C;&#x5DE5;&#x4F5C;"><a name="2-&#x57FA;&#x672C;&#x5DE5;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#2-&#x57FA;&#x672C;&#x5DE5;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-&#x57FA;&#x672C;&#x5DE5;&#x4F5C;" class="plugin-anchor" href="#2-&#x57FA;&#x672C;&#x5DE5;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x57FA;&#x672C;&#x5DE5;&#x4F5C;</h3>
+<ul>
+<li><strong>&#x8BA1;&#x7B97;&#x4F4D;&#x7F6E;</strong>&#xFF1A;&#x6784;&#x9020;&#x6563;&#x5217;&#x51FD;&#x6570;&#x786E;&#x5B9A;&#x5173;&#x952E;&#x8BCD;&#x5B58;&#x50A8;&#x4F4D;&#x7F6E;</li>
+<li><strong>&#x89E3;&#x51B3;&#x51B2;&#x7A81;</strong>&#xFF1A;&#x5E94;&#x7528;&#x67D0;&#x79CD;&#x7B56;&#x7565;&#x89E3;&#x51B3;&#x591A;&#x4E2A;&#x5173;&#x952E;&#x8BCD;&#x4F4D;&#x7F6E;&#x76F8;&#x540C;&#x7684;&#x95EE;&#x9898;</li>
+</ul>
+<p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x51E0;&#x4E4E;&#x4E3A;&#x662F;&#x5E38;&#x6570;&#xFF1A;O(1)</p>
+<h3 id="3-&#x6563;&#x5217;&#x51FD;&#x6570;&#x7684;&#x6784;&#x9020;"><a name="3-&#x6563;&#x5217;&#x51FD;&#x6570;&#x7684;&#x6784;&#x9020;" class="anchor-navigation-ex-anchor" href="#3-&#x6563;&#x5217;&#x51FD;&#x6570;&#x7684;&#x6784;&#x9020;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3-&#x6563;&#x5217;&#x51FD;&#x6570;&#x7684;&#x6784;&#x9020;" class="plugin-anchor" href="#3-&#x6563;&#x5217;&#x51FD;&#x6570;&#x7684;&#x6784;&#x9020;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x6563;&#x5217;&#x51FD;&#x6570;&#x7684;&#x6784;&#x9020;</h3>
+<h4 id="1-&#x8003;&#x8651;&#x56E0;&#x7D20;"><a name="1-&#x8003;&#x8651;&#x56E0;&#x7D20;" class="anchor-navigation-ex-anchor" href="#1-&#x8003;&#x8651;&#x56E0;&#x7D20;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x8003;&#x8651;&#x56E0;&#x7D20;" class="plugin-anchor" href="#1-&#x8003;&#x8651;&#x56E0;&#x7D20;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x8003;&#x8651;&#x56E0;&#x7D20;</h4>
+<ol>
+<li><strong>&#x8BA1;&#x7B97;&#x7B80;&#x5355;</strong>&#xFF0C;&#x4EE5;&#x4FBF;&#x63D0;&#x9AD8;&#x8F6C;&#x6362;&#x901F;&#x5EA6;</li>
+<li>&#x5173;&#x952E;&#x8BCD;&#x5BF9;&#x5E94;&#x7684;<strong>&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x5206;&#x5E03;&#x5747;&#x5300;</strong>&#xFF0C;&#x4EE5;&#x5C3D;&#x91CF;&#x51CF;&#x5C11;&#x51B2;&#x7A81;</li>
+</ol>
+<h4 id="2-&#x6570;&#x5B57;&#x5173;&#x952E;&#x8BCD;"><a name="2-&#x6570;&#x5B57;&#x5173;&#x952E;&#x8BCD;" class="anchor-navigation-ex-anchor" href="#2-&#x6570;&#x5B57;&#x5173;&#x952E;&#x8BCD;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-&#x6570;&#x5B57;&#x5173;&#x952E;&#x8BCD;" class="plugin-anchor" href="#2-&#x6570;&#x5B57;&#x5173;&#x952E;&#x8BCD;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x6570;&#x5B57;&#x5173;&#x952E;&#x8BCD;</h4>
+<h5 id="1-&#x76F4;&#x63A5;&#x5B9A;&#x5740;&#x6CD5;"><a name="1-&#x76F4;&#x63A5;&#x5B9A;&#x5740;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#1-&#x76F4;&#x63A5;&#x5B9A;&#x5740;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x76F4;&#x63A5;&#x5B9A;&#x5740;&#x6CD5;" class="plugin-anchor" href="#1-&#x76F4;&#x63A5;&#x5B9A;&#x5740;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x76F4;&#x63A5;&#x5B9A;&#x5740;&#x6CD5;</h5>
+<p> &#x53D6;&#x5173;&#x952E;&#x8BCD;&#x7684;&#x67D0;&#x4E2A;&#x7EBF;&#x6027;&#x51FD;&#x6570;&#x503C;&#x4E3A;&#x6563;&#x5217;&#x5730;&#x5740;&#xFF0C;&#x5373;&#xFF1A;h(key) = a x key + b &#xFF08;a&#x3001;b&#x4E3A;&#x5E38;&#x6570;)</p>
+<h5 id="2-&#x9664;&#x7559;&#x4F59;&#x6570;&#x6CD5;"><a name="2-&#x9664;&#x7559;&#x4F59;&#x6570;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#2-&#x9664;&#x7559;&#x4F59;&#x6570;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-&#x9664;&#x7559;&#x4F59;&#x6570;&#x6CD5;" class="plugin-anchor" href="#2-&#x9664;&#x7559;&#x4F59;&#x6570;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x9664;&#x7559;&#x4F59;&#x6570;&#x6CD5;</h5>
+<p> &#x6563;&#x5217;&#x51FD;&#x6570;&#x4E3A;&#xFF1A;h(key) = key mod p &#xFF08;p &#x4E00;&#x822C;&#x53D6;&#x7D20;&#x6570;)</p>
+<h5 id="3-&#x6570;&#x5B57;&#x5206;&#x6790;&#x6CD5;"><a name="3-&#x6570;&#x5B57;&#x5206;&#x6790;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#3-&#x6570;&#x5B57;&#x5206;&#x6790;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3-&#x6570;&#x5B57;&#x5206;&#x6790;&#x6CD5;" class="plugin-anchor" href="#3-&#x6570;&#x5B57;&#x5206;&#x6790;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x6570;&#x5B57;&#x5206;&#x6790;&#x6CD5;</h5>
+<p> &#x5206;&#x6790;&#x6570;&#x5B57;&#x5173;&#x952E;&#x5B57;&#x5728;&#x5404;&#x4F4D;&#x4E0A;&#x7684;&#x53D8;&#x5316;&#x60C5;&#x51B5;&#xFF0C;&#x53D6;&#x6BD4;&#x8F83;&#x968F;&#x673A;&#x7684;&#x4F4D;&#x4F5C;&#x4E3A;&#x6563;&#x5217;&#x5730;&#x5740;</p>
+<h5 id="4-&#x6298;&#x53E0;&#x6CD5;"><a name="4-&#x6298;&#x53E0;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#4-&#x6298;&#x53E0;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="4-&#x6298;&#x53E0;&#x6CD5;" class="plugin-anchor" href="#4-&#x6298;&#x53E0;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x6298;&#x53E0;&#x6CD5;</h5>
+<p> &#x628A;&#x5173;&#x952E;&#x8BCD;&#x5206;&#x5272;&#x6210;&#x4F4D;&#x6570;&#x76F8;&#x540C;&#x7684;&#x51E0;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x7136;&#x540E;&#x53E0;&#x52A0;</p>
+<h5 id="5-&#x5E73;&#x65B9;&#x53D6;&#x4E2D;&#x6CD5;"><a name="5-&#x5E73;&#x65B9;&#x53D6;&#x4E2D;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#5-&#x5E73;&#x65B9;&#x53D6;&#x4E2D;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="5-&#x5E73;&#x65B9;&#x53D6;&#x4E2D;&#x6CD5;" class="plugin-anchor" href="#5-&#x5E73;&#x65B9;&#x53D6;&#x4E2D;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x5E73;&#x65B9;&#x53D6;&#x4E2D;&#x6CD5;</h5>
+<p> &#x5C06;&#x5173;&#x952E;&#x8BCD;&#x5E73;&#x65B9;&#xFF0C;&#x53D6;&#x4E2D;&#x95F4;&#x51E0;&#x4F4D;</p>
+<h4 id="3-&#x5B57;&#x7B26;&#x4E32;&#x5173;&#x952E;&#x5B57;"><a name="3-&#x5B57;&#x7B26;&#x4E32;&#x5173;&#x952E;&#x5B57;" class="anchor-navigation-ex-anchor" href="#3-&#x5B57;&#x7B26;&#x4E32;&#x5173;&#x952E;&#x5B57;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3-&#x5B57;&#x7B26;&#x4E32;&#x5173;&#x952E;&#x5B57;" class="plugin-anchor" href="#3-&#x5B57;&#x7B26;&#x4E32;&#x5173;&#x952E;&#x5B57;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x5B57;&#x7B26;&#x4E32;&#x5173;&#x952E;&#x5B57;</h4>
+<h5 id="1-ascii&#x7801;&#x52A0;&#x548C;&#x6CD5;"><a name="1-ascii&#x7801;&#x52A0;&#x548C;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#1-ascii&#x7801;&#x52A0;&#x548C;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-ascii&#x7801;&#x52A0;&#x548C;&#x6CD5;" class="plugin-anchor" href="#1-ascii&#x7801;&#x52A0;&#x548C;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>1. ASCII&#x7801;&#x52A0;&#x548C;&#x6CD5;</h5>
+<p> h(key) = (&#x3A3;key[i]) mod TableSize</p>
+<h5 id="2-&#x524D;3&#x4E2A;&#x5B57;&#x7B26;&#x79FB;&#x4F4D;&#x6CD5;"><a name="2-&#x524D;3&#x4E2A;&#x5B57;&#x7B26;&#x79FB;&#x4F4D;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#2-&#x524D;3&#x4E2A;&#x5B57;&#x7B26;&#x79FB;&#x4F4D;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-&#x524D;3&#x4E2A;&#x5B57;&#x7B26;&#x79FB;&#x4F4D;&#x6CD5;" class="plugin-anchor" href="#2-&#x524D;3&#x4E2A;&#x5B57;&#x7B26;&#x79FB;&#x4F4D;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x524D;3&#x4E2A;&#x5B57;&#x7B26;&#x79FB;&#x4F4D;&#x6CD5;</h5>
+<p> h(key) = (key[0]&#xD7;272 ^2 + key[1]&#xD7;27 + key[2])mod TableSize</p>
+<h5 id="3-&#x79FB;&#x4F4D;&#x6CD5;"><a name="3-&#x79FB;&#x4F4D;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#3-&#x79FB;&#x4F4D;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3-&#x79FB;&#x4F4D;&#x6CD5;" class="plugin-anchor" href="#3-&#x79FB;&#x4F4D;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x79FB;&#x4F4D;&#x6CD5;</h5>
+<p>&#x4F8B;&#x5B50;&#xFF08;&#x79FB;&#x4F4D;&#x6CD5;&#xFF09;</p>
+<p>h(&#x201C;abcde&#x201D;) = &apos;a&#x2019;x324 ^44 + &apos;b&#x2019;x323 ^33 +&apos;c&#x2019;x322 ^22 + &apos;d&#x2019;x32 + &#x2018;e&#x2019;
+= (((&apos;a&#x2019;x32+&#x2018;b&#x2019;)x32+&#x2018;c&#x2019;)x32+&#x2018;d&#x2019;)x32+&#x2018;e&#x2019;</p>
+<pre><code class="lang-cpp"><span class="hljs-function">Index <span class="hljs-title">Hash</span><span class="hljs-params">( <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *Key,<span class="hljs-keyword">int</span> TableSize)</span></span>{
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> h = <span class="hljs-number">0</span>;   <span class="hljs-comment">// &#x6563;&#x5217;&#x503C;&#x51FD;&#x6570;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4E3A; 0 </span>
+    <span class="hljs-keyword">while</span> ( *Key != <span class="hljs-string">&apos;\0&apos;</span> )    <span class="hljs-comment">// &#x4F4D;&#x79FB;&#x6620;&#x5C04;</span>
+        h = ( h &lt;&lt; <span class="hljs-number">5</span>) + *Key++;
+    <span class="hljs-keyword">return</span> h % TableSize;
+}
+</code></pre>
+<h3 id="4-&#x51B2;&#x7A81;&#x5904;&#x7406;&#x65B9;&#x6CD5;"><a name="4-&#x51B2;&#x7A81;&#x5904;&#x7406;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#4-&#x51B2;&#x7A81;&#x5904;&#x7406;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="4-&#x51B2;&#x7A81;&#x5904;&#x7406;&#x65B9;&#x6CD5;" class="plugin-anchor" href="#4-&#x51B2;&#x7A81;&#x5904;&#x7406;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x51B2;&#x7A81;&#x5904;&#x7406;&#x65B9;&#x6CD5;</h3>
+<h4 id="1-&#x5E38;&#x7528;&#x7B56;&#x7565;"><a name="1-&#x5E38;&#x7528;&#x7B56;&#x7565;" class="anchor-navigation-ex-anchor" href="#1-&#x5E38;&#x7528;&#x7B56;&#x7565;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x5E38;&#x7528;&#x7B56;&#x7565;" class="plugin-anchor" href="#1-&#x5E38;&#x7528;&#x7B56;&#x7565;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x5E38;&#x7528;&#x7B56;&#x7565;</h4>
+<ul>
+<li>&#x6362;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF1A;<strong>&#x5F00;&#x653E;&#x5730;&#x5740;&#x6CD5;</strong></li>
+<li>&#x540C;&#x4E00;&#x4F4D;&#x7F6E;&#x7684;&#x51B2;&#x7A81;&#x5BF9;&#x8C61;&#x7EC4;&#x7EC7;&#x5728;&#x4E00;&#x8D77;&#xFF1A;<strong>&#x94FE;&#x5730;&#x5740;&#x6CD5;</strong></li>
+</ul>
+<h4 id="2-&#x5F00;&#x653E;&#x5B9A;&#x5740;&#x6CD5;"><a name="2-&#x5F00;&#x653E;&#x5B9A;&#x5740;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#2-&#x5F00;&#x653E;&#x5B9A;&#x5740;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-&#x5F00;&#x653E;&#x5B9A;&#x5740;&#x6CD5;" class="plugin-anchor" href="#2-&#x5F00;&#x653E;&#x5B9A;&#x5740;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5F00;&#x653E;&#x5B9A;&#x5740;&#x6CD5;</h4>
+<ul>
+<li>&#x4E00;&#x65E6;&#x4EA7;&#x751F;&#x4E86;&#x51B2;&#x7A81;&#xFF08;&#x8BE5;&#x5730;&#x5740;&#x5DF2;&#x6709;&#x5176;&#x5B83;&#x5143;&#x7D20;&#xFF09;&#xFF0C;&#x5C31;&#x6309;&#x67D0;&#x79CD;&#x89C4;&#x5219;&#x53BB;&#x5BFB;&#x627E;&#x53E6;&#x4E00;&#x7A7A;&#x5730;&#x5740;</li>
+<li>&#x82E5;&#x53D1;&#x751F;&#x4E86;&#x7B2C; i &#x6B21;&#x51B2;&#x7A81;&#xFF0C;&#x8BD5;&#x63A2;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x5C06;&#x589E;&#x52A0; di &#xFF0C;&#x57FA;&#x672C;&#x516C;&#x5F0F;&#x662F;&#xFF1A; hi _i<em>i</em>(key) = (h(key)+di _i<em>i</em>) mod TableSize &#xFF08;1 &#x2264; i &#x2264; TableSize&#xFF09;</li>
+<li>di _i<em>i</em> &#x51B3;&#x5B9A;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x89E3;&#x51B3;&#x51B2;&#x7A81;&#x65B9;&#x6848;</li>
+</ul>
+<h5 id="1-&#x7EBF;&#x6027;&#x63A2;&#x6D4B;"><a name="1-&#x7EBF;&#x6027;&#x63A2;&#x6D4B;" class="anchor-navigation-ex-anchor" href="#1-&#x7EBF;&#x6027;&#x63A2;&#x6D4B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x7EBF;&#x6027;&#x63A2;&#x6D4B;" class="plugin-anchor" href="#1-&#x7EBF;&#x6027;&#x63A2;&#x6D4B;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x7EBF;&#x6027;&#x63A2;&#x6D4B;</h5>
+<p> &#x4EE5;<strong>&#x589E;&#x91CF;&#x5E8F;&#x5217;</strong> 1,2,&#x2026;, (TableSize - 1) &#x5FAA;&#x73AF;&#x8BD5;&#x63A2;&#x4E0B;&#x4E00;&#x4E2A;&#x5B58;&#x50A8;&#x5730;&#x5740;</p>
+<h5 id="2-&#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;"><a name="2-&#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#2-&#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-&#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;" class="plugin-anchor" href="#2-&#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;</h5>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201128235036.png" alt="image-20201128235036407"></p>
+<h5 id="3-&#x53CC;&#x6563;&#x5217;"><a name="3-&#x53CC;&#x6563;&#x5217;" class="anchor-navigation-ex-anchor" href="#3-&#x53CC;&#x6563;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3-&#x53CC;&#x6563;&#x5217;" class="plugin-anchor" href="#3-&#x53CC;&#x6563;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x53CC;&#x6563;&#x5217;</h5>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201128235049.png" alt="image-20201128235049473"></p>
+<h5 id="4-&#x518D;&#x6563;&#x5217;"><a name="4-&#x518D;&#x6563;&#x5217;" class="anchor-navigation-ex-anchor" href="#4-&#x518D;&#x6563;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="4-&#x518D;&#x6563;&#x5217;" class="plugin-anchor" href="#4-&#x518D;&#x6563;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x518D;&#x6563;&#x5217;</h5>
+<p> &#x5F53;&#x6563;&#x5217;&#x8868;&#x5143;&#x7D20;&#x592A;&#x591A;&#xFF08;&#x5373;&#x88C5;&#x586B;&#x56E0;&#x5B50; &#x3B1; &#x592A;&#x5927;&#xFF09;&#x65F6;&#xFF0C;&#x67E5;&#x627E;&#x6548;&#x7387;&#x4F1A;&#x4E0B;&#x964D;</p>
+<p> &#x89E3;&#x51B3;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x52A0;&#x500D;&#x6269;&#x5927;&#x6563;&#x5217;&#x8868;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x5C31;&#x53EB;&quot;&#x518D;&#x6563;&#x5217;&quot;&#xFF0C;&#x6269;&#x5927;&#x65F6;&#xFF0C;&#x539F;&#x6709;&#x5143;&#x7D20;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x653E;&#x7F6E;&#x5230;&#x65B0;&#x8868;&#x4E2D;</p>
+<h4 id="3-&#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;"><a name="3-&#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#3-&#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3-&#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;" class="plugin-anchor" href="#3-&#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;</h4>
+<p> &#x5C06;&#x76F8;&#x5E94;&#x4F4D;&#x7F6E;&#x4E0A;&#x51B2;&#x7A81;&#x7684;&#x6240;&#x6709;&#x5173;&#x952E;&#x8BCD;&#x5B58;&#x50A8;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5355;&#x94FE;&#x8868;&#x4E2D;</p>
+<h3 id="5-&#x62BD;&#x8C61;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;"><a name="5-&#x62BD;&#x8C61;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#5-&#x62BD;&#x8C61;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="5-&#x62BD;&#x8C61;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;" class="plugin-anchor" href="#5-&#x62BD;&#x8C61;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x62BD;&#x8C61;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;</h3>
+<ul>
+<li><p>&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF1A;&#x7B26;&#x53F7;&#x8868;&#xFF08;SymbolTable&#xFF09;</p>
+</li>
+<li><p>&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x96C6;&#xFF1A;&#x7B26;&#x53F7;&#x8868;&#x662F;&quot;&#x540D;&#x5B57;(Name)-&#x5C5E;&#x6027;(Attribute)&quot;&#x5BF9;&#x7684;&#x96C6;&#x5408;</p>
+</li>
+<li><p>&#x64CD;&#x4F5C;&#x96C6;&#xFF1A;Table &#x2208; SymbolTable&#xFF0C;Name &#x2208; NameType&#xFF0C;Attr &#x2208; AttributeType</p>
+<p>&#x4E3B;&#x8981;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ul>
+<li><code>SymbolTable InitalizeTable(int TableSize)</code>&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A; TableSize &#x7684;&#x7B26;&#x53F7;&#x8868;</li>
+<li><code>Boolean IsIn(SymbolTable Table,NameType Name)</code>&#xFF1A;&#x67E5;&#x627E;&#x7279;&#x5B9A;&#x7684;&#x540D;&#x5B57; Name &#x662F;&#x5426;&#x5728; Table &#x4E2D;</li>
+<li><code>AttributeType Find(SymbolTable Table,NameType Name)</code>&#xFF1A;&#x83B7;&#x53D6; Table &#x4E2D;&#x6307;&#x5B9A;&#x540D;&#x5B57; Name &#x5BF9;&#x5E94;&#x7684;&#x5C5E;&#x6027;</li>
+<li><code>SymbolTable Modefy(SymbolTable Table,NameType Name,AttributeType Attr)</code>&#xFF1A;&#x5C06; Table &#x4E2D;&#x6307;&#x5B9A;&#x540D;&#x5B57; Name &#x7684;&#x5C5E;&#x6027;&#x4FEE;&#x6539;&#x4E3A; Attr</li>
+<li><code>SymbolTable Insert(SymbolTable Table,NameType Name,AttributeType Attr)</code>&#xFF1A;&#x5411; Table &#x4E2D;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x540D;&#x5B57; Name &#x53CA;&#x5176;&#x5C5E;&#x6027; Attr</li>
+<li><code>SymbolTable Delete(SymbolTable Table,NameType Name)</code>&#xFF1A;&#x4ECE; Table &#x4E2D;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x540D;&#x5B57; Name &#x53CA;&#x5176;&#x5C5E;&#x6027;</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-&#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;&#x5B9E;&#x73B0;"><a name="1-&#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;&#x5B9E;&#x73B0;" class="anchor-navigation-ex-anchor" href="#1-&#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;&#x5B9E;&#x73B0;" class="plugin-anchor" href="#1-&#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x6CD5;&#x5B9E;&#x73B0;</h4>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cmath&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXTABLESIZE 100000   <span class="hljs-comment">// &#x5B9A;&#x4E49;&#x5141;&#x8BB8;&#x5F00;&#x8F9F;&#x7684;&#x6700;&#x5927;&#x6563;&#x5217;&#x8868;&#x957F;&#x5EA6; </span></span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">int</span> Index;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">int</span> ElementType; 
+<span class="hljs-keyword">typedef</span> Index Position;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">enum</span>{   <span class="hljs-comment">// &#x5206;&#x522B;&#x5BF9;&#x5E94;&#xFF1A;&#x6709;&#x5408;&#x6CD5;&#x5143;&#x7D20;&#x3001;&#x7A7A;&#x3001;&#x6709;&#x5DF2;&#x5220;&#x9664;&#x5143;&#x7D20; </span>
+    Legitimate,Empty,Deleted
+} EntryType;  <span class="hljs-comment">// &#x5B9A;&#x4E49;&#x5355;&#x5143;&#x72B6;&#x6001;&#x7C7B;&#x578B; </span>
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> HashEntry Cell;
+<span class="hljs-keyword">struct</span> HashEntry{   <span class="hljs-comment">//  &#x54C8;&#x5E0C;&#x8868;&#x5B58;&#x503C;&#x5355;&#x5143; </span>
+    ElementType Data;  <span class="hljs-comment">// &#x5B58;&#x653E;&#x5143;&#x7D20;</span>
+    EntryType Info;  <span class="hljs-comment">// &#x5355;&#x5143;&#x72B6;&#x6001;    </span>
+};
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> HashTbl *HashTable;
+<span class="hljs-keyword">struct</span> HashTbl{  <span class="hljs-comment">// &#x54C8;&#x5E0C;&#x8868;&#x7ED3;&#x6784;&#x4F53; </span>
+    <span class="hljs-keyword">int</span> TableSize;   <span class="hljs-comment">// &#x54C8;&#x5E0C;&#x8868;&#x5927;&#x5C0F; </span>
+    Cell *Cells;   <span class="hljs-comment">// &#x54C8;&#x5E0C;&#x8868;&#x5B58;&#x503C;&#x5355;&#x5143;&#x6570;&#x7EC4; </span>
+};
+
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">NextPrime</span><span class="hljs-params">(<span class="hljs-keyword">int</span> N)</span></span>;  <span class="hljs-comment">// &#x67E5;&#x627E;&#x7D20;&#x6570; </span>
+<span class="hljs-function">HashTable <span class="hljs-title">CreateTable</span><span class="hljs-params">( <span class="hljs-keyword">int</span> TableSize)</span></span>; <span class="hljs-comment">// &#x521B;&#x5EFA;&#x54C8;&#x5E0C;&#x8868; </span>
+<span class="hljs-function">Index <span class="hljs-title">Hash</span><span class="hljs-params">(<span class="hljs-keyword">int</span> Key,<span class="hljs-keyword">int</span> TableSize)</span></span>;   <span class="hljs-comment">// &#x54C8;&#x5E0C;&#x51FD;&#x6570; </span>
+
+<span class="hljs-comment">// &#x67E5;&#x627E;&#x7D20;&#x6570; </span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">NextPrime</span><span class="hljs-params">(<span class="hljs-keyword">int</span> N)</span></span>{
+    <span class="hljs-keyword">int</span> p = (N%<span class="hljs-number">2</span>)?N+<span class="hljs-number">2</span>:N+<span class="hljs-number">1</span>;  <span class="hljs-comment">// &#x4ECE;&#x5927;&#x4E8E; N &#x7684;&#x4E0B;&#x4E2A;&#x5947;&#x6570;&#x5F00;&#x59CB;</span>
+    <span class="hljs-keyword">int</span> i;
+
+    <span class="hljs-keyword">while</span>(p &lt;= MAXTABLESIZE){
+        <span class="hljs-keyword">for</span>(i = (<span class="hljs-keyword">int</span>)<span class="hljs-built_in">sqrt</span>(p);i&gt;<span class="hljs-number">2</span>;i--)
+            <span class="hljs-keyword">if</span>(!(p%i))  <span class="hljs-comment">// p &#x4E0D;&#x662F;&#x7D20;&#x6570; </span>
+                <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">if</span>(i==<span class="hljs-number">2</span>) 
+            <span class="hljs-keyword">break</span>; 
+        p += <span class="hljs-number">2</span>;  <span class="hljs-comment">// &#x7EE7;&#x7EED;&#x8BD5;&#x63A2;&#x4E0B;&#x4E2A;&#x5947;&#x6570; </span>
+    }
+    <span class="hljs-keyword">return</span> p;
+}
+
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x54C8;&#x5E0C;&#x8868; </span>
+<span class="hljs-function">HashTable <span class="hljs-title">CreateTable</span><span class="hljs-params">( <span class="hljs-keyword">int</span> TableSize)</span></span>{
+    HashTable H;
+    <span class="hljs-keyword">int</span> i;
+    H = (HashTable)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> HashTbl));
+    <span class="hljs-comment">// &#x4FDD;&#x8BC1;&#x54C8;&#x5E0C;&#x8868;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x662F;&#x7D20;&#x6570; </span>
+    H-&gt;TableSize = NextPrime(TableSize);
+    <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x5355;&#x5143;&#x6570;&#x7EC4;</span>
+    H-&gt;Cells = (Cell *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Cell)*H-&gt;TableSize);
+    <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x5355;&#x5143;&#x6570;&#x7EC4;&#x72B6;&#x6001; </span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;H-&gt;TableSize;i++)
+        H-&gt;Cells[i].Info = Empty;
+    <span class="hljs-keyword">return</span> H;
+}
+
+<span class="hljs-comment">// &#x5E73;&#x65B9;&#x63A2;&#x6D4B;&#x67E5;&#x627E; </span>
+<span class="hljs-function">Position <span class="hljs-title">Find</span><span class="hljs-params">(HashTable H,ElementType Key)</span></span>{
+    Position CurrentPos,NewPos; 
+    <span class="hljs-keyword">int</span> CNum = <span class="hljs-number">0</span> ;   <span class="hljs-comment">// &#x8BB0;&#x5F55;&#x51B2;&#x7A81;&#x6B21;&#x6570;</span>
+    CurrentPos = NewPos = Hash(Key,H-&gt;TableSize);
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x5355;&#x5143;&#x72B6;&#x6001;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x4E14;&#x6570;&#x503C;&#x4E0D;&#x7B49;&#xFF0C;&#x5219;&#x4E00;&#x76F4;&#x505A; </span>
+    <span class="hljs-keyword">while</span>(H-&gt;Cells[NewPos].Info != Empty &amp;&amp; H-&gt;Cells[NewPos].Data != Key){
+        <span class="hljs-keyword">if</span>(++CNum % <span class="hljs-number">2</span> ){ <span class="hljs-comment">// &#x51B2;&#x7A81;&#x5947;&#x6570;&#x6B21;&#x53D1;&#x751F; </span>
+            NewPos = CurrentPos + (CNum+<span class="hljs-number">1</span>)/<span class="hljs-number">2</span>*(CNum+<span class="hljs-number">1</span>)/<span class="hljs-number">2</span>;
+            <span class="hljs-comment">// &#x5982;&#x679C;&#x8D8A;&#x754C;&#xFF0C;&#x4E00;&#x76F4;&#x51CF;&#x76F4;&#x5230;&#x518D;&#x6B21;&#x8FDB;&#x5165;&#x8FB9;&#x754C; </span>
+            <span class="hljs-keyword">while</span>(H-&gt;TableSize &lt;= NewPos){
+                NewPos -= H-&gt;TableSize; 
+            }
+        }<span class="hljs-keyword">else</span>{  <span class="hljs-comment">// &#x51B2;&#x7A81;&#x5076;&#x6570;&#x6B21;&#x53D1;&#x751F; </span>
+            NewPos = CurrentPos - CNum/<span class="hljs-number">2</span>*CNum/<span class="hljs-number">2</span>;
+            <span class="hljs-comment">// &#x5982;&#x679C;&#x8D8A;&#x754C;&#xFF0C;&#x4E00;&#x76F4;&#x52A0;&#x76F4;&#x5230;&#x518D;&#x6B21;&#x8FDB;&#x5165;&#x8FB9;&#x754C; </span>
+            <span class="hljs-keyword">while</span>(NewPos &lt; <span class="hljs-number">0</span>){
+                NewPos += H-&gt;TableSize; 
+            }
+        }
+    } 
+    <span class="hljs-keyword">return</span> NewPos;
+}
+
+<span class="hljs-comment">// &#x63D2;&#x5165;</span>
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Insert</span><span class="hljs-params">( HashTable H,ElementType Key,<span class="hljs-keyword">int</span> i)</span></span>{
+    Position Pos = i;
+    Pos = Find(H,Key);
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x5355;&#x5143;&#x683C;&#x72B6;&#x6001;&#x4E0D;&#x662F;&quot;&#x5B58;&#x5728;&#x5408;&#x6CD5;&#x5143;&#x7D20;&quot; </span>
+    <span class="hljs-keyword">if</span>( H-&gt;Cells[Pos].Info != Legitimate){
+        H-&gt;Cells[Pos].Info = Legitimate;
+        H-&gt;Cells[Pos].Data = Key;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+} 
+
+<span class="hljs-comment">// &#x9664;&#x7559;&#x4F59;&#x6570;&#x6CD5;&#x54C8;&#x5E0C;&#x51FD;&#x6570; </span>
+<span class="hljs-function">Index <span class="hljs-title">Hash</span><span class="hljs-params">(<span class="hljs-keyword">int</span> Key,<span class="hljs-keyword">int</span> TableSize)</span></span>{
+    <span class="hljs-keyword">return</span> Key % TableSize;
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">output</span><span class="hljs-params">(HashTable H)</span></span>{
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;H-&gt;TableSize;i++)
+        <span class="hljs-built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;H-&gt;Cells[i].Data&lt;&lt;<span class="hljs-built_in">endl</span>;
+} 
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    HashTable H = CreateTable(<span class="hljs-number">9</span>);
+    <span class="hljs-keyword">int</span> N;
+    <span class="hljs-built_in">cin</span>&gt;&gt;N;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;N;i++){
+        <span class="hljs-keyword">int</span> tmp;
+        <span class="hljs-built_in">cin</span>&gt;&gt;tmp;
+        Insert(H,tmp,i);
+    }
+    output(H);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h4 id="2-&#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;&#x5B9E;&#x73B0;"><a name="2-&#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;&#x5B9E;&#x73B0;" class="anchor-navigation-ex-anchor" href="#2-&#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-&#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;&#x5B9E;&#x73B0;" class="plugin-anchor" href="#2-&#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5206;&#x79BB;&#x94FE;&#x63A5;&#x6CD5;&#x5B9E;&#x73B0;</h4>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdlib&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cmath&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXTABLESIZE 100000</span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">int</span> Index;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">int</span> ElementType;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> LNode *PtrToLNode;
+<span class="hljs-keyword">struct</span> LNode{   <span class="hljs-comment">// &#x5355;&#x94FE;&#x8868; </span>
+    ElementType Data;
+    PtrToLNode Next;
+}; 
+<span class="hljs-keyword">typedef</span> PtrToLNode Position;
+<span class="hljs-keyword">typedef</span> PtrToLNode List;
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> TblNode *HashTable;  <span class="hljs-comment">// &#x6563;&#x5217;&#x8868;</span>
+<span class="hljs-keyword">struct</span> TblNode{
+    <span class="hljs-keyword">int</span> TableSize;   <span class="hljs-comment">// &#x8868;&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6; </span>
+    List Heads;  <span class="hljs-comment">// &#x6307;&#x5411;&#x94FE;&#x8868;&#x5934;&#x7ED3;&#x70B9;&#x7684;&#x6570;&#x7EC4; </span>
+}; 
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">NextPrime</span><span class="hljs-params">(<span class="hljs-keyword">int</span> N)</span></span>{
+    <span class="hljs-keyword">int</span> p = (N%<span class="hljs-number">2</span>)?(N+<span class="hljs-number">2</span>):(N+<span class="hljs-number">1</span>);   <span class="hljs-comment">// &#x6BD4; tablesize &#x5927;&#x7684;&#x5947;&#x6570; </span>
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">while</span>(p &lt;= MAXTABLESIZE){
+        <span class="hljs-keyword">for</span>(i = (<span class="hljs-keyword">int</span>)<span class="hljs-built_in">sqrt</span>(p);i&gt;<span class="hljs-number">2</span>;i--)
+            <span class="hljs-keyword">if</span>(!(p%i))
+                <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">if</span>(i==<span class="hljs-number">2</span>)  <span class="hljs-comment">// &#x627E;&#x5230;&#x7D20;&#x6570;&#x4E86; </span>
+            <span class="hljs-keyword">break</span>;
+        p += <span class="hljs-number">2</span>; <span class="hljs-comment">// &#x4E0B;&#x4E00;&#x4E2A;&#x5947;&#x6570;</span>
+    }
+    <span class="hljs-keyword">return</span> p;
+}
+
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x54C8;&#x5E0C;&#x8868; </span>
+<span class="hljs-function">HashTable <span class="hljs-title">CreateTable</span><span class="hljs-params">( <span class="hljs-keyword">int</span> TableSize)</span></span>{
+    HashTable H;
+    H = (HashTable)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> TblNode));
+    H-&gt;TableSize = NextPrime(TableSize);
+    H-&gt;Heads = (List)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> TblNode) * H-&gt;TableSize);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;H-&gt;TableSize;i++) 
+        H-&gt;Heads[i].Next = <span class="hljs-literal">NULL</span>;  <span class="hljs-comment">// &#x94FE;&#x8868;&#x5934;&#xFF1A;H-&gt;Heads[i] &#x662F;&#x4E0D;&#x5B58;&#x4E1C;&#x897F;&#x7684; </span>
+    <span class="hljs-keyword">return</span> H;
+}
+
+<span class="hljs-comment">// &#x9664;&#x7559;&#x4F59;&#x6570;&#x6CD5;&#x54C8;&#x5E0C;&#x51FD;&#x6570; </span>
+<span class="hljs-function">Index <span class="hljs-title">Hash</span><span class="hljs-params">(    <span class="hljs-keyword">int</span> TableSize,ElementType Key)</span></span>{
+    <span class="hljs-keyword">return</span>  Key%TableSize;
+}
+
+<span class="hljs-comment">// &#x67E5;&#x627E;</span>
+<span class="hljs-function">Position <span class="hljs-title">Find</span><span class="hljs-params">(HashTable H,ElementType Key)</span></span>{
+    Position p;
+    Index pos;
+
+    pos = Hash(H-&gt;TableSize,Key); 
+    p = H-&gt;Heads[pos].Next;  <span class="hljs-comment">//&#x83B7;&#x5F97;&#x94FE;&#x8868;&#x5934; </span>
+    <span class="hljs-keyword">while</span>(p &amp;&amp; p-&gt;Data != Key)
+        p = p-&gt;Next;
+    <span class="hljs-keyword">return</span> p;
+} 
+
+<span class="hljs-comment">// &#x63D2;&#x5165;</span>
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Insert</span><span class="hljs-params">(HashTable H,ElementType Key)</span></span>{
+    Position p,NewCell;
+    Index pos;
+
+    p = Find(H,Key);
+    <span class="hljs-keyword">if</span>(!p){  <span class="hljs-comment">// &#x5173;&#x952E;&#x8BCD;&#x672A;&#x627E;&#x5230;&#xFF0C;&#x53EF;&#x4EE5;&#x63D2;&#x5165; </span>
+        NewCell = (Position)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> LNode));
+        NewCell-&gt;Data = Key;
+        pos = Hash(H-&gt;TableSize,Key);   <span class="hljs-comment">// &#x521D;&#x59CB;&#x6563;&#x5217;&#x8868;&#x5730;&#x5740;</span>
+        <span class="hljs-comment">// &#x5C06;&#x65B0;&#x589E;&#x7ED3;&#x70B9;&#x63D2;&#x5230;&#x6700;&#x524D;&#x9762;</span>
+        NewCell-&gt;Next = H-&gt;Heads[pos].Next;
+        H-&gt;Heads[pos].Next = NewCell;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }<span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">output</span><span class="hljs-params">(HashTable H)</span></span>{
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;H-&gt;TableSize;i++){
+        <span class="hljs-built_in">cout</span>&lt;&lt;i;
+        List p = H-&gt;Heads[i].Next;  
+        <span class="hljs-keyword">while</span>(p){
+            <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;p-&gt;Data;
+            p = p-&gt;Next;
+        } 
+        <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-built_in">endl</span>;
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">DestroyTable</span><span class="hljs-params">(HashTable H)</span></span>{
+    Position P,tmp;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;H-&gt;TableSize;i++){
+        P = H-&gt;Heads[i].Next;
+        <span class="hljs-keyword">while</span>( P ){
+            tmp = P-&gt;Next;
+            <span class="hljs-built_in">free</span>(P);
+            P = tmp;
+        }
+    }
+    <span class="hljs-built_in">free</span>(H-&gt;Heads);
+    <span class="hljs-built_in">free</span>(H);
+} 
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    HashTable H = CreateTable(<span class="hljs-number">9</span>);
+    <span class="hljs-keyword">int</span> N;
+    <span class="hljs-built_in">cin</span>&gt;&gt;N;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;N;i++){
+        <span class="hljs-keyword">int</span> tmp;
+        <span class="hljs-built_in">cin</span>&gt;&gt;tmp;
+        Insert(H,tmp);
+    }
+    output(H);
+    DestroyTable(H);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2.图论例题.html" class="navigation navigation-prev " aria-label="Previous page: 2.图论例题">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="4.排序算法.html" class="navigation navigation-next " aria-label="Next page: 4.排序算法">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.散列表","level":"3.3","depth":1,"next":{"title":"4.排序算法","level":"3.4","depth":1,"path":"数据结构/4.排序算法.md","ref":"数据结构/4.排序算法.md","articles":[]},"previous":{"title":"2.图论例题","level":"3.2","depth":1,"path":"数据结构/2.图论例题.md","ref":"数据结构/2.图论例题.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"数据结构/3.散列表.md","mtime":"2020-12-01T08:19:10.242Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-05T13:18:03.642Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
