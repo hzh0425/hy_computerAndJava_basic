@@ -1,0 +1,992 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>7.树论例题.md · 计算机 ,java , 大数据 基础知识体系</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hzh">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="9.模板.html" />
+    
+    
+    <link rel="prev" href="6.树论.html" />
+    
+
+    
+    
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">操作系统</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../操作系统/1.基本概述.html">
+            
+                <a href="../操作系统/1.基本概述.html">
+            
+                    
+                    1.操作系统基本概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../操作系统/2.进程管理之进程与线程.html">
+            
+                <a href="../操作系统/2.进程管理之进程与线程.html">
+            
+                    
+                    2.进程管理之进程与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../操作系统/3.进程管理之处理机调度.html">
+            
+                <a href="../操作系统/3.进程管理之处理机调度.html">
+            
+                    
+                    3.进程管理之处理机调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../操作系统/4.进程管理之进程同步.html">
+            
+                <a href="../操作系统/4.进程管理之进程同步.html">
+            
+                    
+                    4.进程管理之进程同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../操作系统/5.内存管理之基本概念.html">
+            
+                <a href="../操作系统/5.内存管理之基本概念.html">
+            
+                    
+                    5.内存管理之基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../操作系统/6.内存管理之虚拟内存.html">
+            
+                <a href="../操作系统/6.内存管理之虚拟内存.html">
+            
+                    
+                    6.内存管理之虚拟内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../操作系统/7.IO设备管理之基本概念.html">
+            
+                <a href="../操作系统/7.IO设备管理之基本概念.html">
+            
+                    
+                    7.IO设备管理之基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../操作系统/8.面试题总结一.html">
+            
+                <a href="../操作系统/8.面试题总结一.html">
+            
+                    
+                    8.面试题总结一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">计算机网络篇</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../计算机网络/1.计算机网络入门基础概念.html">
+            
+                <a href="../计算机网络/1.计算机网络入门基础概念.html">
+            
+                    
+                    1.计算机网络入门文章(必读)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../计算机网络/2.计算机网络通信基础.html">
+            
+                <a href="../计算机网络/2.计算机网络通信基础.html">
+            
+                    
+                    2.计算机网络通信入门文章(必读)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../计算机网络/3.数据链路层.html">
+            
+                <a href="../计算机网络/3.数据链路层.html">
+            
+                    
+                    3.数据链路层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../计算机网络/4.网络层1.html">
+            
+                <a href="../计算机网络/4.网络层1.html">
+            
+                    
+                    4.网络层(一)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../计算机网络/5.网络层2.html">
+            
+                <a href="../计算机网络/5.网络层2.html">
+            
+                    
+                    5.网络层(二)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../计算机网络/6.传输层.html">
+            
+                <a href="../计算机网络/6.传输层.html">
+            
+                    
+                    6.传输层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../计算机网络/7.应用层.html">
+            
+                <a href="../计算机网络/7.应用层.html">
+            
+                    
+                    7.应用层(⭐)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../计算机网络/10.HTTP相关协议.html">
+            
+                <a href="../计算机网络/10.HTTP相关协议.html">
+            
+                    
+                    8.HTTP相关及发展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" >
+            
+                <span>
+            
+                    
+                    9.websocket
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../计算机网络/9.面试题二.html">
+            
+                <a href="../计算机网络/9.面试题二.html">
+            
+                    
+                    面试题总结一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据结构篇</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="1.图论.html">
+            
+                <a href="1.图论.html">
+            
+                    
+                    1.图论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="2.图论例题.html">
+            
+                <a href="2.图论例题.html">
+            
+                    
+                    2.图论例题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="3.散列表.html">
+            
+                <a href="3.散列表.html">
+            
+                    
+                    3.散列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="4.排序算法.html">
+            
+                <a href="4.排序算法.html">
+            
+                    
+                    4.排序算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="5.排序列题.html">
+            
+                <a href="5.排序列题.html">
+            
+                    
+                    5.排序算法例题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="6.树论.html">
+            
+                <a href="6.树论.html">
+            
+                    
+                    6.树论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.7" data-path="7.树论例题.html">
+            
+                <a href="7.树论例题.html">
+            
+                    
+                    7.树论例题.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="9.模板.html">
+            
+                <a href="9.模板.html">
+            
+                    
+                    数据结构模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">JVM篇</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../jvm/1.jvm内存结构.html">
+            
+                <a href="../jvm/1.jvm内存结构.html">
+            
+                    
+                    1.jvm内存结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../jvm/2.HotSpot虚拟机对象探秘.html">
+            
+                <a href="../jvm/2.HotSpot虚拟机对象探秘.html">
+            
+                    
+                    2.HotSpot虚拟机对象探秘.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../jvm/3.对象存亡与垃圾收集算法.html">
+            
+                <a href="../jvm/3.对象存亡与垃圾收集算法.html">
+            
+                    
+                    3.对象存亡与垃圾收集算法.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../jvm/4.HotSpot的算法细节与垃圾收集器.html">
+            
+                <a href="../jvm/4.HotSpot的算法细节与垃圾收集器.html">
+            
+                    
+                    4.HotSpot的算法细节与垃圾收集器.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../jvm/5.内存分配与回收策略.html">
+            
+                <a href="../jvm/5.内存分配与回收策略.html">
+            
+                    
+                    5.内存分配与回收策略.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../jvm/6.类文件结构.html">
+            
+                <a href="../jvm/6.类文件结构.html">
+            
+                    
+                    6.类文件结构.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../jvm/7.类加载机制.html">
+            
+                <a href="../jvm/7.类加载机制.html">
+            
+                    
+                    7.类加载机制.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">多线程篇</li>
+        
+        
+    
+
+    
+        
+        <li class="header">设计模式篇</li>
+        
+        
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >7.树论例题.md</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><b></b>&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;</a></li><ul><li><span class="title-icon "></span><a href="#1&#x6A59;&#x5B50;&#x6811;"><b></b>1.&#x6A59;&#x5B50;&#x6811;</a></li><li><span class="title-icon "></span><a href="#2&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><b></b>2.&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;</a></li></ul><li><span class="title-icon "></span><a href="#&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;"><b></b>&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;</a></li><ul><li><span class="title-icon "></span><a href="#0&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;"><b></b>0.&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;</a></li><li><span class="title-icon "></span><a href="#1&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><b></b>1.&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;</a></li><li><span class="title-icon "></span><a href="#2&#x8DEF;&#x5F84;&#x603B;&#x548C;-ii"><b></b>2.&#x8DEF;&#x5F84;&#x603B;&#x548C; II</a></li><li><span class="title-icon "></span><a href="#3&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;"><b></b>3.&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;</a></li><li><span class="title-icon "></span><a href="#4&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;"><b></b>4.&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;</a></li></ul><li><span class="title-icon "></span><a href="#&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;"><b></b>&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#1&#x5730;&#x9F20;&#x5B89;&#x5BB6;"><b></b>1.&#x5730;&#x9F20;&#x5B89;&#x5BB6;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;"><b></b>&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;</a></li><li><span class="title-icon "></span><a href="#&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;"><b></b>&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;</a></li></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><a name="&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;" class="anchor-navigation-ex-anchor" href="#&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;" class="plugin-anchor" href="#&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;</h2>
+<h3 id="1&#x6A59;&#x5B50;&#x6811;"><a name="1&#x6A59;&#x5B50;&#x6811;" class="anchor-navigation-ex-anchor" href="#1&#x6A59;&#x5B50;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1&#x6A59;&#x5B50;&#x6811;" class="plugin-anchor" href="#1&#x6A59;&#x5B50;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a>1.&#x6A59;&#x5B50;&#x6811;</h3>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201208232151.png" alt="image-20201208232151760"></p>
+<pre><code>5 2
+1 2 1
+2 3 2
+3 4 2
+4 5 1
+
+
+&#x8F93;&#x51FA;:
+7
+</code></pre><p><strong>&#x9898;&#x76EE;&#x5206;&#x6790;</strong></p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201208233503.png" alt="image-20201208233503734"></p>
+<p><strong>&#x7B97;&#x6CD5;&#x9009;&#x62E9;</strong></p>
+<p>&#x8FD9;&#x91CC;&#x9009;&#x62E9;&#x7528;dijkstra&#x6C42;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x957F;&#x5EA6;</p>
+<p><strong>&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</strong></p>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">typedef</span> pair&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt; ll;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MAXN=<span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;
+<span class="hljs-built_in">vector</span>&lt;ll&gt; graph[MAXN];
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; dist(MAXN,<span class="hljs-number">0</span>);
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vis(MAXN,<span class="hljs-number">0</span>);
+priority_queue&lt;ll,<span class="hljs-built_in">vector</span>&lt;ll&gt;,less&lt;ll&gt;&gt; qu; <span class="hljs-comment">//&#x4F18;&#x5148;&#x961F;&#x5217;</span>
+<span class="hljs-keyword">int</span> sumL=<span class="hljs-number">0</span>;<span class="hljs-comment">//&#x603B;&#x7684;&#x8FB9;&#x6743;</span>
+<span class="hljs-keyword">int</span> maxL=<span class="hljs-number">0</span>; <span class="hljs-comment">//&#x79BB;&#x6E90;&#x70B9;&#x6700;&#x5927;&#x957F;&#x5EA6;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b,<span class="hljs-keyword">int</span> v)</span></span>{
+    graph[a].push_back({b,v});
+    graph[b].push_back({a,v});
+    sumL+=v;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dijkstra</span><span class="hljs-params">(<span class="hljs-keyword">int</span> start)</span>
+</span>{
+    qu.push({<span class="hljs-number">0</span>,start});
+    <span class="hljs-keyword">while</span>(!qu.empty())
+    {
+        <span class="hljs-keyword">int</span> cur=qu.top().second;
+        qu.pop();
+        <span class="hljs-keyword">if</span> (vis[cur])<span class="hljs-keyword">continue</span>;
+        vis[cur]=<span class="hljs-literal">true</span>;
+        maxL=max(maxL,dist[cur]);
+        <span class="hljs-comment">//&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x90BB;&#x63A5;&#x8FB9;</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;graph[cur].size();i++)
+        {
+            ll child= graph[cur][i];
+            <span class="hljs-keyword">if</span>(!vis[child.first])
+            {
+                <span class="hljs-keyword">if</span>(dist[cur]+child.second&gt;dist[child.first])
+                {
+                    dist[child.first]=dist[cur]+child.second;
+                    qu.push({dist[child.first],child.first});
+                }
+            }
+        }
+    }
+}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> n,start;
+    <span class="hljs-built_in">cin</span>&gt;&gt;n&gt;&gt;start;
+    <span class="hljs-keyword">int</span> a,b,v;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n<span class="hljs-number">-1</span>;i++)
+    {
+        <span class="hljs-built_in">cin</span>&gt;&gt;a&gt;&gt;b&gt;&gt;v;
+        add(a,b,v);
+    }
+    dijkstra(start);
+    <span class="hljs-built_in">cout</span>&lt;&lt;sumL*<span class="hljs-number">2</span>-maxL;
+}
+</code></pre>
+<h3 id="2&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><a name="2&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;" class="anchor-navigation-ex-anchor" href="#2&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;" class="plugin-anchor" href="#2&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a>2.<a href="https://leetcode-cn.com/problems/unique-binary-search-trees/" target="_blank">&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;</a></h3>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201210193431.png" alt="image-20201210193431504"></p>
+<p><strong>&#x9898;&#x76EE;&#x5206;&#x6790;</strong></p>
+<p>&#x672C;&#x9898;&#x4E3B;&#x8981;&#x8003;&#x5BDF;dp,bst&#x7684;&#x6027;&#x8D28;</p>
+<p>&#x4EE5;i&#x4E3A;&#x6839;&#x8282;&#x70B9;,&#x5219;&#x5176;&#x5DE6;&#x5B50;&#x6811;&#x4E3A;[0,i-1],&#x53F3;&#x5B50;&#x6811;&#x4E3A;[i+1,n]</p>
+<p>&#x6240;&#x4EE5;num[i]=dp[i-1]+dp[n-i] (i=0,1,2,....n);</p>
+<p>dp&#x8FB9;&#x754C;&#x662F;dp[0]=1</p>
+<p>&#x4EE3;&#x7801;:</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">numTrees</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>{
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; dp(n+<span class="hljs-number">1</span>,<span class="hljs-number">0</span>);
+    dp[<span class="hljs-number">0</span>]=<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;=n ; ++i) {
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=i;j++){
+            dp[i]+=dp[j<span class="hljs-number">-1</span>]*dp[i-j];
+        }
+    }
+    <span class="hljs-keyword">return</span> dp[n];
+}
+};
+</code></pre>
+<h2 id="&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;"><a name="&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;" class="plugin-anchor" href="#&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;</h2>
+<h3 id="0&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;"><a name="0&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;" class="anchor-navigation-ex-anchor" href="#0&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="0&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;" class="plugin-anchor" href="#0&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;"><i class="fa fa-link" aria-hidden="true"></i></a>0.<a href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/" target="_blank">&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;</a></h3>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201210201548.png" alt="image-20201210201547921"></p>
+<p><strong>&#x9898;&#x76EE;&#x5206;&#x6790;</strong></p>
+<p>&#x9012;&#x5F52;&#x7684;&#x5E38;&#x89C1;&#x601D;&#x8DEF;:</p>
+<ul>
+<li>&#x76F8;&#x4FE1;&#x4E00;&#x4E2A;&#x51FD;&#x6570;,&#x80FD;&#x63D0;&#x4F9B;&#x5C06;&#x4EE5;root&#x4E3A;&#x6839;&#x7684;&#x6811;,&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;</li>
+<li>&#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x501F;&#x52A9;&#x6B64;&#x51FD;&#x6570;&#x5F97;&#x5230;&#x5DE6;&#x53F3;&#x4E24;&#x6839;&#x94FE;&#x8868;</li>
+<li>&#x6700;&#x540E;&#x53D8;&#x5316;&#x4E00;&#x4E0B;&#x5373;&#x53EF;</li>
+<li>&#x4E00;&#x5B9A;&#x8981;&#x628A;&#x9012;&#x5F52;&#x60F3;&#x8C61;&#x6210;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7684;&#x8FC7;&#x7A0B;,&#x5C31;&#x5F53;&#x4F5C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x6709;&#x4E24;&#x6839;&#x94FE;&#x8868;&#x4E86;,&#x8981;&#x505A;&#x7684;&#x65E0;&#x975E;&#x662F;&#x904D;&#x5386;&#x5230;&#x5DE6;&#x8FB9;&#x90A3;&#x6839;&#x94FE;&#x8868;&#x7684;&#x6700;&#x53F3;&#x8FB9;&#x90A3;&#x4E2A;&#x8282;&#x70B9;,&#x7136;&#x540E;&#x628A;&#x53F3;&#x8FB9;&#x90A3;&#x6839;&#x94FE;&#x8868;&#x63A5;&#x4E0A;&#x5373;&#x53EF;</li>
+</ul>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+<span class="hljs-keyword">typedef</span> TreeNode * node;
+<span class="hljs-function">node <span class="hljs-title">dfs</span><span class="hljs-params">(node root)</span></span>{
+    <span class="hljs-keyword">if</span>(!root)<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+    node left=dfs(root-&gt;left);
+    node right=dfs(root-&gt;right);
+    root-&gt;right=left;
+    <span class="hljs-comment">//&#x904D;&#x5386;&#x5230;&#x6700;&#x53F3;&#x8FB9;&#x4E00;&#x4E2A;&#x8282;&#x70B9;</span>
+    node temp=root;
+    <span class="hljs-keyword">while</span>(temp-&gt;right){
+        temp=temp-&gt;right;
+    }
+    temp-&gt;right=right;
+    root-&gt;left=<span class="hljs-literal">NULL</span>;
+    <span class="hljs-keyword">return</span> root;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">flatten</span><span class="hljs-params">(TreeNode* root)</span> </span>{
+    dfs(root);
+}
+};
+</code></pre>
+<h3 id="1&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><a name="1&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;" class="anchor-navigation-ex-anchor" href="#1&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;" class="plugin-anchor" href="#1&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a>1.<a href="https://leetcode-cn.com/problems/validate-binary-search-tree/" target="_blank">&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;</a></h3>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201210194838.png" alt="image-20201210194838614"></p>
+<p>&#x5BF9;&#x4E8E;BST,&#x65E0;&#x975E;&#x5DE6;&#x5B50;&#x6811;&#x6BD4;&#x5F53;&#x524D;&#x5C0F;,&#x53F3;&#x5B50;&#x6811;&#x6BD4;&#x5F53;&#x524D;&#x5927;,&#x9003;&#x4E0D;&#x8FC7;&#x8FD9;&#x4E2A;&#x6027;&#x8D28;,&#x5173;&#x4E8E;BST&#x7684;&#x90FD;&#x53EF;&#x4EE5;&#x5F80;&#x8FD9;&#x4E2A;&#x65B9;&#x5411;&#x5957;</p>
+<p>&#x6240;&#x4EE5;,&#x5F88;&#x5BB9;&#x6613;&#x5F97;&#x51FA;&#x9012;&#x5F52;&#x7684;&#x601D;&#x8DEF;:</p>
+<pre><code class="lang-c++"><span class="hljs-comment">/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */</span>
+<span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+<span class="hljs-keyword">typedef</span> TreeNode * node;
+<span class="hljs-function"><span class="hljs-keyword">bool</span>  <span class="hljs-title">dfs</span><span class="hljs-params">(node root,<span class="hljs-keyword">long</span> lower,<span class="hljs-keyword">long</span> upper)</span></span>{
+    <span class="hljs-keyword">if</span>(!root)<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">int</span> val=root-&gt;val;
+    <span class="hljs-keyword">if</span>(val&lt;=lower||val&gt;=upper)<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">return</span> dfs(root-&gt;left,lower,val)&amp;&amp;dfs(root-&gt;right,val,upper);
+
+}
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isValidBST</span><span class="hljs-params">(TreeNode* root)</span> </span>{
+    <span class="hljs-keyword">return</span> dfs(root,LONG_MIN,LONG_MAX);
+}
+};
+</code></pre>
+<h3 id="2&#x8DEF;&#x5F84;&#x603B;&#x548C;-ii"><a name="2&#x8DEF;&#x5F84;&#x603B;&#x548C;-ii" class="anchor-navigation-ex-anchor" href="#2&#x8DEF;&#x5F84;&#x603B;&#x548C;-ii"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2&#x8DEF;&#x5F84;&#x603B;&#x548C;-ii" class="plugin-anchor" href="#2&#x8DEF;&#x5F84;&#x603B;&#x548C;-ii"><i class="fa fa-link" aria-hidden="true"></i></a>2.<a href="https://leetcode-cn.com/problems/path-sum-ii/" target="_blank">&#x8DEF;&#x5F84;&#x603B;&#x548C; II</a></h3>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201210201156.png" alt="image-20201210201156416"></p>
+<p><strong>&#x9898;&#x76EE;&#x5206;&#x6790;</strong></p>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x9053;&#x5F88;&#x5E38;&#x89C1;&#x7684;dfs&#x56DE;&#x6714;&#x7C7B;&#x578B;&#x7684;&#x9898;&#x76EE;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">struct</span> TreeNode{
+    <span class="hljs-keyword">int</span> val;
+    TreeNode * left;
+    TreeNode * right;
+    TreeNode() : val(<span class="hljs-number">0</span>), left(<span class="hljs-literal">nullptr</span>), right(<span class="hljs-literal">nullptr</span>) {}
+    TreeNode(<span class="hljs-keyword">int</span> x) : val(x), left(<span class="hljs-literal">nullptr</span>), right(<span class="hljs-literal">nullptr</span>) {}
+};
+<span class="hljs-keyword">typedef</span> TreeNode * node;
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; result;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(node root,<span class="hljs-keyword">int</span> cur,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; arr)</span>
+</span>{
+    <span class="hljs-keyword">if</span>(!root)<span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">int</span> val=root-&gt;val;
+    cur-=val;
+    arr.push_back(val);
+    <span class="hljs-keyword">if</span> (!root-&gt;left&amp;&amp;!root-&gt;right&amp;&amp;cur==<span class="hljs-number">0</span>)
+    {
+        result.push_back(arr);
+        <span class="hljs-comment">//&#x6CE8;&#x610F;&#x56DE;&#x6714; </span>
+        arr.pop_back();
+        <span class="hljs-keyword">return</span>;
+    }
+    dfs(root-&gt;left,cur,arr);
+    dfs(root-&gt;right,cur,arr);
+            <span class="hljs-comment">//&#x6CE8;&#x610F;&#x56DE;&#x6714; </span>
+    arr.pop_back();
+}
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; pathSum(TreeNode* root, <span class="hljs-keyword">int</span> sum) {
+    dfs (root,sum,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;{});
+    <span class="hljs-keyword">return</span> result;
+}
+</code></pre>
+<h3 id="3&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;"><a name="3&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;" class="anchor-navigation-ex-anchor" href="#3&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;" class="plugin-anchor" href="#3&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;"><i class="fa fa-link" aria-hidden="true"></i></a>3.<a href="https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/" target="_blank">&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;</a></h3>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201210204108.png" alt="image-20201210204108512"></p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201210204116.png" alt="image-20201210204116338"></p>
+<p><strong>&#x9898;&#x76EE;&#x5206;&#x6790;</strong></p>
+<p>&#x540C;&#x6837;&#x6839;&#x636E;&#x7B2C;&#x4E00;&#x9898;&#x7684;&#x601D;&#x8DEF;:</p>
+<ul>
+<li>&#x76F8;&#x4FE1;&#x4E00;&#x4E2A;&#x51FD;&#x6570;dfs,&#x5B83;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4EE5;root&#x4E3A;&#x6839;&#x8282;&#x70B9;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;</li>
+<li>&#x4E5F;&#x5373;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x5DE6;&#x53F3;&#x4E24;&#x9897;&#x6811;&#x5404;&#x81EA;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;,&#x90A3;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x8282;&#x70B9;root,&#x5176;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x5C31;&#x662F;left+cur+right,&#x5E76;&#x66F4;&#x65B0;&#x7B54;&#x6848;</li>
+<li>&#x4F46;&#x662F;&#x8FD4;&#x56DE;&#x7684;,&#x662F;&#x5DE6;&#x53F3;&#x6700;&#x5927;&#x7684;&#x8DEF;&#x5F84;+cur,&#x800C;&#x4E0D;&#x662F;&#x8FD4;&#x56DE;&#x6700;&#x5927;&#x8DEF;&#x5F84;</li>
+</ul>
+<pre><code class="lang-c++"><span class="hljs-comment">/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */</span>
+<span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+<span class="hljs-keyword">typedef</span> TreeNode * node;
+<span class="hljs-keyword">int</span> answer=INT_MIN;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(node root)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (!root)<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> left=dfs(root-&gt;left);
+    <span class="hljs-comment">//&#x5982;&#x679C;&#x5DE6;&#x53F3;&#x5C0F;&#x4E8E;0,&#x5219;&#x76F4;&#x63A5;&#x629B;&#x5F03;&#x5DE6;&#x53F3;&#x5373;&#x53EF;,&#x4E5F;&#x5373;&#x8D4B;&#x503C;&#x4E3A;0 </span>
+    <span class="hljs-keyword">if</span> (left&lt;<span class="hljs-number">0</span>)left=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> right=dfs(root-&gt;right);
+    <span class="hljs-keyword">if</span>(right&lt;<span class="hljs-number">0</span>)right=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> val=root-&gt;val;
+    <span class="hljs-comment">//&#x8DDF;&#x65B0;&#x7B54;&#x6848; </span>
+    answer=max(answer,left+right+val);
+    <span class="hljs-comment">//&#x8FD4;&#x56DE;&#x5DE6;&#x53F3;&#x6700;&#x5927;+cur </span>
+    <span class="hljs-keyword">return</span> max(left,right)+val;
+}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxPathSum</span><span class="hljs-params">(TreeNode* root)</span> 
+</span>{
+     dfs(root);
+     <span class="hljs-keyword">return</span> answer;
+}
+};
+</code></pre>
+<h3 id="4&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;"><a name="4&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;" class="anchor-navigation-ex-anchor" href="#4&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="4&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;" class="plugin-anchor" href="#4&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;"><i class="fa fa-link" aria-hidden="true"></i></a>4.<a href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank">&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;</a></h3>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201210205525.png" alt="image-20201210205525646"></p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201210205531.png" alt="image-20201210205531854"></p>
+<p>&#x8FD9;&#x79CD;&#x9898;&#x76EE;&#x4E3B;&#x8981;&#x5206;&#x6E05;&#x695A;&#x51E0;&#x79CD;&#x60C5;&#x51B5;&#x5373;&#x53EF;</p>
+<pre><code class="lang-c++"><span class="hljs-function">TreeNode* <span class="hljs-title">lowestCommonAncestor</span><span class="hljs-params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>{
+    <span class="hljs-keyword">if</span> (!root)<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+    <span class="hljs-comment">//&#x5982;&#x679C;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x548C;p,q&#x67D0;&#x4E00;&#x4E2A;&#x76F8;&#x7B49;,&#x8BF4;&#x660E;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x5C31;&#x662F;&#x8981;&#x627E;&#x7684;&#x70B9;</span>
+    <span class="hljs-keyword">if</span> (root==p||root==q)<span class="hljs-keyword">return</span> root;
+    <span class="hljs-comment">//&#x4ECE;&#x5DE6;&#x53F3;&#x4E2D;&#x5BFB;&#x627E;</span>
+    node left=lowestCommonAncestor(root-&gt;left,p,q);
+    node right=lowestCommonAncestor(root-&gt;right,p,q);
+    <span class="hljs-comment">//&#x90FD;&#x4E0D;&#x4E3A;&#x7A7A;,&#x8BF4;&#x660E;p,q&#x5206;&#x6563;&#x5728;&#x5DE6;&#x53F3;&#x4E2D;,&#x5F53;&#x524D;&#x4E3A;&#x7236;&#x8282;&#x70B9;</span>
+    <span class="hljs-keyword">if</span> (left&amp;&amp;right)<span class="hljs-keyword">return</span> root;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> left?left:right;
+}
+</code></pre>
+<h2 id="&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;"><a name="&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;" class="plugin-anchor" href="#&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;</h2>
+<h3 id="1&#x5730;&#x9F20;&#x5B89;&#x5BB6;"><a name="1&#x5730;&#x9F20;&#x5B89;&#x5BB6;" class="anchor-navigation-ex-anchor" href="#1&#x5730;&#x9F20;&#x5B89;&#x5BB6;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1&#x5730;&#x9F20;&#x5B89;&#x5BB6;" class="plugin-anchor" href="#1&#x5730;&#x9F20;&#x5B89;&#x5BB6;"><i class="fa fa-link" aria-hidden="true"></i></a>1.&#x5730;&#x9F20;&#x5B89;&#x5BB6;</h3>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201208235416.png" alt="image-20201208235416703"></p>
+<pre><code>&#x8F93;&#x5165;&#x793A;&#x4F8B;
+5
+-1 1 -1
+1 2 3
+-1 3 -1
+2 4 5
+-1 5 -1
+
+&#x8F93;&#x51FA;:
+3
+</code></pre><p><strong>&#x9898;&#x76EE;&#x5206;&#x6790;</strong></p>
+<p>&#x8003;&#x70B9;:BST,BST&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x9012;&#x589E;</p>
+<p>&#x5148;&#x6784;&#x5EFA;&#x4E00;&#x68F5;&#x6811;,&#x5229;&#x7528;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x5224;&#x65AD;&#x8BE5;&#x5E8F;&#x5217;&#x662F;&#x5426;&#x9012;&#x589E;&#x5373;&#x53EF;</p>
+<h2 id="&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;"><a name="&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;" class="plugin-anchor" href="#&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;</h2>
+<p><a href="https://leetcode-cn.com/problems/range-sum-query-mutable/solution/java-xian-duan-shu-lazyyou-hua-jie-shi-hen-xiang-x/" target="_blank">https://leetcode-cn.com/problems/range-sum-query-mutable/solution/java-xian-duan-shu-lazyyou-hua-jie-shi-hen-xiang-x/</a></p>
+<h4 id="307-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-"><a name="307-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-" class="anchor-navigation-ex-anchor" href="#307-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-"><i class="fa fa-link" aria-hidden="true"></i></a><a name="307-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-" class="plugin-anchor" href="#307-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://leetcode-cn.com/problems/range-sum-query-mutable/" target="_blank">307. &#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22; </a></h4>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201203170758.png" alt="image-20201203170758373"></p>
+<h2 id="&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;"><a name="&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;" class="plugin-anchor" href="#&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;</h2>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="6.树论.html" class="navigation navigation-prev " aria-label="Previous page: 6.树论">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="9.模板.html" class="navigation navigation-next " aria-label="Next page: 数据结构模板">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"7.树论例题.md","level":"3.7","depth":1,"next":{"title":"数据结构模板","level":"3.8","depth":1,"path":"数据结构/9.模板.md","ref":"数据结构/9.模板.md","articles":[]},"previous":{"title":"6.树论","level":"3.6","depth":1,"path":"数据结构/6.树论.md","ref":"数据结构/6.树论.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"数据结构/7.树论例题.md","mtime":"2020-12-10T13:08:29.252Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-10T13:13:06.756Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
