@@ -16,7 +16,16 @@
         "anchors",
         "sharing-plus",
         "anchor-navigation-ex",
-        "favicon"
+        "favicon",
+        "expandable-chapters",
+        "back-to-top-button",
+        "code",
+        "splitter",
+        "-lunr", 
+	      "-search", 
+	      "search-pro",
+	      "pageview-count",
+	      "popup"
     ],
     "pluginsConfig": {
         "sharing": {
