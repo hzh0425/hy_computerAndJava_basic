@@ -55,6 +55,9 @@
 - [4.线程池及底层原理](多线程/5.线程池.md)
 - [5.synchronized底层原理](多线程/6.synchronized底层原理.md)
 - [6.hanppen-before与指令重排](多线程/7.hanppen-before与指令重排.md)
+- [7.volatile与final底层原理]()
+- [8.乐观锁CAS与悲观锁](多线程/7.乐观锁与悲观锁.md)
+- [9.JUC之AQS](多线程/8.JUC之AQS.md)
 
 ### 设计模式篇
 

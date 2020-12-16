@@ -1,0 +1,1475 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>9.JUC之AQS · 计算机 ,java , 大数据 基础知识体系</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hzh">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="7.乐观锁与悲观锁.html" />
+    
+
+    
+    
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">操作系统</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../操作系统/1.基本概述.html">
+            
+                <a href="../操作系统/1.基本概述.html">
+            
+                    
+                    1.操作系统基本概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../操作系统/2.进程管理之进程与线程.html">
+            
+                <a href="../操作系统/2.进程管理之进程与线程.html">
+            
+                    
+                    2.进程管理之进程与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../操作系统/3.进程管理之处理机调度.html">
+            
+                <a href="../操作系统/3.进程管理之处理机调度.html">
+            
+                    
+                    3.进程管理之处理机调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../操作系统/4.进程管理之进程同步.html">
+            
+                <a href="../操作系统/4.进程管理之进程同步.html">
+            
+                    
+                    4.进程管理之进程同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../操作系统/5.内存管理之基本概念.html">
+            
+                <a href="../操作系统/5.内存管理之基本概念.html">
+            
+                    
+                    5.内存管理之基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../操作系统/6.内存管理之虚拟内存.html">
+            
+                <a href="../操作系统/6.内存管理之虚拟内存.html">
+            
+                    
+                    6.内存管理之虚拟内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../操作系统/7.IO设备管理之基本概念.html">
+            
+                <a href="../操作系统/7.IO设备管理之基本概念.html">
+            
+                    
+                    7.IO设备管理之基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../操作系统/8.面试题总结一.html">
+            
+                <a href="../操作系统/8.面试题总结一.html">
+            
+                    
+                    8.面试题总结一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">计算机网络篇</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../计算机网络/1.计算机网络入门基础概念.html">
+            
+                <a href="../计算机网络/1.计算机网络入门基础概念.html">
+            
+                    
+                    1.计算机网络入门文章(必读)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../计算机网络/2.计算机网络通信基础.html">
+            
+                <a href="../计算机网络/2.计算机网络通信基础.html">
+            
+                    
+                    2.计算机网络通信入门文章(必读)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../计算机网络/3.数据链路层.html">
+            
+                <a href="../计算机网络/3.数据链路层.html">
+            
+                    
+                    3.数据链路层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../计算机网络/4.网络层1.html">
+            
+                <a href="../计算机网络/4.网络层1.html">
+            
+                    
+                    4.网络层(一)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../计算机网络/5.网络层2.html">
+            
+                <a href="../计算机网络/5.网络层2.html">
+            
+                    
+                    5.网络层(二)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../计算机网络/6.传输层.html">
+            
+                <a href="../计算机网络/6.传输层.html">
+            
+                    
+                    6.传输层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../计算机网络/7.应用层.html">
+            
+                <a href="../计算机网络/7.应用层.html">
+            
+                    
+                    7.应用层(⭐)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../计算机网络/10.HTTP相关协议.html">
+            
+                <a href="../计算机网络/10.HTTP相关协议.html">
+            
+                    
+                    8.HTTP相关及发展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" >
+            
+                <span>
+            
+                    
+                    9.websocket
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../计算机网络/9.面试题二.html">
+            
+                <a href="../计算机网络/9.面试题二.html">
+            
+                    
+                    面试题总结一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据结构篇</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../数据结构/1.图论.html">
+            
+                <a href="../数据结构/1.图论.html">
+            
+                    
+                    1.图论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../数据结构/2.图论例题.html">
+            
+                <a href="../数据结构/2.图论例题.html">
+            
+                    
+                    2.图论例题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../数据结构/3.散列表.html">
+            
+                <a href="../数据结构/3.散列表.html">
+            
+                    
+                    3.散列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../数据结构/4.排序算法.html">
+            
+                <a href="../数据结构/4.排序算法.html">
+            
+                    
+                    4.排序算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../数据结构/5.排序列题.html">
+            
+                <a href="../数据结构/5.排序列题.html">
+            
+                    
+                    5.排序算法例题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../数据结构/6.树论.html">
+            
+                <a href="../数据结构/6.树论.html">
+            
+                    
+                    6.树论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../数据结构/7.树论例题.html">
+            
+                <a href="../数据结构/7.树论例题.html">
+            
+                    
+                    7.树论例题.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../数据结构/9.模板.html">
+            
+                <a href="../数据结构/9.模板.html">
+            
+                    
+                    数据结构模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">JVM篇</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../jvm/1.jvm内存结构.html">
+            
+                <a href="../jvm/1.jvm内存结构.html">
+            
+                    
+                    1.jvm内存结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../jvm/2.HotSpot虚拟机对象探秘.html">
+            
+                <a href="../jvm/2.HotSpot虚拟机对象探秘.html">
+            
+                    
+                    2.HotSpot虚拟机对象探秘.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../jvm/3.对象存亡与垃圾收集算法.html">
+            
+                <a href="../jvm/3.对象存亡与垃圾收集算法.html">
+            
+                    
+                    3.对象存亡与垃圾收集算法.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../jvm/4.HotSpot的算法细节与垃圾收集器.html">
+            
+                <a href="../jvm/4.HotSpot的算法细节与垃圾收集器.html">
+            
+                    
+                    4.HotSpot的算法细节与垃圾收集器.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../jvm/5.内存分配与回收策略.html">
+            
+                <a href="../jvm/5.内存分配与回收策略.html">
+            
+                    
+                    5.内存分配与回收策略.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../jvm/6.类文件结构.html">
+            
+                <a href="../jvm/6.类文件结构.html">
+            
+                    
+                    6.类文件结构.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../jvm/7.类加载机制.html">
+            
+                <a href="../jvm/7.类加载机制.html">
+            
+                    
+                    7.类加载机制.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../jvm/8.jvm逃逸分析.html">
+            
+                <a href="../jvm/8.jvm逃逸分析.html">
+            
+                    
+                    8.逃逸分析技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">多线程篇</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="1.Java内存模型与线程.html">
+            
+                <a href="1.Java内存模型与线程.html">
+            
+                    
+                    1.Java内存模型与线程.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="3.并行程序基础.html">
+            
+                <a href="3.并行程序基础.html">
+            
+                    
+                    2.并行程序基础.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="4.同步控制工具.html">
+            
+                <a href="4.同步控制工具.html">
+            
+                    
+                    3.同步控制工具.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="5.线程池.html">
+            
+                <a href="5.线程池.html">
+            
+                    
+                    4.线程池及底层原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="6.synchronized底层原理.html">
+            
+                <a href="6.synchronized底层原理.html">
+            
+                    
+                    5.synchronized底层原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="7.hanppen-before与指令重排.html">
+            
+                <a href="7.hanppen-before与指令重排.html">
+            
+                    
+                    6.hanppen-before与指令重排
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" >
+            
+                <span>
+            
+                    
+                    7.volatile与final底层原理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="7.乐观锁与悲观锁.html">
+            
+                <a href="7.乐观锁与悲观锁.html">
+            
+                    
+                    8.乐观锁CAS与悲观锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.9" data-path="8.JUC之AQS.html">
+            
+                <a href="8.JUC之AQS.html">
+            
+                    
+                    9.JUC之AQS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">设计模式篇</li>
+        
+        
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >9.JUC之AQS</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x4E00;-aqs&#x7B80;&#x4ECB;"><b></b>&#x4E00; AQS&#x7B80;&#x4ECB;</a></li><ul><li><span class="title-icon "></span><a href="#1-aqs-&#x7B80;&#x5355;&#x4ECB;&#x7ECD;"><b></b>1 AQS &#x7B80;&#x5355;&#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#2-aqs-&#x539F;&#x7406;"><b></b>2 AQS &#x539F;&#x7406;</a></li></ul><li><span class="title-icon "></span><a href="#&#x4E8C;-clh&#x540C;&#x6B65;&#x961F;&#x5217;"><b></b>&#x4E8C; CLH&#x540C;&#x6B65;&#x961F;&#x5217;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5165;&#x5217;"><b></b>&#x5165;&#x5217;</a></li><li><span class="title-icon "></span><a href="#&#x51FA;&#x5217;"><b></b>&#x51FA;&#x5217;</a></li></ul><li><span class="title-icon "></span><a href="#&#x4E09;-aqs&#x4E4B;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x83B7;&#x53D6;"><b></b>&#x4E09; AQS&#x4E4B;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x83B7;&#x53D6;</a></li><ul><li><span class="title-icon "></span><a href="#&#x72EC;&#x5360;&#x5F0F;"><b></b>&#x72EC;&#x5360;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#&#x5171;&#x4EAB;&#x5F0F;"><b></b>&#x5171;&#x4EAB;&#x5F0F;</a></li></ul><li><span class="title-icon "></span><a href="#&#x56DB;-aqs&#x4E4B;&#x963B;&#x585E;&#x548C;&#x5524;&#x9192;&#x7EBF;&#x7A0B;"><b></b>&#x56DB; AQS&#x4E4B;&#x963B;&#x585E;&#x548C;&#x5524;&#x9192;&#x7EBF;&#x7A0B;</a></li><ul><li><span class="title-icon "></span><a href="#&#x963B;&#x585E;"><b></b>&#x963B;&#x585E;</a></li><li><span class="title-icon "></span><a href="#&#x5524;&#x9192;"><b></b>&#x5524;&#x9192;</a></li><li><span class="title-icon "></span><a href="#locksupport"><b></b>LockSupport</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="&#x4E00;-aqs&#x7B80;&#x4ECB;"><a name="&#x4E00;-aqs&#x7B80;&#x4ECB;" class="anchor-navigation-ex-anchor" href="#&#x4E00;-aqs&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E00;-aqs&#x7B80;&#x4ECB;" class="plugin-anchor" href="#&#x4E00;-aqs&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00; AQS&#x7B80;&#x4ECB;</h2>
+<h3 id="1-aqs-&#x7B80;&#x5355;&#x4ECB;&#x7ECD;"><a name="1-aqs-&#x7B80;&#x5355;&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#1-aqs-&#x7B80;&#x5355;&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-aqs-&#x7B80;&#x5355;&#x4ECB;&#x7ECD;" class="plugin-anchor" href="#1-aqs-&#x7B80;&#x5355;&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1 AQS &#x7B80;&#x5355;&#x4ECB;&#x7ECD;</h3>
+<p>AQS &#x7684;&#x5168;&#x79F0;&#x4E3A;&#xFF08;AbstractQueuedSynchronizer&#xFF09;&#xFF0C;&#x8FD9;&#x4E2A;&#x7C7B;&#x5728; java.util.concurrent.locks &#x5305;&#x4E0B;&#x9762;&#x3002;</p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201216083314.png" alt="image-20201216083314120"></p>
+<p>AQS &#x662F;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x6784;&#x5EFA;&#x9501;&#x548C;&#x540C;&#x6B65;&#x5668;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x4F7F;&#x7528; AQS &#x80FD;&#x7B80;&#x5355;&#x4E14;&#x9AD8;&#x6548;&#x5730;&#x6784;&#x9020;&#x51FA;&#x5E94;&#x7528;&#x5E7F;&#x6CDB;&#x7684;&#x5927;&#x91CF;&#x7684;&#x540C;&#x6B65;&#x5668;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x63D0;&#x5230;&#x7684; ReentrantLock&#xFF0C;Semaphore&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x8BF8;&#x5982; ReentrantReadWriteLock&#xFF0C;SynchronousQueue&#xFF0C;FutureTask(jdk1.7) &#x7B49;&#x7B49;&#x7686;&#x662F;&#x57FA;&#x4E8E; AQS &#x7684;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x4E5F;&#x80FD;&#x5229;&#x7528; AQS &#x975E;&#x5E38;&#x8F7B;&#x677E;&#x5BB9;&#x6613;&#x5730;&#x6784;&#x9020;&#x51FA;&#x7B26;&#x5408;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x9700;&#x6C42;&#x7684;&#x540C;&#x6B65;&#x5668;&#x3002;</p>
+<h3 id="2-aqs-&#x539F;&#x7406;"><a name="2-aqs-&#x539F;&#x7406;" class="anchor-navigation-ex-anchor" href="#2-aqs-&#x539F;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-aqs-&#x539F;&#x7406;" class="plugin-anchor" href="#2-aqs-&#x539F;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>2 AQS &#x539F;&#x7406;</h3>
+<h4 id="21-aqs-&#x539F;&#x7406;&#x6982;&#x89C8;"><a name="21-aqs-&#x539F;&#x7406;&#x6982;&#x89C8;" class="anchor-navigation-ex-anchor" href="#21-aqs-&#x539F;&#x7406;&#x6982;&#x89C8;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="21-aqs-&#x539F;&#x7406;&#x6982;&#x89C8;" class="plugin-anchor" href="#21-aqs-&#x539F;&#x7406;&#x6982;&#x89C8;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 AQS &#x539F;&#x7406;&#x6982;&#x89C8;</h4>
+<p><strong>AQS &#x6838;&#x5FC3;&#x601D;&#x60F3;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x88AB;&#x8BF7;&#x6C42;&#x7684;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7A7A;&#x95F2;&#xFF0C;&#x5219;&#x5C06;&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#x7684;&#x7EBF;&#x7A0B;&#x8BBE;&#x7F6E;&#x4E3A;&#x6709;&#x6548;&#x7684;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x8BBE;&#x7F6E;&#x4E3A;&#x9501;&#x5B9A;&#x72B6;&#x6001;&#x3002;&#x5982;&#x679C;&#x88AB;&#x8BF7;&#x6C42;&#x7684;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x88AB;&#x5360;&#x7528;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x9700;&#x8981;&#x4E00;&#x5957;&#x7EBF;&#x7A0B;&#x963B;&#x585E;&#x7B49;&#x5F85;&#x4EE5;&#x53CA;&#x88AB;&#x5524;&#x9192;&#x65F6;&#x9501;&#x5206;&#x914D;&#x7684;&#x673A;&#x5236;&#xFF0C;&#x8FD9;&#x4E2A;&#x673A;&#x5236; AQS &#x662F;&#x7528; CLH &#x961F;&#x5217;&#x9501;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5373;&#x5C06;&#x6682;&#x65F6;&#x83B7;&#x53D6;&#x4E0D;&#x5230;&#x9501;&#x7684;&#x7EBF;&#x7A0B;&#x52A0;&#x5165;&#x5230;&#x961F;&#x5217;&#x4E2D;&#x3002;</strong></p>
+<blockquote>
+<p>CLH(Craig,Landin,and Hagersten)&#x961F;&#x5217;&#x662F;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x7684;&#x53CC;&#x5411;&#x961F;&#x5217;&#xFF08;&#x865A;&#x62DF;&#x7684;&#x53CC;&#x5411;&#x961F;&#x5217;&#x5373;&#x4E0D;&#x5B58;&#x5728;&#x961F;&#x5217;&#x5B9E;&#x4F8B;&#xFF0C;&#x4EC5;&#x5B58;&#x5728;&#x7ED3;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x8054;&#x5173;&#x7CFB;&#xFF09;&#x3002;AQS &#x662F;&#x5C06;&#x6BCF;&#x6761;&#x8BF7;&#x6C42;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x7EBF;&#x7A0B;&#x5C01;&#x88C5;&#x6210;&#x4E00;&#x4E2A; CLH &#x9501;&#x961F;&#x5217;&#x7684;&#x4E00;&#x4E2A;&#x7ED3;&#x70B9;&#xFF08;Node&#xFF09;&#x6765;&#x5B9E;&#x73B0;&#x9501;&#x7684;&#x5206;&#x914D;&#x3002;</p>
+</blockquote>
+<p>&#x770B;&#x4E2A; AQS(AbstractQueuedSynchronizer)&#x539F;&#x7406;&#x56FE;&#xFF1A;</p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201216083322.png" alt="image-20201216083322162"></p>
+<p><strong>AQS &#x4F7F;&#x7528;&#x4E00;&#x4E2A; int &#x6210;&#x5458;&#x53D8;&#x91CF;&#x6765;&#x8868;&#x793A;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x901A;&#x8FC7;&#x5185;&#x7F6E;&#x7684; FIFO &#x961F;&#x5217;&#x6765;&#x5B8C;&#x6210;&#x83B7;&#x53D6;&#x8D44;&#x6E90;&#x7EBF;&#x7A0B;&#x7684;&#x6392;&#x961F;&#x5DE5;&#x4F5C;&#x3002;AQS &#x4F7F;&#x7528; CAS &#x5BF9;&#x8BE5;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x8FDB;&#x884C;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#x5B9E;&#x73B0;&#x5BF9;&#x5176;&#x503C;&#x7684;&#x4FEE;&#x6539;&#x3002;</strong></p>
+<pre><code class="lang-java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">int</span> state;<span class="hljs-comment">//&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#xFF0C;&#x4F7F;&#x7528;volatile&#x4FEE;&#x9970;&#x4FDD;&#x8BC1;&#x7EBF;&#x7A0B;&#x53EF;&#x89C1;&#x6027;</span>
+</code></pre>
+<p>&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x901A;&#x8FC7; protected &#x7C7B;&#x578B;&#x7684;<code>getState</code>&#xFF0C;<code>setState</code>&#xFF0C;<code>compareAndSetState</code>&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</p>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x8FD4;&#x56DE;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x5F53;&#x524D;&#x503C;</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getState</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> state;
+}
+ <span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x503C;</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setState</span><span class="hljs-params">(<span class="hljs-keyword">int</span> newState)</span> </span>{
+        state = newState;
+}
+<span class="hljs-comment">//&#x539F;&#x5B50;&#x5730;&#xFF08;CAS&#x64CD;&#x4F5C;&#xFF09;&#x5C06;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;&#x7ED9;&#x5B9A;&#x503C;update&#x5982;&#x679C;&#x5F53;&#x524D;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x503C;&#x7B49;&#x4E8E;expect&#xFF08;&#x671F;&#x671B;&#x503C;&#xFF09;</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">compareAndSetState</span><span class="hljs-params">(<span class="hljs-keyword">int</span> expect, <span class="hljs-keyword">int</span> update)</span> </span>{
+        <span class="hljs-keyword">return</span> unsafe.compareAndSwapInt(<span class="hljs-keyword">this</span>, stateOffset, expect, update);
+}
+</code></pre>
+<h4 id="22-aqs-&#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x5171;&#x4EAB;&#x65B9;&#x5F0F;"><a name="22-aqs-&#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x5171;&#x4EAB;&#x65B9;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#22-aqs-&#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x5171;&#x4EAB;&#x65B9;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="22-aqs-&#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x5171;&#x4EAB;&#x65B9;&#x5F0F;" class="plugin-anchor" href="#22-aqs-&#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x5171;&#x4EAB;&#x65B9;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 AQS &#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x5171;&#x4EAB;&#x65B9;&#x5F0F;</h4>
+<p><strong>AQS &#x5B9A;&#x4E49;&#x4E24;&#x79CD;&#x8D44;&#x6E90;&#x5171;&#x4EAB;&#x65B9;&#x5F0F;</strong></p>
+<p><strong>1)Exclusive</strong>&#xFF08;&#x72EC;&#x5360;&#xFF09;</p>
+<p>&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x80FD;&#x6267;&#x884C;&#xFF0C;&#x5982; ReentrantLock&#x3002;&#x53C8;&#x53EF;&#x5206;&#x4E3A;&#x516C;&#x5E73;&#x9501;&#x548C;&#x975E;&#x516C;&#x5E73;&#x9501;,ReentrantLock &#x540C;&#x65F6;&#x652F;&#x6301;&#x4E24;&#x79CD;&#x9501;,&#x4E0B;&#x9762;&#x4EE5; ReentrantLock &#x5BF9;&#x8FD9;&#x4E24;&#x79CD;&#x9501;&#x7684;&#x5B9A;&#x4E49;&#x505A;&#x4ECB;&#x7ECD;&#xFF1A;</p>
+<ul>
+<li>&#x516C;&#x5E73;&#x9501;&#xFF1A;&#x6309;&#x7167;&#x7EBF;&#x7A0B;&#x5728;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x6392;&#x961F;&#x987A;&#x5E8F;&#xFF0C;&#x5148;&#x5230;&#x8005;&#x5148;&#x62FF;&#x5230;&#x9501;</li>
+<li>&#x975E;&#x516C;&#x5E73;&#x9501;&#xFF1A;&#x5F53;&#x7EBF;&#x7A0B;&#x8981;&#x83B7;&#x53D6;&#x9501;&#x65F6;&#xFF0C;&#x5148;&#x901A;&#x8FC7;&#x4E24;&#x6B21; CAS &#x64CD;&#x4F5C;&#x53BB;&#x62A2;&#x9501;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x62A2;&#x5230;&#xFF0C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x518D;&#x52A0;&#x5165;&#x5230;&#x961F;&#x5217;&#x4E2D;&#x7B49;&#x5F85;&#x5524;&#x9192;&#x3002;</li>
+</ul>
+<p><strong>&#x4E0B;&#x9762;&#x6765;&#x770B; ReentrantLock &#x4E2D;&#x76F8;&#x5173;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#xFF1A;</strong></p>
+<p>ReentrantLock &#x9ED8;&#x8BA4;&#x91C7;&#x7528;&#x975E;&#x516C;&#x5E73;&#x9501;&#xFF0C;&#x56E0;&#x4E3A;&#x8003;&#x8651;&#x83B7;&#x5F97;&#x66F4;&#x597D;&#x7684;&#x6027;&#x80FD;&#xFF0C;&#x901A;&#x8FC7; boolean &#x6765;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x7528;&#x516C;&#x5E73;&#x9501;&#xFF08;&#x4F20;&#x5165; true &#x7528;&#x516C;&#x5E73;&#x9501;&#xFF09;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/** Synchronizer providing all implementation mechanics */</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Sync sync;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ReentrantLock</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// &#x9ED8;&#x8BA4;&#x975E;&#x516C;&#x5E73;&#x9501;</span>
+    sync = <span class="hljs-keyword">new</span> NonfairSync();
+}
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ReentrantLock</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> fair)</span> </span>{
+    sync = fair ? <span class="hljs-keyword">new</span> FairSync() : <span class="hljs-keyword">new</span> NonfairSync();
+}
+</code></pre>
+<p>ReentrantLock &#x4E2D;&#x516C;&#x5E73;&#x9501;&#x7684; <code>lock</code> &#x65B9;&#x6CD5;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FairSync</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Sync</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">lock</span><span class="hljs-params">()</span> </span>{
+        acquire(<span class="hljs-number">1</span>);
+    }
+    <span class="hljs-comment">// AbstractQueuedSynchronizer.acquire(int arg)</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>{
+        <span class="hljs-keyword">if</span> (!tryAcquire(arg) &amp;&amp;
+            acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
+            selfInterrupt();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">tryAcquire</span><span class="hljs-params">(<span class="hljs-keyword">int</span> acquires)</span> </span>{
+        <span class="hljs-keyword">final</span> Thread current = Thread.currentThread();
+        <span class="hljs-keyword">int</span> c = getState();
+        <span class="hljs-keyword">if</span> (c == <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">// 1. &#x548C;&#x975E;&#x516C;&#x5E73;&#x9501;&#x76F8;&#x6BD4;&#xFF0C;&#x8FD9;&#x91CC;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x5224;&#x65AD;&#xFF1A;&#x662F;&#x5426;&#x6709;&#x7EBF;&#x7A0B;&#x5728;&#x7B49;&#x5F85;</span>
+            <span class="hljs-keyword">if</span> (!hasQueuedPredecessors() &amp;&amp;
+                compareAndSetState(<span class="hljs-number">0</span>, acquires)) {
+                setExclusiveOwnerThread(current);
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (current == getExclusiveOwnerThread()) {
+            <span class="hljs-keyword">int</span> nextc = c + acquires;
+            <span class="hljs-keyword">if</span> (nextc &lt; <span class="hljs-number">0</span>)
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Error(<span class="hljs-string">&quot;Maximum lock count exceeded&quot;</span>);
+            setState(nextc);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+}
+</code></pre>
+<p>&#x975E;&#x516C;&#x5E73;&#x9501;&#x7684; lock &#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NonfairSync</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Sync</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">lock</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// 2. &#x548C;&#x516C;&#x5E73;&#x9501;&#x76F8;&#x6BD4;&#xFF0C;&#x8FD9;&#x91CC;&#x4F1A;&#x76F4;&#x63A5;&#x5148;&#x8FDB;&#x884C;&#x4E00;&#x6B21;CAS&#xFF0C;&#x6210;&#x529F;&#x5C31;&#x8FD4;&#x56DE;&#x4E86;</span>
+        <span class="hljs-keyword">if</span> (compareAndSetState(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>))
+            setExclusiveOwnerThread(Thread.currentThread());
+        <span class="hljs-keyword">else</span>
+            acquire(<span class="hljs-number">1</span>);
+    }
+    <span class="hljs-comment">// AbstractQueuedSynchronizer.acquire(int arg)</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>{
+        <span class="hljs-keyword">if</span> (!tryAcquire(arg) &amp;&amp;
+            acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
+            selfInterrupt();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">tryAcquire</span><span class="hljs-params">(<span class="hljs-keyword">int</span> acquires)</span> </span>{
+        <span class="hljs-keyword">return</span> nonfairTryAcquire(acquires);
+    }
+}
+<span class="hljs-comment">/**
+ * Performs non-fair tryLock.  tryAcquire is implemented in
+ * subclasses, but both need nonfair try for trylock method.
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">nonfairTryAcquire</span><span class="hljs-params">(<span class="hljs-keyword">int</span> acquires)</span> </span>{
+    <span class="hljs-keyword">final</span> Thread current = Thread.currentThread();
+    <span class="hljs-keyword">int</span> c = getState();
+    <span class="hljs-keyword">if</span> (c == <span class="hljs-number">0</span>) {
+        <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x6CA1;&#x6709;&#x5BF9;&#x963B;&#x585E;&#x961F;&#x5217;&#x8FDB;&#x884C;&#x5224;&#x65AD;</span>
+        <span class="hljs-keyword">if</span> (compareAndSetState(<span class="hljs-number">0</span>, acquires)) {
+            setExclusiveOwnerThread(current);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (current == getExclusiveOwnerThread()) {
+        <span class="hljs-keyword">int</span> nextc = c + acquires;
+        <span class="hljs-keyword">if</span> (nextc &lt; <span class="hljs-number">0</span>) <span class="hljs-comment">// overflow</span>
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Error(<span class="hljs-string">&quot;Maximum lock count exceeded&quot;</span>);
+        setState(nextc);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+}
+</code></pre>
+<p>&#x603B;&#x7ED3;&#xFF1A;&#x516C;&#x5E73;&#x9501;&#x548C;&#x975E;&#x516C;&#x5E73;&#x9501;&#x53EA;&#x6709;&#x4E24;&#x5904;&#x4E0D;&#x540C;&#xFF1A;</p>
+<ol>
+<li>&#x975E;&#x516C;&#x5E73;&#x9501;&#x5728;&#x8C03;&#x7528; lock &#x540E;&#xFF0C;&#x9996;&#x5148;&#x5C31;&#x4F1A;&#x8C03;&#x7528; CAS &#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x62A2;&#x9501;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x6070;&#x5DE7;&#x9501;&#x6CA1;&#x6709;&#x88AB;&#x5360;&#x7528;&#xFF0C;&#x90A3;&#x4E48;&#x76F4;&#x63A5;&#x5C31;&#x83B7;&#x53D6;&#x5230;&#x9501;&#x8FD4;&#x56DE;&#x4E86;&#x3002;</li>
+<li>&#x975E;&#x516C;&#x5E73;&#x9501;&#x5728; CAS &#x5931;&#x8D25;&#x540E;&#xFF0C;&#x548C;&#x516C;&#x5E73;&#x9501;&#x4E00;&#x6837;&#x90FD;&#x4F1A;&#x8FDB;&#x5165;&#x5230; tryAcquire &#x65B9;&#x6CD5;&#xFF0C;&#x5728; tryAcquire &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x73B0;&#x9501;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x88AB;&#x91CA;&#x653E;&#x4E86;&#xFF08;state == 0&#xFF09;&#xFF0C;&#x975E;&#x516C;&#x5E73;&#x9501;&#x4F1A;&#x76F4;&#x63A5; CAS &#x62A2;&#x9501;&#xFF0C;&#x4F46;&#x662F;&#x516C;&#x5E73;&#x9501;&#x4F1A;&#x5224;&#x65AD;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x662F;&#x5426;&#x6709;&#x7EBF;&#x7A0B;&#x5904;&#x4E8E;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5219;&#x4E0D;&#x53BB;&#x62A2;&#x9501;&#xFF0C;&#x4E56;&#x4E56;&#x6392;&#x5230;&#x540E;&#x9762;&#x3002;</li>
+</ol>
+<p>&#x516C;&#x5E73;&#x9501;&#x548C;&#x975E;&#x516C;&#x5E73;&#x9501;&#x5C31;&#x8FD9;&#x4E24;&#x70B9;&#x533A;&#x522B;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E24;&#x6B21; CAS &#x90FD;&#x4E0D;&#x6210;&#x529F;&#xFF0C;&#x90A3;&#x4E48;&#x540E;&#x9762;&#x975E;&#x516C;&#x5E73;&#x9501;&#x548C;&#x516C;&#x5E73;&#x9501;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x90FD;&#x8981;&#x8FDB;&#x5165;&#x5230;&#x963B;&#x585E;&#x961F;&#x5217;&#x7B49;&#x5F85;&#x5524;&#x9192;&#x3002;</p>
+<p>&#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#xFF0C;&#x975E;&#x516C;&#x5E73;&#x9501;&#x4F1A;&#x6709;&#x66F4;&#x597D;&#x7684;&#x6027;&#x80FD;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x541E;&#x5410;&#x91CF;&#x6BD4;&#x8F83;&#x5927;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x975E;&#x516C;&#x5E73;&#x9501;&#x8BA9;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x65F6;&#x95F4;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x4E0D;&#x786E;&#x5B9A;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x5728;&#x963B;&#x585E;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x7EBF;&#x7A0B;&#x957F;&#x671F;&#x5904;&#x4E8E;&#x9965;&#x997F;&#x72B6;&#x6001;&#x3002;</p>
+<p><strong>2)Share</strong>&#xFF08;&#x5171;&#x4EAB;&#xFF09;</p>
+<p>&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x540C;&#x65F6;&#x6267;&#x884C;&#xFF0C;&#x5982; Semaphore/CountDownLatch&#x3002;Semaphore&#x3001;CountDownLatCh&#x3001; CyclicBarrier&#x3001;ReadWriteLock &#x6211;&#x4EEC;&#x90FD;&#x4F1A;&#x5728;&#x540E;&#x9762;&#x8BB2;&#x5230;&#x3002;</p>
+<p>ReentrantReadWriteLock &#x53EF;&#x4EE5;&#x770B;&#x6210;&#x662F;&#x7EC4;&#x5408;&#x5F0F;&#xFF0C;&#x56E0;&#x4E3A; ReentrantReadWriteLock &#x4E5F;&#x5C31;&#x662F;&#x8BFB;&#x5199;&#x9501;&#x5141;&#x8BB8;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x5BF9;&#x67D0;&#x4E00;&#x8D44;&#x6E90;&#x8FDB;&#x884C;&#x8BFB;&#x3002;</p>
+<p>&#x4E0D;&#x540C;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x540C;&#x6B65;&#x5668;&#x4E89;&#x7528;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x65B9;&#x5F0F;&#x4E5F;&#x4E0D;&#x540C;&#x3002;&#x81EA;&#x5B9A;&#x4E49;&#x540C;&#x6B65;&#x5668;&#x5728;&#x5B9E;&#x73B0;&#x65F6;&#x53EA;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x5171;&#x4EAB;&#x8D44;&#x6E90; state &#x7684;&#x83B7;&#x53D6;&#x4E0E;&#x91CA;&#x653E;&#x65B9;&#x5F0F;&#x5373;&#x53EF;&#xFF0C;&#x81F3;&#x4E8E;&#x5177;&#x4F53;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x7684;&#x7EF4;&#x62A4;&#xFF08;&#x5982;&#x83B7;&#x53D6;&#x8D44;&#x6E90;&#x5931;&#x8D25;&#x5165;&#x961F;/&#x5524;&#x9192;&#x51FA;&#x961F;&#x7B49;&#xFF09;&#xFF0C;AQS &#x5DF2;&#x7ECF;&#x5728;&#x4E0A;&#x5C42;&#x5DF2;&#x7ECF;&#x5E2E;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x597D;&#x4E86;&#x3002;</p>
+<h4 id="23-aqs-&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x4E86;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;"><a name="23-aqs-&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x4E86;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#23-aqs-&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x4E86;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="23-aqs-&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x4E86;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;" class="plugin-anchor" href="#23-aqs-&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x4E86;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3 AQS &#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x4E86;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;</h4>
+<p>&#x540C;&#x6B65;&#x5668;&#x7684;&#x8BBE;&#x8BA1;&#x662F;&#x57FA;&#x4E8E;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x540C;&#x6B65;&#x5668;&#x4E00;&#x822C;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x8FD9;&#x6837;&#xFF08;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x5F88;&#x7ECF;&#x5178;&#x7684;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#xFF09;&#xFF1A;</p>
+<ol>
+<li>&#x4F7F;&#x7528;&#x8005;&#x7EE7;&#x627F; AbstractQueuedSynchronizer &#x5E76;&#x91CD;&#x5199;&#x6307;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#xFF08;&#x8FD9;&#x4E9B;&#x91CD;&#x5199;&#x65B9;&#x6CD5;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x65E0;&#x975E;&#x662F;&#x5BF9;&#x4E8E;&#x5171;&#x4EAB;&#x8D44;&#x6E90; state &#x7684;&#x83B7;&#x53D6;&#x548C;&#x91CA;&#x653E;&#xFF09;</li>
+<li>&#x5C06; AQS &#x7EC4;&#x5408;&#x5728;&#x81EA;&#x5B9A;&#x4E49;&#x540C;&#x6B65;&#x7EC4;&#x4EF6;&#x7684;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x5E76;&#x8C03;&#x7528;&#x5176;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x8FD9;&#x4E9B;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x4F1A;&#x8C03;&#x7528;&#x4F7F;&#x7528;&#x8005;&#x91CD;&#x5199;&#x7684;&#x65B9;&#x6CD5;&#x3002;</li>
+</ol>
+<p>&#x8FD9;&#x548C;&#x6211;&#x4EEC;&#x4EE5;&#x5F80;&#x901A;&#x8FC7;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x5F0F;&#x6709;&#x5F88;&#x5927;&#x533A;&#x522B;&#xFF0C;&#x8FD9;&#x662F;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x5F88;&#x7ECF;&#x5178;&#x7684;&#x4E00;&#x4E2A;&#x8FD0;&#x7528;&#xFF0C;&#x4E0B;&#x9762;&#x7B80;&#x5355;&#x7684;&#x7ED9;&#x5927;&#x5BB6;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#xFF0C;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x4E00;&#x3002;</p>
+<blockquote>
+<p>&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x662F;&#x57FA;&#x4E8E;&#x201D;&#x7EE7;&#x627F;&#x201C;&#x7684;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x5728;&#x4E0D;&#x6539;&#x53D8;&#x6A21;&#x677F;&#x7ED3;&#x6784;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x4EE5;&#x5B9E;&#x73B0;&#x590D;&#x7528;&#x4EE3;&#x7801;&#x3002;&#x4E3E;&#x4E2A;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#x5047;&#x5982;&#x6211;&#x4EEC;&#x8981;&#x53BB;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#x7684;&#x6B65;&#x9AA4;&#x662F;&#xFF1A;&#x8D2D;&#x7968;<code>buyTicket()</code>-&gt;&#x5B89;&#x68C0;<code>securityCheck()</code>-&gt;&#x4E58;&#x5750;&#x67D0;&#x67D0;&#x5DE5;&#x5177;&#x56DE;&#x5BB6;<code>ride()</code>-&gt;&#x5230;&#x8FBE;&#x76EE;&#x7684;&#x5730;<code>arrive()</code>&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x4E58;&#x5750;&#x4E0D;&#x540C;&#x7684;&#x4EA4;&#x901A;&#x5DE5;&#x5177;&#x56DE;&#x5BB6;&#x6BD4;&#x5982;&#x98DE;&#x673A;&#x6216;&#x8005;&#x706B;&#x8F66;&#xFF0C;&#x6240;&#x4EE5;&#x9664;&#x4E86;<code>ride()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x51E0;&#x4E4E;&#x76F8;&#x540C;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4E86;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x7684;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x7136;&#x540E;&#x7528;&#x6237;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x9700;&#x8981;&#x7EE7;&#x627F;&#x8BE5;&#x62BD;&#x8C61;&#x7C7B;&#x7136;&#x540E;&#x4FEE;&#x6539; <code>ride()</code>&#x65B9;&#x6CD5;&#x3002;</p>
+</blockquote>
+<p><strong>AQS &#x4F7F;&#x7528;&#x4E86;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x540C;&#x6B65;&#x5668;&#x65F6;&#x9700;&#x8981;&#x91CD;&#x5199;&#x4E0B;&#x9762;&#x51E0;&#x4E2A; AQS &#x63D0;&#x4F9B;&#x7684;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#xFF1A;</strong></p>
+<pre><code class="lang-java">isHeldExclusively()<span class="hljs-comment">//&#x8BE5;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x6B63;&#x5728;&#x72EC;&#x5360;&#x8D44;&#x6E90;&#x3002;&#x53EA;&#x6709;&#x7528;&#x5230;condition&#x624D;&#x9700;&#x8981;&#x53BB;&#x5B9E;&#x73B0;&#x5B83;&#x3002;</span>
+tryAcquire(<span class="hljs-keyword">int</span>)<span class="hljs-comment">//&#x72EC;&#x5360;&#x65B9;&#x5F0F;&#x3002;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x8D44;&#x6E90;&#xFF0C;&#x6210;&#x529F;&#x5219;&#x8FD4;&#x56DE;true&#xFF0C;&#x5931;&#x8D25;&#x5219;&#x8FD4;&#x56DE;false&#x3002;</span>
+tryRelease(<span class="hljs-keyword">int</span>)<span class="hljs-comment">//&#x72EC;&#x5360;&#x65B9;&#x5F0F;&#x3002;&#x5C1D;&#x8BD5;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#xFF0C;&#x6210;&#x529F;&#x5219;&#x8FD4;&#x56DE;true&#xFF0C;&#x5931;&#x8D25;&#x5219;&#x8FD4;&#x56DE;false&#x3002;</span>
+tryAcquireShared(<span class="hljs-keyword">int</span>)<span class="hljs-comment">//&#x5171;&#x4EAB;&#x65B9;&#x5F0F;&#x3002;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x8D44;&#x6E90;&#x3002;&#x8D1F;&#x6570;&#x8868;&#x793A;&#x5931;&#x8D25;&#xFF1B;0&#x8868;&#x793A;&#x6210;&#x529F;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x5269;&#x4F59;&#x53EF;&#x7528;&#x8D44;&#x6E90;&#xFF1B;&#x6B63;&#x6570;&#x8868;&#x793A;&#x6210;&#x529F;&#xFF0C;&#x4E14;&#x6709;&#x5269;&#x4F59;&#x8D44;&#x6E90;&#x3002;</span>
+tryReleaseShared(<span class="hljs-keyword">int</span>)<span class="hljs-comment">//&#x5171;&#x4EAB;&#x65B9;&#x5F0F;&#x3002;&#x5C1D;&#x8BD5;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#xFF0C;&#x6210;&#x529F;&#x5219;&#x8FD4;&#x56DE;true&#xFF0C;&#x5931;&#x8D25;&#x5219;&#x8FD4;&#x56DE;false&#x3002;</span>
+</code></pre>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6BCF;&#x4E2A;&#x65B9;&#x6CD5;&#x90FD;&#x629B;&#x51FA; <code>UnsupportedOperationException</code>&#x3002; &#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x5FC5;&#x987B;&#x662F;&#x5185;&#x90E8;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x901A;&#x5E38;&#x5E94;&#x8BE5;&#x7B80;&#x77ED;&#x800C;&#x4E0D;&#x662F;&#x963B;&#x585E;&#x3002;AQS &#x7C7B;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x90FD;&#x662F; final &#xFF0C;&#x6240;&#x4EE5;&#x65E0;&#x6CD5;&#x88AB;&#x5176;&#x4ED6;&#x7C7B;&#x4F7F;&#x7528;&#xFF0C;&#x53EA;&#x6709;&#x8FD9;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x88AB;&#x5176;&#x4ED6;&#x7C7B;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x4EE5; ReentrantLock &#x4E3A;&#x4F8B;&#xFF0C;state &#x521D;&#x59CB;&#x5316;&#x4E3A; 0&#xFF0C;&#x8868;&#x793A;&#x672A;&#x9501;&#x5B9A;&#x72B6;&#x6001;&#x3002;A &#x7EBF;&#x7A0B; lock()&#x65F6;&#xFF0C;&#x4F1A;&#x8C03;&#x7528; tryAcquire()&#x72EC;&#x5360;&#x8BE5;&#x9501;&#x5E76;&#x5C06; state+1&#x3002;&#x6B64;&#x540E;&#xFF0C;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x518D; tryAcquire()&#x65F6;&#x5C31;&#x4F1A;&#x5931;&#x8D25;&#xFF0C;&#x76F4;&#x5230; A &#x7EBF;&#x7A0B; unlock()&#x5230; state=0&#xFF08;&#x5373;&#x91CA;&#x653E;&#x9501;&#xFF09;&#x4E3A;&#x6B62;&#xFF0C;&#x5176;&#x5B83;&#x7EBF;&#x7A0B;&#x624D;&#x6709;&#x673A;&#x4F1A;&#x83B7;&#x53D6;&#x8BE5;&#x9501;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x91CA;&#x653E;&#x9501;&#x4E4B;&#x524D;&#xFF0C;A &#x7EBF;&#x7A0B;&#x81EA;&#x5DF1;&#x662F;&#x53EF;&#x4EE5;&#x91CD;&#x590D;&#x83B7;&#x53D6;&#x6B64;&#x9501;&#x7684;&#xFF08;state &#x4F1A;&#x7D2F;&#x52A0;&#xFF09;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x53EF;&#x91CD;&#x5165;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x4F46;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x83B7;&#x53D6;&#x591A;&#x5C11;&#x6B21;&#x5C31;&#x8981;&#x91CA;&#x653E;&#x591A;&#x4E48;&#x6B21;&#xFF0C;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x4FDD;&#x8BC1; state &#x662F;&#x80FD;&#x56DE;&#x5230;&#x96F6;&#x6001;&#x7684;&#x3002;</p>
+<p>&#x518D;&#x4EE5; CountDownLatch &#x4EE5;&#x4F8B;&#xFF0C;&#x4EFB;&#x52A1;&#x5206;&#x4E3A; N &#x4E2A;&#x5B50;&#x7EBF;&#x7A0B;&#x53BB;&#x6267;&#x884C;&#xFF0C;state &#x4E5F;&#x521D;&#x59CB;&#x5316;&#x4E3A; N&#xFF08;&#x6CE8;&#x610F; N &#x8981;&#x4E0E;&#x7EBF;&#x7A0B;&#x4E2A;&#x6570;&#x4E00;&#x81F4;&#xFF09;&#x3002;&#x8FD9; N &#x4E2A;&#x5B50;&#x7EBF;&#x7A0B;&#x662F;&#x5E76;&#x884C;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x6BCF;&#x4E2A;&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x540E; countDown()&#x4E00;&#x6B21;&#xFF0C;state &#x4F1A; CAS(Compare and Swap)&#x51CF; 1&#x3002;&#x7B49;&#x5230;&#x6240;&#x6709;&#x5B50;&#x7EBF;&#x7A0B;&#x90FD;&#x6267;&#x884C;&#x5B8C;&#x540E;(&#x5373; state=0)&#xFF0C;&#x4F1A; unpark()&#x4E3B;&#x8C03;&#x7528;&#x7EBF;&#x7A0B;&#xFF0C;&#x7136;&#x540E;&#x4E3B;&#x8C03;&#x7528;&#x7EBF;&#x7A0B;&#x5C31;&#x4F1A;&#x4ECE; await()&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#xFF0C;&#x7EE7;&#x7EED;&#x540E;&#x4F59;&#x52A8;&#x4F5C;&#x3002;</p>
+<p>&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x540C;&#x6B65;&#x5668;&#x8981;&#x4E48;&#x662F;&#x72EC;&#x5360;&#x65B9;&#x6CD5;&#xFF0C;&#x8981;&#x4E48;&#x662F;&#x5171;&#x4EAB;&#x65B9;&#x5F0F;&#xFF0C;&#x4ED6;&#x4EEC;&#x4E5F;&#x53EA;&#x9700;&#x5B9E;&#x73B0;<code>tryAcquire-tryRelease</code>&#x3001;<code>tryAcquireShared-tryReleaseShared</code>&#x4E2D;&#x7684;&#x4E00;&#x79CD;&#x5373;&#x53EF;&#x3002;&#x4F46; AQS &#x4E5F;&#x652F;&#x6301;&#x81EA;&#x5B9A;&#x4E49;&#x540C;&#x6B65;&#x5668;&#x540C;&#x65F6;&#x5B9E;&#x73B0;&#x72EC;&#x5360;&#x548C;&#x5171;&#x4EAB;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x5982;<code>ReentrantReadWriteLock</code>&#x3002;</p>
+<p>&#x63A8;&#x8350;&#x4E24;&#x7BC7; AQS &#x539F;&#x7406;&#x548C;&#x76F8;&#x5173;&#x6E90;&#x7801;&#x5206;&#x6790;&#x7684;&#x6587;&#x7AE0;&#xFF1A;</p>
+<ul>
+<li><a href="http://www.cnblogs.com/waterystone/p/4920797.html" target="_blank">http://www.cnblogs.com/waterystone/p/4920797.html</a></li>
+<li><a href="https://www.cnblogs.com/chengxiao/archive/2017/07/24/7141160.html" target="_blank">https://www.cnblogs.com/chengxiao/archive/2017/07/24/7141160.html</a></li>
+</ul>
+<h2 id="&#x4E8C;-clh&#x540C;&#x6B65;&#x961F;&#x5217;"><a name="&#x4E8C;-clh&#x540C;&#x6B65;&#x961F;&#x5217;" class="anchor-navigation-ex-anchor" href="#&#x4E8C;-clh&#x540C;&#x6B65;&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E8C;-clh&#x540C;&#x6B65;&#x961F;&#x5217;" class="plugin-anchor" href="#&#x4E8C;-clh&#x540C;&#x6B65;&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C; CLH&#x540C;&#x6B65;&#x961F;&#x5217;</h2>
+<p>AQS&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x7740;&#x4E00;&#x4E2A;FIFO&#x961F;&#x5217;&#xFF0C;&#x8BE5;&#x961F;&#x5217;&#x5C31;&#x662F;CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#x3002; CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#x662F;&#x4E00;&#x4E2A;FIFO&#x53CC;&#x5411;&#x961F;&#x5217;&#xFF0C;AQS&#x4F9D;&#x8D56;&#x5B83;&#x6765;&#x5B8C;&#x6210;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x7BA1;&#x7406;&#xFF0C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5982;&#x679C;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x5931;&#x8D25;&#x65F6;&#xFF0C;AQS&#x5219;&#x4F1A;&#x5C06;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5DF2;&#x7ECF;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x7B49;&#x4FE1;&#x606F;&#x6784;&#x9020;&#x6210;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#xFF08;Node&#xFF09;&#x5E76;&#x5C06;&#x5176;&#x52A0;&#x5165;&#x5230;CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#xFF0C;&#x540C;&#x65F6;&#x4F1A;&#x963B;&#x585E;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF0C;&#x5F53;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;&#x65F6;&#xFF0C;&#x4F1A;&#x628A;&#x9996;&#x8282;&#x70B9;&#x5524;&#x9192;&#xFF08;&#x516C;&#x5E73;&#x9501;&#xFF09;&#xFF0C;&#x4F7F;&#x5176;&#x518D;&#x6B21;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x3002; &#x5728;CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x5B83;&#x4FDD;&#x5B58;&#x7740;&#x7EBF;&#x7A0B;&#x7684;&#x5F15;&#x7528;&#xFF08;thread&#xFF09;&#x3001;&#x72B6;&#x6001;&#xFF08;waitStatus&#xFF09;&#x3001;&#x524D;&#x9A71;&#x8282;&#x70B9;&#xFF08;prev&#xFF09;&#x3001;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#xFF08;next&#xFF09;&#xFF0C;&#x5176;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>{
+    <span class="hljs-comment">/** &#x5171;&#x4EAB; */</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Node SHARED = <span class="hljs-keyword">new</span> Node();
+
+    <span class="hljs-comment">/** &#x72EC;&#x5360; */</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Node EXCLUSIVE = <span class="hljs-keyword">null</span>;
+
+    <span class="hljs-comment">/**
+     * &#x56E0;&#x4E3A;&#x8D85;&#x65F6;&#x6216;&#x8005;&#x4E2D;&#x65AD;&#xFF0C;&#x8282;&#x70B9;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;&#x53D6;&#x6D88;&#x72B6;&#x6001;&#xFF0C;&#x88AB;&#x53D6;&#x6D88;&#x7684;&#x8282;&#x70B9;&#x65F6;&#x4E0D;&#x4F1A;&#x53C2;&#x4E0E;&#x5230;&#x7ADE;&#x4E89;&#x4E2D;&#x7684;&#xFF0C;&#x4ED6;&#x4F1A;&#x4E00;&#x76F4;&#x4FDD;&#x6301;&#x53D6;&#x6D88;&#x72B6;&#x6001;&#x4E0D;&#x4F1A;&#x8F6C;&#x53D8;&#x4E3A;&#x5176;&#x4ED6;&#x72B6;&#x6001;&#xFF1B;
+     */</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> CANCELLED =  <span class="hljs-number">1</span>;
+
+    <span class="hljs-comment">/**
+     * &#x540E;&#x7EE7;&#x8282;&#x70B9;&#x7684;&#x7EBF;&#x7A0B;&#x5904;&#x4E8E;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#xFF0C;&#x800C;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x7EBF;&#x7A0B;&#x5982;&#x679C;&#x91CA;&#x653E;&#x4E86;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x6216;&#x8005;&#x88AB;&#x53D6;&#x6D88;&#xFF0C;&#x5C06;&#x4F1A;&#x901A;&#x77E5;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#xFF0C;&#x4F7F;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#x7684;&#x7EBF;&#x7A0B;&#x5F97;&#x4EE5;&#x8FD0;&#x884C;
+     */</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> SIGNAL    = -<span class="hljs-number">1</span>;
+
+    <span class="hljs-comment">/**
+     * &#x8282;&#x70B9;&#x5728;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x8282;&#x70B9;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x5728;Condition&#x4E0A;&#xFF0C;&#x5F53;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x5BF9;Condition&#x8C03;&#x7528;&#x4E86;signal()&#x540E;&#xFF0C;&#x6539;&#x8282;&#x70B9;&#x5C06;&#x4F1A;&#x4ECE;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x4E2D;&#x8F6C;&#x79FB;&#x5230;&#x540C;&#x6B65;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x52A0;&#x5165;&#x5230;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x83B7;&#x53D6;&#x4E2D;
+     */</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> CONDITION = -<span class="hljs-number">2</span>;
+
+    <span class="hljs-comment">/**
+     * &#x8868;&#x793A;&#x4E0B;&#x4E00;&#x6B21;&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;&#x5C06;&#x4F1A;&#x65E0;&#x6761;&#x4EF6;&#x5730;&#x4F20;&#x64AD;&#x4E0B;&#x53BB;
+     */</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> PROPAGATE = -<span class="hljs-number">3</span>;
+
+    <span class="hljs-comment">/** &#x7B49;&#x5F85;&#x72B6;&#x6001; */</span>
+    <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">int</span> waitStatus;
+
+    <span class="hljs-comment">/** &#x524D;&#x9A71;&#x8282;&#x70B9; */</span>
+    <span class="hljs-keyword">volatile</span> Node prev;
+
+    <span class="hljs-comment">/** &#x540E;&#x7EE7;&#x8282;&#x70B9; */</span>
+    <span class="hljs-keyword">volatile</span> Node next;
+
+    <span class="hljs-comment">/** &#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x7EBF;&#x7A0B; */</span>
+    <span class="hljs-keyword">volatile</span> Thread thread;
+
+    Node nextWaiter;
+
+    <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isShared</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> nextWaiter == SHARED;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">final</span> Node <span class="hljs-title">predecessor</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> NullPointerException </span>{
+        Node p = prev;
+        <span class="hljs-keyword">if</span> (p == <span class="hljs-keyword">null</span>)
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NullPointerException();
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-keyword">return</span> p;
+    }
+
+    Node() {
+    }
+
+    Node(Thread thread, Node mode) {
+        <span class="hljs-keyword">this</span>.nextWaiter = mode;
+        <span class="hljs-keyword">this</span>.thread = thread;
+    }
+
+    Node(Thread thread, <span class="hljs-keyword">int</span> waitStatus) {
+        <span class="hljs-keyword">this</span>.waitStatus = waitStatus;
+        <span class="hljs-keyword">this</span>.thread = thread;
+    }
+}
+</code></pre>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201216085238.png" alt="image-20201216085238855"></p>
+<h3 id="&#x5165;&#x5217;"><a name="&#x5165;&#x5217;" class="anchor-navigation-ex-anchor" href="#&#x5165;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5165;&#x5217;" class="plugin-anchor" href="#&#x5165;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5165;&#x5217;</h3>
+<p>&#x5B66;&#x4E86;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x6211;&#x4EEC;&#xFF0C;CLH&#x961F;&#x5217;&#x5165;&#x5217;&#x662F;&#x518D;&#x7B80;&#x5355;&#x4E0D;&#x8FC7;&#x4E86;&#xFF0C;&#x65E0;&#x975E;&#x5C31;&#x662F;tail&#x6307;&#x5411;&#x65B0;&#x8282;&#x70B9;&#x3001;&#x65B0;&#x8282;&#x70B9;&#x7684;prev&#x6307;&#x5411;&#x5F53;&#x524D;&#x6700;&#x540E;&#x7684;&#x8282;&#x70B9;&#xFF0C;&#x5F53;&#x524D;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7684;next&#x6307;&#x5411;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x3002;&#x4EE3;&#x7801;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x770B;addWaiter(Node node)&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">private</span> Node <span class="hljs-title">addWaiter</span><span class="hljs-params">(Node mode)</span> </span>{
+        <span class="hljs-comment">//&#x65B0;&#x5EFA;Node</span>
+        Node node = <span class="hljs-keyword">new</span> Node(Thread.currentThread(), mode);
+        <span class="hljs-comment">//&#x5FEB;&#x901F;&#x5C1D;&#x8BD5;&#x6DFB;&#x52A0;&#x5C3E;&#x8282;&#x70B9;</span>
+        Node pred = tail;
+        <span class="hljs-keyword">if</span> (pred != <span class="hljs-keyword">null</span>) {
+            node.prev = pred;
+            <span class="hljs-comment">//CAS&#x8BBE;&#x7F6E;&#x5C3E;&#x8282;&#x70B9;</span>
+            <span class="hljs-keyword">if</span> (compareAndSetTail(pred, node)) {
+                pred.next = node;
+                <span class="hljs-keyword">return</span> node;
+            }
+        }
+        <span class="hljs-comment">//&#x591A;&#x6B21;&#x5C1D;&#x8BD5;</span>
+        enq(node);
+        <span class="hljs-keyword">return</span> node;
+    }
+</code></pre>
+<p>addWaiter(Node node)&#x5148;&#x901A;&#x8FC7;&#x5FEB;&#x901F;&#x5C1D;&#x8BD5;&#x8BBE;&#x7F6E;&#x5C3E;&#x8282;&#x70B9;&#xFF0C;&#x5982;&#x679C;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x8C03;&#x7528;enq(Node node)&#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x5C3E;&#x8282;&#x70B9;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">private</span> Node <span class="hljs-title">enq</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Node node)</span> </span>{
+        <span class="hljs-comment">//&#x591A;&#x6B21;&#x5C1D;&#x8BD5;&#xFF0C;&#x76F4;&#x5230;&#x6210;&#x529F;&#x4E3A;&#x6B62;</span>
+        <span class="hljs-keyword">for</span> (;;) {
+            Node t = tail;
+            <span class="hljs-comment">//tail&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3A;&#x9996;&#x8282;&#x70B9;</span>
+            <span class="hljs-keyword">if</span> (t == <span class="hljs-keyword">null</span>) {
+                <span class="hljs-keyword">if</span> (compareAndSetHead(<span class="hljs-keyword">new</span> Node()))
+                    tail = head;
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x4E3A;&#x5C3E;&#x8282;&#x70B9;</span>
+                node.prev = t;
+                <span class="hljs-keyword">if</span> (compareAndSetTail(t, node)) {
+                    t.next = node;
+                    <span class="hljs-keyword">return</span> t;
+                }
+            }
+        }
+    }
+</code></pre>
+<p>&#x5728;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;CAS&#x65B9;&#x6CD5;compareAndSetTail(Node expect, Node update)&#x6765;&#x8BBE;&#x7F6E;&#x5C3E;&#x8282;&#x70B9;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x8282;&#x70B9;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x6DFB;&#x52A0;&#x7684;&#x3002;&#x5728;enq(Node node)&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;AQS&#x901A;&#x8FC7;&#x201C;&#x6B7B;&#x5FAA;&#x73AF;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x4FDD;&#x8BC1;&#x8282;&#x70B9;&#x53EF;&#x4EE5;&#x6B63;&#x786E;&#x6DFB;&#x52A0;&#xFF0C;&#x53EA;&#x6709;&#x6210;&#x529F;&#x6DFB;&#x52A0;&#x540E;&#xFF0C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x624D;&#x4F1A;&#x4ECE;&#x8BE5;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x4E00;&#x76F4;&#x6267;&#x884C;&#x4E0B;&#x53BB;&#x3002; &#x8FC7;&#x7A0B;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201216085429.png" alt="image-20201216085429566"></p>
+<h3 id="&#x51FA;&#x5217;"><a name="&#x51FA;&#x5217;" class="anchor-navigation-ex-anchor" href="#&#x51FA;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x51FA;&#x5217;" class="plugin-anchor" href="#&#x51FA;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x51FA;&#x5217;</h3>
+<p>CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#x9075;&#x5FAA;FIFO&#xFF0C;&#x9996;&#x8282;&#x70B9;&#x7684;&#x7EBF;&#x7A0B;&#x91CA;&#x653E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x5C06;&#x4F1A;&#x5524;&#x9192;&#x5B83;&#x7684;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#xFF08;next&#xFF09;&#xFF0C;&#x800C;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#x5C06;&#x4F1A;&#x5728;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x6210;&#x529F;&#x65F6;&#x5C06;&#x81EA;&#x5DF1;&#x8BBE;&#x7F6E;&#x4E3A;&#x9996;&#x8282;&#x70B9;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;head&#x6267;&#x884C;&#x8BE5;&#x8282;&#x70B9;&#x5E76;&#x65AD;&#x5F00;&#x539F;&#x9996;&#x8282;&#x70B9;&#x7684;next&#x548C;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;prev&#x5373;&#x53EF;&#xFF0C;&#x6CE8;&#x610F;&#x5728;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;CAS&#x6765;&#x4FDD;&#x8BC1;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x80FD;&#x591F;&#x6210;&#x529F;&#x83B7;&#x53D6;&#x5230;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x3002;&#x8FC7;&#x7A0B;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201216085500.png" alt="image-20201216085500818"></p>
+<h2 id="&#x4E09;-aqs&#x4E4B;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x83B7;&#x53D6;"><a name="&#x4E09;-aqs&#x4E4B;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x83B7;&#x53D6;" class="anchor-navigation-ex-anchor" href="#&#x4E09;-aqs&#x4E4B;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x83B7;&#x53D6;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E09;-aqs&#x4E4B;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x83B7;&#x53D6;" class="plugin-anchor" href="#&#x4E09;-aqs&#x4E4B;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x83B7;&#x53D6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E09; AQS&#x4E4B;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x83B7;&#x53D6;</h2>
+<p>&#x5728;&#x524D;&#x9762;&#x63D0;&#x5230;&#x8FC7;&#xFF0C;AQS&#x662F;&#x6784;&#x5EFA;Java&#x540C;&#x6B65;&#x7EC4;&#x4EF6;&#x7684;&#x57FA;&#x7840;&#xFF0C;&#x6211;&#x4EEC;&#x671F;&#x5F85;&#x5B83;&#x80FD;&#x591F;&#x6210;&#x4E3A;&#x5B9E;&#x73B0;&#x5927;&#x90E8;&#x5206;&#x540C;&#x6B65;&#x9700;&#x6C42;&#x7684;&#x57FA;&#x7840;&#x3002;AQS&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x91C7;&#x7528;&#x7684;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#xFF0C;&#x5B50;&#x7C7B;&#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5B9E;&#x73B0;&#x5B83;&#x7684;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x6765;&#x7BA1;&#x7406;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x5BF9;&#x4E8E;&#x5B50;&#x7C7B;&#x800C;&#x8A00;&#x5B83;&#x5E76;&#x6CA1;&#x6709;&#x592A;&#x591A;&#x7684;&#x6D3B;&#x8981;&#x505A;&#xFF0C;AQS&#x63D0;&#x4F9B;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x5206;&#x4E3A;&#x4E09;&#x7C7B;&#xFF1A;&#x72EC;&#x5360;&#x5F0F;&#x83B7;&#x53D6;&#x548C;&#x91CA;&#x653E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x3001;&#x5171;&#x4EAB;&#x5F0F;&#x83B7;&#x53D6;&#x548C;&#x91CA;&#x653E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x3001;&#x67E5;&#x8BE2;&#x540C;&#x6B65;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x60C5;&#x51B5;&#x3002;&#x81EA;&#x5B9A;&#x4E49;&#x5B50;&#x7C7B;&#x4F7F;&#x7528;AQS&#x63D0;&#x4F9B;&#x7684;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x7684;&#x540C;&#x6B65;&#x8BED;&#x4E49;&#x3002;</p>
+<h3 id="&#x72EC;&#x5360;&#x5F0F;"><a name="&#x72EC;&#x5360;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x72EC;&#x5360;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x72EC;&#x5360;&#x5F0F;" class="plugin-anchor" href="#&#x72EC;&#x5360;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x72EC;&#x5360;&#x5F0F;</h3>
+<p>&#x72EC;&#x5360;&#x5F0F;&#xFF0C;&#x540C;&#x4E00;&#x65F6;&#x523B;&#x4EC5;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6301;&#x6709;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x3002;</p>
+<h4 id="&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;"><a name="&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;" class="anchor-navigation-ex-anchor" href="#&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;" class="plugin-anchor" href="#&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;</h4>
+<p>acquire(int arg)&#x65B9;&#x6CD5;&#x4E3A;AQS&#x63D0;&#x4F9B;&#x7684;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4E3A;&#x72EC;&#x5360;&#x5F0F;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x4F46;&#x662F;&#x8BE5;&#x65B9;&#x6CD5;&#x5BF9;&#x4E2D;&#x65AD;&#x4E0D;&#x654F;&#x611F;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x7531;&#x4E8E;&#x7EBF;&#x7A0B;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x5931;&#x8D25;&#x52A0;&#x5165;&#x5230;CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x540E;&#x7EED;&#x5BF9;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x4E2D;&#x65AD;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x7EBF;&#x7A0B;&#x4E0D;&#x4F1A;&#x4ECE;&#x540C;&#x6B65;&#x961F;&#x5217;&#x4E2D;&#x79FB;&#x9664;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>{
+        <span class="hljs-keyword">if</span> (!tryAcquire(arg) &amp;&amp;
+            acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
+            selfInterrupt();
+    }
+</code></pre>
+<p>&#x5404;&#x4E2A;&#x65B9;&#x6CD5;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>tryAcquire&#xFF1A;&#x53BB;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x9501;&#xFF0C;&#x83B7;&#x53D6;&#x6210;&#x529F;&#x5219;&#x8BBE;&#x7F6E;&#x9501;&#x72B6;&#x6001;&#x5E76;&#x8FD4;&#x56DE;true&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;false&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x81EA;&#x5B9A;&#x4E49;&#x540C;&#x6B65;&#x7EC4;&#x4EF6;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x8981;&#x4FDD;&#x8BC1;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x3002;</li>
+<li>addWaiter&#xFF1A;&#x5982;&#x679C;tryAcquire&#x8FD4;&#x56DE;FALSE&#xFF08;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x5931;&#x8D25;&#xFF09;&#xFF0C;&#x5219;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x5C06;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x52A0;&#x5165;&#x5230;CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#x5C3E;&#x90E8;&#x3002;</li>
+<li>acquireQueued&#xFF1A;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4F1A;&#x6839;&#x636E;&#x516C;&#x5E73;&#x6027;&#x539F;&#x5219;&#x6765;&#x8FDB;&#x884C;&#x963B;&#x585E;&#x7B49;&#x5F85;&#xFF08;&#x81EA;&#x65CB;&#xFF09;,&#x76F4;&#x5230;&#x83B7;&#x53D6;&#x9501;&#x4E3A;&#x6B62;&#xFF1B;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5728;&#x7B49;&#x5F85;&#x8FC7;&#x7A0B;&#x4E2D;&#x6709;&#x6CA1;&#x6709;&#x4E2D;&#x65AD;&#x8FC7;&#x3002;</li>
+<li>selfInterrupt&#xFF1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x4E2D;&#x65AD;&#x3002;</li>
+</ol>
+<p>acquireQueued&#x65B9;&#x6CD5;&#x4E3A;&#x4E00;&#x4E2A;&#x81EA;&#x65CB;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF08;Node&#xFF09;&#x8FDB;&#x5165;&#x540C;&#x6B65;&#x961F;&#x5217;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x8FDB;&#x5165;&#x4E00;&#x4E2A;&#x81EA;&#x65CB;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x4F1A;&#x81EA;&#x7701;&#x5730;&#x89C2;&#x5BDF;&#xFF0C;&#x5F53;&#x6761;&#x4EF6;&#x6EE1;&#x8DB3;&#xFF0C;&#x83B7;&#x53D6;&#x5230;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4ECE;&#x8FD9;&#x4E2A;&#x81EA;&#x65CB;&#x8FC7;&#x7A0B;&#x4E2D;&#x9000;&#x51FA;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x4E00;&#x76F4;&#x6267;&#x884C;&#x4E0B;&#x53BB;&#x3002;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">acquireQueued</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Node node, <span class="hljs-keyword">int</span> arg)</span> </span>{
+        <span class="hljs-keyword">boolean</span> failed = <span class="hljs-keyword">true</span>;
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">//&#x4E2D;&#x65AD;&#x6807;&#x5FD7;</span>
+            <span class="hljs-keyword">boolean</span> interrupted = <span class="hljs-keyword">false</span>;
+            <span class="hljs-comment">/*
+             * &#x81EA;&#x65CB;&#x8FC7;&#x7A0B;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6B7B;&#x5FAA;&#x73AF;&#x800C;&#x5DF2;
+             */</span>
+            <span class="hljs-keyword">for</span> (;;) {
+                <span class="hljs-comment">//&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;&#x524D;&#x9A71;&#x8282;&#x70B9;</span>
+                <span class="hljs-keyword">final</span> Node p = node.predecessor();
+                <span class="hljs-comment">//&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x662F;&#x5934;&#x7ED3;&#x70B9;&#xFF0C;&#x4E14;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x6210;&#x529F;</span>
+                <span class="hljs-keyword">if</span> (p == head &amp;&amp; tryAcquire(arg)) {
+                    setHead(node);
+                    p.next = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// help GC</span>
+                    failed = <span class="hljs-keyword">false</span>;
+                    <span class="hljs-keyword">return</span> interrupted;
+                }
+                <span class="hljs-comment">//&#x83B7;&#x53D6;&#x5931;&#x8D25;&#xFF0C;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;--&#x5177;&#x4F53;&#x540E;&#x9762;&#x4ECB;&#x7ECD;</span>
+                <span class="hljs-keyword">if</span> (shouldParkAfterFailedAcquire(p, node) &amp;&amp;
+                        parkAndCheckInterrupt())
+                    interrupted = <span class="hljs-keyword">true</span>;
+            }
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (failed)
+                cancelAcquire(node);
+        }
+    }
+</code></pre>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4F1A;&#x4E00;&#x76F4;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x5F53;&#x7136;&#x524D;&#x63D0;&#x662F;&#x53EA;&#x6709;&#x5176;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x4E3A;&#x5934;&#x7ED3;&#x70B9;&#x624D;&#x80FD;&#x591F;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x7406;&#x7531;&#xFF1A;</p>
+<ol>
+<li>&#x4FDD;&#x6301;FIFO&#x540C;&#x6B65;&#x961F;&#x5217;&#x539F;&#x5219;&#x3002;</li>
+<li>&#x5934;&#x8282;&#x70B9;&#x91CA;&#x653E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x5C06;&#x4F1A;&#x5524;&#x9192;&#x5176;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#xFF0C;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#x88AB;&#x5524;&#x9192;&#x540E;&#x9700;&#x8981;&#x68C0;&#x67E5;&#x81EA;&#x5DF1;&#x662F;&#x5426;&#x4E3A;&#x5934;&#x8282;&#x70B9;&#x3002;</li>
+</ol>
+<p>acquire(int arg)&#x65B9;&#x6CD5;&#x6D41;&#x7A0B;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201216090827.png" alt="image-20201216090826974"></p>
+<h4 id="&#x72EC;&#x5360;&#x5F0F;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;"><a name="&#x72EC;&#x5360;&#x5F0F;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;" class="anchor-navigation-ex-anchor" href="#&#x72EC;&#x5360;&#x5F0F;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x72EC;&#x5360;&#x5F0F;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;" class="plugin-anchor" href="#&#x72EC;&#x5360;&#x5F0F;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x72EC;&#x5360;&#x5F0F;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;</h4>
+<p>AQS&#x63D0;&#x4F9B;&#x4E86;acquire(int arg)&#x65B9;&#x6CD5;&#x4EE5;&#x4F9B;&#x72EC;&#x5360;&#x5F0F;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x4F46;&#x662F;&#x8BE5;&#x65B9;&#x6CD5;&#x5BF9;&#x4E2D;&#x65AD;&#x4E0D;&#x54CD;&#x5E94;&#xFF0C;&#x5BF9;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x4E2D;&#x65AD;&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x8BE5;&#x7EBF;&#x7A0B;&#x4F1A;&#x4F9D;&#x7136;&#x4F4D;&#x4E8E;CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#x4E2D;&#x7B49;&#x5F85;&#x7740;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x3002;&#x4E3A;&#x4E86;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;&#xFF0C;AQS&#x63D0;&#x4F9B;&#x4E86;acquireInterruptibly(int arg)&#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x5728;&#x7B49;&#x5F85;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x88AB;&#x4E2D;&#x65AD;&#x4E86;&#xFF0C;&#x4F1A;&#x7ACB;&#x523B;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;&#x629B;&#x51FA;&#x5F02;&#x5E38;InterruptedException&#x3002;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">acquireInterruptibly</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span>
+            <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        <span class="hljs-keyword">if</span> (Thread.interrupted())
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> InterruptedException();
+        <span class="hljs-keyword">if</span> (!tryAcquire(arg))
+            doAcquireInterruptibly(arg);
+    }
+</code></pre>
+<p>&#x9996;&#x5148;&#x6821;&#x9A8C;&#x8BE5;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x4E2D;&#x65AD;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5219;&#x629B;&#x51FA;InterruptedException&#xFF0C;&#x5426;&#x5219;&#x6267;&#x884C;tryAcquire(int arg)&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C;&#x83B7;&#x53D6;&#x6210;&#x529F;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF0C;&#x5426;&#x5219;&#x6267;&#x884C;doAcquireInterruptibly(int arg)&#x3002;doAcquireInterruptibly(int arg)&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doAcquireInterruptibly</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span>
+        <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        <span class="hljs-keyword">final</span> Node node = addWaiter(Node.EXCLUSIVE);
+        <span class="hljs-keyword">boolean</span> failed = <span class="hljs-keyword">true</span>;
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">for</span> (;;) {
+                <span class="hljs-keyword">final</span> Node p = node.predecessor();
+                <span class="hljs-keyword">if</span> (p == head &amp;&amp; tryAcquire(arg)) {
+                    setHead(node);
+                    p.next = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// help GC</span>
+                    failed = <span class="hljs-keyword">false</span>;
+                    <span class="hljs-keyword">return</span>;
+                }
+                <span class="hljs-keyword">if</span> (shouldParkAfterFailedAcquire(p, node) &amp;&amp;
+                    parkAndCheckInterrupt())
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> InterruptedException();
+            }
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (failed)
+                cancelAcquire(node);
+        }
+    }
+</code></pre>
+<p>doAcquireInterruptibly(int arg)&#x65B9;&#x6CD5;&#x4E0E;acquire(int arg)&#x65B9;&#x6CD5;&#x4EC5;&#x6709;&#x4E24;&#x4E2A;&#x5DEE;&#x522B;&#x3002;1.&#x65B9;&#x6CD5;&#x58F0;&#x660E;&#x629B;&#x51FA;InterruptedException&#x5F02;&#x5E38;&#xFF0C;2.&#x5728;&#x4E2D;&#x65AD;&#x65B9;&#x6CD5;&#x5904;&#x4E0D;&#x518D;&#x662F;&#x4F7F;&#x7528;interrupted&#x6807;&#x5FD7;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x629B;&#x51FA;InterruptedException&#x5F02;&#x5E38;&#x3002;</p>
+<h4 id="&#x72EC;&#x5360;&#x5F0F;&#x8D85;&#x65F6;&#x83B7;&#x53D6;"><a name="&#x72EC;&#x5360;&#x5F0F;&#x8D85;&#x65F6;&#x83B7;&#x53D6;" class="anchor-navigation-ex-anchor" href="#&#x72EC;&#x5360;&#x5F0F;&#x8D85;&#x65F6;&#x83B7;&#x53D6;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x72EC;&#x5360;&#x5F0F;&#x8D85;&#x65F6;&#x83B7;&#x53D6;" class="plugin-anchor" href="#&#x72EC;&#x5360;&#x5F0F;&#x8D85;&#x65F6;&#x83B7;&#x53D6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x72EC;&#x5360;&#x5F0F;&#x8D85;&#x65F6;&#x83B7;&#x53D6;</h4>
+<p>AQS&#x9664;&#x4E86;&#x63D0;&#x4F9B;&#x4E0A;&#x9762;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x5916;&#xFF0C;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x589E;&#x5F3A;&#x7248;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;tryAcquireNanos(int arg,long nanos)&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x4E3A;acquireInterruptibly&#x65B9;&#x6CD5;&#x7684;&#x8FDB;&#x4E00;&#x6B65;&#x589E;&#x5F3A;&#xFF0C;&#x5B83;&#x9664;&#x4E86;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x8D85;&#x65F6;&#x63A7;&#x5236;&#x3002;&#x5373;&#x5982;&#x679C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6CA1;&#x6709;&#x5728;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x5219;&#x4F1A;&#x8FD4;&#x56DE;false&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;true&#x3002;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">tryAcquireNanos</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg, <span class="hljs-keyword">long</span> nanosTimeout)</span>
+            <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        <span class="hljs-keyword">if</span> (Thread.interrupted())
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> InterruptedException();
+        <span class="hljs-keyword">return</span> tryAcquire(arg) ||
+            doAcquireNanos(arg, nanosTimeout);
+    }
+</code></pre>
+<p>tryAcquireNanos(int arg, long nanosTimeout)&#x65B9;&#x6CD5;&#x8D85;&#x65F6;&#x83B7;&#x53D6;&#x6700;&#x7EC8;&#x662F;&#x5728;doAcquireNanos(int arg, long nanosTimeout)&#x4E2D;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">doAcquireNanos</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg, <span class="hljs-keyword">long</span> nanosTimeout)</span>
+            <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        <span class="hljs-comment">//nanosTimeout &lt;= 0</span>
+        <span class="hljs-keyword">if</span> (nanosTimeout &lt;= <span class="hljs-number">0L</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        <span class="hljs-comment">//&#x8D85;&#x65F6;&#x65F6;&#x95F4;</span>
+        <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> deadline = System.nanoTime() + nanosTimeout;
+        <span class="hljs-comment">//&#x65B0;&#x589E;Node&#x8282;&#x70B9;</span>
+        <span class="hljs-keyword">final</span> Node node = addWaiter(Node.EXCLUSIVE);
+        <span class="hljs-keyword">boolean</span> failed = <span class="hljs-keyword">true</span>;
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">//&#x81EA;&#x65CB;</span>
+            <span class="hljs-keyword">for</span> (;;) {
+                <span class="hljs-keyword">final</span> Node p = node.predecessor();
+                <span class="hljs-comment">//&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x6210;&#x529F;</span>
+                <span class="hljs-keyword">if</span> (p == head &amp;&amp; tryAcquire(arg)) {
+                    setHead(node);
+                    p.next = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// help GC</span>
+                    failed = <span class="hljs-keyword">false</span>;
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+                }
+                <span class="hljs-comment">/*
+                 * &#x83B7;&#x53D6;&#x5931;&#x8D25;&#xFF0C;&#x505A;&#x8D85;&#x65F6;&#x3001;&#x4E2D;&#x65AD;&#x5224;&#x65AD;
+                 */</span>
+                <span class="hljs-comment">//&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x9700;&#x8981;&#x4F11;&#x7720;&#x7684;&#x65F6;&#x95F4;</span>
+                nanosTimeout = deadline - System.nanoTime();
+                <span class="hljs-comment">//&#x5DF2;&#x7ECF;&#x8D85;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;false</span>
+                <span class="hljs-keyword">if</span> (nanosTimeout &lt;= <span class="hljs-number">0L</span>)
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+                <span class="hljs-comment">//&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8D85;&#x65F6;&#xFF0C;&#x5219;&#x7B49;&#x5F85;nanosTimeout&#x7EB3;&#x79D2;</span>
+                <span class="hljs-comment">//&#x6CE8;&#xFF1A;&#x8BE5;&#x7EBF;&#x7A0B;&#x4F1A;&#x76F4;&#x63A5;&#x4ECE;LockSupport.parkNanos&#x4E2D;&#x8FD4;&#x56DE;&#xFF0C;</span>
+                <span class="hljs-comment">//LockSupport&#x4E3A;JUC&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x4E2A;&#x963B;&#x585E;&#x548C;&#x5524;&#x9192;&#x7684;&#x5DE5;&#x5177;&#x7C7B;&#xFF0C;&#x540E;&#x9762;&#x505A;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;</span>
+                <span class="hljs-keyword">if</span> (shouldParkAfterFailedAcquire(p, node) &amp;&amp;
+                        nanosTimeout &gt; spinForTimeoutThreshold)
+                    LockSupport.parkNanos(<span class="hljs-keyword">this</span>, nanosTimeout);
+                <span class="hljs-comment">//&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x4E2D;&#x65AD;&#x4E86;</span>
+                <span class="hljs-keyword">if</span> (Thread.interrupted())
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> InterruptedException();
+            }
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (failed)
+                cancelAcquire(node);
+        }
+    }
+</code></pre>
+<p>&#x9488;&#x5BF9;&#x8D85;&#x65F6;&#x63A7;&#x5236;&#xFF0C;&#x7A0B;&#x5E8F;&#x9996;&#x5148;&#x8BB0;&#x5F55;&#x5524;&#x9192;&#x65F6;&#x95F4;deadline &#xFF0C;deadline = System.nanoTime() + nanosTimeout&#xFF08;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#xFF09;&#x3002;&#x5982;&#x679C;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x8BA1;&#x7B97;&#x51FA;&#x9700;&#x8981;&#x4F11;&#x7720;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;nanosTimeout&#xFF08;= deadline - System.nanoTime()&#xFF09;&#xFF0C;&#x5982;&#x679C;nanosTimeout &lt;= 0 &#x8868;&#x793A;&#x5DF2;&#x7ECF;&#x8D85;&#x65F6;&#x4E86;&#xFF0C;&#x8FD4;&#x56DE;false&#xFF0C;&#x5982;&#x679C;&#x5927;&#x4E8E;spinForTimeoutThreshold&#xFF08;1000L&#xFF09;&#x5219;&#x9700;&#x8981;&#x4F11;&#x7720;nanosTimeout &#xFF0C;&#x5982;&#x679C;nanosTimeout &lt;= spinForTimeoutThreshold &#xFF0C;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x4F11;&#x7720;&#x4E86;&#xFF0C;&#x76F4;&#x63A5;&#x8FDB;&#x5165;&#x5FEB;&#x901F;&#x81EA;&#x65CB;&#x7684;&#x8FC7;&#x7A0B;&#x3002;&#x539F;&#x56E0;&#x5728;&#x4E8E; spinForTimeoutThreshold &#x5DF2;&#x7ECF;&#x975E;&#x5E38;&#x5C0F;&#x4E86;&#xFF0C;&#x975E;&#x5E38;&#x77ED;&#x7684;&#x65F6;&#x95F4;&#x7B49;&#x5F85;&#x65E0;&#x6CD5;&#x505A;&#x5230;&#x5341;&#x5206;&#x7CBE;&#x786E;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x65F6;&#x518D;&#x6B21;&#x8FDB;&#x884C;&#x8D85;&#x65F6;&#x7B49;&#x5F85;&#xFF0C;&#x76F8;&#x53CD;&#x4F1A;&#x8BA9;nanosTimeout &#x7684;&#x8D85;&#x65F6;&#x4ECE;&#x6574;&#x4F53;&#x4E0A;&#x9762;&#x8868;&#x73B0;&#x5F97;&#x4E0D;&#x662F;&#x90A3;&#x4E48;&#x7CBE;&#x786E;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x8D85;&#x65F6;&#x975E;&#x5E38;&#x77ED;&#x7684;&#x573A;&#x666F;&#x4E2D;&#xFF0C;AQS&#x4F1A;&#x8FDB;&#x884C;&#x65E0;&#x6761;&#x4EF6;&#x7684;&#x5FEB;&#x901F;&#x81EA;&#x65CB;&#x3002; &#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201216090809.png" alt="image-20201216090809240"></p>
+<h4 id="&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;"><a name="&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;" class="anchor-navigation-ex-anchor" href="#&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;" class="plugin-anchor" href="#&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x72EC;&#x5360;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;</h4>
+<p>&#x5F53;&#x7EBF;&#x7A0B;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x6267;&#x884C;&#x5B8C;&#x76F8;&#x5E94;&#x903B;&#x8F91;&#x540E;&#x5C31;&#x9700;&#x8981;&#x91CA;&#x653E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x3002;AQS&#x63D0;&#x4F9B;&#x4E86;release(int arg)&#x65B9;&#x6CD5;&#x91CA;&#x653E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">release</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>{
+        <span class="hljs-keyword">if</span> (tryRelease(arg)) {
+            Node h = head;
+            <span class="hljs-keyword">if</span> (h != <span class="hljs-keyword">null</span> &amp;&amp; h.waitStatus != <span class="hljs-number">0</span>)
+                unparkSuccessor(h);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+</code></pre>
+<p>&#x8BE5;&#x65B9;&#x6CD5;&#x540C;&#x6837;&#x662F;&#x5148;&#x8C03;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x540C;&#x6B65;&#x5668;&#x81EA;&#x5B9A;&#x4E49;&#x7684;tryRelease(int arg)&#x65B9;&#x6CD5;&#x6765;&#x91CA;&#x653E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x91CA;&#x653E;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;unparkSuccessor(Node node)&#x65B9;&#x6CD5;&#x5524;&#x9192;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#xFF08;&#x5982;&#x4F55;&#x5524;&#x9192;LZ&#x540E;&#x9762;&#x4ECB;&#x7ECD;&#xFF09;&#x3002; &#x8FD9;&#x91CC;&#x7A0D;&#x5FAE;&#x603B;&#x7ED3;&#x4E0B;&#xFF1A;</p>
+<blockquote>
+<p>&#x5728;AQS&#x4E2D;&#x7EF4;&#x62A4;&#x7740;&#x4E00;&#x4E2A;FIFO&#x7684;&#x540C;&#x6B65;&#x961F;&#x5217;&#xFF0C;&#x5F53;&#x7EBF;&#x7A0B;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x5931;&#x8D25;&#x540E;&#xFF0C;&#x5219;&#x4F1A;&#x52A0;&#x5165;&#x5230;&#x8FD9;&#x4E2A;CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#x7684;&#x5BF9;&#x5C3E;&#x5E76;&#x4E00;&#x76F4;&#x4FDD;&#x6301;&#x7740;&#x81EA;&#x65CB;&#x3002;&#x5728;CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x7EBF;&#x7A0B;&#x5728;&#x81EA;&#x65CB;&#x65F6;&#x4F1A;&#x5224;&#x65AD;&#x5176;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x662F;&#x5426;&#x4E3A;&#x9996;&#x8282;&#x70B9;&#xFF0C;&#x5982;&#x679C;&#x4E3A;&#x9996;&#x8282;&#x70B9;&#x5219;&#x4E0D;&#x65AD;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x83B7;&#x53D6;&#x6210;&#x529F;&#x5219;&#x9000;&#x51FA;CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#x3002;&#x5F53;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x903B;&#x8F91;&#x540E;&#xFF0C;&#x4F1A;&#x91CA;&#x653E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x91CA;&#x653E;&#x540E;&#x4F1A;&#x5524;&#x9192;&#x5176;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#x3002;</p>
+</blockquote>
+<h3 id="&#x5171;&#x4EAB;&#x5F0F;"><a name="&#x5171;&#x4EAB;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x5171;&#x4EAB;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5171;&#x4EAB;&#x5F0F;" class="plugin-anchor" href="#&#x5171;&#x4EAB;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5171;&#x4EAB;&#x5F0F;</h3>
+<p>&#x5171;&#x4EAB;&#x5F0F;&#x4E0E;&#x72EC;&#x5360;&#x5F0F;&#x7684;&#x6700;&#x4E3B;&#x8981;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x540C;&#x4E00;&#x65F6;&#x523B;&#x72EC;&#x5360;&#x5F0F;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x800C;&#x5171;&#x4EAB;&#x5F0F;&#x5728;&#x540C;&#x4E00;&#x65F6;&#x523B;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x3002;&#x4F8B;&#x5982;&#x8BFB;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#xFF0C;&#x800C;&#x5199;&#x64CD;&#x4F5C;&#x540C;&#x4E00;&#x65F6;&#x523B;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#x90FD;&#x4F1A;&#x88AB;&#x963B;&#x585E;&#x3002;</p>
+<h4 id="&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;"><a name="&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;" class="anchor-navigation-ex-anchor" href="#&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;" class="plugin-anchor" href="#&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x83B7;&#x53D6;</h4>
+<p>AQS&#x63D0;&#x4F9B;acquireShared(int arg)&#x65B9;&#x6CD5;&#x5171;&#x4EAB;&#x5F0F;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">acquireShared</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>{
+        <span class="hljs-keyword">if</span> (tryAcquireShared(arg) &lt; <span class="hljs-number">0</span>)
+            <span class="hljs-comment">//&#x83B7;&#x53D6;&#x5931;&#x8D25;&#xFF0C;&#x81EA;&#x65CB;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;</span>
+            doAcquireShared(arg);
+    }
+</code></pre>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x65B9;&#x6CD5;&#x9996;&#x5148;&#x662F;&#x8C03;&#x7528;tryAcquireShared(int arg)&#x65B9;&#x6CD5;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C;&#x83B7;&#x53D6;&#x5931;&#x8D25;&#x5219;&#x8C03;&#x7528;doAcquireShared(int arg)&#x81EA;&#x65CB;&#x65B9;&#x5F0F;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x5171;&#x4EAB;&#x5F0F;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7684;&#x6807;&#x5FD7;&#x662F;&#x8FD4;&#x56DE; &gt;= 0 &#x7684;&#x503C;&#x8868;&#x793A;&#x83B7;&#x53D6;&#x6210;&#x529F;&#x3002;&#x81EA;&#x9009;&#x5F0F;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doAcquireShared</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>{
+        /&#x5171;&#x4EAB;&#x5F0F;&#x8282;&#x70B9;
+        <span class="hljs-keyword">final</span> Node node = addWaiter(Node.SHARED);
+        <span class="hljs-keyword">boolean</span> failed = <span class="hljs-keyword">true</span>;
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">boolean</span> interrupted = <span class="hljs-keyword">false</span>;
+            <span class="hljs-keyword">for</span> (;;) {
+                <span class="hljs-comment">//&#x524D;&#x9A71;&#x8282;&#x70B9;</span>
+                <span class="hljs-keyword">final</span> Node p = node.predecessor();
+                <span class="hljs-comment">//&#x5982;&#x679C;&#x5176;&#x524D;&#x9A71;&#x8282;&#x70B9;&#xFF0C;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;</span>
+                <span class="hljs-keyword">if</span> (p == head) {
+                    <span class="hljs-comment">//&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x540C;&#x6B65;</span>
+                    <span class="hljs-keyword">int</span> r = tryAcquireShared(arg);
+                    <span class="hljs-keyword">if</span> (r &gt;= <span class="hljs-number">0</span>) {
+                        setHeadAndPropagate(node, r);
+                        p.next = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// help GC</span>
+                        <span class="hljs-keyword">if</span> (interrupted)
+                            selfInterrupt();
+                        failed = <span class="hljs-keyword">false</span>;
+                        <span class="hljs-keyword">return</span>;
+                    }
+                }
+                <span class="hljs-keyword">if</span> (shouldParkAfterFailedAcquire(p, node) &amp;&amp;
+                        parkAndCheckInterrupt())
+                    interrupted = <span class="hljs-keyword">true</span>;
+            }
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (failed)
+                cancelAcquire(node);
+        }
+    }
+</code></pre>
+<p>tryAcquireShared(int arg)&#x65B9;&#x6CD5;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;int&#xFF0C;&#x5F53;&#x5176; &gt;= 0 &#x65F6;&#xFF0C;&#x8868;&#x793A;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x5230;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x4ECE;&#x81EA;&#x65CB;&#x8FC7;&#x7A0B;&#x4E2D;&#x9000;&#x51FA;&#x3002; acquireShared(int arg)&#x65B9;&#x6CD5;&#x4E0D;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;&#xFF0C;&#x4E0E;&#x72EC;&#x5360;&#x5F0F;&#x76F8;&#x4F3C;&#xFF0C;AQS&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;&#x3001;&#x8D85;&#x65F6;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5206;&#x522B;&#x662F;&#xFF1A;acquireSharedInterruptibly(int arg)&#x3001;tryAcquireSharedNanos(int arg,long nanos)&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x505A;&#x89E3;&#x91CA;&#x4E86;&#x3002;</p>
+<h4 id="&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;"><a name="&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;" class="anchor-navigation-ex-anchor" href="#&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;" class="plugin-anchor" href="#&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5171;&#x4EAB;&#x5F0F;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x91CA;&#x653E;</h4>
+<p>&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x8C03;&#x7528;release(int arg)&#x65B9;&#x6CD5;&#x91CA;&#x653E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">releaseShared</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>{
+        <span class="hljs-keyword">if</span> (tryReleaseShared(arg)) {
+            doReleaseShared();
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+</code></pre>
+<p>&#x56E0;&#x4E3A;&#x53EF;&#x80FD;&#x4F1A;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#x91CA;&#x653E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x8D44;&#x6E90;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x786E;&#x4FDD;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x5B89;&#x5168;&#x5730;&#x6210;&#x529F;&#x91CA;&#x653E;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x901A;&#x8FC7;CAS&#x548C;&#x5FAA;&#x73AF;&#x6765;&#x5B8C;&#x6210;&#x7684;&#x3002;</p>
+<h2 id="&#x56DB;-aqs&#x4E4B;&#x963B;&#x585E;&#x548C;&#x5524;&#x9192;&#x7EBF;&#x7A0B;"><a name="&#x56DB;-aqs&#x4E4B;&#x963B;&#x585E;&#x548C;&#x5524;&#x9192;&#x7EBF;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#&#x56DB;-aqs&#x4E4B;&#x963B;&#x585E;&#x548C;&#x5524;&#x9192;&#x7EBF;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x56DB;-aqs&#x4E4B;&#x963B;&#x585E;&#x548C;&#x5524;&#x9192;&#x7EBF;&#x7A0B;" class="plugin-anchor" href="#&#x56DB;-aqs&#x4E4B;&#x963B;&#x585E;&#x548C;&#x5524;&#x9192;&#x7EBF;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x56DB; AQS&#x4E4B;&#x963B;&#x585E;&#x548C;&#x5524;&#x9192;&#x7EBF;&#x7A0B;</h2>
+<h3 id="&#x963B;&#x585E;"><a name="&#x963B;&#x585E;" class="anchor-navigation-ex-anchor" href="#&#x963B;&#x585E;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x963B;&#x585E;" class="plugin-anchor" href="#&#x963B;&#x585E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x963B;&#x585E;</h3>
+<p>&#x5728;&#x7EBF;&#x7A0B;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x65F6;&#x5982;&#x679C;&#x83B7;&#x53D6;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x52A0;&#x5165;CLH&#x540C;&#x6B65;&#x961F;&#x5217;&#xFF0C;&#x901A;&#x8FC7;&#x901A;&#x8FC7;&#x81EA;&#x65CB;&#x7684;&#x65B9;&#x5F0F;&#x4E0D;&#x65AD;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x81EA;&#x65CB;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x5219;&#x9700;&#x8981;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x9700;&#x8981;&#x963B;&#x585E;&#xFF0C;&#x5176;&#x4E3B;&#x8981;&#x65B9;&#x6CD5;&#x5728;acquireQueued()&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">if</span> (shouldParkAfterFailedAcquire(p, node) &amp;&amp;
+                    parkAndCheckInterrupt())
+                    interrupted = <span class="hljs-keyword">true</span>;
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5728;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x5931;&#x8D25;&#x540E;&#xFF0C;&#x7EBF;&#x7A0B;&#x5E76;&#x4E0D;&#x662F;&#x7ACB;&#x9A6C;&#x8FDB;&#x884C;&#x963B;&#x585E;&#xFF0C;&#x9700;&#x8981;&#x68C0;&#x67E5;&#x8BE5;&#x7EBF;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x68C0;&#x67E5;&#x72B6;&#x6001;&#x7684;&#x65B9;&#x6CD5;&#x4E3A; shouldParkAfterFailedAcquire(Node pred, Node node) &#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x9760;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x5E94;&#x8BE5;&#x88AB;&#x963B;&#x585E;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">shouldParkAfterFailedAcquire</span><span class="hljs-params">(Node pred, Node node)</span> </span>{
+        <span class="hljs-comment">//&#x524D;&#x9A71;&#x8282;&#x70B9;</span>
+        <span class="hljs-keyword">int</span> ws = pred.waitStatus;
+        <span class="hljs-comment">//&#x72B6;&#x6001;&#x4E3A;signal&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5904;&#x4E8E;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#xFF0C;&#x76F4;&#x63A5;&#x653E;&#x56DE;true</span>
+        <span class="hljs-keyword">if</span> (ws == Node.SIGNAL)
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        <span class="hljs-comment">//&#x524D;&#x9A71;&#x8282;&#x70B9;&#x72B6;&#x6001; &gt; 0 &#xFF0C;&#x5219;&#x4E3A;Cancelled,&#x8868;&#x660E;&#x8BE5;&#x8282;&#x70B9;&#x5DF2;&#x7ECF;&#x8D85;&#x65F6;&#x6216;&#x8005;&#x88AB;&#x4E2D;&#x65AD;&#x4E86;&#xFF0C;&#x9700;&#x8981;&#x4ECE;&#x540C;&#x6B65;&#x961F;&#x5217;&#x4E2D;&#x53D6;&#x6D88;</span>
+        <span class="hljs-keyword">if</span> (ws &gt; <span class="hljs-number">0</span>) {
+            do {
+                node.prev = pred = pred.prev;
+            } <span class="hljs-keyword">while</span> (pred.waitStatus &gt; <span class="hljs-number">0</span>);
+            pred.next = node;
+        }
+        <span class="hljs-comment">//&#x524D;&#x9A71;&#x8282;&#x70B9;&#x72B6;&#x6001;&#x4E3A;Condition&#x3001;propagate</span>
+        <span class="hljs-keyword">else</span> {
+            compareAndSetWaitStatus(pred, ws, Node.SIGNAL);
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+</code></pre>
+<p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E3B;&#x8981;&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x9700;&#x8981;&#x88AB;&#x963B;&#x585E;&#xFF0C;&#x5177;&#x4F53;&#x89C4;&#x5219;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x72B6;&#x6001;&#x4E3A;SINNAL&#xFF0C;&#x5219;&#x8868;&#x660E;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x9700;&#x8981;&#x88AB;&#x963B;&#x585E;&#xFF0C;&#x8C03;&#x7528;unpark()&#x65B9;&#x6CD5;&#x5524;&#x9192;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;true&#xFF0C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x963B;&#x585E;</li>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x72B6;&#x6001;&#x4E3A;CANCELLED&#xFF08;ws &gt; 0&#xFF09;&#xFF0C;&#x5219;&#x8868;&#x660E;&#x8BE5;&#x7EBF;&#x7A0B;&#x7684;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x5DF2;&#x7ECF;&#x7B49;&#x5F85;&#x8D85;&#x65F6;&#x6216;&#x8005;&#x88AB;&#x4E2D;&#x65AD;&#x4E86;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x4ECE;CLH&#x961F;&#x5217;&#x4E2D;&#x5C06;&#x8BE5;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x5220;&#x9664;&#x6389;&#xFF0C;&#x76F4;&#x5230;&#x56DE;&#x6EAF;&#x5230;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x72B6;&#x6001; &lt;= 0 &#xFF0C;&#x8FD4;&#x56DE;false</li>
+<li>&#x5982;&#x679C;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x975E;SINNAL&#xFF0C;&#x975E;CANCELLED&#xFF0C;&#x5219;&#x901A;&#x8FC7;CAS&#x7684;&#x65B9;&#x5F0F;&#x5C06;&#x5176;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x8BBE;&#x7F6E;&#x4E3A;SINNAL&#xFF0C;&#x8FD4;&#x56DE;false</li>
+</ol>
+<p>&#x5982;&#x679C; shouldParkAfterFailedAcquire(Node pred, Node node) &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;true&#xFF0C;&#x5219;&#x8C03;&#x7528;parkAndCheckInterrupt()&#x65B9;&#x6CD5;&#x963B;&#x585E;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">parkAndCheckInterrupt</span><span class="hljs-params">()</span> </span>{
+        LockSupport.park(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">return</span> Thread.interrupted();
+    }
+</code></pre>
+<p>parkAndCheckInterrupt() &#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x662F;&#x628A;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6302;&#x8D77;&#xFF0C;&#x4ECE;&#x800C;&#x963B;&#x585E;&#x4F4F;&#x7EBF;&#x7A0B;&#x7684;&#x8C03;&#x7528;&#x6808;&#xFF0C;&#x540C;&#x65F6;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;&#x4E2D;&#x65AD;&#x72B6;&#x6001;&#x3002;&#x5176;&#x5185;&#x90E8;&#x5219;&#x662F;&#x8C03;&#x7528;LockSupport&#x5DE5;&#x5177;&#x7C7B;&#x7684;park()&#x65B9;&#x6CD5;&#x6765;&#x963B;&#x585E;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;</p>
+<h3 id="&#x5524;&#x9192;"><a name="&#x5524;&#x9192;" class="anchor-navigation-ex-anchor" href="#&#x5524;&#x9192;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5524;&#x9192;" class="plugin-anchor" href="#&#x5524;&#x9192;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5524;&#x9192;</h3>
+<p> &#x5F53;&#x7EBF;&#x7A0B;&#x91CA;&#x653E;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5524;&#x9192;&#x8BE5;&#x7EBF;&#x7A0B;&#x7684;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">release</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>{
+        <span class="hljs-keyword">if</span> (tryRelease(arg)) {
+            Node h = head;
+            <span class="hljs-keyword">if</span> (h != <span class="hljs-keyword">null</span> &amp;&amp; h.waitStatus != <span class="hljs-number">0</span>)
+                <span class="hljs-comment">//&#x5524;&#x9192;&#x540E;&#x7EE7;&#x8282;&#x70B9;</span>
+                unparkSuccessor(h);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+</code></pre>
+<p>&#x8C03;&#x7528;unparkSuccessor(Node node)&#x5524;&#x9192;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">unparkSuccessor</span><span class="hljs-params">(Node node)</span> </span>{
+        <span class="hljs-comment">//&#x5F53;&#x524D;&#x8282;&#x70B9;&#x72B6;&#x6001;</span>
+        <span class="hljs-keyword">int</span> ws = node.waitStatus;
+        <span class="hljs-comment">//&#x5F53;&#x524D;&#x72B6;&#x6001; &lt; 0 &#x5219;&#x8BBE;&#x7F6E;&#x4E3A; 0</span>
+        <span class="hljs-keyword">if</span> (ws &lt; <span class="hljs-number">0</span>)
+            compareAndSetWaitStatus(node, ws, <span class="hljs-number">0</span>);
+
+        <span class="hljs-comment">//&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x540E;&#x7EE7;&#x8282;&#x70B9;</span>
+        Node s = node.next;
+        <span class="hljs-comment">//&#x540E;&#x7EE7;&#x8282;&#x70B9;&#x4E3A;null&#x6216;&#x8005;&#x5176;&#x72B6;&#x6001; &gt; 0 (&#x8D85;&#x65F6;&#x6216;&#x8005;&#x88AB;&#x4E2D;&#x65AD;&#x4E86;)</span>
+        <span class="hljs-keyword">if</span> (s == <span class="hljs-keyword">null</span> || s.waitStatus &gt; <span class="hljs-number">0</span>) {
+            s = <span class="hljs-keyword">null</span>;
+            <span class="hljs-comment">//&#x4ECE;tail&#x8282;&#x70B9;&#x6765;&#x627E;&#x53EF;&#x7528;&#x8282;&#x70B9;</span>
+            <span class="hljs-keyword">for</span> (Node t = tail; t != <span class="hljs-keyword">null</span> &amp;&amp; t != node; t = t.prev)
+                <span class="hljs-keyword">if</span> (t.waitStatus &lt;= <span class="hljs-number">0</span>)
+                    s = t;
+        }
+        <span class="hljs-comment">//&#x5524;&#x9192;&#x540E;&#x7EE7;&#x8282;&#x70B9;</span>
+        <span class="hljs-keyword">if</span> (s != <span class="hljs-keyword">null</span>)
+            LockSupport.unpark(s.thread);
+    }
+</code></pre>
+<p>&#x53EF;&#x80FD;&#x4F1A;&#x5B58;&#x5728;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#x4E3A;null&#xFF0C;&#x8D85;&#x65F6;&#x3001;&#x88AB;&#x4E2D;&#x65AD;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5982;&#x679C;&#x9047;&#x5230;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E86;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x8DF3;&#x8FC7;&#x8BE5;&#x8282;&#x70B9;&#xFF0C;&#x4F46;&#x662F;&#x4E3A;&#x4F55;&#x662F;&#x4ECE;tail&#x5C3E;&#x8282;&#x70B9;&#x5F00;&#x59CB;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4ECE;node.next&#x5F00;&#x59CB;&#x5462;&#xFF1F;&#x539F;&#x56E0;&#x5728;&#x4E8E;node.next&#x4ECD;&#x7136;&#x53EF;&#x80FD;&#x4F1A;&#x5B58;&#x5728;null&#x6216;&#x8005;&#x53D6;&#x6D88;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x91C7;&#x7528;tail&#x56DE;&#x6EAF;&#x529E;&#x6CD5;&#x627E;&#x7B2C;&#x4E00;&#x4E2A;&#x53EF;&#x7528;&#x7684;&#x7EBF;&#x7A0B;&#x3002;&#x6700;&#x540E;&#x8C03;&#x7528;LockSupport&#x7684;unpark(Thread thread)&#x65B9;&#x6CD5;&#x5524;&#x9192;&#x8BE5;&#x7EBF;&#x7A0B;&#x3002;</p>
+<h3 id="locksupport"><a name="locksupport" class="anchor-navigation-ex-anchor" href="#locksupport"><i class="fa fa-link" aria-hidden="true"></i></a><a name="locksupport" class="plugin-anchor" href="#locksupport"><i class="fa fa-link" aria-hidden="true"></i></a>LockSupport</h3>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x6211;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5F53;&#x9700;&#x8981;&#x963B;&#x585E;&#x6216;&#x8005;&#x5524;&#x9192;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#xFF0C;AQS&#x90FD;&#x662F;&#x4F7F;&#x7528;LockSupport&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x7C7B;&#x6765;&#x5B8C;&#x6210;&#x7684;&#x3002;</p>
+<blockquote>
+<p>LockSupport&#x662F;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x9501;&#x548C;&#x5176;&#x4ED6;&#x540C;&#x6B65;&#x7C7B;&#x7684;&#x57FA;&#x672C;&#x7EBF;&#x7A0B;&#x963B;&#x585E;&#x539F;&#x8BED;</p>
+</blockquote>
+<p>&#x6BCF;&#x4E2A;&#x4F7F;&#x7528;LockSupport&#x7684;&#x7EBF;&#x7A0B;&#x90FD;&#x4F1A;&#x4E0E;&#x4E00;&#x4E2A;&#x8BB8;&#x53EF;&#x5173;&#x8054;&#xFF0C;&#x5982;&#x679C;&#x8BE5;&#x8BB8;&#x53EF;&#x53EF;&#x7528;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x5728;&#x8FDB;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x5219;&#x8C03;&#x7528;park()&#x5C06;&#x4F1A;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#xFF0C;&#x5426;&#x5219;&#x53EF;&#x80FD;&#x963B;&#x585E;&#x3002;&#x5982;&#x679C;&#x8BB8;&#x53EF;&#x5C1A;&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x8C03;&#x7528; unpark &#x4F7F;&#x5176;&#x53EF;&#x7528;&#x3002;&#x4F46;&#x662F;&#x6CE8;&#x610F;&#x8BB8;&#x53EF;&#x4E0D;&#x53EF;&#x91CD;&#x5165;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x53EA;&#x80FD;&#x8C03;&#x7528;&#x4E00;&#x6B21;park()&#x65B9;&#x6CD5;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x4E00;&#x76F4;&#x963B;&#x585E;&#x3002; LockSupport&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x7CFB;&#x5217;&#x4EE5;park&#x5F00;&#x5934;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x963B;&#x585E;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF0C;unpark(Thread thread)&#x65B9;&#x6CD5;&#x6765;&#x5524;&#x9192;&#x4E00;&#x4E2A;&#x88AB;&#x963B;&#x585E;&#x7684;&#x7EBF;&#x7A0B;&#x3002;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201216092009.png" alt="image-20201216092009353"></p>
+<p>&#x65B9;&#x6CD5;&#x7684;blocker&#x53C2;&#x6570;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x7528;&#x6765;&#x6807;&#x8BC6;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5728;&#x7B49;&#x5F85;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x95EE;&#x9898;&#x6392;&#x67E5;&#x548C;&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;&#x3002; park&#x65B9;&#x6CD5;&#x548C;unpark(Thread thread)&#x90FD;&#x662F;&#x6210;&#x5BF9;&#x51FA;&#x73B0;&#x7684;&#xFF0C;&#x540C;&#x65F6;unpark&#x5FC5;&#x987B;&#x8981;&#x5728;park&#x6267;&#x884C;&#x4E4B;&#x540E;&#x6267;&#x884C;&#xFF0C;&#x5F53;&#x7136;&#x5E76;&#x4E0D;&#x662F;&#x8BF4;&#x6CA1;&#x6709;&#x4E0D;&#x8C03;&#x7528;unpark&#x7EBF;&#x7A0B;&#x5C31;&#x4F1A;&#x4E00;&#x76F4;&#x963B;&#x585E;&#xFF0C;park&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x5E26;&#x4E86;&#x65F6;&#x95F4;&#x6233;&#xFF08;parkNanos(long nanos)&#xFF1A;&#x4E3A;&#x4E86;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x7981;&#x7528;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF0C;&#x6700;&#x591A;&#x7B49;&#x5F85;&#x6307;&#x5B9A;&#x7684;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#xFF0C;&#x9664;&#x975E;&#x8BB8;&#x53EF;&#x53EF;&#x7528;&#xFF09;&#x3002; park()&#x65B9;&#x6CD5;&#x7684;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">park</span><span class="hljs-params">()</span> </span>{
+        UNSAFE.park(<span class="hljs-keyword">false</span>, <span class="hljs-number">0L</span>);
+    }
+</code></pre>
+<p>unpark(Thread thread)&#x65B9;&#x6CD5;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">unpark</span><span class="hljs-params">(Thread thread)</span> </span>{
+        <span class="hljs-keyword">if</span> (thread != <span class="hljs-keyword">null</span>)
+            UNSAFE.unpark(thread);
+    }
+</code></pre>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5176;&#x5185;&#x90E8;&#x7684;&#x5B9E;&#x73B0;&#x90FD;&#x662F;&#x901A;&#x8FC7;UNSAFE&#xFF08;sun.misc.Unsafe UNSAFE&#xFF09;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5176;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">native</span> <span class="hljs-keyword">void</span> <span class="hljs-title">park</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> var1, <span class="hljs-keyword">long</span> var2)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">native</span> <span class="hljs-keyword">void</span> <span class="hljs-title">unpark</span><span class="hljs-params">(Object var1)</span></span>;
+</code></pre>
+<p>&#x4E24;&#x4E2A;&#x90FD;&#x662F;native&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x3002;Unsafe &#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x5371;&#x9669;&#x7684;&#x7C7B;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x4F4E;&#x7EA7;&#x522B;&#x3001;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x65B9;&#x6CD5;&#x96C6;&#x5408;&#x3002;&#x5C3D;&#x7BA1;&#x8FD9;&#x4E2A;&#x7C7B;&#x548C;&#x6240;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x516C;&#x5F00;&#x7684;&#xFF08;public&#xFF09;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x4F7F;&#x7528;&#x4ECD;&#x7136;&#x53D7;&#x9650;&#xFF0C;&#x4F60;&#x65E0;&#x6CD5;&#x5728;&#x81EA;&#x5DF1;&#x7684;java&#x7A0B;&#x5E8F;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8BE5;&#x7C7B;&#xFF0C;&#x56E0;&#x4E3A;&#x53EA;&#x6709;&#x6388;&#x4FE1;&#x7684;&#x4EE3;&#x7801;&#x624D;&#x80FD;&#x83B7;&#x5F97;&#x8BE5;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="7.乐观锁与悲观锁.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 8.乐观锁CAS与悲观锁">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"9.JUC之AQS","level":"5.9","depth":1,"previous":{"title":"8.乐观锁CAS与悲观锁","level":"5.8","depth":1,"path":"多线程/7.乐观锁与悲观锁.md","ref":"多线程/7.乐观锁与悲观锁.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"多线程/8.JUC之AQS.md","mtime":"2020-12-16T01:26:46.106Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-16T01:27:09.029Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

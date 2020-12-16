@@ -684,6 +684,45 @@
             
         </li>
     
+        <li class="chapter " data-level="5.7" >
+            
+                <span>
+            
+                    
+                    7.volatile与final底层原理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="../多线程/7.乐观锁与悲观锁.html">
+            
+                <a href="../多线程/7.乐观锁与悲观锁.html">
+            
+                    
+                    8.乐观锁CAS与悲观锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="../多线程/8.JUC之AQS.html">
+            
+                <a href="../多线程/8.JUC之AQS.html">
+            
+                    
+                    9.JUC之AQS
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
         
@@ -736,7 +775,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><b></b>&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;</a></li><ul><li><span class="title-icon "></span><a href="#1&#x6A59;&#x5B50;&#x6811;"><b></b>1.&#x6A59;&#x5B50;&#x6811;</a></li><li><span class="title-icon "></span><a href="#2&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><b></b>2.&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;</a></li></ul><li><span class="title-icon "></span><a href="#&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;"><b></b>&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;</a></li><ul><li><span class="title-icon "></span><a href="#0&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;"><b></b>0.&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;</a></li><li><span class="title-icon "></span><a href="#1&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><b></b>1.&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;</a></li><li><span class="title-icon "></span><a href="#2&#x8DEF;&#x5F84;&#x603B;&#x548C;-ii"><b></b>2.&#x8DEF;&#x5F84;&#x603B;&#x548C; II</a></li><li><span class="title-icon "></span><a href="#3&#x8DEF;&#x5F84;&#x603B;&#x548C;-iii"><b></b>3.&#x8DEF;&#x5F84;&#x603B;&#x548C; III</a></li><li><span class="title-icon "></span><a href="#3&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;"><b></b>3.&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;</a></li><li><span class="title-icon "></span><a href="#4&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;"><b></b>4.&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;</a></li><li><span class="title-icon "></span><a href="#5&#x6253;&#x5BB6;&#x52AB;&#x820D;-iii"><b></b>5.&#x6253;&#x5BB6;&#x52AB;&#x820D; III</a></li><li><span class="title-icon "></span><a href="#6&#x597D;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x5BF9;&#x7684;&#x6570;&#x91CF;"><b></b>6.&#x597D;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x5BF9;&#x7684;&#x6570;&#x91CF;</a></li></ul><li><span class="title-icon "></span><a href="#&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;"><b></b>&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#1&#x5730;&#x9F20;&#x5B89;&#x5BB6;"><b></b>1.&#x5730;&#x9F20;&#x5B89;&#x5BB6;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;"><b></b>&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-"><b></b>1 &#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22; </a></li><li><span class="title-icon "></span><a href="#2&#x533A;&#x95F4;&#x548C;&#x7684;&#x4E2A;&#x6570;"><b></b>2.&#x533A;&#x95F4;&#x548C;&#x7684;&#x4E2A;&#x6570;</a></li><li><span class="title-icon "></span><a href="#3&#x5929;&#x9645;&#x7EBF;&#x95EE;&#x9898;"><b></b>3.&#x5929;&#x9645;&#x7EBF;&#x95EE;&#x9898;</a></li><li><span class="title-icon "></span><a href="#4&#x7FFB;&#x8F6C;&#x5BF9;"><b></b>4.&#x7FFB;&#x8F6C;&#x5BF9;</a></li></ul><li><span class="title-icon "></span><a href="#&#x6811;&#x72B6;&#x6570;&#x7EC4;&#x5217;&#x9898;"><b></b>&#x6811;&#x72B6;&#x6570;&#x7EC4;&#x5217;&#x9898;</a></li><li><span class="title-icon "></span><a href="#&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;"><b></b>&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#1&#x6A21;&#x677F;&#x9898;&#x76EE;"><b></b>1.&#x6A21;&#x677F;&#x9898;&#x76EE;</a></li><li><span class="title-icon "></span><a href="#2&#x6DFB;&#x52A0;&#x4E0E;&#x641C;&#x7D22;&#x5355;&#x8BCD;-"><b></b>2.&#x6DFB;&#x52A0;&#x4E0E;&#x641C;&#x7D22;&#x5355;&#x8BCD; </a></li><li><span class="title-icon "></span><a href="#3&#x5355;&#x8BCD;&#x641C;&#x7D22;-ii"><b></b>3.&#x5355;&#x8BCD;&#x641C;&#x7D22; II</a></li><li><span class="title-icon "></span><a href="#4&#x56DE;&#x6587;&#x5BF9;"><b></b>4.&#x56DE;&#x6587;&#x5BF9;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><a name="&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;" class="anchor-navigation-ex-anchor" href="#&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;" class="plugin-anchor" href="#&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;</h2>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><b></b>&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;</a></li><ul><li><span class="title-icon "></span><a href="#1&#x6A59;&#x5B50;&#x6811;"><b></b>1.&#x6A59;&#x5B50;&#x6811;</a></li><li><span class="title-icon "></span><a href="#2&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><b></b>2.&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;</a></li></ul><li><span class="title-icon "></span><a href="#&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;"><b></b>&#x6811;&#x7684;&#x9012;&#x5F52;&#x7C7B;&#x578B;</a></li><ul><li><span class="title-icon "></span><a href="#0&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;"><b></b>0.&#x4E8C;&#x53C9;&#x6811;&#x5C55;&#x5F00;&#x4E3A;&#x94FE;&#x8868;&#x2B50;</a></li><li><span class="title-icon "></span><a href="#1&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><b></b>1.&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;</a></li><li><span class="title-icon "></span><a href="#2&#x8DEF;&#x5F84;&#x603B;&#x548C;-ii"><b></b>2.&#x8DEF;&#x5F84;&#x603B;&#x548C; II</a></li><li><span class="title-icon "></span><a href="#3&#x8DEF;&#x5F84;&#x603B;&#x548C;-iii"><b></b>3.&#x8DEF;&#x5F84;&#x603B;&#x548C; III</a></li><li><span class="title-icon "></span><a href="#3&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;"><b></b>3.&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x8DEF;&#x5F84;&#x548C;</a></li><li><span class="title-icon "></span><a href="#4&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;"><b></b>4.&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x8FD1;&#x516C;&#x5171;&#x7956;&#x5148;</a></li><li><span class="title-icon "></span><a href="#5&#x6253;&#x5BB6;&#x52AB;&#x820D;-iii"><b></b>5.&#x6253;&#x5BB6;&#x52AB;&#x820D; III</a></li><li><span class="title-icon "></span><a href="#6&#x597D;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x5BF9;&#x7684;&#x6570;&#x91CF;"><b></b>6.&#x597D;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x5BF9;&#x7684;&#x6570;&#x91CF;</a></li></ul><li><span class="title-icon "></span><a href="#&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;"><b></b>&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5217;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#1&#x5730;&#x9F20;&#x5B89;&#x5BB6;"><b></b>1.&#x5730;&#x9F20;&#x5B89;&#x5BB6;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;"><b></b>&#x7EBF;&#x72B6;&#x6811;&#x5217;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-"><b></b>1 &#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22; </a></li><li><span class="title-icon "></span><a href="#2&#x533A;&#x95F4;&#x548C;&#x7684;&#x4E2A;&#x6570;"><b></b>2.&#x533A;&#x95F4;&#x548C;&#x7684;&#x4E2A;&#x6570;</a></li><li><span class="title-icon "></span><a href="#3&#x5929;&#x9645;&#x7EBF;&#x95EE;&#x9898;"><b></b>3.&#x5929;&#x9645;&#x7EBF;&#x95EE;&#x9898;</a></li><li><span class="title-icon "></span><a href="#4&#x7FFB;&#x8F6C;&#x5BF9;"><b></b>4.&#x7FFB;&#x8F6C;&#x5BF9;</a></li></ul><li><span class="title-icon "></span><a href="#&#x6811;&#x72B6;&#x6570;&#x7EC4;&#x5217;&#x9898;"><b></b>&#x6811;&#x72B6;&#x6570;&#x7EC4;&#x5217;&#x9898;</a></li><li><span class="title-icon "></span><a href="#&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;"><b></b>&#x5B57;&#x5178;&#x6811;&#x5217;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#1&#x6A21;&#x677F;&#x9898;&#x76EE;"><b></b>1.&#x6A21;&#x677F;&#x9898;&#x76EE;</a></li><li><span class="title-icon "></span><a href="#2&#x6DFB;&#x52A0;&#x4E0E;&#x641C;&#x7D22;&#x5355;&#x8BCD;-"><b></b>2.&#x6DFB;&#x52A0;&#x4E0E;&#x641C;&#x7D22;&#x5355;&#x8BCD; </a></li><li><span class="title-icon "></span><a href="#3&#x5355;&#x8BCD;&#x641C;&#x7D22;-ii"><b></b>3.&#x5355;&#x8BCD;&#x641C;&#x7D22; II</a></li><li><span class="title-icon "></span><a href="#4&#x6570;&#x7EC4;&#x4E2D;&#x4E24;&#x4E2A;&#x6570;&#x7684;&#x6700;&#x5927;&#x5F02;&#x6216;&#x503C;"><b></b>4.&#x6570;&#x7EC4;&#x4E2D;&#x4E24;&#x4E2A;&#x6570;&#x7684;&#x6700;&#x5927;&#x5F02;&#x6216;&#x503C;</a></li><li><span class="title-icon "></span><a href="#5&#x56DE;&#x6587;&#x5BF9;"><b></b>5.&#x56DE;&#x6587;&#x5BF9;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><a name="&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;" class="anchor-navigation-ex-anchor" href="#&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;" class="plugin-anchor" href="#&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;&#x822C;&#x6811;&#x9898;&#x76EE;&#x96C6;</h2>
 <h3 id="1&#x6A59;&#x5B50;&#x6811;"><a name="1&#x6A59;&#x5B50;&#x6811;" class="anchor-navigation-ex-anchor" href="#1&#x6A59;&#x5B50;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1&#x6A59;&#x5B50;&#x6811;" class="plugin-anchor" href="#1&#x6A59;&#x5B50;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a>1.&#x6A59;&#x5B50;&#x6811;</h3>
 <p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201208232151.png" alt="image-20201208232151760"></p>
 <pre><code>5 2
@@ -1814,7 +1853,128 @@ ans+=query(1,0,num,lower,upper);
     }
 };
 </code></pre>
-<h3 id="4&#x56DE;&#x6587;&#x5BF9;"><a name="4&#x56DE;&#x6587;&#x5BF9;" class="anchor-navigation-ex-anchor" href="#4&#x56DE;&#x6587;&#x5BF9;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="4&#x56DE;&#x6587;&#x5BF9;" class="plugin-anchor" href="#4&#x56DE;&#x6587;&#x5BF9;"><i class="fa fa-link" aria-hidden="true"></i></a>4.<a href="https://leetcode-cn.com/problems/palindrome-pairs/" target="_blank">&#x56DE;&#x6587;&#x5BF9;</a></h3>
+<h3 id="4&#x6570;&#x7EC4;&#x4E2D;&#x4E24;&#x4E2A;&#x6570;&#x7684;&#x6700;&#x5927;&#x5F02;&#x6216;&#x503C;"><a name="4&#x6570;&#x7EC4;&#x4E2D;&#x4E24;&#x4E2A;&#x6570;&#x7684;&#x6700;&#x5927;&#x5F02;&#x6216;&#x503C;" class="anchor-navigation-ex-anchor" href="#4&#x6570;&#x7EC4;&#x4E2D;&#x4E24;&#x4E2A;&#x6570;&#x7684;&#x6700;&#x5927;&#x5F02;&#x6216;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="4&#x6570;&#x7EC4;&#x4E2D;&#x4E24;&#x4E2A;&#x6570;&#x7684;&#x6700;&#x5927;&#x5F02;&#x6216;&#x503C;" class="plugin-anchor" href="#4&#x6570;&#x7EC4;&#x4E2D;&#x4E24;&#x4E2A;&#x6570;&#x7684;&#x6700;&#x5927;&#x5F02;&#x6216;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>4.<a href="https://leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array/" target="_blank">&#x6570;&#x7EC4;&#x4E2D;&#x4E24;&#x4E2A;&#x6570;&#x7684;&#x6700;&#x5927;&#x5F02;&#x6216;&#x503C;</a></h3>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201215230031.png" alt="image-20201215230031477"></p>
+<h4 id="1hash&#x6309;&#x4F4D;&#x4E0E;&#x6CD5;"><a name="1hash&#x6309;&#x4F4D;&#x4E0E;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#1hash&#x6309;&#x4F4D;&#x4E0E;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1hash&#x6309;&#x4F4D;&#x4E0E;&#x6CD5;" class="plugin-anchor" href="#1hash&#x6309;&#x4F4D;&#x4E0E;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.Hash&#x6309;&#x4F4D;&#x4E0E;&#x6CD5;</h4>
+<p><strong>&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#x7684;&#x6027;&#x8D28;</strong></p>
+<p>&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x9700;&#x8981;&#x5229;&#x7528;&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#x7684;&#x4E00;&#x4E2A;&#x6027;&#x8D28;&#xFF1A;</p>
+<p>&#x5982;&#x679C; a ^ b = c &#x6210;&#x7ACB;&#xFF0C;&#x90A3;&#x4E48;a ^ c = b &#x4E0E; b ^ c = a &#x5747;&#x6210;&#x7ACB;&#x3002;</p>
+<p>&#x5373; &#x5982;&#x679C;&#x6709;&#x4E09;&#x4E2A;&#x6570;&#xFF0C;&#x6EE1;&#x8DB3;&#x5176;&#x4E2D;&#x4E24;&#x4E2A;&#x6570;&#x7684;&#x5F02;&#x6216;&#x503C;&#x7B49;&#x4E8E;&#x53E6;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E09;&#x4E2A;&#x6570;&#x7684;&#x987A;&#x5E8F;&#x53EF;&#x4EE5;&#x4EFB;&#x610F;&#x8C03;&#x6362;&#x3002;</p>
+<p>&#xFF08;&#x8BF4;&#x660E;&#xFF1A;&#x5229;&#x7528;&#x8FD9;&#x6761;&#x6027;&#x8D28;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x4F7F;&#x7528;&#x7B2C; 3 &#x4E2A;&#x53D8;&#x91CF;&#x800C;&#x4EA4;&#x6362;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x3002;&#xFF09;</p>
+<p><strong>&#x5982;&#x4F55;&#x5E94;&#x7528;&#x5230;&#x672C;&#x9898;&#xFF1F;</strong></p>
+<p>&#x8FD9;&#x9053;&#x9898;&#x627E;&#x6700;&#x5927;&#x503C;&#x7684;&#x601D;&#x8DEF;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;&#x56E0;&#x4E3A;&#x4E24;&#x4E24;&#x5F02;&#x6216;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x5728;&#x6240;&#x6709;&#x7684;&#x4E24;&#x4E24;&#x5F02;&#x6216;&#x5F97;&#x5230;&#x7684;&#x503C;&#x4E2D;&#xFF0C;&#x4E00;&#x5B9A;&#x6709;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x6211;&#x4EEC;&#x63A8;&#x6D4B;&#x8FD9;&#x4E2A;&#x6700;&#x5927;&#x503C;&#x5E94;&#x8BE5;&#x662F;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#xFF1F;&#x5373;&#x6839;&#x636E;&#x201C;&#x6700;&#x5927;&#x503C;&#x201D;&#x7684;&#x5B58;&#x5728;&#x6027;&#x89E3;&#x9898;&#xFF08;&#x4E00;&#x5B9A;&#x5B58;&#x5728;&#xFF09;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#x8981;&#x5F3A;&#x8C03;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p>&#x6211;&#x4EEC;&#x53EA;&#x7528;&#x5173;&#x5FC3;&#x8FD9;&#x4E2A;&#x6700;&#x5927;&#x7684;&#x5F02;&#x6216;&#x503C;&#x9700;&#x8981;&#x6EE1;&#x8DB3;&#x4EC0;&#x4E48;&#x6027;&#x8D28;&#xFF0C;&#x8FDB;&#x800C;&#x63A8;&#x51FA;&#x8FD9;&#x4E2A;&#x6700;&#x5927;&#x503C;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x800C;&#x4E0D;&#x5FC5;&#x5173;&#x5FC3;&#x8FD9;&#x4E2A;&#x5F02;&#x6216;&#x503C;&#x662F;&#x7531;&#x54EA;&#x4E24;&#x4E2A;&#x6570;&#x5F97;&#x6765;&#x7684;&#x3002;</p>
+<p>&#xFF08;&#x4E0A;&#x9762;&#x8FD9;&#x53E5;&#x8BDD;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x5982;&#x679C;&#x8BFB;&#x8005;&#x4E00;&#x5F00;&#x59CB;&#x770B;&#x4E0D;&#x660E;&#x767D;&#x4E0B;&#x9762;&#x7684;&#x601D;&#x8003;&#xFF0C;&#x4E0D;&#x59A8;&#x591A;&#x770B;&#x51E0;&#x904D;&#x6211;&#x4E0A;&#x9762;&#x5199;&#x7684;&#x8FD9;&#x53E5;&#x8BDD;&#x3002;&#xFF09;</p>
+<p>&#x4E8E;&#x662F;&#x6709;&#x5982;&#x4E0B;&#x601D;&#x8003;&#xFF1A;</p>
+<p>1&#x3001;&#x4E8C;&#x8FDB;&#x5236;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x4E00;&#x4E2A;&#x6570;&#x5C3D;&#x53EF;&#x80FD;&#x5927;&#xFF0C;&#x5373;&#x5E0C;&#x671B;&#x8D8A;&#x9AD8;&#x4F4D;&#x4E0A;&#x8D8A;&#x80FD;&#x591F;&#x51FA;&#x73B0;&#x201C;1&#x201D;&#xFF0C;&#x8FD9;&#x6837;&#x8FD9;&#x4E2A;&#x6570;&#x5C31;&#x662F;&#x6240;&#x6C42;&#x7684;&#x6700;&#x5927;&#x6570;&#xFF0C;&#x8FD9;&#x662F;&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x7684;&#x601D;&#x60F3;&#x3002;</p>
+<p>2&#x3001;&#x4E8E;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;&#x6700;&#x9AD8;&#x4F4D;&#x5F00;&#x59CB;&#xFF0C;&#x5230;&#x6700;&#x4F4E;&#x4F4D;&#xFF0C;&#x9996;&#x5148;&#x5047;&#x8BBE;&#x9AD8;&#x4F4D;&#x662F; &#x201C;1&#x201D;&#xFF0C;&#x628A;&#x8FD9; n &#x4E2A;&#x6570;&#x5168;&#x90E8;&#x904D;&#x5386;&#x4E00;&#x904D;&#xFF0C;&#x770B;&#x770B;&#x8FD9;&#x4E00;&#x4F4D;&#x662F;&#x4E0D;&#x662F;&#x771F;&#x7684;&#x53EF;&#x4EE5;&#x662F;&#x201C;1&#x201D;&#xFF0C;&#x5426;&#x5219;&#x8FD9;&#x4E00;&#x4F4D;&#x5C31;&#x5F97;&#x662F;&#x201C;0&#x201D;&#xFF0C;&#x5224;&#x65AD;&#x7684;&#x4F9D;&#x636E;&#x662F;&#x4E0A;&#x9762;&#x201C;&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#x7684;&#x6027;&#x8D28;&#x201D;&#xFF0C;&#x5373;&#x4E0B;&#x9762;&#x7684;&#x7B2C; 3 &#x70B9;&#xFF1B;</p>
+<p>3&#x3001;&#x5982;&#x679C; a ^ b = max &#x6210;&#x7ACB; &#xFF0C;max &#x8868;&#x793A;&#x5F53;&#x524D;&#x5F97;&#x5230;&#x7684;&#x201C;&#x6700;&#x5927;&#x503C;&#x201D;&#xFF0C;&#x90A3;&#x4E48;&#x4E00;&#x5B9A;&#x6709; max ^ b = a &#x6210;&#x7ACB;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5148;&#x5047;&#x8BBE;&#x5F53;&#x524D;&#x6570;&#x4F4D;&#x4E0A;&#x7684;&#x503C;&#x4E3A; &#x201C;1&#x201D;&#xFF0C;&#x518D;&#x628A;&#x5F53;&#x524D;&#x5F97;&#x5230;&#x7684;&#x6570;&#x4E0E;&#x8FD9;&#x4E2A; n &#x4E2A;&#x6570;&#x7684; &#x524D;&#x7F00;&#xFF08;&#x56E0;&#x4E3A;&#x662F;&#x4ECE;&#x9AD8;&#x4F4D;&#x5230;&#x4F4E;&#x4F4D;&#x770B;&#xFF0C;&#x6240;&#x4EE5;&#x79F0;&#x4E3A;&#x201C;&#x524D;&#x7F00;&#x201D;&#xFF09;&#x8FDB;&#x884C;&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#xFF0C;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x54C8;&#x5E0C;&#x8868;&#x4E2D;&#xFF0C;&#x518D;&#x4F9D;&#x6B21;&#x628A;&#x6240;&#x6709; &#x524D;&#x7F00; &#x4E0E;&#x8FD9;&#x4E2A;&#x5047;&#x8BBE;&#x7684;&#x201C;&#x6700;&#x5927;&#x503C;&#x201D;&#x8FDB;&#x884C;&#x5F02;&#x6216;&#x4EE5;&#x540E;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x653E;&#x5230;&#x54C8;&#x5E0C;&#x8868;&#x91CC;&#x67E5;&#x8BE2;&#x4E00;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x67E5;&#x5F97;&#x5230;&#xFF0C;&#x5C31;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;&#x6570;&#x4F4D;&#x4E0A;&#x53EF;&#x4EE5;&#x662F;&#x201C;1&#x201D;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x53EA;&#x80FD;&#x662F; 0&#xFF08;&#x770B;&#x8D77;&#x6765;&#x5F88;&#x6655;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x4EE3;&#x7801;&#x7406;&#x89E3;&#xFF09;&#x3002;</p>
+<p>&#x4E00;&#x79CD;&#x6781;&#x7AEF;&#x7684;&#x60C5;&#x51B5;&#x662F;&#xFF0C;&#x8FD9; n &#x4E2A;&#x6570;&#x5728;&#x67D0;&#x4E00;&#x4E2A;&#x6570;&#x4F4D;&#x4E0A;&#x5168;&#x90E8;&#x662F; 0 &#xFF0C;&#x90A3;&#x4E48;&#x4EFB;&#x610F;&#x4E24;&#x4E2A;&#x6570;&#x5F02;&#x6216;&#x4EE5;&#x540E;&#x90FD;&#x53EA;&#x80FD;&#x662F; 0&#xFF0C;&#x90A3;&#x4E48;&#x5047;&#x8BBE;&#x5F53;&#x524D;&#x6570;&#x4F4D;&#x662F; 1 &#x8FD9;&#x4EF6;&#x4E8B;&#x60C5;&#x5C31;&#x4E0D;&#x6210;&#x7ACB;&#x3002;</p>
+<p><strong>&#x4E3E;&#x4E2A;&#x5217;&#x5B50;:</strong></p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201215235133.png" alt="image-20201215235133541"></p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201215235140.png" alt="image-20201215235140720"></p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201215235153.png" alt="image-20201215235153122"></p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201215235200.png" alt="image-20201215235200799"></p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201215235210.png" alt="image-20201215235210443"></p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.HashSet;
+<span class="hljs-keyword">import</span> java.util.Set;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+
+    <span class="hljs-comment">// &#x5148;&#x786E;&#x5B9A;&#x9AD8;&#x4F4D;&#xFF0C;&#x518D;&#x786E;&#x5B9A;&#x4F4E;&#x4F4D;&#xFF08;&#x6709;&#x70B9;&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x7684;&#x610F;&#x601D;&#xFF09;&#xFF0C;&#x624D;&#x80FD;&#x4FDD;&#x8BC1;&#x8FD9;&#x9053;&#x9898;&#x7684;&#x6700;&#x5927;&#x6027;&#x8D28;</span>
+    <span class="hljs-comment">// &#x4E00;&#x4F4D;&#x63A5;&#x7740;&#x4E00;&#x4F4D;&#x53BB;&#x786E;&#x5B9A;&#x8FD9;&#x4E2A;&#x6570;&#x4F4D;&#x7684;&#x5927;&#x5C0F;</span>
+    <span class="hljs-comment">// &#x5229;&#x7528;&#x6027;&#x8D28;&#xFF1A; a ^ b = c &#xFF0C;&#x5219; a ^ c = b&#xFF0C;&#x4E14; b ^ c = a</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">findMaximumXOR</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
+        <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> mask = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">30</span>; i &gt;= <span class="hljs-number">0</span>; i--) {
+            <span class="hljs-comment">// &#x6CE8;&#x610F;&#x70B9;1&#xFF1A;&#x6CE8;&#x610F;&#x4FDD;&#x7559;&#x524D;&#x7F00;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;mask &#x662F;&#x8FD9;&#x6837;&#x5F97;&#x6765;&#x7684;</span>
+            <span class="hljs-comment">// &#x7528;&#x5F02;&#x6216;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x7684; mask = mask ^ (1 &lt;&lt; i);</span>
+            mask = mask | (<span class="hljs-number">1</span> &lt;&lt; i);
+
+            <span class="hljs-comment">// System.out.println(Integer.toBinaryString(mask));</span>
+            Set&lt;Integer&gt; set = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> num : nums) {
+                <span class="hljs-comment">// &#x6CE8;&#x610F;&#x70B9;2&#xFF1A;&#x8FD9;&#x91CC;&#x4F7F;&#x7528; &amp; &#xFF0C;&#x4FDD;&#x7559;&#x524D;&#x7F00;&#x7684;&#x610F;&#x601D;&#xFF08;&#x4ECE;&#x9AD8;&#x4F4D;&#x5230;&#x4F4E;&#x4F4D;&#xFF09;</span>
+                set.add(num &amp; mask);
+            }
+
+            <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x5148;&#x5047;&#x5B9A;&#x7B2C; n &#x4F4D;&#x4E3A; 1 &#xFF0C;&#x524D; n-1 &#x4F4D; res &#x4E3A;&#x4E4B;&#x524D;&#x8FED;&#x4EE3;&#x6C42;&#x5F97;</span>
+            <span class="hljs-keyword">int</span> temp = res | (<span class="hljs-number">1</span> &lt;&lt; i);
+            <span class="hljs-keyword">for</span> (Integer prefix : set) {
+                <span class="hljs-keyword">if</span> (set.contains(prefix ^ temp)) {
+                    res = temp;
+                    <span class="hljs-keyword">break</span>;
+                }
+            }
+        }
+        <span class="hljs-keyword">return</span> res;
+    }
+}
+</code></pre>
+<h4 id="2&#x5B57;&#x5178;&#x6811;"><a name="2&#x5B57;&#x5178;&#x6811;" class="anchor-navigation-ex-anchor" href="#2&#x5B57;&#x5178;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2&#x5B57;&#x5178;&#x6811;" class="plugin-anchor" href="#2&#x5B57;&#x5178;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a>2.&#x5B57;&#x5178;&#x6811;</h4>
+<p>&#x5B57;&#x5178;&#x6811;&#x7684;&#x601D;&#x8DEF;&#x5C31;&#x5F88;&#x660E;&#x786E;,&#x540C;&#x6837;&#x628A;&#x6570;&#x5B57;&#x4ECE;&#x9AD8;&#x4F4D;&#x5F00;&#x59CB;&#x63D2;&#x5165;&#x6811;&#x4E2D;&#x6784;&#x5EFA;&#x5B57;&#x5178;&#x6811;,</p>
+<p>&#x904D;&#x5386;&#x6BCF;&#x4E2A;&#x6570;,&#x5229;&#x7528;&#x8D2A;&#x5FC3;&#x7684;&#x7B97;&#x6CD5;:</p>
+<ul>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;&#x4F4D;&#x4E3A;0,&#x67E5;&#x627E;1</li>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;&#x4F4D;&#x4E3A;1,&#x67E5;&#x627E;0</li>
+</ul>
+<p>:</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Trie{
+<span class="hljs-keyword">public</span>:
+    Trie* next[<span class="hljs-number">2</span>];
+    Trie()
+    {
+        <span class="hljs-built_in">memset</span>(next, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(next));
+    }
+};
+<span class="hljs-keyword">class</span> Solution {
+    Trie* root = <span class="hljs-keyword">new</span> Trie();
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">findMaximumXOR</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>{
+        <span class="hljs-comment">// &#x5C06;&#x6570;&#x6309;&#x7167;&#x4E8C;&#x8FDB;&#x5236;&#x5F62;&#x5F0F;&#x5168;&#x90E8;&#x5B58;&#x5165;&#x5B57;&#x5178;&#x6811;&#x91CC;&#x9762;</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> num : nums)
+        {
+            Trie* node = root;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">30</span>; i &gt;= <span class="hljs-number">0</span>; i--)
+            {
+                <span class="hljs-keyword">int</span> bt = num &gt;&gt; i &amp; <span class="hljs-number">1</span>;
+                <span class="hljs-keyword">if</span>(node-&gt;next[bt] == <span class="hljs-literal">nullptr</span>)
+                {
+                    node-&gt;next[bt] = <span class="hljs-keyword">new</span> Trie();
+                }
+                node = node-&gt;next[bt];
+            }
+        }
+        <span class="hljs-comment">// &#x627E;&#x6700;&#x5927;^&#x503C;</span>
+        <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> num : nums)
+        {
+            Trie* node = root;
+            <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">30</span>; i &gt;= <span class="hljs-number">0</span>; i--)
+            {
+                <span class="hljs-keyword">int</span> bt = num &gt;&gt; i &amp; <span class="hljs-number">1</span>;  
+                <span class="hljs-comment">// &#x5982;&#x679C;bt==1&#x5219;&#x8D2A;&#x5FC3;&#x7684;&#x53BB;&#x627E;0&#x5F02;&#x6216;  &#x5426;&#x5219;&#x627E;1&#x5F02;&#x6216;</span>
+                <span class="hljs-keyword">if</span>(bt == <span class="hljs-number">1</span>)
+                {
+                    sum += node-&gt;next[<span class="hljs-number">0</span>] != <span class="hljs-literal">nullptr</span> ? <span class="hljs-number">1</span> &lt;&lt; i : <span class="hljs-number">0</span> ;
+                    node = node-&gt;next[<span class="hljs-number">0</span>] != <span class="hljs-literal">nullptr</span> ? node-&gt;next[<span class="hljs-number">0</span>] : node-&gt;next[<span class="hljs-number">1</span>];
+                }
+                <span class="hljs-keyword">else</span>
+                {
+                    sum += node-&gt;next[<span class="hljs-number">1</span>] != <span class="hljs-literal">nullptr</span> ? <span class="hljs-number">1</span> &lt;&lt; i : <span class="hljs-number">0</span> ;
+                    node = node-&gt;next[<span class="hljs-number">1</span>] != <span class="hljs-literal">nullptr</span> ? node-&gt;next[<span class="hljs-number">1</span>] : node-&gt;next[<span class="hljs-number">0</span>];
+                }
+            }
+            res = max(res, sum);
+        }
+        <span class="hljs-keyword">return</span> res;
+    }
+};
+</code></pre>
+<h3 id="5&#x56DE;&#x6587;&#x5BF9;"><a name="5&#x56DE;&#x6587;&#x5BF9;" class="anchor-navigation-ex-anchor" href="#5&#x56DE;&#x6587;&#x5BF9;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="5&#x56DE;&#x6587;&#x5BF9;" class="plugin-anchor" href="#5&#x56DE;&#x6587;&#x5BF9;"><i class="fa fa-link" aria-hidden="true"></i></a>5.<a href="https://leetcode-cn.com/problems/palindrome-pairs/" target="_blank">&#x56DE;&#x6587;&#x5BF9;</a></h3>
 <p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201214120632.png" alt="image-20201214120632053"></p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
@@ -1860,7 +2020,7 @@ ans+=query(1,0,num,lower,upper);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.树论例题.md","level":"3.7","depth":1,"next":{"title":"数据结构模板","level":"3.8","depth":1,"path":"数据结构/9.模板.md","ref":"数据结构/9.模板.md","articles":[]},"previous":{"title":"6.树论","level":"3.6","depth":1,"path":"数据结构/6.树论.md","ref":"数据结构/6.树论.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"数据结构/7.树论例题.md","mtime":"2020-12-14T04:08:57.564Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-14T04:09:59.405Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.树论例题.md","level":"3.7","depth":1,"next":{"title":"数据结构模板","level":"3.8","depth":1,"path":"数据结构/9.模板.md","ref":"数据结构/9.模板.md","articles":[]},"previous":{"title":"6.树论","level":"3.6","depth":1,"path":"数据结构/6.树论.md","ref":"数据结构/6.树论.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"数据结构/7.树论例题.md","mtime":"2020-12-15T16:11:47.053Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-16T01:27:09.029Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
