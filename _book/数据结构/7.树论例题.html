@@ -723,6 +723,19 @@
             
         </li>
     
+        <li class="chapter " data-level="5.10" data-path="../多线程/9.基于AQS并发工具底层原理.html">
+            
+                <a href="../多线程/9.基于AQS并发工具底层原理.html">
+            
+                    
+                    10.基于AQS并发工具底层原理
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
         
@@ -1197,83 +1210,91 @@ priority_queue&lt;ll,<span class="hljs-built_in">vector</span>&lt;ll&gt;,less&lt
 <h3 id="1-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-"><a name="1-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-" class="anchor-navigation-ex-anchor" href="#1-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-" class="plugin-anchor" href="#1-&#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22;-"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://leetcode-cn.com/problems/range-sum-query-mutable/" target="_blank">1 &#x533A;&#x57DF;&#x548C;&#x68C0;&#x7D22; </a></h3>
 <p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201203170758.png" alt="image-20201203170758373"></p>
 <p>&#x6A21;&#x677F;&#x9898;:</p>
-<pre><code class="lang-c++"><span class="hljs-keyword">class</span> NumArray {
+<pre><code class="lang-c++">
+<span class="hljs-comment">//&#x7EBF;&#x6BB5;&#x6811;&#x6A21;&#x677F;</span>
+<span class="hljs-keyword">class</span> SegmentTree{
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ls k&lt;&lt;1</span>
-    <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span>  rs k&lt;&lt;1|1</span>
-    <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> mid l+(r-l)/2;</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ls k&lt;&lt;1</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span>  rs k&lt;&lt;1|1</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; tree;
     <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; lazy;
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; t;
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; nums;
-    <span class="hljs-keyword">int</span> size;
+    SegmentTree(<span class="hljs-keyword">int</span> size)
+    {
+        tree=<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;(size*<span class="hljs-number">4</span>,<span class="hljs-number">0</span>);
+        lazy=<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;(size*<span class="hljs-number">4</span>,<span class="hljs-number">0</span>);
+    }
+    SegmentTree()
+    {
+
+    }
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;nums)</span>
+    </span>{
+        <span class="hljs-keyword">if</span>(l==r)
+            tree[k]=nums[l];
+        <span class="hljs-keyword">else</span>
+        {
+            <span class="hljs-keyword">int</span> m=l+(r-l)/<span class="hljs-number">2</span>;
+            build(ls,l,m,nums);
+            build(rs,m+<span class="hljs-number">1</span>,r,nums);
+            pushUp(k);
+        }
+    }
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushUp</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k)</span>
+    </span>{
+        tree[k]=tree[ls]+tree[rs];
+    }
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> k,<span class="hljs-keyword">int</span> p,<span class="hljs-keyword">int</span> v )</span>
+    </span>{
+        <span class="hljs-keyword">if</span>(l==r)
+            tree[k]=v;
+        <span class="hljs-keyword">else</span>
+        {
+            <span class="hljs-keyword">int</span> m = l+(r-l)/<span class="hljs-number">2</span>;
+            <span class="hljs-keyword">if</span>(p&lt;=m)
+                update(l,m,ls,p,v);
+             <span class="hljs-keyword">if</span>(p&gt;m)
+                update(m+<span class="hljs-number">1</span>,r,rs,p,v);
+            pushUp(k);
+        }
+    }
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> L,<span class="hljs-keyword">int</span> R,<span class="hljs-keyword">int</span> k)</span>
+    </span>{
+        <span class="hljs-keyword">if</span>(l&gt;=L&amp;&amp;r&lt;=R)
+        {
+            <span class="hljs-keyword">return</span> tree[k];
+        }
+        <span class="hljs-keyword">else</span>
+        {
+            <span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;
+            <span class="hljs-keyword">int</span> m=l+(r-l)/<span class="hljs-number">2</span>;
+            <span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>,right=<span class="hljs-number">0</span>;
+            <span class="hljs-keyword">if</span>(L&lt;=m)
+                left=query(l,m,L,R,ls);
+             <span class="hljs-keyword">if</span>(R&gt;m)
+                right=query(m+<span class="hljs-number">1</span>,r,L,R,rs);
+            <span class="hljs-keyword">return</span> left+right;
+        }
+    }
+};
+<span class="hljs-keyword">class</span> NumArray {
+<span class="hljs-keyword">public</span>:
+    SegmentTree tree;
+    <span class="hljs-keyword">int</span> num;
     NumArray(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums) {
-        size=nums.size();
-        <span class="hljs-keyword">if</span>(size==<span class="hljs-number">0</span>)
-          <span class="hljs-keyword">return</span>;
-        lazy=<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;(size*<span class="hljs-number">4</span>+<span class="hljs-number">1</span>,<span class="hljs-number">0</span>);
-        t=<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;(size*<span class="hljs-number">4</span>+<span class="hljs-number">1</span>,<span class="hljs-number">0</span>);
-        <span class="hljs-keyword">this</span>-&gt;nums=nums;
-        build(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,size<span class="hljs-number">-1</span>);
+        <span class="hljs-keyword">int</span> size=nums.size();
+        <span class="hljs-keyword">if</span>(size==<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">this</span>-&gt;num=size<span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">this</span>-&gt;tree=SegmentTree(size);
+        tree.build(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,num,nums);
     }
 
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> val)</span> </span>{
-        update_point(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,size<span class="hljs-number">-1</span>,i,val);
+        tree.update(<span class="hljs-number">0</span>,num,<span class="hljs-number">1</span>,i,val);
     }
 
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sumRange</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span> </span>{
-        <span class="hljs-keyword">return</span> query_range(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,size<span class="hljs-number">-1</span>,i,j);
+        <span class="hljs-keyword">return</span> tree.query(<span class="hljs-number">0</span>,num,i,j,<span class="hljs-number">1</span>);
     }
-
-    <span class="hljs-comment">//////////////////////////////////////</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushUp</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k)</span>
-    </span>{
-        t[k]=t[ls]+t[rs];
-    }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r)</span>
-    </span>{
-        <span class="hljs-keyword">if</span>(l==r)
-        {
-            t[k]=nums[l];
-        }
-        <span class="hljs-keyword">else</span>
-        {
-            <span class="hljs-keyword">int</span> m=mid;
-            build(ls,l,m);
-            build(rs,m+<span class="hljs-number">1</span>,r);
-            pushUp(k);
-        }
-    }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update_point</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> p,<span class="hljs-keyword">int</span> v)</span>
-    </span>{
-        <span class="hljs-keyword">if</span>(l==r)
-        {
-            t[k]=v;
-        }
-        <span class="hljs-keyword">else</span>{
-            <span class="hljs-keyword">int</span> m=mid;
-            <span class="hljs-keyword">if</span>(p&lt;=m)
-                update_point(ls,l,m,p,v);
-            <span class="hljs-keyword">if</span>(p&gt;m)
-                update_point(rs,m+<span class="hljs-number">1</span>,r,p,v);
-            pushUp(k);
-        }
-    }
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query_range</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> L,<span class="hljs-keyword">int</span> R)</span>
-    </span>{
-        <span class="hljs-keyword">if</span> (l&gt;=L&amp;&amp;r&lt;=R)
-            <span class="hljs-keyword">return</span> t[k];
-        <span class="hljs-keyword">else</span>
-        {
-           <span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;
-           <span class="hljs-keyword">int</span> m=mid;
-           <span class="hljs-keyword">if</span>(L&lt;=m)
-               ans+=query_range(ls,l,m,L,R);
-           <span class="hljs-keyword">if</span>(R&gt;m)
-               ans+=query_range(rs,m+<span class="hljs-number">1</span>,r,L,R);
-           <span class="hljs-keyword">return</span> ans;
-        }
-    }
-
 };
 </code></pre>
 <h3 id="2&#x533A;&#x95F4;&#x548C;&#x7684;&#x4E2A;&#x6570;"><a name="2&#x533A;&#x95F4;&#x548C;&#x7684;&#x4E2A;&#x6570;" class="anchor-navigation-ex-anchor" href="#2&#x533A;&#x95F4;&#x548C;&#x7684;&#x4E2A;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2&#x533A;&#x95F4;&#x548C;&#x7684;&#x4E2A;&#x6570;" class="plugin-anchor" href="#2&#x533A;&#x95F4;&#x548C;&#x7684;&#x4E2A;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>2.<a href="https://leetcode-cn.com/problems/count-of-range-sum/" target="_blank">&#x533A;&#x95F4;&#x548C;&#x7684;&#x4E2A;&#x6570;</a></h3>
@@ -2020,7 +2041,7 @@ ans+=query(1,0,num,lower,upper);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.树论例题.md","level":"3.7","depth":1,"next":{"title":"数据结构模板","level":"3.8","depth":1,"path":"数据结构/9.模板.md","ref":"数据结构/9.模板.md","articles":[]},"previous":{"title":"6.树论","level":"3.6","depth":1,"path":"数据结构/6.树论.md","ref":"数据结构/6.树论.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"数据结构/7.树论例题.md","mtime":"2020-12-15T16:11:47.053Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-16T01:27:09.029Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.树论例题.md","level":"3.7","depth":1,"next":{"title":"数据结构模板","level":"3.8","depth":1,"path":"数据结构/9.模板.md","ref":"数据结构/9.模板.md","articles":[]},"previous":{"title":"6.树论","level":"3.6","depth":1,"path":"数据结构/6.树论.md","ref":"数据结构/6.树论.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"数据结构/7.树论例题.md","mtime":"2020-12-16T13:07:29.996Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-16T13:35:28.933Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
