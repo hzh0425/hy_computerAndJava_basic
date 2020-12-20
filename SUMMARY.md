@@ -49,19 +49,19 @@
 
 ### 多线程篇
 
-- [1.Java内存模型与线程.md](多线程/1.Java内存模型与线程.md)
-- [2.并行程序基础.md](多线程/3.并行程序基础.md)
-- [3.同步控制工具.md](多线程/4.同步控制工具.md)
-- [4.线程池及底层原理](多线程/5.线程池.md)
-- [5.synchronized底层原理](多线程/6.synchronized底层原理.md)
-- [6.hanppen-before与指令重排](多线程/7.hanppen-before与指令重排.md)
-- [7.volatile与final底层原理]()
-- [8.乐观锁CAS与悲观锁](多线程/7.乐观锁与悲观锁.md)
-- [9.JUC之AQS](多线程/8.JUC之AQS.md)
-- [10.基于AQS并发工具底层原理](多线程/9.基于AQS并发工具底层原理.md)
-- [面试题一](多线程/10面试题二.md)
-
-
+- [1.多线程学习路线图](多线程/basic/0.多线程路线图.md)
+- [2.java内存模型与线程](多线程/basic/0.java内存模型与线程.md)
+- [3.happenBefore与jvm指令重排序](多线程/basic/0.jhappenBefore与jvm指令重排.md)
+- [4.synchronized与volatile.md](多线程/basic/1.synchronized与volatile.md)
+- [5.ThreadLocal.md](多线程/basic/2.ThreadLocal.md)
+- [6.乐观锁与悲观锁.md](多线程/cas/1.乐观锁与悲观锁.md)
+- [7.CAS与atomic类.md](多线程/cas/2.CAS与atomic类.md)
+- [8.AQS.md](多线程/aqs/1.AQS.md)
+- [9.基于AQS的并发工具.md](多线程/aqs/2.基于AQS的并发工具.md)
+- [10.阻塞队列.md](多线程/blockingQueue/1.阻塞队列.md)
+- [11.线程池与底层原理.md](多线程/pond/1.线程池与底层原理.md)
+- [12.面试题一](多线程/10面试题一.md)
+- [13.面试题二.md](多线程/10面试题二.md)
 
 ### 高并发中间件篇
 
