@@ -51,6 +51,7 @@
 
 - [1.多线程学习路线图](多线程/basic/0.多线程路线图.md)
 - [2.java内存模型与线程](多线程/basic/0.java内存模型与线程.md)
+- [2.并行程序基础](多线程/3.并行程序基础.md)
 - [3.happenBefore与jvm指令重排序](多线程/basic/0.jhappenBefore与jvm指令重排.md)
 - [4.synchronized与volatile.md](多线程/basic/1.synchronized与volatile.md)
 - [5.ThreadLocal.md](多线程/basic/2.ThreadLocal.md)
