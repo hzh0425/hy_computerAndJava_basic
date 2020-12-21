@@ -64,6 +64,13 @@
 - [12.面试题一](多线程/10面试题一.md)
 - [13.面试题二.md](多线程/10面试题二.md)
 
+### java集合篇
+
+- [1.集合架构](basic/collection/1.java集合.md)
+
+- [2.hashMap底层原理](basic/collection/2.HashMap源码分析.md)
+- [3.ConcurrentHashMap分析](basic/collection/3.ConcurrentHashMap分析.md)
+
 ### 高并发中间件篇
 
 
