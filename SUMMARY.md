@@ -86,10 +86,12 @@
 - [3.mysql存储引擎.md](数据库/mysql/3.mysql存储引擎.md)
 - [4.多版本并发控制之mvcc原理](数据库/mysql/4.多版本并发控制之mvcc原理.md)
 - [5.mysql事务](数据库/mysql/4.mysql事务.md)
+- [6.mysql的锁机制](数据库/mysql/5.mysql锁机制.md)
+- [7.mysql面试题一](数据库/mysql/6.mysql面试题一.md)
 
 ### 高并发中间件篇
 
-
+asdfasdf
 
 ### 架构理论篇
 

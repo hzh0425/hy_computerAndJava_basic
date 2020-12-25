@@ -84,7 +84,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../架构/0.架构演进.html" />
+    <link rel="next" href="5.mysql锁机制.html" />
     
     
     <link rel="prev" href="4.多版本并发控制之mvcc原理.html" />
@@ -939,6 +939,32 @@
             
         </li>
     
+        <li class="chapter " data-level="8.6" data-path="5.mysql锁机制.html">
+            
+                <a href="5.mysql锁机制.html">
+            
+                    
+                    6.mysql的锁机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="6.mysql面试题一.html">
+            
+                <a href="6.mysql面试题一.html">
+            
+                    
+                    7.mysql面试题一
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
         
@@ -1250,7 +1276,14 @@ undo log&#x662F;&#x7528;&#x6765;&#x56DE;&#x6EDA;&#x6570;&#x636E;&#x7684;&#x7528;
 <p>&#x4F18;&#x70B9;&#xFF1A;&#x8BFB;&#x5199;&#x5E76;&#x884C;</p>
 <p>&#x7F3A;&#x70B9;&#xFF1A;&#x5B9E;&#x73B0;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x9AD8;</p>
 <p>&#x4F46;&#x662F;&#x5728;&#x8BE5;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x4E0B;&#x4ECD;&#x4F1A;&#x5B58;&#x5728;&#x5E7B;&#x8BFB;&#x7684;&#x95EE;&#x9898;</p>
+<p><strong>&#x4EC0;&#x4E48;&#x662F;&#x5E7B;&#x8BFB;?</strong></p>
+<p>MySQL&#x9AD8;&#x6027;&#x80FD;&#x8FD9;&#x6837;&#x5199;&#x9053;&#xFF1A;&#x6240;&#x8C13;&#x5E7B;&#x8BFB;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x5F53;&#x67D0;&#x4E2A;&#x4E8B;&#x52A1;&#x5728;&#x8BFB;&#x53D6;&#x67D0;&#x4E2A;&#x8303;&#x56F4;&#x5185;&#x7684;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x53C8;&#x5728;&#x8BE5;&#x8303;&#x56F4;&#x5185;&#x63D2;&#x5165;&#x4E86;&#x65B0;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x5F53;&#x4E4B;&#x524D;&#x7684;&#x4E8B;&#x52A1;&#x518D;&#x6B21;&#x8BFB;&#x53D6;&#x8BE5;&#x8303;&#x56F4;&#x5185;&#x7684;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;&#x4F1A;&#x4EA7;&#x751F;&#x5E7B;&#x884C;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x7684;&#x5E7B;&#x884C;&#x662F;&#x4EC0;&#x4E48;&#x610F;&#x601D;&#x5462;&#xFF1F;&#x5E76;&#x4E0D;&#x662F;&#x8BF4;&#x7B2C;&#x4E8C;&#x6B21;&#x8BFB;&#x53D6;&#x7684;&#x65F6;&#x5019;&#x591A;&#x51FA;&#x6765;&#x4E86;&#x65B0;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x6210;&#x4E86;&#x4E0D;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x662F;&#x5982;&#x4F55;&#x8BC1;&#x660E;&#x6709;&#x7B2C;&#x4E8C;&#x6B21;&#x67E5;&#x8BE2;&#x6709;&#x5E7B;&#x884C;&#x51FA;&#x73B0;&#xFF1A;&#x901A;&#x8FC7;&#x5728;&#x8BFB;&#x4E8B;&#x52A1;&#x4E2D;&#x63D2;&#x5165;&#x65B0;&#x7EAA;&#x5F55;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;&#x62A5;&#x51B2;&#x7A81;&#x9519;&#x8BEF;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x67E5;&#x8BE2;&#x7684;&#x65F6;&#x5019;&#x5E76;&#x6CA1;&#x6709;&#x8FD9;&#x6761;&#x6570;&#x636E;&#x8BB0;&#x5F55;&#x3002;&#x901A;&#x8FC7;&#x5199;&#x64CD;&#x4F5C;&#x6765;&#x8BC1;&#x660E;&#x6709;&#x4E00;&#x6761;&#x5E7B;&#x884C;&#x8BB0;&#x5F55;&#x3002;
+<img src="https://gitee.com/zisuu/picture/raw/master/img/20201223201735.png" alt="image-20201223201735804">
+&#x901A;&#x8FC7;&#x56FE;&#x7247;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x5373;&#x4F7F;&#x4E8B;&#x52A1;A&#x4E24;&#x6B21;&#x67E5;&#x8BE2;&#x64CD;&#x4F5C;&#x7ED3;&#x679C;&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x5F53;&#x63D2;&#x5165;id=3&#x7684;&#x8FD9;&#x884C;&#x6570;&#x636E;&#x65F6;&#x62A5;&#x4E3B;&#x952E;&#x51B2;&#x7A81;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C31;&#x662F;&#x5E7B;&#x884C;&#x3002;</p>
 <h5 id="serializable"><a name="serializable" class="anchor-navigation-ex-anchor" href="#serializable"><i class="fa fa-link" aria-hidden="true"></i></a><a name="serializable" class="plugin-anchor" href="#serializable"><i class="fa fa-link" aria-hidden="true"></i></a><strong>SERIALIZABLE</strong></h5>
+<p> &#x4ECE;MVCC&#x5E76;&#x53D1;&#x63A7;&#x5236;&#x9000;&#x5316;&#x4E3A;&#x57FA;&#x4E8E;&#x9501;&#x7684;&#x5E76;&#x53D1;&#x63A7;&#x5236;&#x3002;&#x4E0D;&#x533A;&#x522B;&#x5FEB;&#x7167;&#x8BFB;&#x4E0E;&#x5F53;&#x524D;&#x8BFB;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x8BFB;&#x64CD;&#x4F5C;&#x5747;&#x4E3A;&#x5F53;&#x524D;&#x8BFB;&#xFF0C;&#x8BFB;&#x52A0;&#x8BFB;&#x9501; (S&#x9501;)&#xFF0C;&#x5199;&#x52A0;&#x5199;&#x9501; (X&#x9501;)&#x3002;</p>
 <p>&#x8BE5;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x7406;&#x89E3;&#x8D77;&#x6765;&#x6700;&#x7B80;&#x5355;&#xFF0C;&#x5B9E;&#x73B0;&#x4E5F;&#x6700;&#x5355;&#x3002;&#x5728;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x4E0B;&#x9664;&#x4E86;&#x4E0D;&#x4F1A;&#x9020;&#x6210;&#x6570;&#x636E;&#x4E0D;&#x4E00;&#x81F4;&#x95EE;&#x9898;&#xFF0C;&#x6CA1;&#x5176;&#x4ED6;&#x4F18;&#x70B9;&#x3002;</p>
 <p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201223191450.png" alt="img"></p>
 <p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201223191500.png" alt="image-20201223191500321"></p>
@@ -1313,7 +1346,7 @@ commit;
                 </a>
                 
                 
-                <a href="../../架构/0.架构演进.html" class="navigation navigation-next " aria-label="Next page: 1.架构演进">
+                <a href="5.mysql锁机制.html" class="navigation navigation-next " aria-label="Next page: 6.mysql的锁机制">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1324,7 +1357,7 @@ commit;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.mysql事务","level":"8.5","depth":1,"next":{"title":"1.架构演进","level":"10.1","depth":1,"path":"架构/0.架构演进.md","ref":"架构/0.架构演进.md","articles":[]},"previous":{"title":"4.多版本并发控制之mvcc原理","level":"8.4","depth":1,"path":"数据库/mysql/4.多版本并发控制之mvcc原理.md","ref":"数据库/mysql/4.多版本并发控制之mvcc原理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"数据库/mysql/4.mysql事务.md","mtime":"2020-12-23T11:34:23.040Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-23T11:46:48.378Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.mysql事务","level":"8.5","depth":1,"next":{"title":"6.mysql的锁机制","level":"8.6","depth":1,"path":"数据库/mysql/5.mysql锁机制.md","ref":"数据库/mysql/5.mysql锁机制.md","articles":[]},"previous":{"title":"4.多版本并发控制之mvcc原理","level":"8.4","depth":1,"path":"数据库/mysql/4.多版本并发控制之mvcc原理.md","ref":"数据库/mysql/4.多版本并发控制之mvcc原理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"数据库/mysql/4.mysql事务.md","mtime":"2020-12-23T12:18:07.776Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-23T12:43:22.789Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
