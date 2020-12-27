@@ -84,7 +84,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../jvm/1.jvm内存结构.html" />
+    <link rel="next" href="3.广度优先搜索.html" />
     
     
     <link rel="prev" href="2.深度优先搜索.html" />
@@ -526,7 +526,7 @@
                 <a href="2.深度优先搜索.html">
             
                     
-                    2.回朔算法
+                    2.深度优先搜索算法
             
                 </a>
             
@@ -540,6 +540,19 @@
             
                     
                     2.深搜题目集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="3.广度优先搜索.html">
+            
+                <a href="3.广度优先搜索.html">
+            
+                    
+                    3.广度优先搜索算法
             
                 </a>
             
@@ -1129,7 +1142,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x4E00;-&#x66B4;&#x529B;&#x679A;&#x4E3E;&#x7C7B;&#x578B;"><b></b>&#x4E00; &#x66B4;&#x529B;&#x679A;&#x4E3E;&#x7C7B;&#x578B;</a></li><li><span class="title-icon "></span><a href="#&#x4E8C;-&#x6811;&#x7C7B;&#x578B;"><b></b>&#x4E8C; &#x6811;&#x7C7B;&#x578B;</a></li></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="&#x4E00;-&#x66B4;&#x529B;&#x679A;&#x4E3E;&#x7C7B;&#x578B;"><a name="&#x4E00;-&#x66B4;&#x529B;&#x679A;&#x4E3E;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x4E00;-&#x66B4;&#x529B;&#x679A;&#x4E3E;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E00;-&#x66B4;&#x529B;&#x679A;&#x4E3E;&#x7C7B;&#x578B;" class="plugin-anchor" href="#&#x4E00;-&#x66B4;&#x529B;&#x679A;&#x4E3E;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00; &#x66B4;&#x529B;&#x679A;&#x4E3E;&#x7C7B;&#x578B;</h2>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x4E00;-&#x56DE;&#x6714;&#x7C7B;&#x578B;"><b></b>&#x4E00; &#x56DE;&#x6714;&#x7C7B;&#x578B;</a></li></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="&#x4E00;-&#x56DE;&#x6714;&#x7C7B;&#x578B;"><a name="&#x4E00;-&#x56DE;&#x6714;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x4E00;-&#x56DE;&#x6714;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E00;-&#x56DE;&#x6714;&#x7C7B;&#x578B;" class="plugin-anchor" href="#&#x4E00;-&#x56DE;&#x6714;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00; &#x56DE;&#x6714;&#x7C7B;&#x578B;</h2>
 <h4 id="124-&#x70B9;&#x6E38;&#x620F;"><a name="124-&#x70B9;&#x6E38;&#x620F;" class="anchor-navigation-ex-anchor" href="#124-&#x70B9;&#x6E38;&#x620F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="124-&#x70B9;&#x6E38;&#x620F;" class="plugin-anchor" href="#124-&#x70B9;&#x6E38;&#x620F;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://leetcode-cn.com/problems/24-game/" target="_blank">1.24 &#x70B9;&#x6E38;&#x620F;</a></h4>
 <p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201226151018.png" alt="image-20201226151018641"></p>
 <p>&#x770B;&#x5230;&#x8FD9;&#x79CD;&#x9898;&#x76EE;,&#x7B2C;&#x4E00;&#x53CD;&#x5E94;&#x662F;:&#x597D;&#x96BE;!</p>
@@ -1219,7 +1232,123 @@
     }
 };
 </code></pre>
-<h2 id="&#x4E8C;-&#x6811;&#x7C7B;&#x578B;"><a name="&#x4E8C;-&#x6811;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x4E8C;-&#x6811;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E8C;-&#x6811;&#x7C7B;&#x578B;" class="plugin-anchor" href="#&#x4E8C;-&#x6811;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C; &#x6811;&#x7C7B;&#x578B;</h2>
+<h4 id="2&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x8DEF;&#x5F84;"><a name="2&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x8DEF;&#x5F84;" class="anchor-navigation-ex-anchor" href="#2&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x8DEF;&#x5F84;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x8DEF;&#x5F84;" class="plugin-anchor" href="#2&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x8DEF;&#x5F84;"><i class="fa fa-link" aria-hidden="true"></i></a>2.<a href="https://leetcode-cn.com/problems/all-paths-from-source-to-target/" target="_blank">&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x8DEF;&#x5F84;</a></h4>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201227113513.png" alt="image-20201227113512998"></p>
+<p>&#x8FD8;&#x662F;&#x4E00;&#x6837;&#x7684;&#x8001;&#x5957;&#x8DEF;,&#x753B;&#x51B3;&#x7B56;&#x6811;&#x5C31;&#x4F1A;&#x6709;&#x7B54;&#x6848;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; result;
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">bool</span>&gt; flag;
+<span class="hljs-keyword">int</span> target;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; arr,<span class="hljs-keyword">int</span> i,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; graph)</span></span>{
+    flag[i]= <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">if</span>(i==target){
+        result.push_back(arr);
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">if</span>(arr.size()&gt;target+<span class="hljs-number">1</span>)<span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt;graph[i].size(); ++j) {
+            arr.push_back(graph[i][j]);
+            dfs(arr,graph[i][j],graph);
+            arr.pop_back();
+    }
+}
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; allPathsSourceTarget(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; graph) {
+    <span class="hljs-keyword">int</span> size=graph.size();
+    target=size<span class="hljs-number">-1</span>;
+    flag=<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">bool</span>&gt;(size+<span class="hljs-number">1</span>, <span class="hljs-literal">false</span>);
+    dfs(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;{<span class="hljs-number">0</span>},<span class="hljs-number">0</span>,graph);
+    <span class="hljs-keyword">return</span> result;
+}
+};
+</code></pre>
+<h4 id="3&#x7535;&#x8BDD;&#x53F7;&#x7801;&#x7684;&#x5B57;&#x6BCD;&#x7EC4;&#x5408;"><a name="3&#x7535;&#x8BDD;&#x53F7;&#x7801;&#x7684;&#x5B57;&#x6BCD;&#x7EC4;&#x5408;" class="anchor-navigation-ex-anchor" href="#3&#x7535;&#x8BDD;&#x53F7;&#x7801;&#x7684;&#x5B57;&#x6BCD;&#x7EC4;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3&#x7535;&#x8BDD;&#x53F7;&#x7801;&#x7684;&#x5B57;&#x6BCD;&#x7EC4;&#x5408;" class="plugin-anchor" href="#3&#x7535;&#x8BDD;&#x53F7;&#x7801;&#x7684;&#x5B57;&#x6BCD;&#x7EC4;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a>3.<a href="https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/" target="_blank">&#x7535;&#x8BDD;&#x53F7;&#x7801;&#x7684;&#x5B57;&#x6BCD;&#x7EC4;&#x5408;</a></h4>
+<p><img src="C:\Users\86180\AppData\Roaming\Typora\typora-user-images\image-20201227114635634.png" alt="image-20201227114635634"></p>
+<p>&#x51B3;&#x7B56;&#x6811;&#x5982;&#x4E0B;:</p>
+<p><img src="C:\Users\86180\AppData\Roaming\Typora\typora-user-images\image-20201227114628467.png" alt="image-20201227114628467"></p>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; result;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; num={<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-string">&quot;abc&quot;</span>,<span class="hljs-string">&quot;def&quot;</span>,<span class="hljs-string">&quot;ghi&quot;</span>,<span class="hljs-string">&quot;jkl&quot;</span>,<span class="hljs-string">&quot;mno&quot;</span>,<span class="hljs-string">&quot;pqrs&quot;</span>,<span class="hljs-string">&quot;tuv&quot;</span>,<span class="hljs-string">&quot;wxyz&quot;</span>};
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-built_in">string</span> digit,<span class="hljs-keyword">int</span> cur,<span class="hljs-built_in">string</span> temp)</span>
+    </span>{
+        <span class="hljs-keyword">if</span>(temp.size()==digit.size())
+        {
+            result.push_back(temp);
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=cur;i&lt;digit.size();i++)
+        {
+            <span class="hljs-keyword">int</span> index=digit[i]-<span class="hljs-string">&apos;0&apos;</span><span class="hljs-number">-1</span>;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;num[index].size();j++)
+            {
+                temp.push_back(num[index][j]);
+                dfs(digit,i+<span class="hljs-number">1</span>,temp);
+                temp.pop_back();
+            }
+        }
+    }
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; letterCombinations(<span class="hljs-built_in">string</span> digits) {
+        <span class="hljs-keyword">if</span>(digits==<span class="hljs-string">&quot;&quot;</span>)
+            <span class="hljs-keyword">return</span> result;
+        dfs(digits,<span class="hljs-number">0</span>,<span class="hljs-string">&quot;&quot;</span>);
+        <span class="hljs-keyword">return</span> result;
+    }
+};
+</code></pre>
+<h4 id="4&#x706B;&#x67F4;&#x62FC;&#x6B63;&#x65B9;&#x5F62;"><a name="4&#x706B;&#x67F4;&#x62FC;&#x6B63;&#x65B9;&#x5F62;" class="anchor-navigation-ex-anchor" href="#4&#x706B;&#x67F4;&#x62FC;&#x6B63;&#x65B9;&#x5F62;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="4&#x706B;&#x67F4;&#x62FC;&#x6B63;&#x65B9;&#x5F62;" class="plugin-anchor" href="#4&#x706B;&#x67F4;&#x62FC;&#x6B63;&#x65B9;&#x5F62;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://leetcode-cn.com/problems/matchsticks-to-square/" target="_blank">4.&#x706B;&#x67F4;&#x62FC;&#x6B63;&#x65B9;&#x5F62;</a></h4>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201227115558.png" alt="image-20201227115558719">\</p>
+<p>&#x8FD9;&#x9898;&#x70B8;&#x4E00;&#x770B;&#x548C;24&#x70B9;&#x6E38;&#x620F;&#x5F88;&#x770B;,&#x518D;&#x8FDB;&#x4E00;&#x6B65;&#x60F3;</p>
+<p>&#x6211;&#x4EEC;&#x7684;&#x6700;&#x7EC8;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x5F97;&#x5230;&#x56DB;&#x6761;&#x8FB9;,&#x6240;&#x4EE5;&#x65E0;&#x9700;&#x50CF;24&#x70B9;&#x90A3;&#x6837;&#x679A;&#x4E3E;&#x67D0;&#x4E24;&#x6761;&#x8FB9;&#x76F8;&#x52A0;</p>
+<p>&#x800C;&#x662F;&#x76F4;&#x63A5;&#x679A;&#x4E3E;&#x5C06;&#x5F53;&#x70B9;&#x8868;&#x52A0;&#x5165;&#x5230;&#x56DB;&#x6761;&#x8FB9;&#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x6761;:</p>
+<p>&#x5982;&#x4E0B;:</p>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201227120446.png" alt="image-20201227120446635"></p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">makesquare</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>{
+       <span class="hljs-comment">//&#x4F18;&#x5316;&#x4E00;,&#x5148;&#x6392;&#x5E8F;</span>
+        sort(nums.begin(), nums.end(), greater&lt;<span class="hljs-keyword">int</span>&gt;());
+        <span class="hljs-keyword">auto</span> sum = accumulate(nums.begin(), nums.end(), <span class="hljs-number">0</span>);
+        <span class="hljs-keyword">if</span> (sum % <span class="hljs-number">4</span> != <span class="hljs-number">0</span> || nums.size() &lt; <span class="hljs-number">4</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+
+        <span class="hljs-keyword">int</span> target = sum / <span class="hljs-number">4</span>;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; side(<span class="hljs-number">4</span>, <span class="hljs-number">0</span>);
+        <span class="hljs-keyword">return</span> backtrack(nums, <span class="hljs-number">0</span>, target, side);
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">backtrack</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> target, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; side)</span> </span>{
+        <span class="hljs-keyword">if</span> (start == nums.size()) {
+            <span class="hljs-comment">// This implies 4 sides all each to target, since target = sum / 4</span>
+            <span class="hljs-keyword">return</span> (side[<span class="hljs-number">0</span>] == side[<span class="hljs-number">1</span>] &amp;&amp; side[<span class="hljs-number">1</span>] == side[<span class="hljs-number">2</span>] &amp;&amp; side[<span class="hljs-number">2</span>] == side[<span class="hljs-number">3</span>]);
+        }
+
+        <span class="hljs-comment">// Try to use stick nums[start] in this round, no need to loop nums[i],</span>
+        <span class="hljs-comment">// keep increase start in every level should be enough</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) {
+            <span class="hljs-comment">//&#x4F18;&#x5316;&#x4E8C;</span>
+            <span class="hljs-keyword">if</span> (side[i] + nums[start] &gt; target) {
+                <span class="hljs-keyword">continue</span>;
+            }
+
+            <span class="hljs-comment">// Make choice</span>
+            side[i] += nums[start];
+            <span class="hljs-keyword">if</span> (backtrack(nums, start + <span class="hljs-number">1</span>, target, side)) {
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            }
+            <span class="hljs-comment">// Undo choice</span>
+            side[i] -= nums[start];
+        }
+
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+};
+</code></pre>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1248,12 +1377,12 @@
 
             
                 
-                <a href="2.深度优先搜索.html" class="navigation navigation-prev " aria-label="Previous page: 2.回朔算法">
+                <a href="2.深度优先搜索.html" class="navigation navigation-prev " aria-label="Previous page: 2.深度优先搜索算法">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../jvm/1.jvm内存结构.html" class="navigation navigation-next " aria-label="Next page: 1.jvm内存结构">
+                <a href="3.广度优先搜索.html" class="navigation navigation-next " aria-label="Next page: 3.广度优先搜索算法">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1264,7 +1393,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.深搜题目集","level":"4.4","depth":1,"next":{"title":"1.jvm内存结构","level":"5.1","depth":1,"path":"jvm/1.jvm内存结构.md","ref":"jvm/1.jvm内存结构.md","articles":[]},"previous":{"title":"2.回朔算法","level":"4.3","depth":1,"path":"算法/2.深度优先搜索.md","ref":"算法/2.深度优先搜索.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"算法/2.深度优先搜索题目集.md","mtime":"2020-12-26T07:21:09.354Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-26T07:25:33.456Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.深搜题目集","level":"4.4","depth":1,"next":{"title":"3.广度优先搜索算法","level":"4.5","depth":1,"path":"算法/3.广度优先搜索.md","ref":"算法/3.广度优先搜索.md","articles":[]},"previous":{"title":"2.深度优先搜索算法","level":"4.3","depth":1,"path":"算法/2.深度优先搜索.md","ref":"算法/2.深度优先搜索.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"算法/2.深度优先搜索题目集.md","mtime":"2020-12-27T06:19:59.810Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-27T07:27:18.038Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
