@@ -1,32 +1,37 @@
 涵盖 计算机/java/大数据 基础知识的仓库
 
-### git
+### git  (帮忙start一下!!!)
 
-[github](https://github.com/hzh0425/hy_computer_And_-java_basicKnowledge)
+[github](https://github.com/hzh0425/hy_computerAndJava_basic)
 
 ### 文档
 
 http://zisuu.gitee.io/hy_computerandjava_basic
 
-### 计划总结路线:
 
-**基础:**
+
+### 基础:
 
 这条知识链层层相扣,缺一不可
 
 操作系统->计算机网络->java jvm虚拟机-> java 多线程,高并发 ->设计模式 -> spring源码
 
-**提升**
-
-高并发架构(消息队列,搜索引擎,缓存,数据库高级)->分布式系统->springcloud微服务
-
-**大数据**
-
-hadoop(大数据基础)->hive(超大型数据库)->flume(日志收集)->spark,flink(流式计算)
-
-这是一条基础知识链,层层相扣,缺一不可
+请学习多线程前,先学操作系统和jvm
+换句话说,之前的每个都要学,切勿心急直接跳到多线程
+本人在大一下时看过好几遍的多线程和jvm,但每次都是看了就忘,现在觉得究其原因是因为我
+在那个时候基础不好(没学过操作系统),对jvm和多线程只是死记硬背,很多概念根部不理解
+只有系统的学习,才能更深的理解
 
 
+### 提升
+
+高并发架构(消息队列,搜索引擎,缓存,数据库高级)->分布式系统->springcloud微服务 ->k8s
+
+### 大数据
+大数据看个人兴趣,如果不感兴趣的话,推荐接着去学go语言
+(当然语言只是一个工具,更重要的是基础)
+
+hadoop(大数据基础)->hive(大型数据分析数据库)->flume(海量日志收集)->spark,flink(流式计算)
 
 
 
@@ -66,6 +71,15 @@ hadoop(大数据基础)->hive(超大型数据库)->flume(日志收集)->spark,fl
 - [7.树论例题.md](数据结构/7.树论例题.md)
 - [数据结构模板](数据结构/9.模板.md)
 
+### 算法篇
+
+- [leetCode周赛记录](算法/leetCode周赛题解.md)
+- [1.时间复杂度](算法/1.时间复杂度.md)
+- [2.深度优先搜索算法](算法/2.深度优先搜索.md)
+- [2.深搜题目集](算法/2.深度优先搜索题目集.md)
+- [3.广度优先搜索算法](算法/3.广度优先搜索.md)
+- 
+
 ### JVM篇
 
 - [1.jvm内存结构](jvm/1.jvm内存结构.md)
@@ -79,17 +93,51 @@ hadoop(大数据基础)->hive(超大型数据库)->flume(日志收集)->spark,fl
 
 ### 多线程篇
 
-- [1.Java内存模型与线程.md](多线程/1.Java内存模型与线程.md)
-- [2.并行程序基础.md](多线程/3.并行程序基础.md)
-- [3.同步控制工具.md](多线程/4.同步控制工具.md)
-- [4.线程池及底层原理](多线程/5.线程池.md)
-- [5.synchronized底层原理](多线程/6.synchronized底层原理.md)
-- [6.hanppen-before与指令重排](多线程/7.hanppen-before与指令重排.md)
-- [7.volatile与final底层原理]()
-- [8.乐观锁CAS与悲观锁](多线程/7.乐观锁与悲观锁.md)
-- [9.JUC之AQS](多线程/8.JUC之AQS.md)
+- [1.多线程学习路线图](多线程/basic/0.多线程路线图.md)
+- [2.java内存模型与线程](多线程/basic/0.java内存模型与线程.md)
+- [2.并行程序基础](多线程/3.并行程序基础.md)
+- [3.happenBefore与jvm指令重排序](多线程/basic/0.jhappenBefore与jvm指令重排.md)
+- [4.synchronized与volatile.md](多线程/basic/1.synchronized与volatile.md)
+- [5.ThreadLocal.md](多线程/basic/2.ThreadLocal.md)
+- [6.乐观锁与悲观锁.md](多线程/cas/1.乐观锁与悲观锁.md)
+- [7.CAS与atomic类.md](多线程/cas/2.CAS与atomic类.md)
+- [8.AQS.md](多线程/aqs/1.AQS.md)
+- [9.基于AQS的并发工具.md](多线程/aqs/2.基于AQS的并发工具.md)
+- [10.阻塞队列.md](多线程/blockingQueue/1.阻塞队列.md)
+- [11.线程池与底层原理.md](多线程/pond/1.线程池与底层原理.md)
+- [12.面试题一](多线程/10面试题一.md)
+- [13.面试题二.md](多线程/10面试题二.md)
 
-### 设计模式篇
+### java集合篇
+
+- [1.集合架构](basic/collection/1.java集合.md)
+- [2.hashMap底层原理](basic/collection/2.HashMap源码分析.md)
+- [3.ConcurrentHashMap分析](basic/collection/3.ConcurrentHashMap分析.md)
 
 
 
+## mysql篇
+
+- [1.mysql索引基础之b树与b+树⭐⭐](数据库/mysql/1.b树b+树的底层原理.md)
+- [2.mysql索引及优化⭐⭐⭐⭐](数据库/mysql/2.mysql索引.md)
+- [3.mysql存储引擎.md](数据库/mysql/3.mysql存储引擎.md)
+- [4.多版本并发控制之mvcc原理](数据库/mysql/4.多版本并发控制之mvcc原理.md)
+- [5.mysql事务](数据库/mysql/4.mysql事务.md)
+- [6.mysql的锁机制](数据库/mysql/5.mysql锁机制.md)
+- [7.mysql面试题一](数据库/mysql/6.mysql面试题一.md)
+
+### 高并发中间件篇
+
+### 架构理论篇
+
+- [1.架构演进](架构/0.架构演进.md)
+
+- [2.微服务架构与soa架构](架构/0.微服务架构与soa架构.md)
+
+### 高可用系统篇
+
+- [1.系统限流](高可用架构/1.限流.md)
+- [2.服务熔断](高可用系统/2.服务熔断.md)
+- [3.服务降级](高可用系统/3.服务降级.md)
+
+### spring-cloud 微服务篇
