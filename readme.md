@@ -116,7 +116,7 @@ hadoop(大数据基础)->hive(大型数据分析数据库)->flume(海量日志�
 
 
 
-## mysql篇
+### mysql篇
 
 - [1.mysql索引基础之b树与b+树⭐⭐](数据库/mysql/1.b树b+树的底层原理.md)
 - [2.mysql索引及优化⭐⭐⭐⭐](数据库/mysql/2.mysql索引.md)
