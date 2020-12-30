@@ -1,0 +1,1666 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>实战工厂模式 · 计算机 ,java , 大数据 基础知识体系</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hzh">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="实战抽象工厂模式.html" />
+    
+    
+    <link rel="prev" href="三种工厂模式介绍.html" />
+    
+
+    
+    
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">操作系统</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../操作系统/1.基本概述.html">
+            
+                <a href="../../操作系统/1.基本概述.html">
+            
+                    
+                    1.操作系统基本概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../操作系统/2.进程管理之进程与线程.html">
+            
+                <a href="../../操作系统/2.进程管理之进程与线程.html">
+            
+                    
+                    2.进程管理之进程与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../操作系统/3.进程管理之处理机调度.html">
+            
+                <a href="../../操作系统/3.进程管理之处理机调度.html">
+            
+                    
+                    3.进程管理之处理机调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../操作系统/4.进程管理之进程同步.html">
+            
+                <a href="../../操作系统/4.进程管理之进程同步.html">
+            
+                    
+                    4.进程管理之进程同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../操作系统/5.内存管理之基本概念.html">
+            
+                <a href="../../操作系统/5.内存管理之基本概念.html">
+            
+                    
+                    5.内存管理之基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../操作系统/6.内存管理之虚拟内存.html">
+            
+                <a href="../../操作系统/6.内存管理之虚拟内存.html">
+            
+                    
+                    6.内存管理之虚拟内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../操作系统/7.IO设备管理之基本概念.html">
+            
+                <a href="../../操作系统/7.IO设备管理之基本概念.html">
+            
+                    
+                    7.IO设备管理之基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../操作系统/8.面试题总结一.html">
+            
+                <a href="../../操作系统/8.面试题总结一.html">
+            
+                    
+                    8.面试题总结一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">计算机网络篇</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../计算机网络/1.计算机网络入门基础概念.html">
+            
+                <a href="../../计算机网络/1.计算机网络入门基础概念.html">
+            
+                    
+                    1.计算机网络入门文章(必读)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../计算机网络/2.计算机网络通信基础.html">
+            
+                <a href="../../计算机网络/2.计算机网络通信基础.html">
+            
+                    
+                    2.计算机网络通信入门文章(必读)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../计算机网络/3.数据链路层.html">
+            
+                <a href="../../计算机网络/3.数据链路层.html">
+            
+                    
+                    3.数据链路层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../计算机网络/4.网络层1.html">
+            
+                <a href="../../计算机网络/4.网络层1.html">
+            
+                    
+                    4.网络层(一)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../../计算机网络/5.网络层2.html">
+            
+                <a href="../../计算机网络/5.网络层2.html">
+            
+                    
+                    5.网络层(二)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../../计算机网络/6.传输层.html">
+            
+                <a href="../../计算机网络/6.传输层.html">
+            
+                    
+                    6.传输层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../../计算机网络/7.应用层.html">
+            
+                <a href="../../计算机网络/7.应用层.html">
+            
+                    
+                    7.应用层(⭐)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../../计算机网络/10.HTTP相关协议.html">
+            
+                <a href="../../计算机网络/10.HTTP相关协议.html">
+            
+                    
+                    8.HTTP相关及发展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" >
+            
+                <span>
+            
+                    
+                    9.websocket
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../../计算机网络/9.面试题二.html">
+            
+                <a href="../../计算机网络/9.面试题二.html">
+            
+                    
+                    面试题总结一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据结构篇</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../数据结构/1.图论.html">
+            
+                <a href="../../数据结构/1.图论.html">
+            
+                    
+                    1.图论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../数据结构/2.图论例题.html">
+            
+                <a href="../../数据结构/2.图论例题.html">
+            
+                    
+                    2.图论例题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../数据结构/3.散列表.html">
+            
+                <a href="../../数据结构/3.散列表.html">
+            
+                    
+                    3.散列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../../数据结构/4.排序算法.html">
+            
+                <a href="../../数据结构/4.排序算法.html">
+            
+                    
+                    4.排序算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../../数据结构/5.排序列题.html">
+            
+                <a href="../../数据结构/5.排序列题.html">
+            
+                    
+                    5.排序算法例题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../../数据结构/6.树论.html">
+            
+                <a href="../../数据结构/6.树论.html">
+            
+                    
+                    6.树论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../../数据结构/7.树论例题.html">
+            
+                <a href="../../数据结构/7.树论例题.html">
+            
+                    
+                    7.树论例题.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../../数据结构/9.模板.html">
+            
+                <a href="../../数据结构/9.模板.html">
+            
+                    
+                    数据结构模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">算法篇</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../算法/leetCode周赛题解.html">
+            
+                <a href="../../算法/leetCode周赛题解.html">
+            
+                    
+                    leetCode周赛记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../算法/1.时间复杂度.html">
+            
+                <a href="../../算法/1.时间复杂度.html">
+            
+                    
+                    1.时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../../算法/2.深度优先搜索.html">
+            
+                <a href="../../算法/2.深度优先搜索.html">
+            
+                    
+                    2.深度优先搜索算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../../算法/2.深度优先搜索题目集.html">
+            
+                <a href="../../算法/2.深度优先搜索题目集.html">
+            
+                    
+                    2.深搜题目集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../../算法/3.广度优先搜索.html">
+            
+                <a href="../../算法/3.广度优先搜索.html">
+            
+                    
+                    3.广度优先搜索算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">JVM篇</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../jvm/1.jvm内存结构.html">
+            
+                <a href="../../jvm/1.jvm内存结构.html">
+            
+                    
+                    1.jvm内存结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../../jvm/2.HotSpot虚拟机对象探秘.html">
+            
+                <a href="../../jvm/2.HotSpot虚拟机对象探秘.html">
+            
+                    
+                    2.HotSpot虚拟机对象探秘.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../../jvm/3.对象存亡与垃圾收集算法.html">
+            
+                <a href="../../jvm/3.对象存亡与垃圾收集算法.html">
+            
+                    
+                    3.对象存亡与垃圾收集算法.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../../jvm/4.HotSpot的算法细节与垃圾收集器.html">
+            
+                <a href="../../jvm/4.HotSpot的算法细节与垃圾收集器.html">
+            
+                    
+                    4.HotSpot的算法细节与垃圾收集器.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../../jvm/5.内存分配与回收策略.html">
+            
+                <a href="../../jvm/5.内存分配与回收策略.html">
+            
+                    
+                    5.内存分配与回收策略.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../../jvm/6.类文件结构.html">
+            
+                <a href="../../jvm/6.类文件结构.html">
+            
+                    
+                    6.类文件结构.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="../../jvm/7.类加载机制.html">
+            
+                <a href="../../jvm/7.类加载机制.html">
+            
+                    
+                    7.类加载机制.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="../../jvm/8.jvm逃逸分析.html">
+            
+                <a href="../../jvm/8.jvm逃逸分析.html">
+            
+                    
+                    8.逃逸分析技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">多线程篇</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../多线程/basic/0.多线程路线图.html">
+            
+                <a href="../../多线程/basic/0.多线程路线图.html">
+            
+                    
+                    1.多线程学习路线图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../../多线程/basic/0.java内存模型与线程.html">
+            
+                <a href="../../多线程/basic/0.java内存模型与线程.html">
+            
+                    
+                    2.java内存模型与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../../多线程/3.并行程序基础.html">
+            
+                <a href="../../多线程/3.并行程序基础.html">
+            
+                    
+                    2.并行程序基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../../多线程/basic/0.jhappenBefore与jvm指令重排.html">
+            
+                <a href="../../多线程/basic/0.jhappenBefore与jvm指令重排.html">
+            
+                    
+                    3.happenBefore与jvm指令重排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="../../多线程/basic/1.synchronized与volatile.html">
+            
+                <a href="../../多线程/basic/1.synchronized与volatile.html">
+            
+                    
+                    4.synchronized与volatile.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.6" data-path="../../多线程/basic/2.ThreadLocal.html">
+            
+                <a href="../../多线程/basic/2.ThreadLocal.html">
+            
+                    
+                    5.ThreadLocal.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.7" data-path="../../多线程/cas/1.乐观锁与悲观锁.html">
+            
+                <a href="../../多线程/cas/1.乐观锁与悲观锁.html">
+            
+                    
+                    6.乐观锁与悲观锁.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.8" data-path="../../多线程/cas/2.CAS与atomic类.html">
+            
+                <a href="../../多线程/cas/2.CAS与atomic类.html">
+            
+                    
+                    7.CAS与atomic类.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.9" data-path="../../多线程/aqs/1.AQS.html">
+            
+                <a href="../../多线程/aqs/1.AQS.html">
+            
+                    
+                    8.AQS.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.10" data-path="../../多线程/aqs/2.基于AQS的并发工具.html">
+            
+                <a href="../../多线程/aqs/2.基于AQS的并发工具.html">
+            
+                    
+                    9.基于AQS的并发工具.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.11" data-path="../../多线程/blockingQueue/1.阻塞队列.html">
+            
+                <a href="../../多线程/blockingQueue/1.阻塞队列.html">
+            
+                    
+                    10.阻塞队列.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.12" data-path="../../多线程/pond/1.线程池与底层原理.html">
+            
+                <a href="../../多线程/pond/1.线程池与底层原理.html">
+            
+                    
+                    11.线程池与底层原理.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.13" data-path="../../多线程/10面试题一.html">
+            
+                <a href="../../多线程/10面试题一.html">
+            
+                    
+                    12.面试题一
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.14" data-path="../../多线程/10面试题二.html">
+            
+                <a href="../../多线程/10面试题二.html">
+            
+                    
+                    13.面试题二.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">java集合篇</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../../basic/collection/1.java集合.html">
+            
+                <a href="../../basic/collection/1.java集合.html">
+            
+                    
+                    1.集合架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../../basic/collection/2.HashMap源码分析.html">
+            
+                <a href="../../basic/collection/2.HashMap源码分析.html">
+            
+                    
+                    2.hashMap底层原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../../basic/collection/3.ConcurrentHashMap分析.html">
+            
+                <a href="../../basic/collection/3.ConcurrentHashMap分析.html">
+            
+                    
+                    3.ConcurrentHashMap分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">设计模式篇</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    1.创造型模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="三种工厂模式介绍.html">
+            
+                <a href="三种工厂模式介绍.html">
+            
+                    
+                    三种工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="8.3" data-path="实战工厂模式.html">
+            
+                <a href="实战工厂模式.html">
+            
+                    
+                    实战工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="实战抽象工厂模式.html">
+            
+                <a href="实战抽象工厂模式.html">
+            
+                    
+                    实战抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">mysql篇</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../../数据库/mysql/1.b树b+树的底层原理.html">
+            
+                <a href="../../数据库/mysql/1.b树b+树的底层原理.html">
+            
+                    
+                    1.mysql索引基础之b树与b+树⭐⭐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../../数据库/mysql/2.mysql索引.html">
+            
+                <a href="../../数据库/mysql/2.mysql索引.html">
+            
+                    
+                    2.mysql索引及优化⭐⭐⭐⭐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="../../数据库/mysql/3.mysql存储引擎.html">
+            
+                <a href="../../数据库/mysql/3.mysql存储引擎.html">
+            
+                    
+                    3.mysql存储引擎.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="../../数据库/mysql/4.多版本并发控制之mvcc原理.html">
+            
+                <a href="../../数据库/mysql/4.多版本并发控制之mvcc原理.html">
+            
+                    
+                    4.多版本并发控制之mvcc原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.5" data-path="../../数据库/mysql/4.mysql事务.html">
+            
+                <a href="../../数据库/mysql/4.mysql事务.html">
+            
+                    
+                    5.mysql事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.6" data-path="../../数据库/mysql/5.mysql锁机制.html">
+            
+                <a href="../../数据库/mysql/5.mysql锁机制.html">
+            
+                    
+                    6.mysql的锁机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.7" data-path="../../数据库/mysql/6.mysql面试题一.html">
+            
+                <a href="../../数据库/mysql/6.mysql面试题一.html">
+            
+                    
+                    7.mysql面试题一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">高并发中间件篇</li>
+        
+        
+    
+
+    
+        
+        <li class="header">架构理论篇</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../../架构/0.架构演进.html">
+            
+                <a href="../../架构/0.架构演进.html">
+            
+                    
+                    1.架构演进
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../../架构/0.微服务架构与soa架构.html">
+            
+                <a href="../../架构/0.微服务架构与soa架构.html">
+            
+                    
+                    2.微服务架构与soa架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">高可用系统篇</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../../高可用架构/1.限流.html">
+            
+                <a href="../../高可用架构/1.限流.html">
+            
+                    
+                    1.系统限流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" data-path="../../高可用系统/2.服务熔断.html">
+            
+                <a href="../../高可用系统/2.服务熔断.html">
+            
+                    
+                    2.服务熔断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3" data-path="../../高可用系统/3.服务降级.html">
+            
+                <a href="../../高可用系统/3.服务降级.html">
+            
+                    
+                    3.服务降级
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">spring-cloud 微服务篇</li>
+        
+        
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >实战工厂模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x6A21;&#x62DF;&#x53D1;&#x5956;&#x591A;&#x79CD;&#x5546;&#x54C1;"><b></b>&#x6A21;&#x62DF;&#x53D1;&#x5956;&#x591A;&#x79CD;&#x5546;&#x54C1;</a></li><li><span class="title-icon "></span><a href="#&#x7528;&#x4E00;&#x5768;&#x5768;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><b></b>&#x7528;&#x4E00;&#x5768;&#x5768;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;"><b></b>1. &#x5DE5;&#x7A0B;&#x7ED3;&#x6784;</a></li><li><span class="title-icon "></span><a href="#2-ifelse&#x5B9E;&#x73B0;&#x9700;&#x6C42;"><b></b>2. ifelse&#x5B9E;&#x73B0;&#x9700;&#x6C42;</a></li><li><span class="title-icon "></span><a href="#3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;"><b></b>3. &#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;</a></li></ul><li><span class="title-icon "></span><a href="#&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x4EE3;&#x7801;"><b></b>&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x4EE3;&#x7801;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;_1"><b></b>1. &#x5DE5;&#x7A0B;&#x7ED3;&#x6784;</a></li><li><span class="title-icon "></span><a href="#2-&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><b></b>2. &#x4EE3;&#x7801;&#x5B9E;&#x73B0;</a></li><li><span class="title-icon "></span><a href="#3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;_1"><b></b>3. &#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;</a></li></ul><li><span class="title-icon "></span><a href="#&#x603B;&#x7ED3;"><b></b>&#x603B;&#x7ED3;</a></li></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="&#x6A21;&#x62DF;&#x53D1;&#x5956;&#x591A;&#x79CD;&#x5546;&#x54C1;"><a name="&#x6A21;&#x62DF;&#x53D1;&#x5956;&#x591A;&#x79CD;&#x5546;&#x54C1;" class="anchor-navigation-ex-anchor" href="#&#x6A21;&#x62DF;&#x53D1;&#x5956;&#x591A;&#x79CD;&#x5546;&#x54C1;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x6A21;&#x62DF;&#x53D1;&#x5956;&#x591A;&#x79CD;&#x5546;&#x54C1;" class="plugin-anchor" href="#&#x6A21;&#x62DF;&#x53D1;&#x5956;&#x591A;&#x79CD;&#x5546;&#x54C1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6A21;&#x62DF;&#x53D1;&#x5956;&#x591A;&#x79CD;&#x5546;&#x54C1;</h2>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20201230164323.png" alt="image-20201230164323885"></p>
+<p>&#x4E3A;&#x4E86;&#x53EF;&#x4EE5;&#x8BA9;&#x6574;&#x4E2A;&#x5B66;&#x4E60;&#x7684;&#x6848;&#x4F8B;&#x66F4;&#x52A0;&#x8D34;&#x8FD1;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#xFF0C;&#x8FD9;&#x91CC;&#x6A21;&#x62DF;&#x4E92;&#x8054;&#x7F51;&#x4E2D;&#x5728;&#x8425;&#x9500;&#x573A;&#x666F;&#x4E0B;&#x7684;&#x4E1A;&#x52A1;&#x3002;&#x7531;&#x4E8E;&#x8425;&#x9500;&#x573A;&#x666F;&#x7684;&#x590D;&#x6742;&#x3001;&#x591A;&#x53D8;&#x3001;&#x4E34;&#x65F6;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x5B83;&#x6240;&#x9700;&#x8981;&#x7684;&#x8BBE;&#x8BA1;&#x9700;&#x8981;&#x66F4;&#x52A0;&#x6DF1;&#x5165;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x7ECF;&#x5E38;&#x9762;&#x4E34;&#x5404;&#x79CD;&#x7D27;&#x6025;CRUD&#x64CD;&#x4F5C;&#xFF0C;&#x4ECE;&#x800C;&#x8BA9;&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x6DF7;&#x4E71;&#x4E0D;&#x582A;&#xFF0C;&#x96BE;&#x4EE5;&#x7EF4;&#x62A4;&#x3002;</p>
+<p>&#x5728;&#x8425;&#x9500;&#x573A;&#x666F;&#x4E2D;&#x7ECF;&#x5E38;&#x4F1A;&#x6709;&#x67D0;&#x4E2A;&#x7528;&#x6237;&#x505A;&#x4E86;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#xFF1B;&#x6253;&#x5361;&#x3001;&#x5206;&#x4EAB;&#x3001;&#x7559;&#x8A00;&#x3001;&#x9080;&#x8BF7;&#x6CE8;&#x518C;&#x7B49;&#x7B49;&#xFF0C;&#x8FDB;&#x884C;&#x8FD4;&#x5229;&#x79EF;&#x5206;&#xFF0C;&#x6700;&#x540E;&#x901A;&#x8FC7;&#x79EF;&#x5206;&#x5728;&#x5151;&#x6362;&#x5546;&#x54C1;&#xFF0C;&#x4ECE;&#x800C;&#x4FC3;&#x6D3B;&#x548C;&#x62C9;&#x65B0;&#x3002;</p>
+<p>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x5E8F;&#x53F7;</th>
+<th style="text-align:left">&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x63A5;&#x53E3;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">&#x4F18;&#x60E0;&#x5238;</td>
+<td style="text-align:left"><code>CouponResult sendCoupon(String uId, String couponNumber, String uuid)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">&#x5B9E;&#x7269;&#x5546;&#x54C1;</td>
+<td style="text-align:left"><code>Boolean deliverGoods(DeliverReq req)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">&#x7B2C;&#x4E09;&#x65B9;&#x7231;&#x5947;&#x827A;&#x5151;&#x6362;&#x5361;</td>
+<td style="text-align:left"><code>void grantToken(String bindMobileNumber, String cardId)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x4ECE;&#x4EE5;&#x4E0A;&#x63A5;&#x53E3;&#x6765;&#x770B;&#x6709;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;</strong></p>
+<ul>
+<li>&#x4E09;&#x4E2A;&#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x4E0D;&#x540C;&#xFF0C;&#x6709;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x3001;&#x5E03;&#x5C14;&#x7C7B;&#x578B;&#x3001;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7A7A;&#x7C7B;&#x578B;&#x3002;</li>
+<li>&#x5165;&#x53C2;&#x4E0D;&#x540C;&#xFF0C;&#x53D1;&#x653E;&#x4F18;&#x60E0;&#x5238;&#x9700;&#x8981;&#x4EFF;&#x91CD;&#x3001;&#x5151;&#x6362;&#x5361;&#x9700;&#x8981;&#x5361;ID&#x3001;&#x5B9E;&#x7269;&#x5546;&#x54C1;&#x9700;&#x8981;&#x53D1;&#x8D27;&#x4F4D;&#x7F6E;(&#x5BF9;&#x8C61;&#x4E2D;&#x542B;&#x6709;)&#x3002;</li>
+<li>&#x53E6;&#x5916;&#x53EF;&#x80FD;&#x4F1A;&#x968F;&#x7740;&#x540E;&#x7EED;&#x7684;&#x4E1A;&#x52A1;&#x7684;&#x53D1;&#x5C55;&#xFF0C;&#x4F1A;&#x65B0;&#x589E;&#x5176;&#x4ED6;&#x79CD;&#x5546;&#x54C1;&#x7C7B;&#x578B;&#x3002;&#x56E0;&#x4E3A;&#x4F60;&#x6240;&#x6709;&#x7684;&#x5F00;&#x53D1;&#x9700;&#x6C42;&#x90FD;&#x662F;&#x968F;&#x7740;&#x4E1A;&#x52A1;&#x5BF9;&#x5E02;&#x573A;&#x7684;&#x62D3;&#x5C55;&#x800C;&#x5E26;&#x6765;&#x7684;&#x3002;</li>
+</ul>
+<h2 id="&#x7528;&#x4E00;&#x5768;&#x5768;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><a name="&#x7528;&#x4E00;&#x5768;&#x5768;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" class="anchor-navigation-ex-anchor" href="#&#x7528;&#x4E00;&#x5768;&#x5768;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7528;&#x4E00;&#x5768;&#x5768;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" class="plugin-anchor" href="#&#x7528;&#x4E00;&#x5768;&#x5768;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x4E00;&#x5768;&#x5768;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h2>
+<p>&#x5982;&#x679C;&#x4E0D;&#x8003;&#x8651;&#x4EFB;&#x4F55;&#x6269;&#x5C55;&#x6027;&#xFF0C;&#x53EA;&#x4E3A;&#x4E86;&#x5C3D;&#x5FEB;&#x6EE1;&#x8DB3;&#x9700;&#x6C42;&#xFF0C;&#x90A3;&#x4E48;&#x5BF9;&#x8FD9;&#x4E48;&#x51E0;&#x79CD;&#x5956;&#x52B1;&#x53D1;&#x653E;&#x53EA;&#x9700;&#x4F7F;&#x7528;ifelse&#x8BED;&#x53E5;&#x5224;&#x65AD;&#xFF0C;&#x8C03;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x63A5;&#x53E3;&#x5373;&#x53EF;&#x6EE1;&#x8DB3;&#x9700;&#x6C42;&#x3002;&#x53EF;&#x80FD;&#x8FD9;&#x4E5F;&#x662F;&#x4E00;&#x4E9B;&#x521A;&#x5165;&#x95E8;&#x7F16;&#x7A0B;&#x7684;&#x5C0F;&#x4F19;&#x4F34;&#xFF0C;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5C31;&#x5148;&#x6309;&#x7167;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x4E1A;&#x52A1;&#x7684;&#x9700;&#x6C42;&#x3002;</p>
+<h3 id="1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;"><a name="1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;" class="anchor-navigation-ex-anchor" href="#1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;" class="plugin-anchor" href="#1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x5DE5;&#x7A0B;&#x7ED3;&#x6784;</h3>
+<pre><code>itstack-demo-design-1-01
+&#x2514;&#x2500;&#x2500; src
+    &#x251C;&#x2500;&#x2500; main
+    &#x2502;   &#x2514;&#x2500;&#x2500; java
+    &#x2502;       &#x2514;&#x2500;&#x2500; org.itstack.demo.design
+    &#x2502;           &#x251C;&#x2500;&#x2500; AwardReq.java
+    &#x2502;           &#x251C;&#x2500;&#x2500; AwardRes.java
+    &#x2502;           &#x2514;&#x2500;&#x2500; PrizeController.java 
+    &#x2514;&#x2500;&#x2500; test
+         &#x2514;&#x2500;&#x2500; java
+             &#x2514;&#x2500;&#x2500; org.itstack.demo.design.test
+                 &#x2514;&#x2500;&#x2500; ApiTest.java
+</code></pre><ul>
+<li>&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;&#x4E0A;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x4E00;&#x4E2A;&#x5165;&#x53C2;&#x5BF9;&#x8C61; <code>AwardReq</code> &#x3001;&#x4E00;&#x4E2A;&#x51FA;&#x53C2;&#x5BF9;&#x8C61; <code>AwardRes</code>&#xFF0C;&#x4EE5;&#x53CA;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x7C7B; <code>PrizeController</code></li>
+</ul>
+<h3 id="2-ifelse&#x5B9E;&#x73B0;&#x9700;&#x6C42;"><a name="2-ifelse&#x5B9E;&#x73B0;&#x9700;&#x6C42;" class="anchor-navigation-ex-anchor" href="#2-ifelse&#x5B9E;&#x73B0;&#x9700;&#x6C42;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-ifelse&#x5B9E;&#x73B0;&#x9700;&#x6C42;" class="plugin-anchor" href="#2-ifelse&#x5B9E;&#x73B0;&#x9700;&#x6C42;"><i class="fa fa-link" aria-hidden="true"></i></a>2. ifelse&#x5B9E;&#x73B0;&#x9700;&#x6C42;</h3>
+<pre><code>public class PrizeController {
+
+    private Logger logger = LoggerFactory.getLogger(PrizeController.class);
+
+    public AwardRes awardToUser(AwardReq req) {
+        String reqJson = JSON.toJSONString(req);
+        AwardRes awardRes = null;
+        try {
+            logger.info(&quot;&#x5956;&#x54C1;&#x53D1;&#x653E;&#x5F00;&#x59CB;{}&#x3002;req:{}&quot;, req.getuId(), reqJson);
+            // &#x6309;&#x7167;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x65B9;&#x6CD5;&#x5546;&#x54C1;[1&#x4F18;&#x60E0;&#x5238;&#x3001;2&#x5B9E;&#x7269;&#x5546;&#x54C1;&#x3001;3&#x7B2C;&#x4E09;&#x65B9;&#x5151;&#x6362;&#x5361;(&#x7231;&#x5947;&#x827A;)]
+            if (req.getAwardType() == 1) {
+                CouponService couponService = new CouponService();
+                CouponResult couponResult = couponService.sendCoupon(req.getuId(), req.getAwardNumber(), req.getBizId());
+                if (&quot;0000&quot;.equals(couponResult.getCode())) {
+                    awardRes = new AwardRes(&quot;0000&quot;, &quot;&#x53D1;&#x653E;&#x6210;&#x529F;&quot;);
+                } else {
+                    awardRes = new AwardRes(&quot;0001&quot;, couponResult.getInfo());
+                }
+            } else if (req.getAwardType() == 2) {
+                GoodsService goodsService = new GoodsService();
+                DeliverReq deliverReq = new DeliverReq();
+                deliverReq.setUserName(queryUserName(req.getuId()));
+                deliverReq.setUserPhone(queryUserPhoneNumber(req.getuId()));
+                deliverReq.setSku(req.getAwardNumber());
+                deliverReq.setOrderId(req.getBizId());
+                deliverReq.setConsigneeUserName(req.getExtMap().get(&quot;consigneeUserName&quot;));
+                deliverReq.setConsigneeUserPhone(req.getExtMap().get(&quot;consigneeUserPhone&quot;));
+                deliverReq.setConsigneeUserAddress(req.getExtMap().get(&quot;consigneeUserAddress&quot;));
+                Boolean isSuccess = goodsService.deliverGoods(deliverReq);
+                if (isSuccess) {
+                    awardRes = new AwardRes(&quot;0000&quot;, &quot;&#x53D1;&#x653E;&#x6210;&#x529F;&quot;);
+                } else {
+                    awardRes = new AwardRes(&quot;0001&quot;, &quot;&#x53D1;&#x653E;&#x5931;&#x8D25;&quot;);
+                }
+            } else if (req.getAwardType() == 3) {
+                String bindMobileNumber = queryUserPhoneNumber(req.getuId());
+                IQiYiCardService iQiYiCardService = new IQiYiCardService();
+                iQiYiCardService.grantToken(bindMobileNumber, req.getAwardNumber());
+                awardRes = new AwardRes(&quot;0000&quot;, &quot;&#x53D1;&#x653E;&#x6210;&#x529F;&quot;);
+            }
+            logger.info(&quot;&#x5956;&#x54C1;&#x53D1;&#x653E;&#x5B8C;&#x6210;{}&#x3002;&quot;, req.getuId());
+        } catch (Exception e) {
+            logger.error(&quot;&#x5956;&#x54C1;&#x53D1;&#x653E;&#x5931;&#x8D25;{}&#x3002;req:{}&quot;, req.getuId(), reqJson, e);
+            awardRes = new AwardRes(&quot;0001&quot;, e.getMessage());
+        }
+
+        return awardRes;
+    }
+
+    private String queryUserName(String uId) {
+        return &quot;&#x82B1;&#x82B1;&quot;;
+    }
+
+    private String queryUserPhoneNumber(String uId) {
+        return &quot;15200101232&quot;;
+    }
+
+}
+</code></pre><ul>
+<li>&#x5982;&#x4E0A;&#x5C31;&#x662F;&#x4F7F;&#x7528; <code>ifelse</code> &#x975E;&#x5E38;&#x76F4;&#x63A5;&#x7684;&#x5B9E;&#x73B0;&#x51FA;&#x6765;&#x4E1A;&#x52A1;&#x9700;&#x6C42;&#x7684;&#x4E00;&#x5768;&#x4EE3;&#x7801;&#xFF0C;&#x5982;&#x679C;&#x4EC5;&#x4ECE;&#x4E1A;&#x52A1;&#x89D2;&#x5EA6;&#x770B;&#xFF0C;&#x7814;&#x53D1;&#x5982;&#x671F;&#x751A;&#x81F3;&#x63D0;&#x524D;&#x5B9E;&#x73B0;&#x4E86;&#x529F;&#x80FD;&#x3002;</li>
+<li>&#x90A3;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;&#x76EE;&#x524D;&#x6765;&#x770B;&#x5E76;&#x4E0D;&#x4F1A;&#x6709;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x5728;&#x7ECF;&#x8FC7;&#x51E0;&#x6B21;&#x7684;&#x8FED;&#x4EE3;&#x548C;&#x62D3;&#x5C55;&#xFF0C;&#x63A5;&#x624B;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x7814;&#x53D1;&#x5C06;&#x5341;&#x5206;&#x75DB;&#x82E6;&#x3002;&#x91CD;&#x6784;&#x6210;&#x672C;&#x9AD8;&#x9700;&#x8981;&#x7406;&#x6E05;&#x4E4B;&#x524D;&#x6BCF;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x6D4B;&#x8BD5;&#x56DE;&#x5F52;&#x9A8C;&#x8BC1;&#x65F6;&#x95F4;&#x957F;&#xFF0C;&#x9700;&#x8981;&#x5168;&#x90E8;&#x9A8C;&#x8BC1;&#x4E00;&#x6B21;&#x3002;&#x8FD9;&#x4E5F;&#x5C31;&#x662F;&#x5F88;&#x591A;&#x4EBA;&#x5E76;&#x4E0D;&#x613F;&#x610F;&#x63A5;&#x624B;&#x522B;&#x4EBA;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5982;&#x679C;&#x63A5;&#x624B;&#x4E86;&#x53C8;&#x88AB;&#x538B;&#x69A8;&#x5F00;&#x53D1;&#x65F6;&#x95F4;&#x3002;&#x90A3;&#x4E48;&#x53EF;&#x60F3;&#x800C;&#x77E5;&#x8FD9;&#x6837;&#x7684; <code>ifelse</code> &#x8FD8;&#x4F1A;&#x7EE7;&#x7EED;&#x589E;&#x52A0;&#x3002;</li>
+</ul>
+<h3 id="3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;"><a name="3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;" class="anchor-navigation-ex-anchor" href="#3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;" class="plugin-anchor" href="#3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;</h3>
+<p>&#x5199;&#x4E00;&#x4E2A;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x6765;&#x9A8C;&#x8BC1;&#x4E0A;&#x9762;&#x7F16;&#x5199;&#x7684;&#x63A5;&#x53E3;&#x65B9;&#x5F0F;&#xFF0C;&#x517B;&#x6210;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7684;&#x597D;&#x4E60;&#x60EF;&#x4F1A;&#x4E3A;&#x4F60;&#x589E;&#x5F3A;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#x3002;</p>
+<p><strong>&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x7C7B;&#xFF1A;</strong></p>
+<pre><code>@Test
+public void test_awardToUser() {
+    PrizeController prizeController = new PrizeController();
+    System.out.println(&quot;\r\n&#x6A21;&#x62DF;&#x53D1;&#x653E;&#x4F18;&#x60E0;&#x5238;&#x6D4B;&#x8BD5;\r\n&quot;);
+    // &#x6A21;&#x62DF;&#x53D1;&#x653E;&#x4F18;&#x60E0;&#x5238;&#x6D4B;&#x8BD5;
+    AwardReq req01 = new AwardReq();
+    req01.setuId(&quot;10001&quot;);
+    req01.setAwardType(1);
+    req01.setAwardNumber(&quot;EGM1023938910232121323432&quot;);
+    req01.setBizId(&quot;791098764902132&quot;);
+    AwardRes awardRes01 = prizeController.awardToUser(req01);
+    logger.info(&quot;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF1A;{}&quot;, JSON.toJSON(req01));
+    logger.info(&quot;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#xFF1A;{}&quot;, JSON.toJSON(awardRes01));
+    System.out.println(&quot;\r\n&#x6A21;&#x62DF;&#x65B9;&#x6CD5;&#x5B9E;&#x7269;&#x5546;&#x54C1;\r\n&quot;);
+    // &#x6A21;&#x62DF;&#x65B9;&#x6CD5;&#x5B9E;&#x7269;&#x5546;&#x54C1;
+    AwardReq req02 = new AwardReq();
+    req02.setuId(&quot;10001&quot;);
+    req02.setAwardType(2);
+    req02.setAwardNumber(&quot;9820198721311&quot;);
+    req02.setBizId(&quot;1023000020112221113&quot;);
+    Map&lt;String,String&gt; extMap = new HashMap&lt;String,String&gt;();
+    extMap.put(&quot;consigneeUserName&quot;, &quot;&#x8C22;&#x98DE;&#x673A;&quot;);
+    extMap.put(&quot;consigneeUserPhone&quot;, &quot;15200292123&quot;);
+    extMap.put(&quot;consigneeUserAddress&quot;, &quot;&#x5409;&#x6797;&#x7701;.&#x957F;&#x6625;&#x5E02;.&#x53CC;&#x9633;&#x533A;.XX&#x8857;&#x9053;.&#x6A80;&#x6EAA;&#x82D1;&#x5C0F;&#x533A;.#18-2109&quot;);
+    req02.setExtMap(extMap);
+
+    commodityService_2.sendCommodity(&quot;10001&quot;,&quot;9820198721311&quot;,&quot;1023000020112221113&quot;, extMap);
+
+    AwardRes awardRes02 = prizeController.awardToUser(req02);
+    logger.info(&quot;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF1A;{}&quot;, JSON.toJSON(req02));
+    logger.info(&quot;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#xFF1A;{}&quot;, JSON.toJSON(awardRes02));
+    System.out.println(&quot;\r\n&#x7B2C;&#x4E09;&#x65B9;&#x5151;&#x6362;&#x5361;(&#x7231;&#x5947;&#x827A;)\r\n&quot;);
+    AwardReq req03 = new AwardReq();
+    req03.setuId(&quot;10001&quot;);
+    req03.setAwardType(3);
+    req03.setAwardNumber(&quot;AQY1xjkUodl8LO975GdfrYUio&quot;);
+    AwardRes awardRes03 = prizeController.awardToUser(req03);
+    logger.info(&quot;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF1A;{}&quot;, JSON.toJSON(req03));
+    logger.info(&quot;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#xFF1A;{}&quot;, JSON.toJSON(awardRes03));
+}
+</code></pre><p><strong>&#x7ED3;&#x679C;&#xFF1A;</strong></p>
+<pre><code>&#x6A21;&#x62DF;&#x53D1;&#x653E;&#x4F18;&#x60E0;&#x5238;&#x6D4B;&#x8BD5;
+
+22:17:55.668 [main] INFO  o.i.demo.design.PrizeController - &#x5956;&#x54C1;&#x53D1;&#x653E;&#x5F00;&#x59CB;10001&#x3002;req:{&quot;awardNumber&quot;:&quot;EGM1023938910232121323432&quot;,&quot;awardType&quot;:1,&quot;bizId&quot;:&quot;791098764902132&quot;,&quot;uId&quot;:&quot;10001&quot;}
+&#x6A21;&#x62DF;&#x53D1;&#x653E;&#x4F18;&#x60E0;&#x5238;&#x4E00;&#x5F20;&#xFF1A;10001,EGM1023938910232121323432,791098764902132
+22:17:55.671 [main] INFO  o.i.demo.design.PrizeController - &#x5956;&#x54C1;&#x53D1;&#x653E;&#x5B8C;&#x6210;10001&#x3002;
+22:17:55.673 [main] INFO  org.itstack.demo.test.ApiTest - &#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF1A;{&quot;uId&quot;:&quot;10001&quot;,&quot;bizId&quot;:&quot;791098764902132&quot;,&quot;awardNumber&quot;:&quot;EGM1023938910232121323432&quot;,&quot;awardType&quot;:1}
+22:17:55.674 [main] INFO  org.itstack.demo.test.ApiTest - &#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#xFF1A;{&quot;code&quot;:&quot;0000&quot;,&quot;info&quot;:&quot;&#x53D1;&#x653E;&#x6210;&#x529F;&quot;}
+
+&#x6A21;&#x62DF;&#x65B9;&#x6CD5;&#x5B9E;&#x7269;&#x5546;&#x54C1;
+
+22:17:55.675 [main] INFO  o.i.demo.design.PrizeController - &#x5956;&#x54C1;&#x53D1;&#x653E;&#x5F00;&#x59CB;10001&#x3002;req:{&quot;awardNumber&quot;:&quot;9820198721311&quot;,&quot;awardType&quot;:2,&quot;bizId&quot;:&quot;1023000020112221113&quot;,&quot;extMap&quot;:{&quot;consigneeUserName&quot;:&quot;&#x8C22;&#x98DE;&#x673A;&quot;,&quot;consigneeUserPhone&quot;:&quot;15200292123&quot;,&quot;consigneeUserAddress&quot;:&quot;&#x5409;&#x6797;&#x7701;.&#x957F;&#x6625;&#x5E02;.&#x53CC;&#x9633;&#x533A;.XX&#x8857;&#x9053;.&#x6A80;&#x6EAA;&#x82D1;&#x5C0F;&#x533A;.#18-2109&quot;},&quot;uId&quot;:&quot;10001&quot;}
+&#x6A21;&#x62DF;&#x53D1;&#x8D27;&#x5B9E;&#x7269;&#x5546;&#x54C1;&#x4E00;&#x4E2A;&#xFF1A;{&quot;consigneeUserAddress&quot;:&quot;&#x5409;&#x6797;&#x7701;.&#x957F;&#x6625;&#x5E02;.&#x53CC;&#x9633;&#x533A;.XX&#x8857;&#x9053;.&#x6A80;&#x6EAA;&#x82D1;&#x5C0F;&#x533A;.#18-2109&quot;,&quot;consigneeUserName&quot;:&quot;&#x8C22;&#x98DE;&#x673A;&quot;,&quot;consigneeUserPhone&quot;:&quot;15200292123&quot;,&quot;orderId&quot;:&quot;1023000020112221113&quot;,&quot;sku&quot;:&quot;9820198721311&quot;,&quot;userName&quot;:&quot;&#x82B1;&#x82B1;&quot;,&quot;userPhone&quot;:&quot;15200101232&quot;}
+22:17:55.677 [main] INFO  o.i.demo.design.PrizeController - &#x5956;&#x54C1;&#x53D1;&#x653E;&#x5B8C;&#x6210;10001&#x3002;
+22:17:55.677 [main] INFO  org.itstack.demo.test.ApiTest - &#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF1A;{&quot;extMap&quot;:{&quot;consigneeUserName&quot;:&quot;&#x8C22;&#x98DE;&#x673A;&quot;,&quot;consigneeUserAddress&quot;:&quot;&#x5409;&#x6797;&#x7701;.&#x957F;&#x6625;&#x5E02;.&#x53CC;&#x9633;&#x533A;.XX&#x8857;&#x9053;.&#x6A80;&#x6EAA;&#x82D1;&#x5C0F;&#x533A;.#18-2109&quot;,&quot;consigneeUserPhone&quot;:&quot;15200292123&quot;},&quot;uId&quot;:&quot;10001&quot;,&quot;bizId&quot;:&quot;1023000020112221113&quot;,&quot;awardNumber&quot;:&quot;9820198721311&quot;,&quot;awardType&quot;:2}
+22:17:55.677 [main] INFO  org.itstack.demo.test.ApiTest - &#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#xFF1A;{&quot;code&quot;:&quot;0000&quot;,&quot;info&quot;:&quot;&#x53D1;&#x653E;&#x6210;&#x529F;&quot;}
+
+&#x7B2C;&#x4E09;&#x65B9;&#x5151;&#x6362;&#x5361;(&#x7231;&#x5947;&#x827A;)
+
+22:17:55.678 [main] INFO  o.i.demo.design.PrizeController - &#x5956;&#x54C1;&#x53D1;&#x653E;&#x5F00;&#x59CB;10001&#x3002;req:{&quot;awardNumber&quot;:&quot;AQY1xjkUodl8LO975GdfrYUio&quot;,&quot;awardType&quot;:3,&quot;uId&quot;:&quot;10001&quot;}
+&#x6A21;&#x62DF;&#x53D1;&#x653E;&#x7231;&#x5947;&#x827A;&#x4F1A;&#x5458;&#x5361;&#x4E00;&#x5F20;&#xFF1A;15200101232&#xFF0C;AQY1xjkUodl8LO975GdfrYUio
+22:17:55.678 [main] INFO  o.i.demo.design.PrizeController - &#x5956;&#x54C1;&#x53D1;&#x653E;&#x5B8C;&#x6210;10001&#x3002;
+22:17:55.678 [main] INFO  org.itstack.demo.test.ApiTest - &#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF1A;{&quot;uId&quot;:&quot;10001&quot;,&quot;awardNumber&quot;:&quot;AQY1xjkUodl8LO975GdfrYUio&quot;,&quot;awardType&quot;:3}
+22:17:55.678 [main] INFO  org.itstack.demo.test.ApiTest - &#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#xFF1A;{&quot;code&quot;:&quot;0000&quot;,&quot;info&quot;:&quot;&#x53D1;&#x653E;&#x6210;&#x529F;&quot;}
+
+Process finished with exit code 0
+</code></pre><ul>
+<li>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x6B63;&#x5E38;&#xFF0C;&#x6EE1;&#x8DB3;&#x5F53;&#x524D;&#x6240;&#x6709;&#x4E1A;&#x52A1;&#x4EA7;&#x54C1;&#x9700;&#x6C42;&#xFF0C;&#x5199;&#x7684;&#x8FD8;&#x5F88;&#x5FEB;&#x3002;&#x4F46;&#xFF01;&#x5B9E;&#x5728;&#x96BE;&#x4EE5;&#x4E3A;&#x7EF4;&#x62A4;&#xFF01;</li>
+</ul>
+<h2 id="&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x4EE3;&#x7801;"><a name="&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x4EE3;&#x7801;" class="anchor-navigation-ex-anchor" href="#&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x4EE3;&#x7801;" class="plugin-anchor" href="#&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x4EE3;&#x7801;</h2>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x4F7F;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x6765;&#x8FDB;&#x884C;&#x4EE3;&#x7801;&#x4F18;&#x5316;&#xFF0C;&#x4E5F;&#x7B97;&#x662F;&#x4E00;&#x6B21;&#x5F88;&#x5C0F;&#x7684;<strong>&#x91CD;&#x6784;</strong>&#x3002;&#x6574;&#x7406;&#x91CD;&#x6784;&#x4F1A;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x6E05;&#x6670;&#x4E86;&#x3001;&#x4E5F;&#x5177;&#x5907;&#x4E86;&#x4E0B;&#x6B21;&#x65B0;&#x589E;&#x4E1A;&#x52A1;&#x9700;&#x6C42;&#x7684;&#x6269;&#x5C55;&#x6027;&#x3002;&#x4F46;&#x5728;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x4E2D;&#x8FD8;&#x4F1A;&#x5BF9;&#x6B64;&#x8FDB;&#x884C;&#x5B8C;&#x5584;&#xFF0C;&#x76EE;&#x524D;&#x7684;&#x53EA;&#x662F;&#x62BD;&#x79BB;&#x51FA;&#x6700;&#x6838;&#x5FC3;&#x7684;&#x90E8;&#x5206;&#x4F53;&#x73B0;&#x5230;&#x4F60;&#x9762;&#x524D;&#xFF0C;&#x65B9;&#x4FBF;&#x5B66;&#x4E60;&#x3002;</p>
+<h3 id="1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;_1"><a name="1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;_1" class="anchor-navigation-ex-anchor" href="#1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;_1"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;" class="plugin-anchor" href="#1-&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x5DE5;&#x7A0B;&#x7ED3;&#x6784;</h3>
+<pre><code>itstack-demo-design-1-02
+&#x2514;&#x2500;&#x2500; src
+    &#x251C;&#x2500;&#x2500; main
+    &#x2502;   &#x2514;&#x2500;&#x2500; java
+    &#x2502;       &#x2514;&#x2500;&#x2500; org.itstack.demo.design
+    &#x2502;           &#x251C;&#x2500;&#x2500; store    
+    &#x2502;           &#x2502;   &#x251C;&#x2500;&#x2500; impl
+    &#x2502;           &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; CardCommodityService.java
+    &#x2502;           &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; CouponCommodityService.java 
+    &#x2502;           &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; GoodsCommodityService.java  
+    &#x2502;           &#x2502;   &#x2514;&#x2500;&#x2500; ICommodity.java
+    &#x2502;           &#x2514;&#x2500;&#x2500; StoreFactory.java 
+    &#x2514;&#x2500;&#x2500; test
+         &#x2514;&#x2500;&#x2500; java
+             &#x2514;&#x2500;&#x2500; org.itstack.demo.design.test
+                 &#x2514;&#x2500;&#x2500; ApiTest.java
+</code></pre><ul>
+<li>&#x9996;&#x5148;&#xFF0C;&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x5DE5;&#x7A0B;&#x7ED3;&#x6784;&#x4E2D;&#x4F60;&#x662F;&#x5426;&#x4E00;&#x4E9B;&#x611F;&#x89C9;&#xFF0C;&#x6BD4;&#x5982;&#xFF1B;&#x5B83;&#x770B;&#x4E0A;&#x53BB;&#x6E05;&#x6670;&#x4E86;&#x3001;&#x8FD9;&#x6837;&#x5206;&#x5C42;&#x53EF;&#x4EE5;&#x66F4;&#x597D;&#x6269;&#x5C55;&#x4E86;&#x3001;&#x4F3C;&#x4E4E;&#x53EF;&#x4EE5;&#x60F3;&#x8C61;&#x5230;&#x6BCF;&#x4E00;&#x4E2A;&#x7C7B;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x8FD8;&#x4E0D;&#x80FD;&#x7406;&#x89E3;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x6837;&#x4FEE;&#x6539;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x5173;&#x7CFB;&#x3002;&#x56E0;&#x4E3A;&#x4F60;&#x662F;&#x5728;&#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x6765;&#x5B66;&#x4E60;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;&#x9B45;&#x529B;&#x3002;&#x5E76;&#x4E14;&#x518D;&#x83B7;&#x53D6;&#x6E90;&#x7801;&#x540E;&#xFF0C;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x51E0;&#x6B21;&#x4E5F;&#x5C31;&#x6162;&#x6162;&#x638C;&#x63E1;&#x4E86;<code>&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</code>&#x7684;&#x6280;&#x5DE7;&#x3002;</li>
+</ul>
+<h3 id="2-&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><a name="2-&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" class="anchor-navigation-ex-anchor" href="#2-&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" class="plugin-anchor" href="#2-&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
+<h4 id="21-&#x5B9A;&#x4E49;&#x53D1;&#x5956;&#x63A5;&#x53E3;"><a name="21-&#x5B9A;&#x4E49;&#x53D1;&#x5956;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#21-&#x5B9A;&#x4E49;&#x53D1;&#x5956;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="21-&#x5B9A;&#x4E49;&#x53D1;&#x5956;&#x63A5;&#x53E3;" class="plugin-anchor" href="#21-&#x5B9A;&#x4E49;&#x53D1;&#x5956;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 &#x5B9A;&#x4E49;&#x53D1;&#x5956;&#x63A5;&#x53E3;</h4>
+<pre><code>public interface ICommodity {
+
+    void sendCommodity(String uId, String commodityId, String bizId, Map&lt;String, String&gt; extMap) throws Exception;
+
+}
+</code></pre><ul>
+<li>&#x6240;&#x6709;&#x7684;&#x5956;&#x54C1;&#x65E0;&#x8BBA;&#x662F;&#x5B9E;&#x7269;&#x3001;&#x865A;&#x62DF;&#x8FD8;&#x662F;&#x7B2C;&#x4E09;&#x65B9;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6211;&#x4EEC;&#x7684;&#x7A0B;&#x5E8F;&#x5B9E;&#x73B0;&#x6B64;&#x63A5;&#x53E3;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x4EE5;&#x4FDD;&#x8BC1;&#x6700;&#x7EC8;&#x5165;&#x53C2;&#x51FA;&#x53C2;&#x7684;&#x7EDF;&#x4E00;&#x6027;&#x3002;</li>
+<li>&#x63A5;&#x53E3;&#x7684;&#x5165;&#x53C2;&#x5305;&#x62EC;&#xFF1B;<code>&#x7528;&#x6237;ID</code>&#x3001;<code>&#x5956;&#x54C1;ID</code>&#x3001;<code>&#x4E1A;&#x52A1;ID</code>&#x4EE5;&#x53CA;<code>&#x6269;&#x5C55;&#x5B57;&#x6BB5;</code>&#x7528;&#x4E8E;&#x5904;&#x7406;&#x53D1;&#x653E;&#x5B9E;&#x7269;&#x5546;&#x54C1;&#x65F6;&#x7684;&#x6536;&#x83B7;&#x5730;&#x5740;&#x3002;</li>
+</ul>
+<h4 id="22-&#x5B9E;&#x73B0;&#x5956;&#x54C1;&#x53D1;&#x653E;&#x63A5;&#x53E3;"><a name="22-&#x5B9E;&#x73B0;&#x5956;&#x54C1;&#x53D1;&#x653E;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#22-&#x5B9E;&#x73B0;&#x5956;&#x54C1;&#x53D1;&#x653E;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="22-&#x5B9E;&#x73B0;&#x5956;&#x54C1;&#x53D1;&#x653E;&#x63A5;&#x53E3;" class="plugin-anchor" href="#22-&#x5B9E;&#x73B0;&#x5956;&#x54C1;&#x53D1;&#x653E;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 &#x5B9E;&#x73B0;&#x5956;&#x54C1;&#x53D1;&#x653E;&#x63A5;&#x53E3;</h4>
+<p><strong>&#x4F18;&#x60E0;&#x5238;</strong></p>
+<pre><code>public class CouponCommodityService implements ICommodity {
+
+    private Logger logger = LoggerFactory.getLogger(CouponCommodityService.class);
+
+    private CouponService couponService = new CouponService();
+
+    public void sendCommodity(String uId, String commodityId, String bizId, Map&lt;String, String&gt; extMap) throws Exception {
+        CouponResult couponResult = couponService.sendCoupon(uId, commodityId, bizId);
+        logger.info(&quot;&#x8BF7;&#x6C42;&#x53C2;&#x6570;[&#x4F18;&#x60E0;&#x5238;] =&gt; uId&#xFF1A;{} commodityId&#xFF1A;{} bizId&#xFF1A;{} extMap&#xFF1A;{}&quot;, uId, commodityId, bizId, JSON.toJSON(extMap));
+        logger.info(&quot;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;[&#x4F18;&#x60E0;&#x5238;]&#xFF1A;{}&quot;, JSON.toJSON(couponResult));
+        if (!&quot;0000&quot;.equals(couponResult.getCode())) throw new RuntimeException(couponResult.getInfo());
+    }
+
+}
+</code></pre><p><strong>&#x5B9E;&#x7269;&#x5546;&#x54C1;</strong></p>
+<pre><code>public class GoodsCommodityService implements ICommodity {
+
+    private Logger logger = LoggerFactory.getLogger(GoodsCommodityService.class);
+
+    private GoodsService goodsService = new GoodsService();
+
+    public void sendCommodity(String uId, String commodityId, String bizId, Map&lt;String, String&gt; extMap) throws Exception {
+        DeliverReq deliverReq = new DeliverReq();
+        deliverReq.setUserName(queryUserName(uId));
+        deliverReq.setUserPhone(queryUserPhoneNumber(uId));
+        deliverReq.setSku(commodityId);
+        deliverReq.setOrderId(bizId);
+        deliverReq.setConsigneeUserName(extMap.get(&quot;consigneeUserName&quot;));
+        deliverReq.setConsigneeUserPhone(extMap.get(&quot;consigneeUserPhone&quot;));
+        deliverReq.setConsigneeUserAddress(extMap.get(&quot;consigneeUserAddress&quot;));
+
+        Boolean isSuccess = goodsService.deliverGoods(deliverReq);
+
+        logger.info(&quot;&#x8BF7;&#x6C42;&#x53C2;&#x6570;[&#x4F18;&#x60E0;&#x5238;] =&gt; uId&#xFF1A;{} commodityId&#xFF1A;{} bizId&#xFF1A;{} extMap&#xFF1A;{}&quot;, uId, commodityId, bizId, JSON.toJSON(extMap));
+        logger.info(&quot;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;[&#x4F18;&#x60E0;&#x5238;]&#xFF1A;{}&quot;, isSuccess);
+
+        if (!isSuccess) throw new RuntimeException(&quot;&#x5B9E;&#x7269;&#x5546;&#x54C1;&#x53D1;&#x653E;&#x5931;&#x8D25;&quot;);
+    }
+
+    private String queryUserName(String uId) {
+        return &quot;&#x82B1;&#x82B1;&quot;;
+    }
+
+    private String queryUserPhoneNumber(String uId) {
+        return &quot;15200101232&quot;;
+    }
+
+}
+</code></pre><p><strong>&#x7B2C;&#x4E09;&#x65B9;&#x5151;&#x6362;&#x5361;</strong></p>
+<pre><code>public class CardCommodityService implements ICommodity {
+
+    private Logger logger = LoggerFactory.getLogger(CardCommodityService.class);
+
+    // &#x6A21;&#x62DF;&#x6CE8;&#x5165;
+    private IQiYiCardService iQiYiCardService = new IQiYiCardService();
+
+    public void sendCommodity(String uId, String commodityId, String bizId, Map&lt;String, String&gt; extMap) throws Exception {
+        String mobile = queryUserMobile(uId);
+        iQiYiCardService.grantToken(mobile, bizId);
+        logger.info(&quot;&#x8BF7;&#x6C42;&#x53C2;&#x6570;[&#x7231;&#x5947;&#x827A;&#x5151;&#x6362;&#x5361;] =&gt; uId&#xFF1A;{} commodityId&#xFF1A;{} bizId&#xFF1A;{} extMap&#xFF1A;{}&quot;, uId, commodityId, bizId, JSON.toJSON(extMap));
+        logger.info(&quot;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;[&#x7231;&#x5947;&#x827A;&#x5151;&#x6362;&#x5361;]&#xFF1A;success&quot;);
+    }
+
+    private String queryUserMobile(String uId) {
+        return &quot;15200101232&quot;;
+    }
+
+}
+</code></pre><ul>
+<li>&#x4ECE;&#x4E0A;&#x9762;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6BCF;&#x4E00;&#x79CD;&#x5956;&#x54C1;&#x7684;&#x5B9E;&#x73B0;&#x90FD;&#x5305;&#x62EC;&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x7C7B;&#x4E2D;&#xFF0C;&#x65B0;&#x589E;&#x3001;&#x4FEE;&#x6539;&#x6216;&#x8005;&#x5220;&#x9664;&#x90FD;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x5956;&#x54C1;&#x529F;&#x80FD;&#x7684;&#x6D4B;&#x8BD5;&#xFF0C;&#x964D;&#x4F4E;&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x7684;&#x53EF;&#x80FD;&#x3002;</li>
+<li>&#x540E;&#x7EED;&#x5728;&#x65B0;&#x589E;&#x7684;&#x5956;&#x54C1;&#x53EA;&#x9700;&#x8981;&#x6309;&#x7167;&#x6B64;&#x7ED3;&#x6784;&#x8FDB;&#x884C;&#x586B;&#x5145;&#x5373;&#x53EF;&#xFF0C;&#x975E;&#x5E38;&#x6613;&#x4E8E;&#x7EF4;&#x62A4;&#x548C;&#x6269;&#x5C55;&#x3002;</li>
+<li>&#x5728;&#x7EDF;&#x4E00;&#x4E86;&#x5165;&#x53C2;&#x4EE5;&#x53CA;&#x51FA;&#x53C2;&#x540E;&#xFF0C;&#x8C03;&#x7528;&#x65B9;&#x4E0D;&#x5728;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x5956;&#x54C1;&#x53D1;&#x653E;&#x7684;&#x5185;&#x90E8;&#x903B;&#x8F91;&#xFF0C;&#x6309;&#x7167;&#x7EDF;&#x4E00;&#x7684;&#x65B9;&#x5F0F;&#x5373;&#x53EF;&#x5904;&#x7406;&#x3002;</li>
+</ul>
+<h4 id="23-&#x521B;&#x5EFA;&#x5546;&#x5E97;&#x5DE5;&#x5382;"><a name="23-&#x521B;&#x5EFA;&#x5546;&#x5E97;&#x5DE5;&#x5382;" class="anchor-navigation-ex-anchor" href="#23-&#x521B;&#x5EFA;&#x5546;&#x5E97;&#x5DE5;&#x5382;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="23-&#x521B;&#x5EFA;&#x5546;&#x5E97;&#x5DE5;&#x5382;" class="plugin-anchor" href="#23-&#x521B;&#x5EFA;&#x5546;&#x5E97;&#x5DE5;&#x5382;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3 &#x521B;&#x5EFA;&#x5546;&#x5E97;&#x5DE5;&#x5382;</h4>
+<pre><code>public class StoreFactory {
+
+    public ICommodity getCommodityService(Integer commodityType) {
+        if (null == commodityType) return null;
+        if (1 == commodityType) return new CouponCommodityService();
+        if (2 == commodityType) return new GoodsCommodityService();
+        if (3 == commodityType) return new CardCommodityService();
+        throw new RuntimeException(&quot;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5546;&#x54C1;&#x670D;&#x52A1;&#x7C7B;&#x578B;&quot;);
+    }
+
+}
+</code></pre><ul>
+<li>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x5546;&#x5E97;&#x7684;&#x5DE5;&#x5382;&#x7C7B;&#xFF0C;&#x5728;&#x91CC;&#x9762;&#x6309;&#x7167;&#x7C7B;&#x578B;&#x5B9E;&#x73B0;&#x5404;&#x79CD;&#x5546;&#x54C1;&#x7684;&#x670D;&#x52A1;&#x3002;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x5E72;&#x51C0;&#x6574;&#x6D01;&#x7684;&#x5904;&#x7406;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x540E;&#x7EED;&#x65B0;&#x589E;&#x7684;&#x5546;&#x54C1;&#x5728;&#x8FD9;&#x91CC;&#x6269;&#x5C55;&#x5373;&#x53EF;&#x3002;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x559C;&#x6B22;<code>if</code>&#x5224;&#x65AD;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>switch</code>&#x6216;&#x8005;<code>map</code>&#x914D;&#x7F6E;&#x7ED3;&#x6784;&#xFF0C;&#x4F1A;&#x8BA9;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x5E72;&#x51C0;&#x3002;</li>
+<li>&#x53E6;&#x5916;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x68C0;&#x67E5;&#x8F6F;&#x4EF6;&#x548C;&#x7F16;&#x7801;&#x8981;&#x6C42;&#xFF0C;&#x4E0D;&#x559C;&#x6B22;if&#x8BED;&#x53E5;&#x540E;&#x9762;&#x4E0D;&#x5199;&#x6269;&#x5C55;&#xFF0C;&#x8FD9;&#x91CC;&#x662F;&#x4E3A;&#x4E86;&#x66F4;&#x52A0;&#x5E72;&#x51C0;&#x7684;&#x5411;&#x4F60;&#x4F53;&#x73B0;&#x903B;&#x8F91;&#x3002;&#x5728;&#x5B9E;&#x9645;&#x7684;&#x4E1A;&#x52A1;&#x7F16;&#x7801;&#x4E2D;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x62EC;&#x53F7;&#x3002;</li>
+</ul>
+<h3 id="3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;_1"><a name="3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;_1" class="anchor-navigation-ex-anchor" href="#3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;_1"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;" class="plugin-anchor" href="#3-&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;</h3>
+<p><strong>&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x7C7B;&#xFF1A;</strong></p>
+<pre><code>@Test
+public void test_commodity() throws Exception {
+    StoreFactory storeFactory = new StoreFactory();
+    // 1. &#x4F18;&#x60E0;&#x5238;
+    ICommodity commodityService_1 = storeFactory.getCommodityService(1);
+    commodityService_1.sendCommodity(&quot;10001&quot;, &quot;EGM1023938910232121323432&quot;, &quot;791098764902132&quot;, null);
+    // 2. &#x5B9E;&#x7269;&#x5546;&#x54C1;
+    ICommodity commodityService_2 = storeFactory.getCommodityService(2);
+
+    Map&lt;String,String&gt; extMap = new HashMap&lt;String,String&gt;();
+    extMap.put(&quot;consigneeUserName&quot;, &quot;&#x8C22;&#x98DE;&#x673A;&quot;);
+    extMap.put(&quot;consigneeUserPhone&quot;, &quot;15200292123&quot;);
+    extMap.put(&quot;consigneeUserAddress&quot;, &quot;&#x5409;&#x6797;&#x7701;.&#x957F;&#x6625;&#x5E02;.&#x53CC;&#x9633;&#x533A;.XX&#x8857;&#x9053;.&#x6A80;&#x6EAA;&#x82D1;&#x5C0F;&#x533A;.#18-2109&quot;);
+
+    commodityService_2.sendCommodity(&quot;10001&quot;,&quot;9820198721311&quot;,&quot;1023000020112221113&quot;, extMap);
+    // 3. &#x7B2C;&#x4E09;&#x65B9;&#x5151;&#x6362;&#x5361;(&#x7231;&#x5947;&#x827A;)
+    ICommodity commodityService_3 = storeFactory.getCommodityService(3);
+    commodityService_3.sendCommodity(&quot;10001&quot;,&quot;AQY1xjkUodl8LO975GdfrYUio&quot;,null,null);
+}
+</code></pre><p><strong>&#x7ED3;&#x679C;&#xFF1A;</strong></p>
+<pre><code>&#x6A21;&#x62DF;&#x53D1;&#x653E;&#x4F18;&#x60E0;&#x5238;&#x4E00;&#x5F20;&#xFF1A;10001,EGM1023938910232121323432,791098764902132
+22:48:10.922 [main] INFO  o.i.d.d.s.i.CouponCommodityService - &#x8BF7;&#x6C42;&#x53C2;&#x6570;[&#x4F18;&#x60E0;&#x5238;] =&gt; uId&#xFF1A;10001 commodityId&#xFF1A;EGM1023938910232121323432 bizId&#xFF1A;791098764902132 extMap&#xFF1A;null
+22:48:10.957 [main] INFO  o.i.d.d.s.i.CouponCommodityService - &#x6D4B;&#x8BD5;&#x7ED3;&#x679C;[&#x4F18;&#x60E0;&#x5238;]&#xFF1A;{&quot;code&quot;:&quot;0000&quot;,&quot;info&quot;:&quot;&#x53D1;&#x653E;&#x6210;&#x529F;&quot;}
+&#x6A21;&#x62DF;&#x53D1;&#x8D27;&#x5B9E;&#x7269;&#x5546;&#x54C1;&#x4E00;&#x4E2A;&#xFF1A;{&quot;consigneeUserAddress&quot;:&quot;&#x5409;&#x6797;&#x7701;.&#x957F;&#x6625;&#x5E02;.&#x53CC;&#x9633;&#x533A;.XX&#x8857;&#x9053;.&#x6A80;&#x6EAA;&#x82D1;&#x5C0F;&#x533A;.#18-2109&quot;,&quot;consigneeUserName&quot;:&quot;&#x8C22;&#x98DE;&#x673A;&quot;,&quot;consigneeUserPhone&quot;:&quot;15200292123&quot;,&quot;orderId&quot;:&quot;1023000020112221113&quot;,&quot;sku&quot;:&quot;9820198721311&quot;,&quot;userName&quot;:&quot;&#x82B1;&#x82B1;&quot;,&quot;userPhone&quot;:&quot;15200101232&quot;}
+22:48:10.962 [main] INFO  o.i.d.d.s.impl.GoodsCommodityService - &#x8BF7;&#x6C42;&#x53C2;&#x6570;[&#x4F18;&#x60E0;&#x5238;] =&gt; uId&#xFF1A;10001 commodityId&#xFF1A;9820198721311 bizId&#xFF1A;1023000020112221113 extMap&#xFF1A;{&quot;consigneeUserName&quot;:&quot;&#x8C22;&#x98DE;&#x673A;&quot;,&quot;consigneeUserAddress&quot;:&quot;&#x5409;&#x6797;&#x7701;.&#x957F;&#x6625;&#x5E02;.&#x53CC;&#x9633;&#x533A;.XX&#x8857;&#x9053;.&#x6A80;&#x6EAA;&#x82D1;&#x5C0F;&#x533A;.#18-2109&quot;,&quot;consigneeUserPhone&quot;:&quot;15200292123&quot;}
+22:48:10.962 [main] INFO  o.i.d.d.s.impl.GoodsCommodityService - &#x6D4B;&#x8BD5;&#x7ED3;&#x679C;[&#x4F18;&#x60E0;&#x5238;]&#xFF1A;true
+&#x6A21;&#x62DF;&#x53D1;&#x653E;&#x7231;&#x5947;&#x827A;&#x4F1A;&#x5458;&#x5361;&#x4E00;&#x5F20;&#xFF1A;15200101232&#xFF0C;null
+22:48:10.963 [main] INFO  o.i.d.d.s.impl.CardCommodityService - &#x8BF7;&#x6C42;&#x53C2;&#x6570;[&#x7231;&#x5947;&#x827A;&#x5151;&#x6362;&#x5361;] =&gt; uId&#xFF1A;10001 commodityId&#xFF1A;AQY1xjkUodl8LO975GdfrYUio bizId&#xFF1A;null extMap&#xFF1A;null
+22:48:10.963 [main] INFO  o.i.d.d.s.impl.CardCommodityService - &#x6D4B;&#x8BD5;&#x7ED3;&#x679C;[&#x7231;&#x5947;&#x827A;&#x5151;&#x6362;&#x5361;]&#xFF1A;success
+
+Process finished with exit code 0
+</code></pre><ul>
+<li>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x6B63;&#x5E38;&#xFF0C;&#x65E2;&#x6EE1;&#x8DB3;&#x4E86;&#x4E1A;&#x52A1;&#x4EA7;&#x54C1;&#x9700;&#x6C42;&#xFF0C;&#x4E5F;&#x6EE1;&#x8DB3;&#x4E86;&#x81EA;&#x5DF1;&#x5BF9;&#x4EE3;&#x7801;&#x7684;&#x8FFD;&#x6C42;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;&#x90E8;&#x7F72;&#x4E0A;&#x7EBF;&#x8FD0;&#x884C;&#xFF0C;&#x5185;&#x5FC3;&#x4E0D;&#x4F1A;&#x6050;&#x614C;&#xFF0C;&#x4E0D;&#x4F1A;&#x89C9;&#x5F97;&#x534A;&#x591C;&#x4F1A;&#x6709;&#x7535;&#x8BDD;&#x3002;</li>
+<li>&#x53E6;&#x5916;&#x4ECE;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x4E0A;&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6765;&#xFF0C;&#x5728;&#x8FDB;&#x884C;&#x5C01;&#x88C5;&#x540E;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x6E05;&#x6670;&#x7684;&#x770B;&#x5230;&#x4E00;&#x6574;&#x5957;&#x53D1;&#x653E;&#x5956;&#x54C1;&#x670D;&#x52A1;&#x7684;&#x5B8C;&#x6574;&#x6027;&#xFF0C;&#x7EDF;&#x4E00;&#x4E86;&#x5165;&#x53C2;&#x3001;&#x7EDF;&#x4E00;&#x4E86;&#x7ED3;&#x679C;&#x3002;</li>
+</ul>
+<h2 id="&#x603B;&#x7ED3;"><a name="&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x603B;&#x7ED3;" class="plugin-anchor" href="#&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x603B;&#x7ED3;</h2>
+<ul>
+<li>&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x7684;&#x4F18;&#x5316;&#x6765;&#x770B;&#xFF0C;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x5E76;&#x4E0D;&#x590D;&#x6742;&#xFF0C;&#x751A;&#x81F3;&#x8FD9;&#x6837;&#x7684;&#x5F00;&#x53D1;&#x7ED3;&#x6784;&#x5728;&#x4F60;&#x6709;&#x6240;&#x7406;&#x89E3;&#x540E;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;&#x66F4;&#x52A0;&#x7B80;&#x5355;&#x4E86;&#x3002;</li>
+<li>&#x90A3;&#x4E48;&#x8FD9;&#x6837;&#x7684;&#x5F00;&#x53D1;&#x7684;&#x597D;&#x5904;&#x77E5;&#x9053;&#x540E;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x603B;&#x7ED3;&#x51FA;&#x6765;&#x5B83;&#x7684;&#x4F18;&#x70B9;&#xFF1B;<code>&#x907F;&#x514D;&#x521B;&#x5EFA;&#x8005;&#x4E0E;&#x5177;&#x4F53;&#x7684;&#x4EA7;&#x54C1;&#x903B;&#x8F91;&#x8026;&#x5408;</code>&#x3001;<code>&#x6EE1;&#x8DB3;&#x5355;&#x4E00;&#x804C;&#x8D23;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5B9E;&#x73B0;&#x90FD;&#x5728;&#x6240;&#x5C5E;&#x81EA;&#x5DF1;&#x7684;&#x7C7B;&#x4E2D;&#x5B8C;&#x6210;</code>&#x3001;<code>&#x6EE1;&#x8DB3;&#x5F00;&#x95ED;&#x539F;&#x5219;&#xFF0C;&#x65E0;&#x9700;&#x66F4;&#x6539;&#x4F7F;&#x7528;&#x8C03;&#x7528;&#x65B9;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x5F15;&#x5165;&#x65B0;&#x7684;&#x4EA7;&#x54C1;&#x7C7B;&#x578B;</code>&#x3002;&#x4F46;&#x8FD9;&#x6837;&#x4E5F;&#x4F1A;&#x5E26;&#x6765;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x6BD4;&#x5982;&#x6709;&#x975E;&#x5E38;&#x591A;&#x7684;&#x5956;&#x54C1;&#x7C7B;&#x578B;&#xFF0C;&#x90A3;&#x4E48;&#x5B9E;&#x73B0;&#x7684;&#x5B50;&#x7C7B;&#x4F1A;&#x6781;&#x901F;&#x6269;&#x5F20;&#x3002;&#x56E0;&#x6B64;&#x4E5F;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x7684;&#x6A21;&#x5F0F;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#xFF0C;&#x8FD9;&#x4E9B;&#x5728;&#x540E;&#x7EED;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E2D;&#x4F1A;&#x9010;&#x6B65;&#x6D89;&#x53CA;&#x5230;&#x3002;</li>
+<li>&#x4ECE;&#x6848;&#x4F8B;&#x5165;&#x624B;&#x770B;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x5F80;&#x5F80;&#x8981;&#x6BD4;&#x770B;&#x7406;&#x8BBA;&#x5B66;&#x7684;&#x66F4;&#x52A0;&#x5BB9;&#x6613;&#xFF0C;&#x56E0;&#x4E3A;&#x6848;&#x4F8B;&#x662F;&#x7F29;&#x77ED;&#x7406;&#x8BBA;&#x5230;&#x4E0A;&#x624B;&#x7684;&#x6700;&#x4F73;&#x65B9;&#x5F0F;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x6709;&#x6240;&#x6536;&#x83B7;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x53BB;&#x5C1D;&#x8BD5;&#x5B9E;&#x64CD;&#x3002;</li>
+</ul>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="三种工厂模式介绍.html" class="navigation navigation-prev " aria-label="Previous page: 三种工厂模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="实战抽象工厂模式.html" class="navigation navigation-next " aria-label="Next page: 实战抽象工厂模式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"实战工厂模式","level":"8.3","depth":1,"next":{"title":"实战抽象工厂模式","level":"8.4","depth":1,"path":"设计模式/factory/实战抽象工厂模式.md","ref":"设计模式/factory/实战抽象工厂模式.md","articles":[]},"previous":{"title":"三种工厂模式","level":"8.2","depth":1,"path":"设计模式/factory/三种工厂模式介绍.md","ref":"设计模式/factory/三种工厂模式介绍.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"设计模式/factory/实战工厂模式.md","mtime":"2020-12-30T10:09:11.209Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-30T11:12:56.611Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

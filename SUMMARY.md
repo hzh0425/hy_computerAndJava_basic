@@ -79,9 +79,14 @@
 - [2.hashMap底层原理](basic/collection/2.HashMap源码分析.md)
 - [3.ConcurrentHashMap分析](basic/collection/3.ConcurrentHashMap分析.md)
 
+### 设计模式篇
 
+- 1.创造型模式
+- [三种工厂模式](设计模式/factory/三种工厂模式介绍.md)
+- [实战工厂模式](设计模式/factory/实战工厂模式.md)
+- [实战抽象工厂模式](设计模式/factory/实战抽象工厂模式.md)
 
-## mysql篇
+### mysql篇
 
 - [1.mysql索引基础之b树与b+树⭐⭐](数据库/mysql/1.b树b+树的底层原理.md)
 - [2.mysql索引及优化⭐⭐⭐⭐](数据库/mysql/2.mysql索引.md)
