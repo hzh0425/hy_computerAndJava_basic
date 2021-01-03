@@ -87,8 +87,13 @@
 
 ### 设计模式篇
 
-- 1.创造型模式
-- [三种工厂模式](设计模式/factory/三种工厂模式介绍.md)
+- 第二部分:交给子类
+
+- [1.templateMethod:交给子类处理](设计模式/2.giveCh/1.templateMethod.md)
+- [2.factoryMethod:交给子类生产](设计模式/2.giveCh/2.factoryMethod.md)
+
+### 设计模式实战篇
+
 - [实战工厂模式](设计模式/factory/实战工厂模式.md)
 - [实战抽象工厂模式](设计模式/factory/实战抽象工厂模式.md)
 
