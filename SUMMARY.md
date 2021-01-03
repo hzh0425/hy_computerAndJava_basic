@@ -88,9 +88,12 @@
 ### 设计模式篇
 
 - 第二部分:交给子类
-
 - [1.templateMethod:交给子类处理](设计模式/2.giveCh/1.templateMethod.md)
 - [2.factoryMethod:交给子类生产](设计模式/2.giveCh/2.factoryMethod.md)
+
+- 第三部分:生产实列
+
+- [4.abstractFactory](设计模式/3.build/abstractFactory.md)
 
 ### 设计模式实战篇
 
