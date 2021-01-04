@@ -40,9 +40,8 @@
 
 - [leetCode周赛记录](算法/leetCode周赛题解.md)
 - [1.时间复杂度](算法/1.时间复杂度.md)
-- [2.深度优先搜索算法](算法/2.深度优先搜索.md)
-- [2.深搜题目集](算法/2.深度优先搜索题目集.md)
-- [3.广度优先搜索算法](算法/3.广度优先搜索.md)
+- [2.搜索算法](算法/2.搜索算法.md)
+- [2.搜索算法题目集](算法/2.搜索算法列题.md)
 
 ### java基础
 
@@ -90,9 +89,7 @@
 - 第二部分:交给子类
 - [1.templateMethod:交给子类处理](设计模式/2.giveCh/1.templateMethod.md)
 - [2.factoryMethod:交给子类生产](设计模式/2.giveCh/2.factoryMethod.md)
-
 - 第三部分:生产实列
-
 - [4.abstractFactory](设计模式/3.build/abstractFactory.md)
 
 ### 设计模式实战篇
