@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>1.时间复杂度 · 计算机 ,java , 大数据 基础知识体系</title>
+        <title>3.递归算法题目集 · 计算机 ,java , 大数据 基础知识体系</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -84,10 +84,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="2.搜索算法.html" />
+    <link rel="next" href="4.二分算法.html" />
     
     
-    <link rel="prev" href="leetCode周赛题解.html" />
+    <link rel="prev" href="2.搜索算法列题.html" />
     
 
     
@@ -508,7 +508,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.2" data-path="1.时间复杂度.html">
+        <li class="chapter " data-level="4.2" data-path="1.时间复杂度.html">
             
                 <a href="1.时间复杂度.html">
             
@@ -547,7 +547,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.5" data-path="3.递归例题.html">
+        <li class="chapter active" data-level="4.5" data-path="3.递归例题.html">
             
                 <a href="3.递归例题.html">
             
@@ -1317,7 +1317,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >1.时间复杂度</a>
+        <a href=".." >3.递归算法题目集</a>
     </h1>
 </div>
 
@@ -1332,149 +1332,69 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1&#x7B97;&#x6CD5;&#x7684;&#x6548;&#x7387;"><b></b>1.&#x7B97;&#x6CD5;&#x7684;&#x6548;&#x7387;</a></li><li><span class="title-icon "></span><a href="#2&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;"><b></b>2.&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</a></li><li><span class="title-icon "></span><a href="#3&#x5927;o&#x8868;&#x793A;&#x6CD5;"><b></b>3.&#x5927;O&#x8868;&#x793A;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#4&#x590D;&#x6742;&#x5EA6;&#x7684;&#x6BD4;&#x8F83;"><b></b>4.&#x590D;&#x6742;&#x5EA6;&#x7684;&#x6BD4;&#x8F83;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1&#x7B97;&#x6CD5;&#x7684;&#x6548;&#x7387;"><a name="1&#x7B97;&#x6CD5;&#x7684;&#x6548;&#x7387;" class="anchor-navigation-ex-anchor" href="#1&#x7B97;&#x6CD5;&#x7684;&#x6548;&#x7387;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1&#x7B97;&#x6CD5;&#x7684;&#x6548;&#x7387;" class="plugin-anchor" href="#1&#x7B97;&#x6CD5;&#x7684;&#x6548;&#x7387;"><i class="fa fa-link" aria-hidden="true"></i></a><strong>1.&#x7B97;&#x6CD5;&#x7684;&#x6548;&#x7387;</strong></h3>
-<p>&#x867D;&#x7136;&#x8BA1;&#x7B97;&#x673A;&#x80FD;&#x5FEB;&#x901F;&#x7684;&#x5B8C;&#x6210;&#x8FD0;&#x7B97;&#x5904;&#x7406;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5B83;&#x4E5F;&#x9700;&#x8981;&#x6839;&#x636E;&#x8F93;&#x5165;&#x6570;&#x636E;&#x7684;&#x5927;&#x5C0F;&#x548C;&#x7B97;&#x6CD5;&#x6548;&#x7387;&#x6765;&#x6D88;&#x8017;&#x4E00;&#x5B9A;&#x7684;&#x5904;&#x7406;&#x5668;&#x8D44;&#x6E90;&#x3002;&#x8981;&#x60F3;&#x7F16;&#x5199;&#x51FA;&#x80FD;&#x9AD8;&#x6548;&#x8FD0;&#x884C;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x9700;&#x8981;&#x8003;&#x8651;&#x5230;&#x7B97;&#x6CD5;&#x7684;&#x6548;&#x7387;&#x3002;
-&#x7B97;&#x6CD5;&#x7684;&#x6548;&#x7387;&#x4E3B;&#x8981;&#x7531;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x590D;&#x6742;&#x5EA6;&#x6765;&#x8BC4;&#x4F30;&#xFF1A;
-<strong>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</strong>&#xFF1A;&#x8BC4;&#x4F30;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x6240;&#x9700;&#x7684;&#x65F6;&#x95F4;&#x3002;&#x53EF;&#x4EE5;&#x4F30;&#x7B97;&#x51FA;&#x7A0B;&#x5E8F;&#x5BF9;&#x5904;&#x7406;&#x5668;&#x7684;&#x4F7F;&#x7528;&#x7A0B;&#x5EA6;&#x3002;
-<strong>&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;</strong>&#xFF1A;&#x8BC4;&#x4F30;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x6240;&#x9700;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x3002;&#x53EF;&#x4EE5;&#x4F30;&#x7B97;&#x51FA;&#x7A0B;&#x5E8F;&#x5BF9;&#x8BA1;&#x7B97;&#x673A;&#x5185;&#x5B58;&#x7684;&#x4F7F;&#x7528;&#x7A0B;&#x5EA6;&#x3002;</p>
-<p>&#x8BBE;&#x8BA1;&#x7B97;&#x6CD5;&#x65F6;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x8981;&#x5148;&#x8003;&#x8651;&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#xFF0C;&#x7136;&#x540E;&#x6743;&#x8861;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x548C;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x9009;&#x53D6;&#x4E00;&#x4E2A;&#x5E73;&#x8861;&#x70B9;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x8981;&#x6BD4;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x66F4;&#x5BB9;&#x6613;&#x4EA7;&#x751F;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x6B64;&#x7B97;&#x6CD5;&#x7814;&#x7A76;&#x7684;&#x4E3B;&#x8981;&#x4E5F;&#x662F;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x4E0D;&#x7279;&#x522B;&#x8BF4;&#x660E;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x590D;&#x6742;&#x5EA6;&#x5C31;&#x662F;&#x6307;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x3002;</p>
-<h3 id="2&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;"><a name="2&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;" class="anchor-navigation-ex-anchor" href="#2&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;" class="plugin-anchor" href="#2&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;"><i class="fa fa-link" aria-hidden="true"></i></a><strong>2.&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</strong></h3>
-<p><strong>&#x65F6;&#x95F4;&#x9891;&#x5EA6;</strong>
-&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;&#x6267;&#x884C;&#x6240;&#x8017;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x4ECE;&#x7406;&#x8BBA;&#x4E0A;&#x662F;&#x4E0D;&#x80FD;&#x7B97;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x5FC5;&#x987B;&#x4E0A;&#x673A;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x624D;&#x80FD;&#x77E5;&#x9053;&#x3002;&#x4F46;&#x6211;&#x4EEC;&#x4E0D;&#x53EF;&#x80FD;&#x4E5F;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x5BF9;&#x6BCF;&#x4E2A;&#x7B97;&#x6CD5;&#x90FD;&#x4E0A;&#x673A;&#x6D4B;&#x8BD5;&#xFF0C;&#x53EA;&#x9700;&#x77E5;&#x9053;&#x54EA;&#x4E2A;&#x7B97;&#x6CD5;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x591A;&#xFF0C;&#x54EA;&#x4E2A;&#x7B97;&#x6CD5;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x5C11;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;&#x5E76;&#x4E14;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x4E0E;&#x7B97;&#x6CD5;&#x4E2D;&#x8BED;&#x53E5;&#x7684;&#x6267;&#x884C;&#x6B21;&#x6570;&#x6210;&#x6B63;&#x6BD4;&#x4F8B;&#xFF0C;&#x54EA;&#x4E2A;&#x7B97;&#x6CD5;&#x4E2D;&#x8BED;&#x53E5;&#x6267;&#x884C;&#x6B21;&#x6570;&#x591A;&#xFF0C;&#x5B83;&#x82B1;&#x8D39;&#x65F6;&#x95F4;&#x5C31;&#x591A;&#x3002;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;&#x4E2D;&#x7684;&#x8BED;&#x53E5;&#x6267;&#x884C;&#x6B21;&#x6570;&#x79F0;&#x4E3A;&#x8BED;&#x53E5;&#x9891;&#x5EA6;&#x6216;&#x65F6;&#x95F4;&#x9891;&#x5EA6;&#x3002;&#x8BB0;&#x4E3A;T(n)&#x3002;</p>
-<p><strong>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</strong>
-&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;&#x65F6;&#x95F4;&#x9891;&#x5EA6;T(n)&#x4E2D;&#xFF0C;n&#x79F0;&#x4E3A;&#x95EE;&#x9898;&#x7684;&#x89C4;&#x6A21;&#xFF0C;&#x5F53;n&#x4E0D;&#x65AD;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x65F6;&#x95F4;&#x9891;&#x5EA6;T(n)&#x4E5F;&#x4F1A;&#x4E0D;&#x65AD;&#x53D8;&#x5316;&#x3002;&#x4F46;&#x6709;&#x65F6;&#x6211;&#x4EEC;&#x60F3;&#x77E5;&#x9053;&#x5B83;&#x53D8;&#x5316;&#x65F6;&#x5448;&#x73B0;&#x4EC0;&#x4E48;&#x89C4;&#x5F8B;&#xFF0C;&#x4E3A;&#x6B64;&#x6211;&#x4EEC;&#x5F15;&#x5165;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7B97;&#x6CD5;&#x4E2D;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x91CD;&#x590D;&#x6267;&#x884C;&#x7684;&#x6B21;&#x6570;&#x662F;&#x95EE;&#x9898;&#x89C4;&#x6A21;n&#x7684;&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7528;T(n)&#x8868;&#x793A;&#xFF0C;&#x82E5;&#x6709;&#x67D0;&#x4E2A;&#x8F85;&#x52A9;&#x51FD;&#x6570;f(n)&#xFF0C;&#x4F7F;&#x5F97;&#x5F53;n&#x8D8B;&#x8FD1;&#x4E8E;&#x65E0;&#x7A77;&#x5927;&#x65F6;&#xFF0C;T&#xFF08;n)/f(n)&#x7684;&#x6781;&#x9650;&#x503C;&#x4E3A;&#x4E0D;&#x7B49;&#x4E8E;&#x96F6;&#x7684;&#x5E38;&#x6570;&#xFF0C;&#x5219;&#x79F0;f(n)&#x662F;T(n)&#x7684;&#x540C;&#x6570;&#x91CF;&#x7EA7;&#x51FD;&#x6570;&#xFF0C;&#x8BB0;&#x4F5C;T(n)=O(f(n))&#xFF0C;&#x5B83;&#x79F0;&#x4E3A;&#x7B97;&#x6CD5;&#x7684;&#x6E10;&#x8FDB;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x7B80;&#x79F0;<strong>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</strong>&#x3002;</p>
-<h3 id="3&#x5927;o&#x8868;&#x793A;&#x6CD5;"><a name="3&#x5927;o&#x8868;&#x793A;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#3&#x5927;o&#x8868;&#x793A;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3&#x5927;o&#x8868;&#x793A;&#x6CD5;" class="plugin-anchor" href="#3&#x5927;o&#x8868;&#x793A;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a><strong>3.&#x5927;O&#x8868;&#x793A;&#x6CD5;</strong></h3>
-<p>&#x50CF;&#x524D;&#x9762;&#x7528;O( )&#x6765;&#x4F53;&#x73B0;&#x7B97;&#x6CD5;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x7684;&#x8BB0;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;&#x4E4B;&#x4E3A;&#x5927;O&#x8868;&#x793A;&#x6CD5;&#x3002;
-&#x7B97;&#x6CD5;&#x590D;&#x6742;&#x5EA6;&#x53EF;&#x4EE5;&#x4ECE;&#x6700;&#x7406;&#x60F3;&#x60C5;&#x51B5;&#x3001;&#x5E73;&#x5747;&#x60C5;&#x51B5;&#x548C;&#x6700;&#x574F;&#x60C5;&#x51B5;&#x4E09;&#x4E2A;&#x89D2;&#x5EA6;&#x6765;&#x8BC4;&#x4F30;&#xFF0C;&#x7531;&#x4E8E;&#x5E73;&#x5747;&#x60C5;&#x51B5;&#x5927;&#x591A;&#x548C;&#x6700;&#x574F;&#x60C5;&#x51B5;&#x6301;&#x5E73;&#xFF0C;&#x800C;&#x4E14;&#x8BC4;&#x4F30;&#x6700;&#x574F;&#x60C5;&#x51B5;&#x4E5F;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x540E;&#x987E;&#x4E4B;&#x5FE7;&#xFF0C;&#x56E0;&#x6B64;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x8BBE;&#x8BA1;&#x7B97;&#x6CD5;&#x65F6;&#x90FD;&#x8981;&#x76F4;&#x63A5;&#x4F30;&#x7B97;&#x6700;&#x574F;&#x60C5;&#x51B5;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x3002;
-&#x5927;O&#x8868;&#x793A;&#x6CD5;O(f(n)&#x4E2D;&#x7684;f(n)&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x4E3A;1&#x3001;n&#x3001;logn&#x3001;n&#xB2;&#x7B49;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;O(1)&#x3001;O(n)&#x3001;O(logn)&#x3001;O(n&#xB2;)&#x5206;&#x522B;&#x53EF;&#x4EE5;&#x79F0;&#x4E3A;&#x5E38;&#x6570;&#x9636;&#x3001;&#x7EBF;&#x6027;&#x9636;&#x3001;&#x5BF9;&#x6570;&#x9636;&#x548C;&#x5E73;&#x65B9;&#x9636;&#xFF0C;&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x63A8;&#x5BFC;&#x51FA;f(n)&#x7684;&#x503C;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x63A5;&#x7740;&#x6765;&#x770B;&#x63A8;&#x5BFC;&#x5927;O&#x9636;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
-<p><strong>&#x63A8;&#x5BFC;&#x5927;O&#x9636;</strong>
-&#x63A8;&#x5BFC;&#x5927;O&#x9636;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x5982;&#x4E0B;&#x7684;&#x89C4;&#x5219;&#x6765;&#x8FDB;&#x884C;&#x63A8;&#x5BFC;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x662F;&#x5927;O&#x8868;&#x793A;&#x6CD5;&#xFF1A;
-1.&#x7528;&#x5E38;&#x6570;1&#x6765;&#x53D6;&#x4EE3;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x4E2D;&#x6240;&#x6709;&#x52A0;&#x6CD5;&#x5E38;&#x6570;&#x3002;
-2.&#x4FEE;&#x6539;&#x540E;&#x7684;&#x8FD0;&#x884C;&#x6B21;&#x6570;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x53EA;&#x4FDD;&#x7559;&#x6700;&#x9AD8;&#x9636;&#x9879;
-3.&#x5982;&#x679C;&#x6700;&#x9AD8;&#x9636;&#x9879;&#x5B58;&#x5728;&#x4E14;&#x4E0D;&#x662F;1&#xFF0C;&#x5219;&#x53BB;&#x9664;&#x4E0E;&#x8FD9;&#x4E2A;&#x9879;&#x76F8;&#x4E58;&#x7684;&#x5E38;&#x6570;&#x3002;</p>
-<p><strong>&#x5E38;&#x6570;&#x9636;</strong>
-&#x5148;&#x4E3E;&#x4E86;&#x4F8B;&#x5B50;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#x3002;</p>
-<pre><code>  int sum = 0,n = 100; //&#x6267;&#x884C;&#x4E00;&#x6B21;  
-  sum = (1+n)*n/2; //&#x6267;&#x884C;&#x4E00;&#x6B21;  
-  System.out.println (sum); //&#x6267;&#x884C;&#x4E00;&#x6B21; 123
-</code></pre><p>&#x4E0A;&#x9762;&#x7B97;&#x6CD5;&#x7684;&#x8FD0;&#x884C;&#x7684;&#x6B21;&#x6570;&#x7684;&#x51FD;&#x6570;&#x4E3A;f(n)=3&#xFF0C;&#x6839;&#x636E;&#x63A8;&#x5BFC;&#x5927;O&#x9636;&#x7684;&#x89C4;&#x5219;1&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x5E38;&#x6570;3&#x6539;&#x4E3A;1&#xFF0C;&#x5219;&#x8FD9;&#x4E2A;&#x7B97;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(1)&#x3002;&#x5982;&#x679C;sum = &#xFF08;1+n&#xFF09;*n/2&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#x518D;&#x6267;&#x884C;10&#x904D;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E0E;&#x95EE;&#x9898;&#x5927;&#x5C0F;n&#x7684;&#x503C;&#x5E76;&#x6CA1;&#x6709;&#x5173;&#x7CFB;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x7B97;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4ECD;&#x65E7;&#x662F;O(1)&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x79F0;&#x4E4B;&#x4E3A;&#x5E38;&#x6570;&#x9636;&#x3002;</p>
-<p><strong>&#x7EBF;&#x6027;&#x9636;</strong>
-&#x7EBF;&#x6027;&#x9636;&#x4E3B;&#x8981;&#x8981;&#x5206;&#x6790;&#x5FAA;&#x73AF;&#x7ED3;&#x6784;&#x7684;&#x8FD0;&#x884C;&#x60C5;&#x51B5;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#x3002;</p>
-<pre><code>for(int i=0;i&lt;n;i++){
-//&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(1)&#x7684;&#x7B97;&#x6CD5;
-...
-}1234
-</code></pre><p>&#x4E0A;&#x9762;&#x7B97;&#x6CD5;&#x5FAA;&#x73AF;&#x4F53;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x4E86;n&#x6B21;&#xFF0C;&#x56E0;&#x6B64;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(n)&#x3002;</p>
-<p><strong>&#x5BF9;&#x6570;&#x9636;</strong>
-&#x63A5;&#x7740;&#x770B;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre><code>int number=1;
-while(number&lt;n){
-number=number*2;
-//&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(1)&#x7684;&#x7B97;&#x6CD5;
-...
-}123456
-</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x968F;&#x7740;number&#x6BCF;&#x6B21;&#x4E58;&#x4EE5;2&#x540E;&#xFF0C;&#x90FD;&#x4F1A;&#x8D8A;&#x6765;&#x8D8A;&#x63A5;&#x8FD1;n&#xFF0C;&#x5F53;number&#x4E0D;&#x5C0F;&#x4E8E;n&#x65F6;&#x5C31;&#x4F1A;&#x9000;&#x51FA;&#x5FAA;&#x73AF;&#x3002;&#x5047;&#x8BBE;&#x5FAA;&#x73AF;&#x7684;&#x6B21;&#x6570;&#x4E3A;X&#xFF0C;&#x5219;&#x7531;2^x=n&#x5F97;&#x51FA;x=log&#x2082;n&#xFF0C;&#x56E0;&#x6B64;&#x5F97;&#x51FA;&#x8FD9;&#x4E2A;&#x7B97;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(logn)&#x3002;</p>
-<p><strong>&#x5E73;&#x65B9;&#x9636;</strong>
-&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x5FAA;&#x73AF;&#x5D4C;&#x5957;&#xFF1A;</p>
-<pre><code>  for(int i=0;i&lt;n;i++){   
-      for(int j=0;j&lt;n;i++){
-         //&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(1)&#x7684;&#x7B97;&#x6CD5;
-         ... 
-      }
-  }123456
-</code></pre><p>&#x5185;&#x5C42;&#x5FAA;&#x73AF;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5728;&#x8BB2;&#x5230;&#x7EBF;&#x6027;&#x9636;&#x65F6;&#x5C31;&#x5DF2;&#x7ECF;&#x5F97;&#x77E5;&#x662F;O(n)&#xFF0C;&#x73B0;&#x5728;&#x7ECF;&#x8FC7;&#x5916;&#x5C42;&#x5FAA;&#x73AF;n&#x6B21;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x6BB5;&#x7B97;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5219;&#x4E3A;O(n&#xB2;)&#x3002;
-&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x6765;&#x7B97;&#x4E00;&#x4E0B;&#x4E0B;&#x9762;&#x7B97;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;</p>
-<pre><code>  for(int i=0;i&lt;n;i++){   
-      for(int j=i;j&lt;n;i++){
-         //&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(1)&#x7684;&#x7B97;&#x6CD5;
-         ... 
-      }
-  }123456
-</code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5185;&#x5FAA;&#x73AF;&#x4E2D;int j=i&#xFF0C;&#x800C;&#x4E0D;&#x662F;int j=0&#x3002;&#x5F53;i=0&#x65F6;&#xFF0C;&#x5185;&#x5FAA;&#x73AF;&#x6267;&#x884C;&#x4E86;n&#x6B21;&#xFF1B;i=1&#x65F6;&#x5185;&#x5FAA;&#x73AF;&#x6267;&#x884C;&#x4E86;n-1&#x6B21;&#xFF0C;&#x5F53;i=n-1&#x65F6;&#x6267;&#x884C;&#x4E86;1&#x6B21;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x63A8;&#x7B97;&#x51FA;&#x603B;&#x7684;&#x6267;&#x884C;&#x6B21;&#x6570;&#x4E3A;&#xFF1A;</p>
-<p>n+(n-1)+(n-2)+(n-3)+&#x2026;&#x2026;+1
-=(n+1)+[(n-1)+2]+[(n-2)+3]+[(n-3)+4]+&#x2026;&#x2026;
-=(n+1)+(n+1)+(n+1)+(n+1)+&#x2026;&#x2026;
-=(n+1)n/2
-=n(n+1)/2
-=n&#xB2;/2+n/2</p>
-<p>&#x6839;&#x636E;&#x6B64;&#x524D;&#x8BB2;&#x8FC7;&#x7684;&#x63A8;&#x5BFC;&#x5927;O&#x9636;&#x7684;&#x89C4;&#x5219;&#x7684;&#x7B2C;&#x4E8C;&#x6761;&#xFF1A;&#x53EA;&#x4FDD;&#x7559;&#x6700;&#x9AD8;&#x9636;&#xFF0C;&#x56E0;&#x6B64;&#x4FDD;&#x7559;n&#xB2;/2&#x3002;&#x6839;&#x636E;&#x7B2C;&#x4E09;&#x6761;&#x53BB;&#x6389;&#x548C;&#x8FD9;&#x4E2A;&#x9879;&#x7684;&#x5E38;&#x6570;&#xFF0C;&#x5219;&#x53BB;&#x6389;1/2,&#x6700;&#x7EC8;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(n&#xB2;)&#x3002;</p>
-<p><strong>&#x5176;&#x4ED6;&#x5E38;&#x89C1;&#x590D;&#x6742;&#x5EA6;</strong></p>
-<p>&#x9664;&#x4E86;&#x5E38;&#x6570;&#x9636;&#x3001;&#x7EBF;&#x6027;&#x9636;&#x3001;&#x5E73;&#x65B9;&#x9636;&#x3001;&#x5BF9;&#x6570;&#x9636;&#xFF0C;&#x8FD8;&#x6709;&#x5982;&#x4E0B;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;
-f(n)=nlogn&#x65F6;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(nlogn)&#xFF0C;&#x53EF;&#x4EE5;&#x79F0;&#x4E3A;nlogn&#x9636;&#x3002;
-f(n)=n&#xB3;&#x65F6;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(n&#xB3;)&#xFF0C;&#x53EF;&#x4EE5;&#x79F0;&#x4E3A;&#x7ACB;&#x65B9;&#x9636;&#x3002;
-f(n)=2&#x207F;&#x65F6;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(2&#x207F;)&#xFF0C;&#x53EF;&#x4EE5;&#x79F0;&#x4E3A;&#x6307;&#x6570;&#x9636;&#x3002;
-f(n)=n!&#x65F6;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(n!)&#xFF0C;&#x53EF;&#x4EE5;&#x79F0;&#x4E3A;&#x9636;&#x4E58;&#x9636;&#x3002;
-f(n)=(&#x221A;n&#x65F6;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(&#x221A;n)&#xFF0C;&#x53EF;&#x4EE5;&#x79F0;&#x4E3A;&#x5E73;&#x65B9;&#x6839;&#x9636;&#x3002;</p>
-<h3 id="4&#x590D;&#x6742;&#x5EA6;&#x7684;&#x6BD4;&#x8F83;"><a name="4&#x590D;&#x6742;&#x5EA6;&#x7684;&#x6BD4;&#x8F83;" class="anchor-navigation-ex-anchor" href="#4&#x590D;&#x6742;&#x5EA6;&#x7684;&#x6BD4;&#x8F83;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="4&#x590D;&#x6742;&#x5EA6;&#x7684;&#x6BD4;&#x8F83;" class="plugin-anchor" href="#4&#x590D;&#x6742;&#x5EA6;&#x7684;&#x6BD4;&#x8F83;"><i class="fa fa-link" aria-hidden="true"></i></a><strong>4.&#x590D;&#x6742;&#x5EA6;&#x7684;&#x6BD4;&#x8F83;</strong></h3>
-<p>&#x4E0B;&#x9762;&#x5C06;&#x7B97;&#x6CD5;&#x4E2D;&#x5E38;&#x89C1;&#x7684;f(n)&#x503C;&#x6839;&#x636E;&#x51E0;&#x79CD;&#x5178;&#x578B;&#x7684;&#x6570;&#x91CF;&#x7EA7;&#x6765;&#x5217;&#x6210;&#x4E00;&#x5F20;&#x8868;&#xFF0C;&#x6839;&#x636E;&#x8FD9;&#x79CD;&#x8868;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x5404;&#x79CD;&#x7B97;&#x6CD5;&#x590D;&#x6742;&#x5EA6;&#x7684;&#x5DEE;&#x5F02;&#x3002;</p>
-<table>
-<thead>
-<tr>
-<th>n</th>
-<th>logn</th>
-<th>&#x221A;n</th>
-<th>nlogn</th>
-<th>n&#xB2;</th>
-<th>2&#x207F;</th>
-<th>n!</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>5</td>
-<td>2</td>
-<td>2</td>
-<td>10</td>
-<td>25</td>
-<td>32</td>
-<td>120</td>
-</tr>
-<tr>
-<td>10</td>
-<td>3</td>
-<td>3</td>
-<td>30</td>
-<td>100</td>
-<td>1024</td>
-<td>3628800</td>
-</tr>
-<tr>
-<td>50</td>
-<td>5</td>
-<td>7</td>
-<td>250</td>
-<td>2500</td>
-<td>&#x7EA6;10^15</td>
-<td>&#x7EA6;3.0*10^64</td>
-</tr>
-<tr>
-<td>100</td>
-<td>6</td>
-<td>10</td>
-<td>600</td>
-<td>10000</td>
-<td>&#x7EA6;10^30</td>
-<td>&#x7EA6;9.3*10^157</td>
-</tr>
-<tr>
-<td>1000</td>
-<td>9</td>
-<td>31</td>
-<td>9000</td>
-<td>1000 000</td>
-<td>&#x7EA6;10^300</td>
-<td>&#x7EA6;4.0*10^2567</td>
-</tr>
-</tbody>
-</table>
-<p>&#x4ECE;&#x4E0A;&#x8868;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;O(n)&#x3001;O(logn)&#x3001;O(&#x221A;n )&#x3001;O(nlogn )&#x968F;&#x7740;n&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x590D;&#x6742;&#x5EA6;&#x63D0;&#x5347;&#x4E0D;&#x5927;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x4E9B;&#x590D;&#x6742;&#x5EA6;&#x5C5E;&#x4E8E;&#x6548;&#x7387;&#x9AD8;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x53CD;&#x89C2;O(2&#x207F;)&#x548C;O(n!)&#x5F53;n&#x589E;&#x52A0;&#x5230;50&#x65F6;&#xFF0C;&#x590D;&#x6742;&#x5EA6;&#x5C31;&#x7A81;&#x7834;&#x5341;&#x4F4D;&#x6570;&#x4E86;&#xFF0C;&#x8FD9;&#x79CD;&#x6548;&#x7387;&#x6781;&#x5DEE;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x6700;&#x597D;&#x4E0D;&#x8981;&#x51FA;&#x73B0;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x52A8;&#x624B;&#x7F16;&#x7A0B;&#x65F6;&#x8981;&#x8BC4;&#x4F30;&#x6240;&#x5199;&#x7B97;&#x6CD5;&#x7684;&#x6700;&#x574F;&#x60C5;&#x51B5;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x3002;</p>
-<p>&#x4E0B;&#x9762;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x66F4;&#x52A0;&#x76F4;&#x89C2;&#x7684;&#x56FE;&#xFF1A;
-<img src="https://gitee.com/zisuu/picture/raw/master/img/20201210162633.png" alt="image-20201210162633261"></p>
-<p>&#x5176;&#x4E2D;x&#x8F74;&#x4EE3;&#x8868;n&#x503C;&#xFF0C;y&#x8F74;&#x4EE3;&#x8868;T(n)&#x503C;&#xFF08;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF09;&#x3002;T(n)&#x503C;&#x968F;&#x7740;n&#x7684;&#x503C;&#x7684;&#x53D8;&#x5316;&#x800C;&#x53D8;&#x5316;&#xFF0C;&#x5176;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x51FA;O(n!)&#x548C;O(2&#x207F;)&#x968F;&#x7740;n&#x503C;&#x7684;&#x589E;&#x5927;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;T(n)&#x503C;&#x4E0A;&#x5347;&#x5E45;&#x5EA6;&#x975E;&#x5E38;&#x5927;&#xFF0C;&#x800C;O(logn)&#x3001;O(n)&#x3001;O(nlogn)&#x968F;&#x7740;n&#x503C;&#x7684;&#x589E;&#x5927;&#xFF0C;T(n)&#x503C;&#x4E0A;&#x5347;&#x5E45;&#x5EA6;&#x5219;&#x5F88;&#x5C0F;&#x3002;
-&#x5E38;&#x7528;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x6309;&#x7167;&#x8017;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x4ECE;&#x5C0F;&#x5230;&#x5927;&#x4F9D;&#x6B21;&#x662F;&#xFF1A;</p>
-<pre><code>O(1)&lt;O(logn)&lt;O(n)&lt;O(nlogn)&lt;O(n&#xB2;)&lt;O(n&#xB3;)&lt;O(2&#x207F;)&lt;O(n!)
-</code></pre><p>b </p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x6811;&#x5F62;&#x9012;&#x5F52;"><b></b>&#x6811;&#x5F62;&#x9012;&#x5F52;</a></li></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="&#x6811;&#x5F62;&#x9012;&#x5F52;"><a name="&#x6811;&#x5F62;&#x9012;&#x5F52;" class="anchor-navigation-ex-anchor" href="#&#x6811;&#x5F62;&#x9012;&#x5F52;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x6811;&#x5F62;&#x9012;&#x5F52;" class="plugin-anchor" href="#&#x6811;&#x5F62;&#x9012;&#x5F52;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6811;&#x5F62;&#x9012;&#x5F52;</h2>
+<h4 id="1-&#x76D1;&#x63A7;&#x4E8C;&#x53C9;&#x6811;"><a name="1-&#x76D1;&#x63A7;&#x4E8C;&#x53C9;&#x6811;" class="anchor-navigation-ex-anchor" href="#1-&#x76D1;&#x63A7;&#x4E8C;&#x53C9;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x76D1;&#x63A7;&#x4E8C;&#x53C9;&#x6811;" class="plugin-anchor" href="#1-&#x76D1;&#x63A7;&#x4E8C;&#x53C9;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://leetcode-cn.com/problems/binary-tree-cameras/" target="_blank">1. &#x76D1;&#x63A7;&#x4E8C;&#x53C9;&#x6811;</a></h4>
+<p><img src="https://gitee.com/zisuu/picture/raw/master/img/20210105163500.png" alt="image-20210105163436258"></p>
+<p>&#x5BF9;&#x4E8E;&#x4E00;&#x9053;&#x9012;&#x5F52;&#x7684;&#x9898;&#x76EE;,&#x6216;&#x8005;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x7684;&#x9898;&#x76EE;,&#x9996;&#x5148;&#x9700;&#x8981;&#x786E;&#x5B9A;,&#x5728;&#x6BCF;&#x4E00;&#x6B65;&#x6709;&#x591A;&#x5C11;&#x9009;&#x62E9;,&#x4EE5;&#x53CA;&#x591A;&#x5C11;&#x7684;&#x72B6;&#x6001;</p>
+<p>&#x5728;&#x4E00;&#x4E2A;&#x72B6;&#x6001;,&#x901A;&#x8FC7;&#x67D0;&#x79CD;&#x9009;&#x62E9;,&#x8F6C;&#x6362;&#x6210;&#x53E6;&#x4E00;&#x79CD;&#x72B6;&#x6001;</p>
+<p>&#x5728;&#x8FD9;&#x9898;&#x4E2D;,&#x72B6;&#x6001;&#x6709;&#x4E09;&#x79CD;:</p>
+<ul>
+<li>&#x5F53;&#x524D;&#x8282;&#x70B9;&#x6CA1;&#x6709;&#x88AB;&#x6444;&#x50CF;&#x5934;&#x8986;&#x76D6;</li>
+<li>&#x5F53;&#x524D;&#x8282;&#x70B9;&#x6709;&#x88AB;&#x8986;&#x76D6;</li>
+<li>&#x5F53;&#x524D;&#x8282;&#x70B9;&#x6709;&#x6444;&#x50CF;&#x5934;</li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x7528;0,1,2&#x5206;&#x522B;&#x4EE3;&#x8868;&#x6CA1;&#x88AB;&#x8986;&#x76D6;,&#x6709;&#x6444;&#x50CF;&#x5934;&#x548C;&#x6709;&#x88AB;&#x8986;&#x76D6;&#x4E09;&#x79CD;&#x72B6;&#x6001;</p>
+<p>&#x5176;&#x6B21;,&#x5BF9;&#x4E8E;&#x6811;&#x5F62;&#x9012;&#x5F52;&#x7684;&#x9898;&#x76EE;,&#x60F3;&#x8981;&#x7528;&#x6700;&#x5C11;&#x7684;&#x6444;&#x50CF;&#x5934;&#x6765;&#x76D1;&#x63A7;&#x6574;&#x68F5;&#x6811;,&#x66F4;&#x5177;&#x8D2A;&#x5FC3;&#x7684;&#x601D;&#x60F3;,&#x5E94;&#x8BE5;&#x4ECE;&#x5E95;&#x5411;&#x4E0A;</p>
+<p>&#x901A;&#x8FC7;&#x5B69;&#x5B50;&#x7684;&#x72B6;&#x6001;&#x6765;&#x9000;&#x51FA;&#x5F53;&#x524D;&#x7684;&#x72B6;&#x6001;</p>
+<pre><code>class Solution {
+private:
+    int result;
+    int traversal(TreeNode* cur) {
 
+        // &#x7A7A;&#x8282;&#x70B9;&#xFF0C;&#x8BE5;&#x8282;&#x70B9;&#x6709;&#x8986;&#x76D6;
+        if (cur == NULL) return 2;
+
+        int left = traversal(cur-&gt;left);    // &#x5DE6;
+        int right = traversal(cur-&gt;right);  // &#x53F3;
+
+        // &#x60C5;&#x51B5;1
+        // &#x5DE6;&#x53F3;&#x8282;&#x70B9;&#x90FD;&#x6709;&#x8986;&#x76D6;
+        if (left == 2 &amp;&amp; right == 2) return 0;
+
+        // &#x60C5;&#x51B5;2
+        // left == 0 &amp;&amp; right == 0 &#x5DE6;&#x53F3;&#x8282;&#x70B9;&#x65E0;&#x8986;&#x76D6;
+        // left == 1 &amp;&amp; right == 0 &#x5DE6;&#x8282;&#x70B9;&#x6709;&#x6444;&#x50CF;&#x5934;&#xFF0C;&#x53F3;&#x8282;&#x70B9;&#x65E0;&#x8986;&#x76D6;
+        // left == 0 &amp;&amp; right == 1 &#x5DE6;&#x8282;&#x70B9;&#x6709;&#x65E0;&#x8986;&#x76D6;&#xFF0C;&#x53F3;&#x8282;&#x70B9;&#x6444;&#x50CF;&#x5934;
+        // left == 0 &amp;&amp; right == 2 &#x5DE6;&#x8282;&#x70B9;&#x65E0;&#x8986;&#x76D6;&#xFF0C;&#x53F3;&#x8282;&#x70B9;&#x8986;&#x76D6;
+        // left == 2 &amp;&amp; right == 0 &#x5DE6;&#x8282;&#x70B9;&#x8986;&#x76D6;&#xFF0C;&#x53F3;&#x8282;&#x70B9;&#x65E0;&#x8986;&#x76D6;
+        if (left == 0 || right == 0) {
+            result++;
+            return 1;
+        }
+
+        // &#x60C5;&#x51B5;3
+        // left == 1 &amp;&amp; right == 2 &#x5DE6;&#x8282;&#x70B9;&#x6709;&#x6444;&#x50CF;&#x5934;&#xFF0C;&#x53F3;&#x8282;&#x70B9;&#x6709;&#x8986;&#x76D6;
+        // left == 2 &amp;&amp; right == 1 &#x5DE6;&#x8282;&#x70B9;&#x6709;&#x8986;&#x76D6;&#xFF0C;&#x53F3;&#x8282;&#x70B9;&#x6709;&#x6444;&#x50CF;&#x5934;
+        // left == 1 &amp;&amp; right == 1 &#x5DE6;&#x53F3;&#x8282;&#x70B9;&#x90FD;&#x6709;&#x6444;&#x50CF;&#x5934;
+        // &#x5176;&#x4ED6;&#x60C5;&#x51B5;&#x524D;&#x6BB5;&#x4EE3;&#x7801;&#x5747;&#x5DF2;&#x8986;&#x76D6;
+        if (left == 1 || right == 1) return 2;
+
+        // &#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x6211;&#x6CA1;&#x6709;&#x4F7F;&#x7528;else&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x628A;&#x5404;&#x4E2A;&#x5206;&#x652F;&#x6761;&#x4EF6;&#x5C55;&#x73B0;&#x51FA;&#x6765;&#xFF0C;&#x8FD9;&#x6837;&#x4EE3;&#x7801;&#x6709;&#x52A9;&#x4E8E;&#x8BFB;&#x8005;&#x7406;&#x89E3;
+        // &#x8FD9;&#x4E2A; return -1 &#x903B;&#x8F91;&#x4E0D;&#x4F1A;&#x8D70;&#x5230;&#x8FD9;&#x91CC;&#x3002;
+        return -1;
+    }
+
+public:
+    int minCameraCover(TreeNode* root) {
+        result = 0;
+        // &#x60C5;&#x51B5;4
+        if (traversal(root) == 0) { // root &#x65E0;&#x8986;&#x76D6;
+            result++;
+        }
+        return result;
+    }
+};
+</code></pre>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
                                 </section>
@@ -1502,12 +1422,12 @@ f(n)=(&#x221A;n&#x65F6;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O
 
             
                 
-                <a href="leetCode周赛题解.html" class="navigation navigation-prev " aria-label="Previous page: leetCode周赛记录">
+                <a href="2.搜索算法列题.html" class="navigation navigation-prev " aria-label="Previous page: 2.搜索算法题目集">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="2.搜索算法.html" class="navigation navigation-next " aria-label="Next page: 2.搜索算法">
+                <a href="4.二分算法.html" class="navigation navigation-next " aria-label="Next page: 4.二分算法">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1518,7 +1438,7 @@ f(n)=(&#x221A;n&#x65F6;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.时间复杂度","level":"4.2","depth":1,"next":{"title":"2.搜索算法","level":"4.3","depth":1,"path":"算法/2.搜索算法.md","ref":"算法/2.搜索算法.md","articles":[]},"previous":{"title":"leetCode周赛记录","level":"4.1","depth":1,"path":"算法/leetCode周赛题解.md","ref":"算法/leetCode周赛题解.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"算法/1.时间复杂度.md","mtime":"2020-12-17T11:02:40.083Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-06T08:22:10.303Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.递归算法题目集","level":"4.5","depth":1,"next":{"title":"4.二分算法","level":"4.6","depth":1,"path":"算法/4.二分算法.md","ref":"算法/4.二分算法.md","articles":[]},"previous":{"title":"2.搜索算法题目集","level":"4.4","depth":1,"path":"算法/2.搜索算法列题.md","ref":"算法/2.搜索算法列题.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","sharing-plus","anchor-navigation-ex","favicon","expandable-chapters","toggle-chapters","back-to-top-button","code","-lunr","-search","search-pro","pageview-count","popup","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"back-to-top-button":{},"pageview-count":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","author":"hzh","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机 ,java , 大数据 基础知识体系","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"算法/3.递归例题.md","mtime":"2021-01-05T09:02:36.465Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-06T08:22:10.303Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
